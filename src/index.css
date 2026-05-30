@@ -1,0 +1,764 @@
+/* =======================================================
+   GOOGLE FONT
+======================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/* =======================================================
+   CSS CUSTOM PROPERTIES (Design Tokens)
+======================================================= */
+:root {
+  /* Brand Colors */
+  --clr-purple:       #7c3aed;
+  --clr-purple-light: #c084fc;
+  --clr-purple-pale:  rgba(233, 213, 255, 0.7);
+  --clr-blue:         #2563eb;
+  --clr-blue-light:   #93c5fd;
+  --clr-cyan:         #06b6d4;
+
+  /* Neutral */
+  --clr-bg:     #ffffff;
+  --clr-ink:    #111111;
+  --clr-muted:  #444444;
+  --clr-border: rgba(0, 0, 0, 0.08);
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, var(--clr-purple), var(--clr-blue));
+  --grad-glow:    linear-gradient(90deg, var(--clr-purple), var(--clr-blue), var(--clr-cyan));
+
+  /* Shadows */
+  --shadow-btn:      0 10px 28px rgba(99, 102, 241, 0.25), inset 0 1px 1px rgba(255,255,255,0.2);
+  --shadow-btn-hover:0 18px 40px rgba(99, 102, 241, 0.38), inset 0 1px 1px rgba(255,255,255,0.2);
+  --shadow-card:     0 8px 32px rgba(0, 0, 0, 0.07);
+  --shadow-card-hover: 0 20px 48px rgba(124, 58, 237, 0.14);
+
+  /* Timing */
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+/* =======================================================
+   RESET CSS
+======================================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* =======================================================
+   SMOOTH SCROLL
+======================================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* =======================================================
+   BODY
+======================================================= */
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--clr-bg);
+  overflow-x: hidden;
+  color: var(--clr-ink);
+  position: relative;
+  /* Custom cursor */
+  cursor: none;
+}
+
+/* Restore default cursor on interactive elements */
+a, button, input, textarea, select, label, [role="button"] {
+  cursor: none;
+}
+
+
+/* =======================================================
+   PREMIUM TEXT RENDERING
+======================================================= */
+body,
+button,
+input,
+textarea {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =======================================================
+   SELECTION
+======================================================= */
+::selection {
+  background: var(--clr-purple);
+  color: white;
+}
+
+
+/* =======================================================
+   LINKS
+======================================================= */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* =======================================================
+   BUTTONS
+======================================================= */
+button {
+  border: none;
+  outline: none;
+  cursor: none;
+  font-family: inherit;
+}
+
+
+/* =======================================================
+   IMAGES
+======================================================= */
+img {
+  width: 100%;
+  display: block;
+}
+
+
+/* =======================================================
+   GLOBAL CONTAINER
+======================================================= */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+
+/* =======================================================
+   GLOBAL SECTION SPACING
+======================================================= */
+.section-space {
+  padding: 90px 20px;
+}
+
+
+/* =======================================================
+   GLOBAL SECTION TAG
+======================================================= */
+.section-tag {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: var(--clr-purple-pale);
+  backdrop-filter: blur(10px);
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  /* Subtle pulse on section-tags to draw attention */
+  animation: tagPulse 3s ease-in-out infinite;
+}
+
+@keyframes tagPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+  50%       { box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.08); }
+}
+
+
+/* =======================================================
+   GLOBAL SECTION TITLE
+======================================================= */
+.section-title {
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--clr-ink);
+  letter-spacing: -1.5px;
+}
+
+
+/* =======================================================
+   GLOBAL SECTION DESCRIPTION
+======================================================= */
+.section-description {
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--clr-muted);
+}
+
+
+/* =======================================================
+   GLOBAL CARD TITLE
+======================================================= */
+.card-title {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--clr-ink);
+}
+
+
+/* =======================================================
+   GLOBAL CARD TEXT
+======================================================= */
+.card-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--clr-muted);
+}
+
+
+/* =======================================================
+   GLOBAL PRIMARY BUTTON
+======================================================= */
+.primary-btn {
+  padding: 15px 28px;
+  border-radius: 14px;
+  background: var(--grad-primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.35s var(--ease-bounce), box-shadow 0.35s ease;
+  box-shadow: var(--shadow-btn);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Shine sweep */
+.primary-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transition: 0.75s var(--ease-smooth);
+  pointer-events: none;
+}
+
+/* Pulse ring — reward feedback */
+.primary-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  border: 2px solid rgba(124, 58, 237, 0.5);
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.primary-btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-btn-hover);
+}
+
+.primary-btn:hover::before {
+  left: 120%;
+}
+
+/* Pulse ring expands on hover */
+.primary-btn:hover::after {
+  opacity: 1;
+  transform: scale(1.06);
+  animation: ringPulse 1.2s ease-out infinite;
+}
+
+@keyframes ringPulse {
+  0%   { opacity: 0.6; transform: scale(1.01); }
+  100% { opacity: 0;   transform: scale(1.18); }
+}
+
+/* Press / active — tactile click */
+.primary-btn:active {
+  transform: translateY(2px) scale(0.96);
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2),
+              inset 0 4px 8px rgba(0, 0, 0, 0.18);
+  transition: 0.08s ease;
+}
+
+
+/* =======================================================
+   GLOBAL SECONDARY BUTTON
+======================================================= */
+.secondary-btn {
+  padding: 15px 28px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-ink);
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.35s var(--ease-bounce), box-shadow 0.35s ease, border-color 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.secondary-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--grad-primary);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  border-radius: 14px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.secondary-btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--clr-purple);
+  color: white;
+  box-shadow: 0 14px 32px rgba(124, 58, 237, 0.18);
+}
+
+.secondary-btn:hover::before {
+  opacity: 1;
+}
+
+.secondary-btn:active {
+  transform: translateY(2px) scale(0.96);
+  transition: 0.08s ease;
+}
+
+
+/* =======================================================
+   CUSTOM CURSOR  (IT-brand gamified feel)
+======================================================= */
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  mix-blend-mode: multiply;
+  transition: opacity 0.3s ease;
+}
+
+/* Dot — follows mouse exactly */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--clr-purple);
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, background 0.3s ease, width 0.25s ease, height 0.25s ease;
+}
+
+/* Ring — lags slightly for feel */
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(124, 58, 237, 0.55);
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s var(--ease-smooth), width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+/* Cursor grows on hoverable elements */
+body.cursor-hover .cursor-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--clr-blue);
+}
+
+body.cursor-hover .cursor-ring {
+  width: 52px;
+  height: 52px;
+  border-color: rgba(37, 99, 235, 0.5);
+}
+
+
+/* =======================================================
+   SCROLL PROGRESS BAR  ("Level Progress")
+======================================================= */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--grad-glow);
+  z-index: 9999;
+  transition: width 0.12s ease-out;
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.8),
+              0 0 22px rgba(37, 99, 235, 0.55);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Glowing tip */
+.scroll-progress-bar::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--clr-cyan);
+  box-shadow: 0 0 10px var(--clr-cyan), 0 0 20px var(--clr-cyan);
+}
+
+
+/* =======================================================
+   SCROLL REVEAL  (fade + lift — section entry)
+======================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.72s var(--ease-smooth), transform 0.72s var(--ease-smooth);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children */
+.reveal-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+}
+
+.reveal-children.revealed > *:nth-child(1)  { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+.reveal-children.revealed > *:nth-child(2)  { transition-delay: 0.12s; opacity: 1; transform: translateY(0); }
+.reveal-children.revealed > *:nth-child(3)  { transition-delay: 0.19s; opacity: 1; transform: translateY(0); }
+.reveal-children.revealed > *:nth-child(4)  { transition-delay: 0.26s; opacity: 1; transform: translateY(0); }
+.reveal-children.revealed > *:nth-child(5)  { transition-delay: 0.33s; opacity: 1; transform: translateY(0); }
+.reveal-children.revealed > *:nth-child(6)  { transition-delay: 0.40s; opacity: 1; transform: translateY(0); }
+.reveal-children.revealed > *:nth-child(7)  { transition-delay: 0.47s; opacity: 1; transform: translateY(0); }
+.reveal-children.revealed > *:nth-child(8)  { transition-delay: 0.54s; opacity: 1; transform: translateY(0); }
+
+
+/* =======================================================
+   CARD HOVER — gamified lift + glow
+======================================================= */
+.card-hover {
+  transition: transform 0.35s var(--ease-bounce), box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.card-hover:active {
+  transform: translateY(-2px) scale(1.005);
+  transition: 0.1s ease;
+}
+
+
+/* =======================================================
+   STAT COUNTER  (number pop-in animation)
+======================================================= */
+.stat-number {
+  display: inline-block;
+  animation: none;
+}
+
+.stat-number.counting {
+  animation: countPop 0.4s var(--ease-bounce);
+}
+
+@keyframes countPop {
+  0%   { transform: scale(1.3); color: var(--clr-purple); }
+  100% { transform: scale(1);   color: inherit; }
+}
+
+
+/* =======================================================
+   GRADIENT TEXT  (utility)
+======================================================= */
+.gradient-text {
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* =======================================================
+   ICON BADGE  (service / tech icon wrapper)
+======================================================= */
+.icon-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--clr-purple-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s var(--ease-bounce), background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-badge:hover,
+.card-hover:hover .icon-badge {
+  transform: rotate(-6deg) scale(1.12);
+  background: var(--grad-primary);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+}
+
+.icon-badge:hover svg,
+.card-hover:hover .icon-badge svg {
+  color: white !important;
+  stroke: white !important;
+}
+
+
+/* =======================================================
+   NOTIFICATION / TOAST  (micro-reward feedback)
+======================================================= */
+.toast-container {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.toast {
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--clr-ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: all;
+  animation: toastIn 0.45s var(--ease-bounce) forwards;
+}
+
+.toast.removing {
+  animation: toastOut 0.35s var(--ease-smooth) forwards;
+}
+
+.toast-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--grad-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+
+@keyframes toastIn {
+  0%   { opacity: 0; transform: translateX(60px) scale(0.9); }
+  100% { opacity: 1; transform: translateX(0)    scale(1);   }
+}
+
+@keyframes toastOut {
+  0%   { opacity: 1; transform: translateX(0)    scale(1);   }
+  100% { opacity: 0; transform: translateX(60px) scale(0.9); }
+}
+
+
+/* =======================================================
+   FLOATING PARTICLES  (subtle background tech feel)
+======================================================= */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  animation: particleFloat linear infinite;
+}
+
+@keyframes particleFloat {
+  0%   { opacity: 0;    transform: translateY(0)     scale(0.6); }
+  10%  { opacity: 0.55; }
+  90%  { opacity: 0.35; }
+  100% { opacity: 0;    transform: translateY(-120px) scale(1.1); }
+}
+
+
+/* =======================================================
+   FIXED GLOBAL BACKGROUND
+======================================================= */
+.global-background {
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left,    rgba(124, 58, 237, 0.06), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.08),  transparent 30%);
+}
+
+.blur {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.55;
+}
+
+.blur-purple {
+  width: 520px;
+  height: 520px;
+  background: var(--clr-purple-light);
+  top: 40px;
+  left: -220px;
+  animation: floatBlur 12s ease-in-out infinite;
+}
+
+.blur-blue {
+  width: 520px;
+  height: 520px;
+  background: var(--clr-blue-light);
+  top: 420px;
+  right: -220px;
+  animation: floatBlur2 15s ease-in-out infinite;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.18;
+}
+
+.orb-1 {
+  width: 220px;
+  height: 220px;
+  background: var(--clr-purple);
+  top: 18%;
+  right: 20%;
+  animation: orbMove 14s linear infinite;
+}
+
+.orb-2 {
+  width: 240px;
+  height: 240px;
+  background: var(--clr-blue);
+  bottom: 12%;
+  left: 15%;
+  animation: orbMove2 18s linear infinite;
+}
+
+
+/* =======================================================
+   GRID + SCANLINE + NOISE
+======================================================= */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.022) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+}
+
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(124, 58, 237, 0.06) 51%,
+    transparent 52%
+  );
+  background-size: 100% 8px;
+  animation: scan 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 100vh; }
+}
+
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: radial-gradient(#000 0.5px, transparent 0.5px);
+  background-size: 6px 6px;
+}
+
+
+/* =======================================================
+   SECTION  (z-index)
+======================================================= */
+section {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =======================================================
+   FLOAT + ORB ANIMATIONS
+======================================================= */
+@keyframes floatBlur {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-30px); }
+}
+
+@keyframes floatBlur2 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(30px); }
+}
+
+@keyframes orbMove {
+  0%, 100% { transform: translate(0px, 0px); }
+  50%       { transform: translate(40px, -40px); }
+}
+
+@keyframes orbMove2 {
+  0%, 100% { transform: translate(0px, 0px); }
+  50%       { transform: translate(-40px, 40px); }
+}
+
+
+/* =======================================================
+   RESPONSIVE
+======================================================= */
+@media (max-width: 768px) {
+  .section-space   { padding: 70px 20px; }
+  .section-title   { font-size: 34px; }
+  .section-description { font-size: 15px; }
+  .card-title      { font-size: 22px; }
+  .card-text       { font-size: 14px; }
+
+  .blur-purple,
+  .blur-blue       { width: 320px; height: 320px; }
+
+  /* Disable custom cursor on touch */
+  .custom-cursor   { display: none; }
+  body             { cursor: auto; }
+  a, button        { cursor: pointer; }
+
+  .toast-container { bottom: 20px; right: 16px; left: 16px; }
+  .toast           { font-size: 13px; }
+}

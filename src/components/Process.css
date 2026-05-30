@@ -1,0 +1,391 @@
+/* =======================================================
+   PROCESS SECTION
+======================================================= */
+.process {
+  position: relative;
+}
+
+/* =======================================================
+   HEADER
+======================================================= */
+.process-top {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 20px;
+}
+
+/* =======================================================
+   MAIN WRAPPER - The "Scroll Track"
+======================================================= */
+.process-main-wrapper {
+  position: relative;
+  height: 400vh; 
+  display: block;
+}
+
+/* =======================================================
+   STICKY WRAPPER
+======================================================= */
+/* =======================================================
+   STICKY WRAPPER
+======================================================= */
+.process-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh; 
+  height: 100dvh; /* Fixes mobile browser address bar overlapping */
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  z-index: 10;
+}
+
+/* =======================================================
+   PROCESS CARD
+======================================================= */
+.process-card {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  border-radius: 40px;
+  overflow: hidden; 
+  padding: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(8, 15, 40, 0.98), rgba(12, 20, 55, 0.98));
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18);
+  isolation: isolate;
+}
+
+/* =======================================================
+   GLOW EFFECTS
+======================================================= */
+.process-card::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.35), transparent 70%);
+  filter: blur(40px);
+  z-index: -1;
+}
+
+.process-card::after {
+  content: "";
+  position: absolute;
+  bottom: -140px;
+  left: -140px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.28), transparent 70%);
+  filter: blur(40px);
+  z-index: -1;
+}
+
+/* =======================================================
+   SLIDER LAYOUTS
+======================================================= */
+.process-content-slider {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-height: 250px; /* Gives the text room to breathe */
+}
+
+.process-number-slider {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  width: 300px;
+  height: 260px;
+  pointer-events: none;
+}
+
+/* =======================================================
+   SLIDE ANIMATION LOGIC (Content & Big Number)
+======================================================= */
+.process-card-content,
+.process-big-number {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  /* Smooth transition for sliding and fading */
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+}
+
+/* Past Steps (Slide out to the left) */
+.process-card-content.prev {
+  transform: translateX(-60px);
+}
+.process-big-number.prev {
+  transform: translateX(-40px);
+}
+
+/* Future Steps (Wait on the right) */
+.process-card-content.next {
+  transform: translateX(60px);
+}
+.process-big-number.next {
+  transform: translateX(40px);
+}
+
+/* Active Step (Slide to center) */
+.process-card-content.active,
+.process-big-number.active {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =======================================================
+   CONTENT STYLING
+======================================================= */
+.process-card-content {
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 700px;
+  z-index: 2;
+}
+
+.process-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+  backdrop-filter: blur(10px);
+}
+
+.process-card-content h3 {
+  font-size: 78px;
+  line-height: 1;
+  letter-spacing: -3px;
+  color: white;
+  margin-bottom: 28px;
+}
+
+.process-card-content p {
+  max-width: 620px;
+  font-size: 19px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.process-big-number {
+  right: 0;
+  top: 0;
+  font-size: 260px;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.04);
+  user-select: none;
+}
+
+/* =======================================================
+   PROGRESS WRAPPER
+======================================================= */
+.process-progress-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+/* =======================================================
+   PROGRESS ITEM
+======================================================= */
+.progress-item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* =======================================================
+   PROGRESS CIRCLE
+======================================================= */
+.progress-circle {
+  width: 70px;
+  height: 70px;
+  min-width: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 18px;
+  font-weight: 700;
+  transition: 0.4s ease;
+}
+
+/* ACTIVE */
+.progress-circle.active {
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  color: white;
+  border-color: transparent;
+  transform: scale(1.08);
+  box-shadow: 0 15px 40px rgba(124, 58, 237, 0.35);
+}
+
+/* =======================================================
+   PROGRESS LINE
+======================================================= */
+.progress-line {
+  width: 100%;
+  height: 3px;
+  margin: 0 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-line::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
+  transition: 0.5s ease;
+}
+
+.progress-line.active::before {
+  width: 100%;
+}
+/* =======================================================
+   RESPONSIVE
+======================================================= */
+@media (max-width: 992px) {
+  .process-main-wrapper {
+    height: 350vh; /* Keep scroll active, but slightly shorter for touch */
+  }
+  
+  .process-card {
+    min-height: auto;
+    height: 75vh;
+    padding: 50px 30px;
+  }
+  
+  .process-content-slider {
+    min-height: 220px;
+  }
+
+  /* Reduce animation slide distance so it fits on tablet */
+  .process-card-content.prev { transform: translateX(-40px); }
+  .process-card-content.next { transform: translateX(40px); }
+  
+  .process-card-content h3 {
+    font-size: 52px;
+    letter-spacing: -2px;
+  }
+  
+  .process-card-content p {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  
+  .process-number-slider {
+    width: 150px;
+    height: 150px;
+    right: 20px;
+    top: 20px;
+  }
+  
+  .process-big-number {
+    font-size: 160px;
+  }
+  
+  .progress-circle {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    font-size: 15px;
+  }
+}
+
+/* =======================================================
+   MOBILE
+======================================================= */
+@media (max-width: 768px) {
+  .process-top {
+    margin-bottom: 40px;
+  }
+  
+  .process-main-wrapper {
+    height: 300vh; /* Shorter scroll track for smaller phones */
+  }
+  
+  .process-card {
+    height: 80vh; /* Taller relative to the screen to fit text */
+    border-radius: 28px;
+    padding: 30px 20px;
+  }
+  
+  .process-content-slider {
+    min-height: 250px; /* Extra room for text wrapping */
+  }
+
+  /* Shorten slide distance to prevent horizontal overflow */
+  .process-card-content.prev { transform: translateX(-20px); }
+  .process-card-content.next { transform: translateX(20px); }
+
+  .process-badge {
+    font-size: 11px;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+  }
+  
+  .process-card-content h3 {
+    font-size: 40px;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+  
+  .process-card-content p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .process-number-slider {
+    right: 10px;
+    top: 10px;
+  }
+  
+  .process-big-number {
+    font-size: 110px;
+  }
+  
+  .process-progress-wrapper {
+    margin-top: auto; /* Pushes progress bar to the very bottom */
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  
+  .progress-circle {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    font-size: 14px;
+  }
+  
+  .progress-line {
+    margin: 0 8px;
+    min-width: 30px;
+  }
+}

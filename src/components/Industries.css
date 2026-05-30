@@ -1,0 +1,223 @@
+/* =======================================================
+   INDUSTRIES SECTION
+======================================================= */
+
+.industries {
+  position: relative;
+  overflow: hidden;
+}
+
+/* =======================================================
+   HEADER
+======================================================= */
+
+.industries-header {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 60px;
+}
+
+/* =======================================================
+   HORIZONTAL SCROLL
+======================================================= */
+
+.industries-scroll {
+  display: flex;
+  gap: 24px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+
+  padding-bottom: 12px;
+
+  scrollbar-width: none;
+}
+
+.industries-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* =======================================================
+   CARD
+======================================================= */
+
+.industry-card {
+  position: relative;
+
+  min-width: 320px;
+  max-width: 320px;
+
+  padding: 42px 28px;
+
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.55);
+
+  backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(124, 58, 237, 0.08);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+
+  flex-shrink: 0;
+}
+
+/* =======================================================
+   LIGHT GRADIENT EFFECT
+======================================================= */
+
+.card-light {
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -80px;
+  right: -80px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(124, 58, 237, 0.25),
+    transparent 70%
+  );
+
+  opacity: 0;
+
+  transition: 0.5s ease;
+
+  pointer-events: none;
+}
+
+/* =======================================================
+   CARD HOVER
+======================================================= */
+
+.industry-card:hover {
+  transform: translateY(-10px);
+
+  border-color: rgba(124, 58, 237, 0.18);
+
+  box-shadow:
+    0 20px 45px rgba(124, 58, 237, 0.12);
+}
+
+.industry-card:hover .card-light {
+  opacity: 1;
+}
+
+/* =======================================================
+   ICON
+======================================================= */
+
+.industry-icon {
+  width: 82px;
+  height: 82px;
+
+  border-radius: 24px;
+
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #2563eb
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-size: 30px;
+
+  margin-bottom: 28px;
+
+  box-shadow:
+    0 12px 28px rgba(124, 58, 237, 0.25);
+
+  transition: 0.45s ease;
+}
+
+/* =======================================================
+   ICON HOVER
+======================================================= */
+
+.industry-card:hover .industry-icon {
+  transform: rotate(-6deg) scale(1.08);
+}
+
+/* =======================================================
+   TITLE
+======================================================= */
+
+.industry-card .card-title {
+  margin-bottom: 16px;
+
+  font-size: 24px;
+}
+
+/* =======================================================
+   DESCRIPTION
+======================================================= */
+
+.industry-card .card-text {
+  line-height: 1.8;
+}
+
+/* =======================================================
+   TABLET
+======================================================= */
+
+@media (max-width: 992px) {
+  .industry-card {
+    min-width: 290px;
+    max-width: 290px;
+  }
+}
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media (max-width: 768px) {
+  .industries-header {
+    margin-bottom: 40px;
+  }
+
+  .industries-scroll {
+    gap: 18px;
+  }
+
+  .industry-card {
+    min-width: 260px;
+    max-width: 260px;
+
+    padding: 32px 22px;
+
+    border-radius: 24px;
+  }
+
+  .industry-icon {
+    width: 70px;
+    height: 70px;
+
+    font-size: 24px;
+
+    border-radius: 20px;
+  }
+
+  .industry-card .card-title {
+    font-size: 20px;
+  }
+}

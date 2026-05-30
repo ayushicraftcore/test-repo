@@ -1,0 +1,293 @@
+/* =======================================================
+   NAVBAR
+======================================================= */
+.navbar {
+  width: 92%;
+  margin: 24px auto 0;
+  padding: 16px 30px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 18px;
+  z-index: 1000;
+  box-shadow:
+    0 8px 32px rgba(31, 38, 135, 0.12),
+    0 2px 8px rgba(139, 92, 246, 0.08);
+  /* Animate padding + shadow on scroll */
+  transition: padding 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+/* Compact state after scroll */
+.navbar--scrolled {
+  padding: 11px 30px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 12px 40px rgba(31, 38, 135, 0.16),
+    0 2px 8px rgba(139, 92, 246, 0.1);
+}
+
+
+/* =======================================================
+   LOGO
+======================================================= */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.navbar-logo img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 12px;
+  /* subtle spin-in on load */
+  animation: logoIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.navbar-logo img:hover {
+  transform: rotate(-6deg) scale(1.08);
+}
+
+@keyframes logoIn {
+  from { opacity: 0; transform: scale(0.7) rotate(-8deg); }
+  to   { opacity: 1; transform: scale(1) rotate(0deg);    }
+}
+
+.navbar-logo h2 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #000;
+}
+
+.navbar-logo p {
+  font-size: 11px;
+  color: #333;
+  margin-top: 2px;
+}
+
+
+/* =======================================================
+   NAV LINKS
+======================================================= */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-links a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #444;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.25s ease;
+}
+
+/* Animated underline — slides in from left on hover */
+.nav-underline {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav-links a:hover .nav-underline,
+.nav-links a.nav-link--active .nav-underline {
+  width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.nav-link--active {
+  color: #111;
+  font-weight: 600;
+}
+
+
+/* =======================================================
+   BUTTONS
+======================================================= */
+.desktop-btn,
+.mobile-btn {
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
+  color: white;
+  border: none;
+  padding: 15px 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+
+/* Shine sweep on hover */
+.desktop-btn::after,
+.mobile-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+
+.desktop-btn:hover::after,
+.mobile-btn:hover::after {
+  left: 150%;
+}
+
+.desktop-btn:hover,
+.mobile-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(99, 102, 241, 0.4);
+}
+
+.desktop-btn:active,
+.mobile-btn:active {
+  transform: translateY(1px) scale(0.97);
+  transition: 0.08s ease;
+}
+
+
+/* =======================================================
+   HAMBURGER (CSS animated — replaces react-icons toggle)
+======================================================= */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 24px;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: #111;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.25s ease,
+              width 0.3s ease;
+}
+
+.hamburger span:nth-child(1) { width: 24px; }
+.hamburger span:nth-child(2) { width: 18px; }
+.hamburger span:nth-child(3) { width: 24px; }
+
+/* Morphs into × */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  width: 24px;
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  width: 24px;
+}
+
+
+/* =======================================================
+   MOBILE BUTTON
+======================================================= */
+.mobile-btn { display: none; }
+
+
+/* =======================================================
+   MOBILE RESPONSIVE
+======================================================= */
+@media (max-width: 992px) {
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 30px 20px;
+    border-radius: 16px;
+    margin-top: 14px;
+    gap: 24px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    /* Slide + fade instead of just fade */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px) scale(0.98);
+    transform-origin: top center;
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease,
+                transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Stagger links on open */
+  .nav-links a {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: color 0.25s ease,
+                opacity 0.3s ease,
+                transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .nav-links.active a:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 0.05s; }
+  .nav-links.active a:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 0.10s; }
+  .nav-links.active a:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 0.15s; }
+  .nav-links.active a:nth-child(4) { opacity: 1; transform: translateX(0); transition-delay: 0.20s; }
+  .nav-links.active a:nth-child(5) { opacity: 1; transform: translateX(0); transition-delay: 0.25s; }
+  .nav-links.active a:nth-child(6) { opacity: 1; transform: translateX(0); transition-delay: 0.30s; }
+  .nav-links.active a:nth-child(7) { opacity: 1; transform: translateX(0); transition-delay: 0.35s; }
+
+  .mobile-btn  { display: block; width: 100%; }
+  .desktop-btn { display: none; }
+  .menu-icon   { display: block; }
+}
+
+
+/* =======================================================
+   SMALL MOBILE
+======================================================= */
+@media (max-width: 576px) {
+  .navbar         { padding: 14px 18px; }
+  .navbar-logo img { width: 52px; height: 52px; }
+  .navbar-logo h2  { font-size: 16px; }
+  .navbar-logo p   { font-size: 10px; }
+}

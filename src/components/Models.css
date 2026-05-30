@@ -1,0 +1,270 @@
+/* ===================================
+   MODELS SECTION
+=================================== */
+.models {
+  position: relative;
+  overflow: hidden; /* Prevents horizontal scrollbars during animation */
+}
+
+/* ===================================
+   HEADER
+=================================== */
+.models-header {
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto 70px;
+}
+
+/* ===================================
+   GRID
+=================================== */
+.models-grid {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ===================================
+   SURROUND REVEAL ANIMATIONS (NEW)
+=================================== */
+.model-card-wrapper {
+  opacity: 0;
+  filter: blur(12px); /* Starts blurry */
+  /* Snappy spring transition */
+  transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+/* Card 1 starts off-screen left */
+.reveal-left {
+  transform: translateX(-150px) scale(0.9);
+}
+
+/* Card 2 starts pushed down */
+.reveal-bottom {
+  transform: translateY(150px) scale(0.9);
+}
+
+/* Card 3 starts off-screen right */
+.reveal-right {
+  transform: translateX(150px) scale(0.9);
+}
+
+/* When Javascript adds this class, they all snap to center and focus */
+.model-card-wrapper.animate-surround-reveal {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate(0, 0) scale(1);
+}
+
+
+/* ===================================
+   CARD
+=================================== */
+.model-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #d8b4fe;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 490px;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  height: 100%; 
+}
+
+/* ===================================
+   CARD HOVER
+=================================== */
+.model-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(124, 58, 237, 0.18);
+}
+
+/* ===================================
+   RECOMMENDED BADGE
+=================================== */
+.recommended-badge {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 26px;
+  border-radius: 0 0 18px 18px;
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  z-index: 10;
+}
+
+/* ===================================
+   DEFAULT VIEW
+=================================== */
+.model-default {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 30px;
+  transition: 0.45s ease;
+}
+
+/* ===================================
+   TITLE
+=================================== */
+.model-title {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: #2563eb;
+  margin-bottom: 34px;
+}
+
+/* ===================================
+   BUTTON
+=================================== */
+.model-btn {
+  min-width: 220px;
+}
+
+/* ===================================
+   OVERLAY
+=================================== */
+.model-overlay {
+  position: absolute;
+  inset: 0;
+  background: white;
+  padding: 80px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: 0.45s ease;
+}
+
+/* ===================================
+   SHOW OVERLAY
+=================================== */
+.model-card:hover .model-overlay {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ===================================
+   HIDE DEFAULT
+=================================== */
+.model-card:hover .model-default {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+/* ===================================
+   INFO
+=================================== */
+.model-info {
+  margin-bottom: 20px;
+}
+
+.model-info p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 14px;
+}
+
+.model-info span {
+  color: #2563eb;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+/* ===================================
+   POINTS
+=================================== */
+.model-points {
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+.model-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.check-icon {
+  color: #7c3aed;
+  margin-top: 4px;
+  min-width: 16px;
+}
+
+/* ===================================
+   OVERLAY BUTTON
+=================================== */
+.model-overlay .model-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+@media (max-width: 1100px) {
+  .models-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .models {
+    padding: 70px 20px;
+  }
+
+  .models-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .model-card {
+    min-height: 500px;
+  }
+  
+  /* On mobile, standard bottom-up reveal is better because side-reveals cause weird scrolling */
+  .reveal-left, .reveal-right {
+    transform: translateY(100px) scale(0.9);
+  }
+  
+  .model-card-wrapper {
+    transition-delay: 0s !important;
+  }
+
+  .model-title {
+    font-size: 22px;
+  }
+
+  .model-overlay {
+    padding: 75px 24px 24px;
+  }
+
+  .model-info p,
+  .model-points li {
+    font-size: 14px;
+  }
+
+  .model-btn {
+    min-width: 100%;
+  }
+}
