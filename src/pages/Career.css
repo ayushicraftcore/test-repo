@@ -1,0 +1,461 @@
+/* =======================================================
+   CAREER SYSTEM FRAME MECHANICS
+======================================================= */
+.career-page {
+  padding: 100px 0 140px;
+  position: relative;
+  z-index: 2;
+}
+
+/* =======================================================
+   CENTERED HERO HEADER LAYOUT
+======================================================= */
+.career-hero {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 90px;
+}
+
+.career-hero-title {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -2px;
+  margin: 20px 0 24px;
+}
+
+.career-hero-desc {
+  font-size: 17px;
+}
+
+/* =======================================================
+   ACTIVE ROLES CONTAINER LIST STACK
+======================================================= */
+.career-roles-section {
+  max-width: 900px;
+  margin: 0 auto 100px;
+}
+
+.career-section-header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.career-inner-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--clr-ink);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.roles-list-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.job-opening-card {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--clr-border);
+  border-radius: 20px;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  transition: all 0.3s ease;
+}
+
+.job-card-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  gap: 40px;
+}
+
+.job-title-block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.job-icon {
+  font-size: 24px;
+  color: var(--clr-purple);
+  flex-shrink: 0;
+}
+
+.job-title-block h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--clr-ink);
+  margin-bottom: 6px;
+}
+
+.job-dept-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--clr-blue);
+  background: rgba(37, 99, 235, 0.05);
+  padding: 3px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.job-meta-row {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.job-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--clr-muted);
+  font-weight: 500;
+}
+
+.job-meta-item svg {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+/* =======================================================
+   UPGRADED: ENHANCED INTERACTIVE APPLY NOW BUTTON
+======================================================= */
+.job-apply-btn {
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
+  color: #ffffff;
+  border: none;
+  padding: 14px 26px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+}
+
+/* Ambient glow system overlay backing */
+.job-apply-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-smooth);
+  z-index: 1;
+}
+
+.apply-btn-text,
+.apply-btn-arrow {
+  position: relative;
+  z-index: 2;
+}
+
+.apply-btn-arrow {
+  font-size: 16px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Core interactive parameters on card hover or direct click paths */
+.job-apply-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+}
+
+.job-apply-btn:hover::before {
+  opacity: 1;
+}
+
+.job-apply-btn:hover .apply-btn-arrow {
+  transform: translateX(4px); /* Moves arrow dynamically forward to invite action */
+}
+
+.job-apply-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+  transition: transform 0.05s ease;
+}
+
+/* =======================================================
+   ONE-CLICK REGISTRY SUBMIT MODAL SECTION
+======================================================= */
+.career-form-section {
+  max-width: 740px;
+  margin: 0 auto;
+  scroll-margin-top: 100px;
+}
+
+.form-wrapper-box {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--clr-border);
+  border-radius: 32px;
+  padding: 50px;
+  box-shadow: var(--shadow-card-hover);
+}
+
+.form-box-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.form-box-header h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--clr-ink);
+  margin-bottom: 12px;
+}
+
+.form-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.full-width-field {
+  grid-column: span 2;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field-group label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--clr-ink);
+}
+
+.form-field-group input,
+.form-field-group select,
+.form-field-group textarea {
+  background: #ffffff;
+  border: 1px solid var(--clr-border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14.5px;
+  color: var(--clr-ink);
+  outline: none;
+  font-family: inherit;
+  transition: all 0.25s ease;
+}
+
+.form-field-group input:focus,
+.form-field-group select:focus,
+.form-field-group textarea:focus {
+  border-color: var(--clr-purple-light);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
+}
+
+.form-field-group textarea {
+  resize: vertical;
+}
+
+.form-submit-action {
+  width: 100%;
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 52px;
+}
+
+.btn-icon {
+  font-size: 18px;
+}
+
+/* =======================================================
+   FORM SUCCESS HOOK CONSOLE LAYOUT
+======================================================= */
+.form-success-hud {
+  text-align: center;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.success-hud-icon {
+  font-size: 64px;
+  color: #27c93f;
+  filter: drop-shadow(0 4px 12px rgba(39, 201, 63, 0.2));
+}
+
+.form-success-hud h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--clr-ink);
+}
+
+.form-success-hud p {
+  max-width: 480px;
+  margin-bottom: 15px;
+}
+
+/* =======================================================
+   RESPONSIVE DESIGN ADAPTATION BREAKPOINTS
+======================================================= */
+@media (max-width: 992px) {
+  .career-hero-title {
+    font-size: 38px;
+    letter-spacing: -1px;
+  }
+
+  .job-opening-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 28px;
+    gap: 20px;
+  }
+
+  .job-card-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .job-apply-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .career-page {
+    padding-top: 110px;
+  }
+
+  .career-hero-title {
+    font-size: 32px;
+  }
+
+  .form-wrapper-box {
+    padding: 32px 24px;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  }
+
+  .form-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .full-width-field {
+    grid-column: span 1;
+  }
+  
+  .job-meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+/* =======================================================
+   CUSTOM CHOOSE FILE UPLOAD ENGINE STYLING
+======================================================= */
+.hidden-file-input {
+  display: none !important; /* Conceals native ugly system input browser button */
+}
+
+.custom-file-upload-wrapper {
+  width: 100%;
+}
+
+.file-upload-dropzone {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #ffffff;
+  border: 2px dashed var(--clr-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-smooth);
+}
+
+.file-upload-dropzone:hover {
+  border-color: var(--clr-purple-light);
+  background: rgba(124, 58, 237, 0.02);
+}
+
+.upload-dropzone-icon {
+  font-size: 32px;
+  color: var(--clr-muted);
+  transition: transform 0.3s var(--ease-bounce), color 0.25s ease;
+}
+
+.file-upload-dropzone:hover .upload-dropzone-icon {
+  color: var(--clr-purple);
+  transform: translateY(-2px);
+}
+
+.dropzone-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dropzone-action-text {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--clr-ink);
+}
+
+.dropzone-hint-text {
+  font-size: 12px;
+  color: var(--clr-muted);
+  font-weight: 500;
+}
+
+/* LIVE FILE BADGE CONFIRMATION ELEMENT */
+.selected-file-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(39, 201, 63, 0.06);
+  border: 1px solid rgba(39, 201, 63, 0.15);
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-top: 8px;
+  animation: fileBadgeFadeIn 0.35s var(--ease-smooth) both;
+}
+
+.file-badge-icon {
+  color: #27c93f;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.file-badge-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e6b27;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes fileBadgeFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

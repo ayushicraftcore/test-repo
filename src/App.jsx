@@ -17,6 +17,8 @@ import Service from "./pages/Service";
 import Solution from "./pages/Solution";
 import About from "./pages/About";
 import Blog from "./pages/Blog"; // Imported Blog page component
+import Career from "./pages/Career"; // Imported Career page component
+import Contact from "./pages/Contact"; // Imported Contact page component
 
 /* ─────────────────────────────────────────────
    SCROLL TO TOP  (Ensures page starts at top)
@@ -270,6 +272,9 @@ function App() {
         <Route path="/Solution" element={<Solution/>} />
         <Route path="/About" element={<About/>} />
         <Route path="/Blog" element={<Blog/>} />
+        <Route path="/Career" element={<Career/>} />
+        <Route path="/Contact" element={<Contact/>} />
+
       </Routes>
 
       {/* GLOBAL FOOTER CLOSURES */}

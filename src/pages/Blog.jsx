@@ -66,7 +66,7 @@ function Blog() {
         {/* CENTER-ALIGNED HERO SECTION */}
         <header className="blog-hero">
           <span className="section-tag">INSIGHTS & MEDIA</span>
-          <h1 className="section-title blog-hero-title">
+          <h1 className="blog-hero-title">
             Knowledge Hub & <br />
             <span className="gradient-text">Ecosystem Perspectives</span>
           </h1>
