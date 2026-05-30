@@ -1,0 +1,235 @@
+/* =======================================================
+   BOOKING PAGE MASTER GEOMETRY
+======================================================= */
+.booking-page {
+  padding: 100px 0 140px;
+  position: relative;
+  z-index: 2;
+}
+
+/* =======================================================
+   CENTERED HERO HEADER
+======================================================= */
+.booking-hero {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 60px;
+}
+
+.booking-hero-title {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -2px;
+  margin: 20px 0 24px;
+}
+
+.booking-hero-desc {
+  font-size: 17px;
+}
+
+/* =======================================================
+   UNIFIED CENTER FORM CHASSIS
+======================================================= */
+.booking-center-container {
+  max-width: 580px; /* Snugger width footprint makes single forms look exceptional */
+  margin: 0 auto;
+}
+
+.booking-main-box {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--clr-border);
+  border-radius: 28px;
+  padding: 44px;
+  box-shadow: var(--shadow-card-hover);
+}
+
+.form-inputs-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.booking-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.booking-field-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--clr-ink);
+}
+
+.input-icon-accent {
+  color: var(--clr-purple);
+  font-size: 15px;
+}
+
+.booking-field-group input,
+.booking-field-group textarea {
+  background: #ffffff;
+  border: 1px solid var(--clr-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 14.5px;
+  color: var(--clr-ink);
+  outline: none;
+  font-family: inherit;
+  transition: all 0.25s ease;
+}
+
+/* CALENDAR NATIVE STYLING INPUT OVERRIDES */
+.calendar-date-input {
+  cursor: pointer;
+  position: relative;
+}
+
+/* Customizes calendar pop-up picker icon interface elements */
+.calendar-date-input::-webkit-calendar-picker-indicator {
+  background-color: transparent;
+  cursor: pointer;
+  padding: 4px;
+  filter: invert(0.2); /* Adjusts icon tone subtly */
+}
+
+.booking-field-group input:focus,
+.booking-field-group textarea:focus {
+  border-color: var(--clr-purple-light);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
+}
+
+.booking-field-group textarea {
+  resize: vertical;
+}
+
+/* =======================================================
+   TRANSMIT ACTION BUTTON
+======================================================= */
+.booking-submit-btn {
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  height: 52px;
+  margin-top: 32px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.booking-submit-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-smooth);
+  z-index: 1;
+}
+
+.submit-btn-text,
+.submit-btn-icon {
+  position: relative;
+  z-index: 2;
+}
+
+.booking-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+}
+
+.booking-submit-btn:hover::before {
+  opacity: 1;
+}
+
+.booking-submit-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* =======================================================
+   SUCCESS FEEDBACK STATE HUD
+======================================================= */
+.booking-success-hud {
+  text-align: center;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.booking-success-icon {
+  font-size: 60px;
+  color: #27c93f;
+  filter: drop-shadow(0 4px 12px rgba(39, 201, 63, 0.2));
+}
+
+.booking-success-hud h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--clr-ink);
+}
+
+.receipt-summary-box {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--clr-border);
+  border-radius: 14px;
+  padding: 18px 22px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--clr-ink);
+}
+
+.receipt-summary-box strong {
+  color: var(--clr-muted);
+  font-weight: 600;
+  display: inline-block;
+  width: 110px;
+}
+
+/* =======================================================
+   HIGH PERFORMANCE RESPONSIVE DESIGN ADJUSTMENTS
+======================================================= */
+@media (max-width: 992px) {
+  .booking-hero-title {
+    font-size: 38px;
+    letter-spacing: -1px;
+  }
+
+  .booking-main-box {
+    padding: 32px 24px;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  }
+}
+
+@media (max-width: 576px) {
+  .booking-page {
+    padding-top: 110px;
+  }
+
+  .booking-hero-title {
+    font-size: 32px;
+  }
+}

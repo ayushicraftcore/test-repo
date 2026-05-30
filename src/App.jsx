@@ -16,9 +16,10 @@ import Home from "./pages/Home";
 import Service from "./pages/Service";
 import Solution from "./pages/Solution";
 import About from "./pages/About";
-import Blog from "./pages/Blog"; // Imported Blog page component
-import Career from "./pages/Career"; // Imported Career page component
-import Contact from "./pages/Contact"; // Imported Contact page component
+import Blog from "./pages/Blog"; 
+import Career from "./pages/Career"; 
+import Contact from "./pages/Contact"; 
+import Booking from "./pages/Booking"; 
 
 /* ─────────────────────────────────────────────
    SCROLL TO TOP  (Ensures page starts at top)
@@ -118,7 +119,7 @@ function CustomCursor() {
   const pos     = useRef({ x: 0, y: 0 });
   const ring    = useRef({ x: 0, y: 0 });
   const raf     = useRef(null);
-  const location = useLocation(); // Re-bind hover targets on page changes
+  const location = useLocation(); 
 
   useEffect(() => {
     if ("ontouchstart" in window) return;
@@ -144,7 +145,6 @@ function CustomCursor() {
     const onEnterHoverable = () => document.body.classList.add("cursor-hover");
     const onLeaveHoverable = () => document.body.classList.remove("cursor-hover");
 
-    // Dynamic selection after page mounts
     const hoverables = document.querySelectorAll(
       "a, button, .card-hover, .primary-btn, .secondary-btn, [data-cursor-hover], .service-item, .technology-card"
     );
@@ -166,7 +166,7 @@ function CustomCursor() {
       });
       document.body.classList.remove("cursor-hover");
     };
-  }, [location.pathname]); // Re-run when switching pages to hook new items
+  }, [location.pathname]); 
 
   return (
     <>
@@ -183,7 +183,6 @@ function useScrollReveal() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Small timeout gives React time to construct the new page DOM nodes
     const timer = setTimeout(() => {
       const els = document.querySelectorAll(".reveal, .reveal-children");
       if (!els.length) return;
@@ -216,6 +215,9 @@ MAIN APP COMPONENT
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const { toasts, addToast } = useToast();
+  
+  // 1. ADDED: Instantiated router position tracker instance hook
+  const location = useLocation();
 
   useEffect(() => {
     window.addToast = addToast;
@@ -234,6 +236,9 @@ function App() {
   }, []);
 
   useScrollReveal();
+
+  // Helper calculation parameters to determine if CTA should stay active
+  const isBookingPage = location.pathname === "/book-call" || location.pathname.toLowerCase() === "/booking";
 
   return (
     <>
@@ -274,11 +279,12 @@ function App() {
         <Route path="/Blog" element={<Blog/>} />
         <Route path="/Career" element={<Career/>} />
         <Route path="/Contact" element={<Contact/>} />
-
+        <Route path="Booking" element={<Booking/>} />
+        <Route path="/book-call" element={<Booking />} />
       </Routes>
 
-      {/* GLOBAL FOOTER CLOSURES */}
-      <CTA />
+      {/* GLOBAL FOOTER CLOSURES WITH CONDITIONAL CTA EXCLUSION */}
+      {!isBookingPage && <CTA />}
       <Footer />
 
       {/* TOAST SYSTEM CONTAINER */}

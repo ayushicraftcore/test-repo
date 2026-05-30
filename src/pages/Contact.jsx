@@ -1,6 +1,7 @@
 import "./Contact.css";
 import { useState } from "react";
 import { FiMail, FiPhone, FiMapPin, FiSend, FiCheckCircle } from "react-icons/fi";
+import emailjs from "@emailjs/browser"; // Imported EmailJS SDK
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ function Contact() {
     subject: "Web & SaaS Development",
     message: ""
   });
+  const [isSending, setIsSending] = useState(false); // Tracks form sending state
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
@@ -21,7 +23,38 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    setFormSubmitted(true);
+
+    setIsSending(true);
+
+    // Maps form states cleanly to match your EmailJS HTML template markers
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone || "Not Provided",
+      company: formData.company || "Not Provided",
+      subject: formData.subject,
+      message: formData.message
+    };
+
+    emailjs
+      .send(
+        "service_eabxn4m",        // Reused your working Service ID
+        "template_auji6lb", // Create a new template and paste its ID here
+        templateParams,
+        "phlp5XqbtEITeOSrS"       // Your working Public Key
+      )
+      .then(
+        (response) => {
+          console.log("Contact form sync success!", response.status, response.text);
+          setIsSending(false);
+          setFormSubmitted(true);
+        },
+        (error) => {
+          console.error("Contact form transmission failed...", error);
+          setIsSending(false);
+          alert("Something went wrong with the sync framework. Please try again.");
+        }
+      );
   };
 
   return (
@@ -93,7 +126,6 @@ function Contact() {
                 <form onSubmit={handleSubmit} className="contact-core-form">
                   <div className="contact-box-header">
                     <h2>Send a Message</h2>
-                    <p className="card-text">Fill out the details below to start your project blueprint assessment.</p>
                   </div>
 
                   <div className="contact-grid-layout">
@@ -178,9 +210,12 @@ function Contact() {
                     </div>
                   </div>
 
-                  <button type="submit" className="contact-transmit-btn">
-                    <span className="transmit-btn-text">SEND MESSAGE</span>
-                    <FiSend className="transmit-btn-icon" />
+                  {/* Button state updates to notify the user while processing */}
+                  <button type="submit" className="contact-transmit-btn" disabled={isSending}>
+                    <span className="transmit-btn-text">
+                      {isSending ? "SENDING..." : "SEND MESSAGE"}
+                    </span>
+                    {!isSending && <FiSend className="transmit-btn-icon" />}
                   </button>
 
                 </form>

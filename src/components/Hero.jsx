@@ -14,6 +14,13 @@ import { useEffect, useState } from "react";
 
 /*
 ===================================
+IMPORT REACT ROUTER LINKS
+===================================
+*/
+import { Link } from "react-router-dom"; 
+
+/*
+===================================
 IMPORT ICONS
 ===================================
 */
@@ -71,12 +78,11 @@ function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  // Encoded WhatsApp URL API String
+  const whatsappUrl = "https://wa.me/919898711229?text=Hi%20Craftcore!%20I'd%20like%20to%20discuss%20a%20project.";
+
   return (
     <section className="hero">
-
-      {/* BACKGROUND GLOW
-      <div className="hero-blur hero-blur-purple"></div>
-      <div className="hero-blur hero-blur-blue"></div> */}
 
       {/* GRID PATTERN */}
       <div className="hero-grid"></div>
@@ -128,15 +134,26 @@ function Hero() {
 
             {/* BUTTONS */}
             <div className="hero-buttons">
-              <button className="primary-btn hero-primary-btn">
+              <Link 
+                to="/book-call" 
+                className="primary-btn hero-primary-btn"
+                style={{ textDecoration: 'none' }}
+              >
                 Book Free Consultation
                 <FaArrowRight />
-              </button>
+              </Link>
 
-              <button className="secondary-btn hero-secondary-btn">
+              {/* CHANGED: Converted to a secure external hyperlink targeting WhatsApp */}
+              <a 
+                href={whatsappUrl}
+                className="secondary-btn hero-secondary-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none' }}
+              >
                 <FaWhatsapp />
                 Chat with Us
-              </button>
+              </a>
             </div>
 
           </div>
@@ -151,13 +168,10 @@ function Hero() {
                 muted
                 loop
                 playsInline
-                /* 1. Instant fallback frame prevents white flashes while loading */
                 poster="/images/hero-poster.avif" 
-                /* 2. Loads structural properties immediately to prioritize execution rendering */
                 preload="auto" 
                 className="hero-video"
               >
-                {/* 3. Pulls smoothly from the unbundled asset stream directory */}
                 <source src="/videos/logo-reveal.mp4" type="video/mp4" />
               </video>
             </div>

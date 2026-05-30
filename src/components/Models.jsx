@@ -46,7 +46,6 @@ function Models() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Trigger the new animation class
             entry.target.classList.add("animate-surround-reveal");
             observer.unobserve(entry.target);
           }
@@ -65,11 +64,16 @@ function Models() {
     return () => observer.disconnect();
   }, []);
 
-  // Helper function to assign entry directions
   const getRevealDirection = (index) => {
     if (index === 0) return "reveal-left";
     if (index === 1) return "reveal-bottom";
     return "reveal-right";
+  };
+
+  // DYNAMIC WHATSAPP LINK GENERATOR
+  const getWhatsappUrl = (modelTitle) => {
+    const defaultText = `Hi Craftcore! I'd like to discuss a project regarding the ${modelTitle} model.`;
+    return `https://wa.me/919898711229?text=${encodeURIComponent(defaultText)}`;
   };
 
   return (
@@ -110,9 +114,17 @@ function Models() {
               {/* DEFAULT VIEW */}
               <div className="model-default">
                 <h3 className="model-title">{model.title}</h3>
-                <button className="primary-btn model-btn">
+                
+                {/* CHANGED: Swapped button for a styled external link anchor */}
+                <a 
+                  href={getWhatsappUrl(model.title)}
+                  className="primary-btn model-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+                >
                   Discuss This Model
-                </button>
+                </a>
               </div>
 
               {/* HOVER OVERLAY */}
@@ -139,9 +151,16 @@ function Models() {
                   ))}
                 </ul>
 
-                <button className="primary-btn model-btn">
+                {/* CHANGED: Swapped button for a styled external link anchor inside hover layout */}
+                <a 
+                  href={getWhatsappUrl(model.title)}
+                  className="primary-btn model-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+                >
                   Discuss This Model
-                </button>
+                </a>
               </div>
             </div>
           </div>

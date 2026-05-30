@@ -84,14 +84,25 @@ function Navbar() {
           );
         })}
 
-        {/* Mobile Button */}
-        <button className="mobile-btn">GET IN TOUCH</button>
+        {/* CHANGED: Mobile Button is now a Link that closes the menu drawer on click */}
+        <Link 
+          to="/book-call" 
+          className="mobile-btn" 
+          onClick={() => setMenuOpen(false)}
+          style={{ textDecoration: 'none', textAlign: 'center' }}
+        >
+          GET IN TOUCH
+        </Link>
       </nav>
 
-      {/* DESKTOP BUTTON */}
-      <button className="desktop-btn">
+      {/* CHANGED: Desktop Button is now a Link component */}
+      <Link 
+        to="/book-call" 
+        className="desktop-btn"
+        style={{ textDecoration: 'none' }}
+      >
         GET IN TOUCH
-      </button>
+      </Link>
 
       {/* HAMBURGER */}
       <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
