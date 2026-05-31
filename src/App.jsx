@@ -279,14 +279,14 @@ function App() {
         <Route path="/Blog" element={<Blog/>} />
         <Route path="/Career" element={<Career/>} />
         <Route path="/Contact" element={<Contact/>} />
-        <Route path="Booking" element={<Booking/>} />
+        <Route path="/Booking" element={<Booking/>} />
         <Route path="/book-call" element={<Booking />} />
       </Routes>
 
       {/* GLOBAL FOOTER CLOSURES WITH CONDITIONAL CTA EXCLUSION */}
       {!isBookingPage && <CTA />}
       <Footer />
-    
+
       {/* TOAST SYSTEM CONTAINER */}
       <div className="toast-container">
         {toasts.map((t) => (
