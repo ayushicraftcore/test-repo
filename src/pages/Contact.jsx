@@ -26,20 +26,24 @@ function Contact() {
 
     setIsSending(true);
 
-    // Maps form states cleanly to match your EmailJS HTML template markers
+    // FIXED: Maps your state parameters straight into the universal template placeholders
     const templateParams = {
+      submission_type: "General Business Inquiry",
       name: formData.name,
       email: formData.email,
-      phone: formData.phone || "Not Provided",
-      company: formData.company || "Not Provided",
-      subject: formData.subject,
+      label_one: "Phone Number:",
+      value_one: formData.phone || "Not Provided",
+      label_two: "Company Name:",
+      value_two: formData.company || "Not Provided",
+      label_three: "Requested Service:",
+      value_three: formData.subject,
       message: formData.message
     };
 
     emailjs
       .send(
         "service_eabxn4m",        // Reused your working Service ID
-        "template_auji6lb", // Create a new template and paste its ID here
+        "template_auji6lb",       // Universal Template ID
         templateParams,
         "phlp5XqbtEITeOSrS"       // Your working Public Key
       )
@@ -210,7 +214,6 @@ function Contact() {
                     </div>
                   </div>
 
-                  {/* Button state updates to notify the user while processing */}
                   <button type="submit" className="contact-transmit-btn" disabled={isSending}>
                     <span className="transmit-btn-text">
                       {isSending ? "SENDING..." : "SEND MESSAGE"}

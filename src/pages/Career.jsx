@@ -36,6 +36,7 @@ function Career() {
   });
   
   const [resumeFile, setResumeFile] = useState(null);
+  const [isSending, setIsSending] = useState(false); 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
@@ -54,10 +55,48 @@ function Career() {
     document.getElementById("apply-form-block")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.role || !resumeFile) return;
-    setFormSubmitted(true);
+
+    setIsSending(true);
+
+    // 1. CONSTRUCT MULTIPART FORM DATA WITH CORRECT BLOCK KEYS
+    const submissionData = new FormData();
+    
+    // Updated appending keys to follow Forminit specifications precisely
+    submissionData.append("fi-sender-fullName", formData.name);
+    submissionData.append("fi-sender-email", formData.email);
+    submissionData.append("fi-text-applied_role", formData.role);
+    submissionData.append("fi-url-portfolio_url", formData.portfolio || "");
+    submissionData.append("fi-text-professional_memo", formData.message || "");
+    
+    // Updated file naming block key
+    submissionData.append("fi-file-resume", resumeFile); 
+
+    try {
+      // 2. DISPATCH DIRECT TO FORMINIT GATEWAY
+      const response = await fetch("https://forminit.com/f/fpnsw7qs706", {
+        method: "POST",
+        body: submissionData,
+        headers: {
+          "Accept": "application/json",
+        }
+      });
+
+      if (response.ok) {
+        console.log("Candidature registry completed via Forminit pipeline!");
+        setIsSending(false);
+        setFormSubmitted(true);
+      } else {
+        const errorText = await response.text();
+        throw new Error(`Server Status ${response.status} - ${errorText || "Rejected package submission"}`);
+      }
+    } catch (error) {
+      console.error("Transmission gateway failure:", error);
+      setIsSending(false);
+      alert(`Submission Error: ${error.message}`);
+    }
   };
 
   return (
@@ -120,12 +159,12 @@ function Career() {
           </div>
         </section>
 
-        {/* ONE-CLICK APPLICATION SUBMIT CONTAINER */}
+        {/* APPLICATION SUBMIT CONTAINER */}
         <section id="apply-form-block" className="career-form-section">
           <div className="form-wrapper-box">
             
             {!formSubmitted ? (
-              <form onSubmit={handleSubmit} className="application-core-form">
+              <form onSubmit={handleSubmit} className="application-core-form" encType="multipart/form-data">
                 <div className="form-box-header">
                   <h2>Submit Application Blueprint</h2>
                   <p className="card-text">Complete the system fields below to process your candidature parameters.</p>
@@ -174,7 +213,7 @@ function Career() {
                     </select>
                   </div>
 
-                  {/* UPDATED: Premium Styled Choose File Upload Area */}
+                  {/* PREMIUM FILE UPLOAD DRAG/DROP FIELD */}
                   <div className="form-field-group full-width-field">
                     <label>Upload Resume (PDF, DOCX) *</label>
                     <div className="custom-file-upload-wrapper">
@@ -182,7 +221,7 @@ function Career() {
                         type="file"
                         id="resume-upload"
                         accept=".pdf,.docx,.doc"
-                        required
+                        required={!resumeFile} 
                         onChange={handleFileChange}
                         className="hidden-file-input"
                       />
@@ -195,7 +234,6 @@ function Career() {
                       </label>
                     </div>
                     
-                    {/* Active file confirmation block */}
                     {resumeFile && (
                       <div className="selected-file-badge">
                         <FiFile className="file-badge-icon" />
@@ -229,9 +267,9 @@ function Career() {
                   </div>
                 </div>
 
-                <button type="submit" className="desktop-btn form-submit-action">
+                <button type="submit" className="desktop-btn form-submit-action" disabled={isSending}>
                   <FiUploadCloud className="btn-icon" />
-                  <span>SUBMIT APPLICATION</span>
+                  <span>{isSending ? "UPLOADING PARAMETERS..." : "SUBMIT APPLICATION"}</span>
                 </button>
               </form>
             ) : (
@@ -239,8 +277,8 @@ function Career() {
                 <FiCheckCircle className="success-hud-icon" />
                 <h2>Pipeline Registry Completed</h2>
                 <p className="card-text">
-                  Thank you, <strong>{formData.name}</strong>. Your profile architecture for the{" "}
-                  <strong>{formData.role}</strong> cluster has updated into our database modules. Our human team matches vectors shortly.
+                  Thank you, <strong>{formData.name}</strong>. We’ve successfully saved your profile for{" "}
+                  <strong>{formData.role}</strong> has been submitted successfully. Our hiring team will review it soon to see if you're a good match for our open positions.
                 </p>
                 <button 
                   className="job-apply-btn"
