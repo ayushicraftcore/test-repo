@@ -1,45 +1,13 @@
-/*
-===================================
-IMPORT CSS
-===================================
-*/
 import "./Navbar.css";
-
-/*
-===================================
-IMPORT IMAGE
-===================================
-*/
 import logo from "../assets/logo.png";
-
-/*
-===================================
-IMPORT ICONS
-===================================
-*/
-import { FaBars, FaTimes } from "react-icons/fa";
-
-/*
-===================================
-IMPORT REACT & ROUTER
-===================================
-*/
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-/*
-===================================
-NAVBAR COMPONENT
-===================================
-*/
 function Navbar() {
   const [menuOpen, setMenuOpen]   = useState(false);
   const [scrolled, setScrolled]   = useState(false);
-  
-  // Gets the current URL path (e.g., "/", "/service", "/about")
   const location = useLocation();
 
-  /* Shrink navbar slightly after scroll */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -65,10 +33,7 @@ function Navbar() {
       {/* NAV LINKS */}
       <nav className={menuOpen ? "nav-links active" : "nav-links"}>
         {links.map((link) => {
-          // Format the route path. "Home" becomes "/", everything else becomes lowercase "/link"
           const routePath = link === "Home" ? "/" : `/${link.toLowerCase()}`;
-          
-          // Check if the current URL matches this link's route path
           const isActive = location.pathname === routePath;
 
           return (
@@ -84,7 +49,6 @@ function Navbar() {
           );
         })}
 
-        {/* CHANGED: Mobile Button is now a Link that closes the menu drawer on click */}
         <Link 
           to="/book-call" 
           className="mobile-btn" 
@@ -95,7 +59,7 @@ function Navbar() {
         </Link>
       </nav>
 
-      {/* CHANGED: Desktop Button is now a Link component */}
+      {/* DESKTOP BUTTON */}
       <Link 
         to="/book-call" 
         className="desktop-btn"

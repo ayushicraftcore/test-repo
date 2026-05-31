@@ -90,7 +90,7 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.65));
 }
 
-/* FIX: PREMIUM READABLE FLOATING BADGE DESIGN */
+/* FLOATING BADGE DESIGN */
 .console-floating-badge {
   position: absolute;
   left: 20px;
@@ -98,7 +98,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(17, 17, 21, 0.85); /* Dark velvet block for solid backing */
+  background: rgba(17, 17, 21, 0.85); 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 6px 16px 6px 6px;
@@ -194,7 +194,7 @@
 }
 
 .service-deep-card {
-  position: relative;
+  position: relative; /* CRITICAL FIX: Bounds the absolute gradient indicator lines inside individual cards */
   background: rgba(255, 255, 255, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 28px;
@@ -305,32 +305,69 @@
 ======================================================= */
 @media (max-width: 1100px) {
   .service-page {
-    padding-top: 130px;
+    padding-top: 100px;
   }
 
   .service-page-hero {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   .service-page-wrapper {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
   }
 
+  /* CRITICAL MOBILE FIX: Transforms console into an interactive horizontal bar sticky tracking at top of phone */
   .service-page-left {
-    position: relative;
-    top: 0;
+    position: sticky;
+    top: 70px; /* Pin offset directly below site navbar layers */
+    width: 100%;
+    z-index: 100;
   }
 
+  /* CRITICAL MOBILE FIX: Strips away the display: none property to render console components beautifully */
   .tech-display-console {
-    display: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 14px;
+    gap: 18px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Scale down viewport footprint sizes */
+  .console-image-frame {
+    width: 160px;
+    height: 100px;
+    margin-bottom: 0;
+    border-radius: 14px;
+    flex-shrink: 0;
+  }
+
+  .console-meta-panel {
+    flex: 1;
+    padding: 0;
+  }
+
+  .console-caption {
+    font-size: 14px;
+    margin-bottom: 0;
+    line-height: 1.4;
+  }
+
+  /* Hidden secondary data lines preserve clear layout margins on tablet track */
+  .console-floating-badge,
+  .console-metric-row,
+  .console-tech-stack {
+    display: none !important;
   }
 
   .service-page-right {
     padding-bottom: 0;
   }
 
-  /* Tablet Tuning: Static backgrounds remove transparent blend drops on scroll */
   .service-deep-card {
     opacity: 1;
     transform: none !important;
@@ -350,16 +387,41 @@
 
 @media (max-width: 768px) {
   .service-page-title {
-    font-size: 36px;
+    font-size: 34px;
   }
   
   .card-main-title {
     font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  /* Compact smartphone display stack adjustment rules */
+  .tech-display-console {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .console-image-frame {
+    width: 100%;
+    height: 140px; /* Locks concrete bounds layout parameters so images display instantly */
+  }
+
+  .console-meta-panel {
+    display: block;
+  }
+
+  .console-caption {
+    font-size: 13.5px;
+    text-align: center;
+    padding: 2px 4px;
   }
   
-  /* High-Performance Mobile Painting: Drops transparent layer calculation tasks */
   .service-deep-card {
     background: #ffffff;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    padding: 24px 20px;
+    border-radius: 20px;
   }
 }

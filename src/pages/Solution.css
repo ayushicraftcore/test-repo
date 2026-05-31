@@ -76,12 +76,12 @@
 ======================================================= */
 .tour-visual-sticky {
   position: sticky;
-  top: 20vh;
+  top: 16vh;
   height: fit-content;
   z-index: 5;
 }
 
-/* HIGH-PERFORMANCE VELVET STUDIO TERMINAL DEVICE SHELL */
+/* INTERFACE TERMINAL DEVICE SHELL */
 .tour-mockup-frame {
   position: relative;
   width: 100%;
@@ -89,7 +89,7 @@
   border-radius: 24px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.07);
-  background: #111218; /* Dark anchor backing frames both light & dark image captures nicely */
+  background: #111218; 
   box-shadow: var(--shadow-card-hover);
   transform: translateZ(0);
   will-change: transform;
@@ -97,7 +97,7 @@
   flex-direction: column;
 }
 
-/* PREMIUM STUDIO CONTROLS ADDRESS HEADER */
+/* BROWSER CONTROLS ADDRESS HEADER */
 .browser-mockup-header {
   height: 42px;
   background: #161722;
@@ -150,7 +150,7 @@
 .tour-mockup-image {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Prevents desktop dashboard interfaces from cropping out details */
+  object-fit: contain; 
   border-radius: 10px;
   animation: consoleImageFade 0.45s var(--ease-smooth);
 }
@@ -173,7 +173,6 @@
   z-index: 3;
 }
 
-/* Floating Code Protocol String Badges (Right side cascade) */
 .hud-floating-tag {
   position: absolute;
   right: 24px;
@@ -207,7 +206,6 @@
   letter-spacing: 0.5px;
 }
 
-/* Holographic Bottom Performance Data Chips */
 .hud-floating-pill {
   position: absolute;
   background: rgba(124, 58, 237, 0.85);
@@ -321,7 +319,7 @@
 }
 
 /* =======================================================
-   HIGH PERFORMANCE TABLET & MOBILE DECK OVERRIDES
+   HIGH PERFORMANCE RESPONSIVE TABLET & SMARTPHONE OVERRIDES
 ======================================================= */
 @media (max-width: 1100px) {
   .solution-hero-title {
@@ -338,8 +336,30 @@
     gap: 40px;
   }
 
+  /* CRITICAL MOBILE FIX: Transforms hidden element into a sticky, interactive top dashboard bar */
   .tour-visual-sticky {
-    display: none;
+    display: block;
+    position: sticky;
+    top: 70px; /* Safe padding offset directly beneath site header components */
+    width: 100%;
+    z-index: 100;
+  }
+
+  .tour-mockup-frame {
+    aspect-ratio: auto;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+  }
+
+  .mockup-image-canvas {
+    height: 190px; /* Sets rigid area guidelines so screenshot files load properly */
+    padding: 10px;
+  }
+
+  /* Compact spacing optimizations */
+  .mockup-hud-tags-layer {
+    display: none !important;
   }
 
   .tour-timeline-scroller {
@@ -377,6 +397,11 @@
   .solution-hero-frame {
     height: 220px;
     border-radius: 18px;
+  }
+
+  /* Shrinks container footprint layout bounds on mobile smartphone displays */
+  .mockup-image-canvas {
+    height: 135px;
   }
 
   .timeline-block-title {

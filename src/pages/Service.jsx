@@ -117,38 +117,32 @@ function Service() {
   const cardsRef = useRef([]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.innerWidth <= 1100) return;
+    // 1. DUAL-PURPOSE VIEWPORT MONITORING ENGINE
+    // Shrinks tracking boundaries to a tight center window to trigger seamless state swaps
+    const observerOptions = {
+      root: null,
+      rootMargin: "-45% 0px -45% 0px", 
+      threshold: 0,
+    };
 
-      const middle = window.innerHeight / 2;
-      let closestIndex = 0;
-      let minDistance = Infinity;
-
-      cardsRef.current.forEach((card, index) => {
-        if (!card) return;
-
-        const rect = card.getBoundingClientRect();
-        const cardCenter = rect.top + rect.height / 2;
-        const distance = Math.abs(cardCenter - middle);
-
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestIndex = index;
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = cardsRef.current.indexOf(entry.target);
+          if (index !== -1) {
+            setActiveService(index);
+          }
         }
       });
-
-      setActiveService(closestIndex);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    handleScroll();
+    cardsRef.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -177,17 +171,18 @@ function Service() {
               
               {/* Image Frame */}
               <div className="console-image-frame">
+                {/* 2. STABLE IMAGE COMPILATION CONTAINER */}
+                {/* Freeing this from node-key updates enables fluid, instant source switching on screens */}
                 <img
-                  key={activeService}
                   src={serviceDataExtended[activeService].image}
                   alt="Service Visualization"
                   className="console-main-image"
-                  loading="lazy"
+                  loading="eager" 
                   decoding="async"
                 />
                 <div className="console-image-overlay" />
                 
-                {/* UPGRADED COHESIVE FLOATING CAPSULED BADGE */}
+                {/* FLOATING CAPSULE BADGE */}
                 <div className="console-floating-badge">
                   <div className="badge-icon-core">
                     {serviceDataExtended[activeService].icon}
@@ -199,7 +194,7 @@ function Service() {
               </div>
 
               {/* Dynamic Information Panel */}
-              <div className="console-meta-panel" key={`panel-${activeService}`}>
+              <div className="console-meta-panel">
                 <p className="console-caption">{serviceDataExtended[activeService].caption}</p>
                 
                 {/* Micro Metrics Row */}
@@ -253,4 +248,5 @@ function Service() {
     </div>
   );
 }
+
 export default Service;

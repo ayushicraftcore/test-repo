@@ -19,6 +19,8 @@
   box-shadow:
     0 8px 32px rgba(31, 38, 135, 0.12),
     0 2px 8px rgba(139, 92, 246, 0.08);
+  /* FIXED: Guarantees a default base pointer frame profile over the glass layer */
+  cursor: default;
   /* Animate padding + shadow on scroll */
   transition: padding 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
 }
@@ -40,6 +42,11 @@
   display: flex;
   align-items: center;
   gap: 14px;
+}
+
+/* FIXED: Explicitly maps cursor behavior across the brand image block bounds */
+.navbar-logo a {
+  cursor: pointer;
 }
 
 .navbar-logo img {
@@ -89,6 +96,8 @@
   color: #444;
   position: relative;
   padding-bottom: 4px;
+  /* FIXED: Explicitly sets interactive hand pointer across link text layers */
+  cursor: pointer;
   transition: color 0.25s ease;
 }
 
@@ -101,6 +110,8 @@
   height: 2px;
   border-radius: 2px;
   background: linear-gradient(90deg, #7c3aed, #2563eb);
+  /* FIXED: Prevents the underline layer from conflicting with text cursor registration rules */
+  pointer-events: none;
   transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -174,7 +185,7 @@
 
 
 /* =======================================================
-   HAMBURGER (CSS animated — replaces react-icons toggle)
+   HAMBURGER
 ======================================================= */
 .menu-icon {
   display: none;
@@ -286,7 +297,7 @@
    SMALL MOBILE
 ======================================================= */
 @media (max-width: 576px) {
-  .navbar         { padding: 14px 18px; }
+  .navbar          { padding: 14px 18px; }
   .navbar-logo img { width: 52px; height: 52px; }
   .navbar-logo h2  { font-size: 16px; }
   .navbar-logo p   { font-size: 10px; }

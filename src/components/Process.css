@@ -26,14 +26,11 @@
 /* =======================================================
    STICKY WRAPPER
 ======================================================= */
-/* =======================================================
-   STICKY WRAPPER
-======================================================= */
 .process-sticky-wrapper {
   position: sticky;
   top: 0;
   height: 100vh; 
-  height: 100dvh; /* Fixes mobile browser address bar overlapping */
+  height: 100dvh; 
   display: flex;
   align-items: center; 
   justify-content: center;
@@ -46,10 +43,10 @@
 .process-card {
   position: relative;
   width: 100%;
-  min-height: 70vh;
+  min-height: 65vh;
   border-radius: 40px;
   overflow: hidden; 
-  padding: 70px;
+  padding: 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -95,7 +92,7 @@
   position: relative;
   flex: 1;
   width: 100%;
-  min-height: 250px; /* Gives the text room to breathe */
+  min-height: 220px;
 }
 
 .process-number-slider {
@@ -115,27 +112,17 @@
   position: absolute;
   opacity: 0;
   visibility: hidden;
-  /* Smooth transition for sliding and fading */
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+  /* OPTIMIZATION: will-change gives browsers a pre-render notice for high-speed tracking frame alignment */
+  will-change: transform, opacity;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
 }
 
-/* Past Steps (Slide out to the left) */
-.process-card-content.prev {
-  transform: translateX(-60px);
-}
-.process-big-number.prev {
-  transform: translateX(-40px);
-}
+.process-card-content.prev { transform: translateX(-40px); }
+.process-big-number.prev { transform: translateX(-30px); }
 
-/* Future Steps (Wait on the right) */
-.process-card-content.next {
-  transform: translateX(60px);
-}
-.process-big-number.next {
-  transform: translateX(40px);
-}
+.process-card-content.next { transform: translateX(40px); }
+.process-big-number.next { transform: translateX(30px); }
 
-/* Active Step (Slide to center) */
 .process-card-content.active,
 .process-big-number.active {
   transform: translateX(0);
@@ -165,29 +152,29 @@
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 1px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   backdrop-filter: blur(10px);
 }
 
 .process-card-content h3 {
-  font-size: 78px;
+  font-size: 72px;
   line-height: 1;
-  letter-spacing: -3px;
+  letter-spacing: -2px;
   color: white;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .process-card-content p {
   max-width: 620px;
-  font-size: 19px;
-  line-height: 1.9;
+  font-size: 18px;
+  line-height: 1.8;
   color: rgba(255, 255, 255, 0.72);
 }
 
 .process-big-number {
   right: 0;
   top: 0;
-  font-size: 260px;
+  font-size: 240px;
   font-weight: 800;
   line-height: 1;
   color: rgba(255, 255, 255, 0.04);
@@ -201,27 +188,21 @@
   display: flex;
   align-items: center;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 40px;
   position: relative;
   z-index: 2;
 }
 
-/* =======================================================
-   PROGRESS ITEM
-======================================================= */
 .progress-item {
   display: flex;
   align-items: center;
   flex: 1;
 }
 
-/* =======================================================
-   PROGRESS CIRCLE
-======================================================= */
 .progress-circle {
-  width: 70px;
-  height: 70px;
-  min-width: 70px;
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -229,27 +210,23 @@
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.55);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   transition: 0.4s ease;
 }
 
-/* ACTIVE */
 .progress-circle.active {
   background: linear-gradient(135deg, #7c3aed, #2563eb);
   color: white;
   border-color: transparent;
-  transform: scale(1.08);
+  transform: scale(1.05);
   box-shadow: 0 15px 40px rgba(124, 58, 237, 0.35);
 }
 
-/* =======================================================
-   PROGRESS LINE
-======================================================= */
 .progress-line {
   width: 100%;
   height: 3px;
-  margin: 0 16px;
+  margin: 0 14px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   position: relative;
@@ -268,124 +245,105 @@
 .progress-line.active::before {
   width: 100%;
 }
+
 /* =======================================================
-   RESPONSIVE
+   TABLET LAYOUT (MD)
 ======================================================= */
 @media (max-width: 992px) {
   .process-main-wrapper {
-    height: 350vh; /* Keep scroll active, but slightly shorter for touch */
+    height: 300vh; 
   }
   
   .process-card {
     min-height: auto;
-    height: 75vh;
-    padding: 50px 30px;
+    height: 70vh;
+    padding: 40px 30px;
   }
   
   .process-content-slider {
-    min-height: 220px;
+    min-height: 200px;
   }
-
-  /* Reduce animation slide distance so it fits on tablet */
-  .process-card-content.prev { transform: translateX(-40px); }
-  .process-card-content.next { transform: translateX(40px); }
   
   .process-card-content h3 {
-    font-size: 52px;
-    letter-spacing: -2px;
+    font-size: 48px;
   }
   
   .process-card-content p {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.7;
   }
   
-  .process-number-slider {
-    width: 150px;
-    height: 150px;
-    right: 20px;
-    top: 20px;
-  }
-  
   .process-big-number {
-    font-size: 160px;
-  }
-  
-  .progress-circle {
-    width: 54px;
-    height: 54px;
-    min-width: 54px;
-    font-size: 15px;
+    font-size: 140px;
   }
 }
 
 /* =======================================================
-   MOBILE
+   MOBILE SMARTPHONES (SM) - FULL PERFORMANCE FIXES
 ======================================================= */
 @media (max-width: 768px) {
-  .process-top {
-    margin-bottom: 40px;
-  }
-  
   .process-main-wrapper {
-    height: 300vh; /* Shorter scroll track for smaller phones */
+    height: 260vh; /* Shorter tracking track speeds up swipe response on mobile */
   }
   
+  /* FIXED: Changed 80vh to a responsive auto layout with compact safety constraints */
   .process-card {
-    height: 80vh; /* Taller relative to the screen to fit text */
-    border-radius: 28px;
-    padding: 30px 20px;
+    width: 100%;
+    height: auto;
+    min-height: 440px; 
+    max-height: 65dvh; 
+    border-radius: 24px;
+    padding: 24px 20px;
   }
   
   .process-content-slider {
-    min-height: 250px; /* Extra room for text wrapping */
+    min-height: 160px; 
+    flex: 1;
   }
 
-  /* Shorten slide distance to prevent horizontal overflow */
-  .process-card-content.prev { transform: translateX(-20px); }
-  .process-card-content.next { transform: translateX(20px); }
+  .process-card-content.prev { transform: translateX(-15px); }
+  .process-card-content.next { transform: translateX(15px); }
 
   .process-badge {
     font-size: 11px;
-    padding: 8px 16px;
-    margin-bottom: 20px;
+    padding: 6px 14px;
+    margin-bottom: 14px;
   }
   
+  /* Compact font sizing eliminates scrolling out of bounds */
   .process-card-content h3 {
-    font-size: 40px;
-    letter-spacing: -1px;
-    margin-bottom: 16px;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
   }
   
   .process-card-content p {
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 100%;
   }
 
-  .process-number-slider {
-    right: 10px;
-    top: 10px;
-  }
-  
+  /* FIXED: Hides the massive overlapping absolute background numbers entirely on mobile viewports */
+  .process-number-slider,
   .process-big-number {
-    font-size: 110px;
+    display: none !important;
   }
   
+  /* Compact pagination timeline layout */
   .process-progress-wrapper {
-    margin-top: auto; /* Pushes progress bar to the very bottom */
-    overflow-x: auto;
-    padding-bottom: 10px;
+    margin-top: 20px;
+    padding-bottom: 0;
   }
   
   .progress-circle {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    font-size: 14px;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 13px;
   }
   
   .progress-line {
-    margin: 0 8px;
-    min-width: 30px;
+    margin: 0 6px;
+    height: 2px;
   }
 }

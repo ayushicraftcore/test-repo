@@ -48,7 +48,8 @@ function Process() {
       } else if (scrolled > maxScroll) {
         setActiveStep(steps.length - 1);
       } else {
-        const progress = scrolled / maxScroll;
+        // FIXED: Added absolute boundary clamping to prevent fast-scroll edge glitches
+        const progress = Math.max(0, Math.min(1, scrolled / maxScroll));
         const currentStep = Math.min(
           steps.length - 1,
           Math.floor(progress * steps.length)

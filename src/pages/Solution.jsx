@@ -46,12 +46,11 @@ function Solution() {
   const featureBlocksRef = useRef([]);
 
   useEffect(() => {
-    if (window.innerWidth <= 1100) return;
-
+    // FIXED: Unlocked tracking capabilities globally so scrolling fires correctly on mobile screens
     const observerOptions = {
       root: null,
-      rootMargin: "-35% 0px -35% 0px",
-      threshold: 0.15
+      rootMargin: "-45% 0px -45% 0px", // Formulates a precise center-axis tracking tripwire line
+      threshold: 0
     };
 
     const observerCallback = (entries) => {
@@ -77,9 +76,9 @@ function Solution() {
     <div className="solution-page">
       <div className="container">
         
-        {/* CINEMATIC VIDEO HERO - Fixed: Reveal animation removed for instant load */}
+        {/* HERO SECTION */}
         <header className="solution-hero">
-           <span className="section-tag">SOLUTION WE PROVIDE</span>
+          <span className="section-tag">SOLUTION WE PROVIDE</span>
           <h1 className="solution-hero-title">
             Innovative Technology Solutions <br />
             <span className="gradient-text">for Every Industry</span>
@@ -110,7 +109,7 @@ function Solution() {
         <section className="product-tour-container">
           <div className="solution-split-wrapper">
             
-            {/* LEFT STICKY HUD WORKSTATION SHELL */}
+            {/* LEFT SIDE: STICKY INTERFACE CONSOLE DESK */}
             <div className="tour-visual-sticky">
               <div className="tour-mockup-frame">
                 
@@ -124,12 +123,12 @@ function Solution() {
 
                 {/* Dashboard Screenshot Core Area */}
                 <div className="mockup-image-canvas">
+                  {/* FIXED: Removed state key layout recreation limits to stabilize the DOM wrapper node */}
                   <img 
-                    key={`feat-img-${activeFeature}`}
                     src={projectFeatures[activeFeature].image} 
                     alt="Ecosystem Interface Feature" 
                     className="tour-mockup-image"
-                    loading="lazy"
+                    loading="eager" // Guarantees instant browser rendering compilation layouts
                     decoding="async"
                   />
                   <div className="tour-mockup-overlay" />

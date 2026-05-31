@@ -1,7 +1,7 @@
 import "./Services.css";
 import { useEffect, useRef, useState } from "react";
 import { FiCheck } from "react-icons/fi";
-import { useNavigate } from "react-router-dom"; // 1. Imported for seamless page routing
+import { useNavigate } from "react-router-dom"; 
 
 const servicesData = [
   {
@@ -49,17 +49,16 @@ const servicesData = [
 function Services() {
   const [activeService, setActiveService] = useState(0);
   const cardsRef = useRef([]);
-  const navigate = useNavigate(); // 2. Initialized navigation function
+  const navigate = useNavigate(); 
 
   useEffect(() => {
-    // Desktop scroll-tracking optimized via modern Intersection Observers
-    if (window.innerWidth <= 1100) return;
-
+    // OPTIMIZATION 1: THE DEAD-CENTER TRIGGER LINE
+    // This shrinks the trigger area to a crisp horizontal line near the center of the screen (45% from top).
+    // The moment a card crosses this invisible line, it swaps instantly with zero extra math loops.
     const observerOptions = {
       root: null,
-      // Creates a target zone right in the middle 30% of the screen
-      rootMargin: "-35% 0px -35% 0px",
-      threshold: 0.2,
+      rootMargin: "-45% 0px -54% 0px", 
+      threshold: 0, // Single precise checkpoint execution
     };
 
     const observerCallback = (entries) => {
@@ -67,6 +66,7 @@ function Services() {
         if (entry.isIntersecting) {
           const index = cardsRef.current.indexOf(entry.target);
           if (index !== -1) {
+            // Only update the state if it's a completely different card to prevent render loops
             setActiveService(index);
           }
         }
@@ -99,15 +99,17 @@ function Services() {
         {/* WRAPPER */}
         <div className="services-wrapper">
           
-          {/* LEFT SIDE (Sticky Image) */}
+          {/* LEFT SIDE (Sticky Image Preview) */}
           <div className="services-left">
             <div className="service-preview-card">
+              {/* OPTIMIZATION 2: STABLE IMAGE NODE */}
+              {/* Removed the 'key' attribute. Now the DOM element stays alive, and only the src swaps, */}
+              {/* allowing hardware acceleration to render the layout with absolute fluidity. */}
               <img
-                key={activeService}
                 src={servicesData[activeService].image}
                 alt="service"
                 className="service-preview-image"
-                loading="lazy"
+                loading="eager" // Forces asset priority so it's always ready
                 decoding="async"
               />
               <div className="service-preview-overlay"></div>
@@ -132,7 +134,7 @@ function Services() {
             </div>
           </div>
 
-          {/* RIGHT SIDE (Scrolling Cards) */}
+          {/* RIGHT SIDE (Scrolling Cards List) */}
           <div className="services-right">
             {servicesData.map((service, index) => (
               <div
@@ -140,9 +142,6 @@ function Services() {
                 ref={(el) => (cardsRef.current[index] = el)}
                 className={`service-item ${activeService === index ? "active" : ""}`}
                 onClick={() => setActiveService(index)}
-                onMouseEnter={() => {
-                  if (window.innerWidth > 1100) setActiveService(index);
-                }}
               >
                 <span className="service-small-title">
                   {service.smallTitle}
@@ -156,7 +155,6 @@ function Services() {
 
         {/* BUTTON */}
         <div className="services-button-wrap">
-          {/* 3. Added click action link to route to the main service section view */}
           <button className="primary-btn" onClick={() => navigate("/service")}>
             VIEW ALL SERVICES
           </button>

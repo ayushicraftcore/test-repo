@@ -67,13 +67,13 @@ body {
   overflow-x: hidden;
   color: var(--clr-ink);
   position: relative;
-  /* Custom cursor */
-  cursor: none;
+  /* FIXED: Restored default system cursor to prevent background disappearing bugs */
+  cursor: auto;
 }
 
-/* Restore default cursor on interactive elements */
-a, button, input, textarea, select, label, [role="button"] {
-  cursor: none;
+/* FIXED: Re-enforced crisp native hand indicators on all interaction modules */
+a, button, input, textarea, select, label, [role="button"], .service-deep-card, .service-item {
+  cursor: pointer;
 }
 
 
@@ -113,7 +113,6 @@ a {
 button {
   border: none;
   outline: none;
-  cursor: none;
   font-family: inherit;
 }
 
@@ -340,13 +339,15 @@ img {
 
 
 /* =======================================================
-   CUSTOM CURSOR  (IT-brand gamified feel)
+   CUSTOM CURSOR
 ======================================================= */
 .custom-cursor {
   position: fixed;
   pointer-events: none;
   z-index: 99999;
-  mix-blend-mode: multiply;
+  /* FIXED: Changed multiply to difference so the custom node circle turns white */
+  /* on dark mode layers and remains 100% visible across all sections */
+  mix-blend-mode: difference;
   transition: opacity 0.3s ease;
 }
 
@@ -385,7 +386,7 @@ body.cursor-hover .cursor-ring {
 
 
 /* =======================================================
-   SCROLL PROGRESS BAR  ("Level Progress")
+   SCROLL PROGRESS BAR 
 ======================================================= */
 .scroll-progress-bar {
   position: fixed;
@@ -416,7 +417,7 @@ body.cursor-hover .cursor-ring {
 
 
 /* =======================================================
-   SCROLL REVEAL  (fade + lift — section entry)
+   SCROLL REVEAL 
 ======================================================= */
 .reveal {
   opacity: 0;
@@ -447,7 +448,7 @@ body.cursor-hover .cursor-ring {
 
 
 /* =======================================================
-   CARD HOVER — gamified lift + glow
+   CARD HOVER
 ======================================================= */
 .card-hover {
   transition: transform 0.35s var(--ease-bounce), box-shadow 0.35s ease;
@@ -466,7 +467,7 @@ body.cursor-hover .cursor-ring {
 
 
 /* =======================================================
-   STAT COUNTER  (number pop-in animation)
+   STAT COUNTER 
 ======================================================= */
 .stat-number {
   display: inline-block;
@@ -484,7 +485,7 @@ body.cursor-hover .cursor-ring {
 
 
 /* =======================================================
-   GRADIENT TEXT  (utility)
+   GRADIENT TEXT 
 ======================================================= */
 .gradient-text {
   background: var(--grad-primary);
@@ -495,7 +496,7 @@ body.cursor-hover .cursor-ring {
 
 
 /* =======================================================
-   ICON BADGE  (service / tech icon wrapper)
+   ICON BADGE 
 ======================================================= */
 .icon-badge {
   width: 56px;
@@ -523,7 +524,7 @@ body.cursor-hover .cursor-ring {
 
 
 /* =======================================================
-   NOTIFICATION / TOAST  (micro-reward feedback)
+   NOTIFICATION / TOAST 
 ======================================================= */
 .toast-container {
   position: fixed;
@@ -581,7 +582,7 @@ body.cursor-hover .cursor-ring {
 
 
 /* =======================================================
-   FLOATING PARTICLES  (subtle background tech feel)
+   FLOATING PARTICLES
 ======================================================= */
 .particle {
   position: absolute;
@@ -618,6 +619,8 @@ body.cursor-hover .cursor-ring {
   border-radius: 50%;
   filter: blur(140px);
   opacity: 0.55;
+  /* FIXED: Stops large background glow vectors from blocking cursor event triggers */
+  pointer-events: none !important;
 }
 
 .blur-purple {
@@ -643,6 +646,7 @@ body.cursor-hover .cursor-ring {
   border-radius: 50%;
   filter: blur(90px);
   opacity: 0.18;
+  pointer-events: none !important;
 }
 
 .orb-1 {
@@ -675,6 +679,7 @@ body.cursor-hover .cursor-ring {
     linear-gradient(90deg, rgba(0, 0, 0, 0.022) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+  pointer-events: none !important;
 }
 
 .scanline {
@@ -705,11 +710,12 @@ body.cursor-hover .cursor-ring {
   opacity: 0.03;
   background-image: radial-gradient(#000 0.5px, transparent 0.5px);
   background-size: 6px 6px;
+  pointer-events: none !important;
 }
 
 
 /* =======================================================
-   SECTION  (z-index)
+   SECTION 
 ======================================================= */
 section {
   position: relative;
