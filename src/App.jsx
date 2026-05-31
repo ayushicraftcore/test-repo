@@ -286,7 +286,7 @@ function App() {
       {/* GLOBAL FOOTER CLOSURES WITH CONDITIONAL CTA EXCLUSION */}
       {!isBookingPage && <CTA />}
       <Footer />
-
+    
       {/* TOAST SYSTEM CONTAINER */}
       <div className="toast-container">
         {toasts.map((t) => (
