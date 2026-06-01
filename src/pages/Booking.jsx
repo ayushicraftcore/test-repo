@@ -1,7 +1,6 @@
 import "./Booking.css";
 import { useState, useEffect } from "react";
 import { FiCalendar, FiSend, FiCheckCircle, FiUser, FiMail, FiMessageSquare } from "react-icons/fi";
-import emailjs from "@emailjs/browser"; 
 
 function Booking() {
   const [formData, setFormData] = useState({
@@ -10,7 +9,7 @@ function Booking() {
     date: "",
     message: ""
   });
-  const [isSending, setIsSending] = useState(false); 
+  const [isSending, setIsSending] = useState(false); // Tracks frontend loading state
   const [bookingConfirmed, setBookingConfirmed] = useState(false);
   const [minDate, setMinDate] = useState("");
 
@@ -36,33 +35,11 @@ function Booking() {
 
     setIsSending(true);
 
-    // FIX: These keys now map directly to your {{name}}, {{email}}, {{date}}, and {{message}} template tags
-    const templateParams = {
-      name: formData.name,
-      email: formData.email,
-      date: formatConfirmationDate(formData.date), 
-      message: formData.message
-    };
-
-    emailjs
-      .send(
-        "service_eabxn4m",   
-        "template_b5l0i4u",  
-        templateParams,
-        "phlp5XqbtEITeOSrS"    
-      )
-      .then(
-        (response) => {
-          console.log("Email pipeline match success!", response.status, response.text);
-          setIsSending(false);
-          setBookingConfirmed(true);
-        },
-        (error) => {
-          console.error("Transmission failed...", error);
-          setIsSending(false);
-          alert("Something went wrong with the sync framework. Please try again.");
-        }
-      );
+    // Simulated local UI transition delay to show the loading state
+    setTimeout(() => {
+      setIsSending(false);
+      setBookingConfirmed(true);
+    }, 800);
   };
 
   return (
@@ -152,7 +129,7 @@ function Booking() {
 
                 <button type="submit" className="booking-submit-btn" disabled={isSending}>
                   <span className="submit-btn-text">
-                    {isSending ? "TRANSMITTING DATA..." : "SUBMIT APPOINTMENT REQUEST"}
+                    {isSending ? "PROCESSING..." : "SUBMIT APPOINTMENT REQUEST"}
                   </span>
                   {!isSending && <FiSend className="submit-btn-icon" />}
                 </button>

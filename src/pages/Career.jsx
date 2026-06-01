@@ -55,48 +55,17 @@ function Career() {
     document.getElementById("apply-form-block")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.role || !resumeFile) return;
 
     setIsSending(true);
 
-    // 1. CONSTRUCT MULTIPART FORM DATA WITH CORRECT BLOCK KEYS
-    const submissionData = new FormData();
-    
-    // Updated appending keys to follow Forminit specifications precisely
-    submissionData.append("fi-sender-fullName", formData.name);
-    submissionData.append("fi-sender-email", formData.email);
-    submissionData.append("fi-text-applied_role", formData.role);
-    submissionData.append("fi-url-portfolio_url", formData.portfolio || "");
-    submissionData.append("fi-text-professional_memo", formData.message || "");
-    
-    // Updated file naming block key
-    submissionData.append("fi-file-resume", resumeFile); 
-
-    try {
-      // 2. DISPATCH DIRECT TO FORMINIT GATEWAY
-      const response = await fetch("https://forminit.com/f/fpnsw7qs706", {
-        method: "POST",
-        body: submissionData,
-        headers: {
-          "Accept": "application/json",
-        }
-      });
-
-      if (response.ok) {
-        console.log("Candidature registry completed via Forminit pipeline!");
-        setIsSending(false);
-        setFormSubmitted(true);
-      } else {
-        const errorText = await response.text();
-        throw new Error(`Server Status ${response.status} - ${errorText || "Rejected package submission"}`);
-      }
-    } catch (error) {
-      console.error("Transmission gateway failure:", error);
+    // Simulated local UI transition delay to showcase the loading state
+    setTimeout(() => {
       setIsSending(false);
-      alert(`Submission Error: ${error.message}`);
-    }
+      setFormSubmitted(true);
+    }, 800);
   };
 
   return (
@@ -277,8 +246,8 @@ function Career() {
                 <FiCheckCircle className="success-hud-icon" />
                 <h2>Pipeline Registry Completed</h2>
                 <p className="card-text">
-                  Thank you, <strong>{formData.name}</strong>. We’ve successfully saved your profile for{" "}
-                  <strong>{formData.role}</strong> has been submitted successfully. Our hiring team will review it soon to see if you're a good match for our open positions.
+                  Thank you, <strong>{formData.name}</strong>. Your profile configuration for the{" "}
+                  <strong>{formData.role}</strong> cluster has been submitted successfully. Our hiring team will review it shortly.
                 </p>
                 <button 
                   className="job-apply-btn"

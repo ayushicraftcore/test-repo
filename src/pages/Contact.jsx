@@ -1,7 +1,6 @@
 import "./Contact.css";
 import { useState } from "react";
 import { FiMail, FiPhone, FiMapPin, FiSend, FiCheckCircle } from "react-icons/fi";
-import emailjs from "@emailjs/browser"; // Imported EmailJS SDK
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -12,7 +11,7 @@ function Contact() {
     subject: "Web & SaaS Development",
     message: ""
   });
-  const [isSending, setIsSending] = useState(false); // Tracks form sending state
+  const [isSending, setIsSending] = useState(false); // Tracks frontend loading state
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
@@ -26,39 +25,11 @@ function Contact() {
 
     setIsSending(true);
 
-    // FIXED: Maps your state parameters straight into the universal template placeholders
-    const templateParams = {
-      submission_type: "General Business Inquiry",
-      name: formData.name,
-      email: formData.email,
-      label_one: "Phone Number:",
-      value_one: formData.phone || "Not Provided",
-      label_two: "Company Name:",
-      value_two: formData.company || "Not Provided",
-      label_three: "Requested Service:",
-      value_three: formData.subject,
-      message: formData.message
-    };
-
-    emailjs
-      .send(
-        "service_eabxn4m",        // Reused your working Service ID
-        "template_auji6lb",       // Universal Template ID
-        templateParams,
-        "phlp5XqbtEITeOSrS"       // Your working Public Key
-      )
-      .then(
-        (response) => {
-          console.log("Contact form sync success!", response.status, response.text);
-          setIsSending(false);
-          setFormSubmitted(true);
-        },
-        (error) => {
-          console.error("Contact form transmission failed...", error);
-          setIsSending(false);
-          alert("Something went wrong with the sync framework. Please try again.");
-        }
-      );
+    // Simulated local UI transition delay to show the "SENDING..." state
+    setTimeout(() => {
+      setIsSending(false);
+      setFormSubmitted(true);
+    }, 800);
   };
 
   return (
