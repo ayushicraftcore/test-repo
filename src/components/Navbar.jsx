@@ -14,12 +14,21 @@ function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = ["Home", "Service", "Solution", "About", "Blog", "Career", "Contact"];
+  // Map explicitly to match your exact App.jsx route casing definitions perfectly
+  const navItems = [
+    { name: "Home", path: "/home" },
+    { name: "Service", path: "/service" },
+    { name: "Solution", path: "/Solution" },
+    { name: "About", path: "/About" },
+    { name: "Blog", path: "/Blog" },
+    { name: "Career", path: "/Career" },
+    { name: "Contact", path: "/Contact" }
+  ];
 
   return (
     <header className={`navbar${scrolled ? " navbar--scrolled" : ""}`}>
 
-      {/* LOGO */}
+      {/* LOGO — Takes users back to the landing entry screen */}
       <div className="navbar-logo">
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none' }}>
           <img src={logo} alt="Logo" />
@@ -32,18 +41,17 @@ function Navbar() {
 
       {/* NAV LINKS */}
       <nav className={menuOpen ? "nav-links active" : "nav-links"}>
-        {links.map((link) => {
-          const routePath = link === "Home" ? "/" : `/${link.toLowerCase()}`;
-          const isActive = location.pathname === routePath;
+        {navItems.map((item) => {
+          const isActive = location.pathname === item.path;
 
           return (
             <Link
-              key={link}
-              to={routePath}
+              key={item.name}
+              to={item.path}
               className={isActive ? "nav-link--active" : ""}
               onClick={() => setMenuOpen(false)}
             >
-              {link}
+              {item.name}
               <span className="nav-underline" />
             </Link>
           );

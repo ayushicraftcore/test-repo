@@ -1,10 +1,12 @@
 import "./Models.css";
 import { useEffect, useRef } from "react";
 import { FaCheckCircle } from "react-icons/fa";
+import { FiUsers, FiTarget, FiTrendingUp, FiArrowRight } from "react-icons/fi";
 
 const modelsData = [
   {
     title: "DEDICATED TEAM",
+    icon: <FiUsers />,
     bestFor: "Long-term projects requiring a dedicated engineering team",
     billing: "Monthly Retainer",
     points: [
@@ -16,6 +18,7 @@ const modelsData = [
   },
   {
     title: "PROJECT-BASED DELIVERY",
+    icon: <FiTarget />,
     bestFor: "Fixed-scope projects with defined requirements and timelines",
     billing: "Milestone-Based Payments",
     points: [
@@ -27,6 +30,7 @@ const modelsData = [
   },
   {
     title: "CTO-AS-A-SERVICE",
+    icon: <FiTrendingUp />,
     bestFor: "Startups and businesses needing strategic technical leadership",
     billing: "Hourly / Weekly Advisory",
     points: [
@@ -70,7 +74,6 @@ function Models() {
     return "reveal-right";
   };
 
-  // DYNAMIC WHATSAPP LINK GENERATOR
   const getWhatsappUrl = (modelTitle) => {
     const defaultText = `Hi Craftcore! I'd like to discuss a project regarding the ${modelTitle} model.`;
     return `https://wa.me/919898711229?text=${encodeURIComponent(defaultText)}`;
@@ -78,6 +81,7 @@ function Models() {
 
   return (
     <section className="models section-space">
+      
       {/* HEADER */}
       <div className="models-header">
         <span className="section-tag">WORK WITH US</span>
@@ -93,74 +97,59 @@ function Models() {
       <div className="models-grid">
         {modelsData.map((model, index) => (
           
-          /* ANIMATION WRAPPER WITH DYNAMIC DIRECTION */
           <div
             className={`model-card-wrapper ${getRevealDirection(index)}`}
             ref={(el) => (cardsRef.current[index] = el)}
             key={index}
-            style={{ transitionDelay: `${index * 0.15}s` }}
+            style={{ transitionDelay: `${index * 0.12}s` }}
           >
-            {/* CARD CONTENT */}
-            <div
-              className={`model-card ${
-                model.recommended ? "recommended-card" : ""
-              }`}
-            >
-              {/* RECOMMENDED TAG */}
+            <div className={`model-card ${model.recommended ? "recommended-card" : ""}`}>
+              
               {model.recommended && (
                 <div className="recommended-badge">RECOMMENDED</div>
               )}
 
-              {/* DEFAULT VIEW */}
-              <div className="model-default">
-                <h3 className="model-title">{model.title}</h3>
+              {/* UNIFIED INTERACTIVE GRAPHIC CORE */}
+              <div className="model-card-body">
                 
-                {/* CHANGED: Swapped button for a styled external link anchor */}
-                <a 
-                  href={getWhatsappUrl(model.title)}
-                  className="primary-btn model-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
-                >
-                  Discuss This Model
-                </a>
-              </div>
-
-              {/* HOVER OVERLAY */}
-              <div className="model-overlay">
-                <h3 className="model-title">{model.title}</h3>
-
-                <div className="model-info">
-                  <p>
-                    <span>Best for:</span>
-                    {model.bestFor}
-                  </p>
-                  <p>
-                    <span>Billing:</span>
-                    {model.billing}
-                  </p>
+                {/* Visual Anchor Area before hover */}
+                <div className="model-visual-anchor">
+                  <div className="model-icon-shield">
+                    {model.icon}
+                  </div>
+                  <h3 className="model-title">{model.title}</h3>
                 </div>
 
-                <ul className="model-points">
-                  {model.points.map((point, i) => (
-                    <li key={i}>
-                      <FaCheckCircle className="check-icon" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+                {/* Smooth Morphing Details Grid */}
+                <div className="model-interactive-details">
+                  <div className="model-info">
+                    <p><span>Best for:</span> {model.bestFor}</p>
+                    <p><span>Billing:</span> {model.billing}</p>
+                  </div>
 
-                {/* CHANGED: Swapped button for a styled external link anchor inside hover layout */}
-                <a 
-                  href={getWhatsappUrl(model.title)}
-                  className="primary-btn model-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
-                >
-                  Discuss This Model
-                </a>
+                  <ul className="model-points">
+                    {model.points.map((point, i) => (
+                      <li key={i} style={{ "--stagger-index": i }}>
+                        <FaCheckCircle className="check-icon" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Premium Action Trigger Button */}
+                <div className="model-action-area">
+                  <a 
+                    href={getWhatsappUrl(model.title)}
+                    className="primary-btn model-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="btn-text-string">Discuss This Model</span>
+                    <FiArrowRight className="btn-arrow-icon" />
+                  </a>
+                </div>
+
               </div>
             </div>
           </div>

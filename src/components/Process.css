@@ -95,49 +95,57 @@
   min-height: 220px;
 }
 
-.process-number-slider {
-  position: absolute;
-  right: 40px;
-  top: 20px;
-  width: 300px;
-  height: 260px;
-  pointer-events: none;
-}
-
 /* =======================================================
-   SLIDE ANIMATION LOGIC (Content & Big Number)
+   SLIDE ANIMATION LOGIC
 ======================================================= */
-.process-card-content,
-.process-big-number {
+.process-card-content {
   position: absolute;
   opacity: 0;
   visibility: hidden;
-  /* OPTIMIZATION: will-change gives browsers a pre-render notice for high-speed tracking frame alignment */
   will-change: transform, opacity;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%; /* FIXED: Stretches full-width so children can hit the absolute right edge */
+  z-index: 2;
 }
 
 .process-card-content.prev { transform: translateX(-40px); }
-.process-big-number.prev { transform: translateX(-30px); }
-
 .process-card-content.next { transform: translateX(40px); }
-.process-big-number.next { transform: translateX(30px); }
 
-.process-card-content.active,
-.process-big-number.active {
+.process-card-content.active {
   transform: translateX(0);
   opacity: 1;
   visibility: visible;
 }
 
 /* =======================================================
-   CONTENT STYLING
+   CONTENT STYLING - ABSOLUTE RIGHT SIDE ANCHORING
 ======================================================= */
-.process-card-content {
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-width: 700px;
+/* FIXED: Hits the absolute right boundary of the padded card chassis container */
+.process-bg-right-icon {
+  position: absolute;
+  right: 0; 
+  top: -10px;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.035);
+  z-index: -1;
+  user-select: none;
+  pointer-events: none;
+}
+
+.process-bg-right-icon svg {
+  width: 250px;
+  height: 250px;
+}
+
+.process-header-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  position: relative;
   z-index: 2;
 }
 
@@ -152,16 +160,19 @@
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 1px;
-  margin-bottom: 24px;
   backdrop-filter: blur(10px);
 }
 
+/* FIXED: Moved the width protections here to safely secure typography boundaries */
 .process-card-content h3 {
   font-size: 72px;
   line-height: 1;
   letter-spacing: -2px;
   color: white;
   margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+  max-width: 620px; 
 }
 
 .process-card-content p {
@@ -169,20 +180,12 @@
   font-size: 18px;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.72);
-}
-
-.process-big-number {
-  right: 0;
-  top: 0;
-  font-size: 240px;
-  font-weight: 800;
-  line-height: 1;
-  color: rgba(255, 255, 255, 0.04);
-  user-select: none;
+  position: relative;
+  z-index: 2;
 }
 
 /* =======================================================
-   PROGRESS WRAPPER
+   PROGRESS BAR
 ======================================================= */
 .process-progress-wrapper {
   display: flex;
@@ -263,30 +266,37 @@
   .process-content-slider {
     min-height: 200px;
   }
+
+  .process-bg-right-icon {
+    right: 0;
+    top: -10px;
+  }
+
+  .process-bg-right-icon svg {
+    width: 170px;
+    height: 170px;
+  }
   
   .process-card-content h3 {
     font-size: 48px;
+    max-width: 440px;
   }
   
   .process-card-content p {
     font-size: 16px;
     line-height: 1.7;
-  }
-  
-  .process-big-number {
-    font-size: 140px;
+    max-width: 440px;
   }
 }
 
 /* =======================================================
-   MOBILE SMARTPHONES (SM) - FULL PERFORMANCE FIXES
+   MOBILE SMARTPHONES (SM)
 ======================================================= */
 @media (max-width: 768px) {
   .process-main-wrapper {
-    height: 260vh; /* Shorter tracking track speeds up swipe response on mobile */
+    height: 260vh; 
   }
   
-  /* FIXED: Changed 80vh to a responsive auto layout with compact safety constraints */
   .process-card {
     width: 100%;
     height: auto;
@@ -301,20 +311,28 @@
     flex: 1;
   }
 
+  /* Safe toggle parameters protect typography overlaps on smartphone nodes */
+  .process-bg-right-icon {
+    display: none !important;
+  }
+
+  .process-header-row {
+    margin-bottom: 16px;
+  }
+
   .process-card-content.prev { transform: translateX(-15px); }
   .process-card-content.next { transform: translateX(15px); }
 
   .process-badge {
     font-size: 11px;
     padding: 6px 14px;
-    margin-bottom: 14px;
   }
   
-  /* Compact font sizing eliminates scrolling out of bounds */
   .process-card-content h3 {
     font-size: 28px;
     letter-spacing: -0.5px;
     margin-bottom: 10px;
+    max-width: 100%;
   }
   
   .process-card-content p {
@@ -322,14 +340,7 @@
     line-height: 1.5;
     max-width: 100%;
   }
-
-  /* FIXED: Hides the massive overlapping absolute background numbers entirely on mobile viewports */
-  .process-number-slider,
-  .process-big-number {
-    display: none !important;
-  }
   
-  /* Compact pagination timeline layout */
   .process-progress-wrapper {
     margin-top: 20px;
     padding-bottom: 0;

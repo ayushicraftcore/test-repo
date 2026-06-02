@@ -1,30 +1,36 @@
 import "./Process.css";
 import { useEffect, useState, useRef } from "react";
+import { FiSearch, FiLayers, FiCode, FiCloud, FiTrendingUp } from "react-icons/fi";
 
 const steps = [
   {
     number: "01",
     title: "DISCOVER",
+    icon: <FiSearch />,
     description: "Understand your business goals, product vision and user expectations through deep research and strategic planning.",
   },
   {
     number: "02",
     title: "ARCHITECT",
+    icon: <FiLayers />,
     description: "Design scalable system architecture, seamless workflows and modern technical foundations for long-term growth.",
   },
   {
     number: "03",
     title: "DEVELOP",
+    icon: <FiCode />,
     description: "Build high-performance digital products using agile sprints, scalable codebases and modern technologies.",
   },
   {
     number: "04",
     title: "DEPLOY",
+    icon: <FiCloud />,
     description: "Launch secure cloud-native applications with CI/CD pipelines, monitoring and optimized infrastructure.",
   },
   {
     number: "05",
     title: "SCALE",
+    icon: <FiTrendingUp />,
     description: "Continuously optimize performance, workflows and infrastructure to support future business expansion.",
   },
 ];
@@ -48,7 +54,6 @@ function Process() {
       } else if (scrolled > maxScroll) {
         setActiveStep(steps.length - 1);
       } else {
-        // FIXED: Added absolute boundary clamping to prevent fast-scroll edge glitches
         const progress = Math.max(0, Math.min(1, scrolled / maxScroll));
         const currentStep = Math.min(
           steps.length - 1,
@@ -95,27 +100,20 @@ function Process() {
 
                   return (
                     <div key={`content-${index}`} className={`process-card-content ${positionClass}`}>
-                      <span className="process-badge">
-                        STEP {step.number}
-                      </span>
+                      
+                      {/* FIXED: Lock icon to the absolute right side of the card layout */}
+                      <div className="process-bg-right-icon">
+                        {step.icon}
+                      </div>
+
+                      <div className="process-header-row">
+                        <span className="process-badge">
+                          STEP {step.number}
+                        </span>
+                      </div>
+
                       <h3>{step.title}</h3>
                       <p>{step.description}</p>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* BIG NUMBER SLIDER */}
-              <div className="process-number-slider">
-                {steps.map((step, index) => {
-                  let positionClass = "";
-                  if (index === activeStep) positionClass = "active";
-                  else if (index < activeStep) positionClass = "prev";
-                  else positionClass = "next";
-
-                  return (
-                    <div key={`num-${index}`} className={`process-big-number ${positionClass}`}>
-                      {step.number}
                     </div>
                   );
                 })}
