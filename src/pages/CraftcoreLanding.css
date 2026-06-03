@@ -275,8 +275,8 @@
   width: 52px;
   height: 52px;
   border-radius: 16px;
-  background: #0f112a;
-  color: var(--clr-purple-light);
+  background: linear-gradient(135deg, var(--clr-purple), var(--clr-blue));
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -288,8 +288,8 @@
 .ccg-single-row-vertical-card:hover .tab-brand-icon-shield,
 .ccg-single-row-vertical-card.card-node-active .tab-brand-icon-shield {
   transform: scale(1.06) rotate(-4deg);
-  color: var(--clr-bg);
-  background: var(--grad-primary);
+  color: linear-gradient(135deg, var(--clr-purple), var(--clr-blue));
+  background: white;
   box-shadow: 0 6px 16px rgba(124, 58, 237, 0.2);
 }
 
@@ -445,9 +445,9 @@
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: #0f112a; 
+  background:linear-gradient(135deg, var(--clr-purple), var(--clr-blue)); 
   border: 1px solid rgba(6, 182, 212, 0.15);
-  color: var(--clr-cyan, #06b6d4);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -458,8 +458,8 @@
 
 .ccg-highlight-console-card:hover .highlight-icon-center-shield {
   transform: scale(1.1) rotate(-6deg);
-  background: var(--clr-cyan);
-  color: #ffffff;
+  background: white;
+  color: linear-gradient(135deg, var(--clr-purple), var(--clr-blue));
   box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
 }
 
@@ -526,15 +526,15 @@
 .footer-brand {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto 50px;
+  margin: 0 auto 20px;
   position: relative;
   z-index: 2;
 }
 
 .footer-logo-wrap {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 150px;
   margin: 0 auto 22px;
   display: flex;
   align-items: center;
@@ -555,8 +555,8 @@
 }
 
 .footer-logo {
-  width: 64px;
-  height: 64px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   position: relative;
   z-index: 2;

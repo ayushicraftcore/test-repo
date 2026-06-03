@@ -248,7 +248,9 @@ function CraftcoreLanding() {
                   <div className="single-card-action-footer">
                     <button 
                       className="primary-btn single-card-action-btn"
-                      onClick={() => navigate(vertical.path)}
+                      onClick={() => {
+                        navigate(vertical.path);
+                      }}
                     >
                       <span>Explore</span>
                       <FiArrowRight className="action-btn-arrow-icon" />
@@ -308,18 +310,9 @@ function CraftcoreLanding() {
 
             <p className="footer-description">
               Craftcore operates at the intersection of technology, manufacturing, and growth. We build 
-              scalable systems, physical products, and market expansion engines — empowering startups and 
+              scalable systems, physical products and market expansion engines — empowering startups and 
               enterprises to move faster.
             </p>
-          </div>
-
-          <div className="footer-cta-capsule-card">
-            <div className="cta-capsule-arrow-icon grid-overlay" />
-            <p className="cta-capsule-message-string">Not sure where to start? Explore all Craftcore capabilities.</p>
-            <button className="primary-btn cta-capsule-trigger" onClick={() => handleScrollToSection("group-verticals-panel")}>
-              <span>View All Services</span>
-              <FiArrowRight className="cta-capsule-arrow-icon" />
-            </button>
           </div>
 
           {/* TWO CENTERED SYMMETRICAL COLUMNS WITH ROUTE REDIRECT CONTROLS */}
