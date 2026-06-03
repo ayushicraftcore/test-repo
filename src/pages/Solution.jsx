@@ -44,12 +44,14 @@ const projectFeatures = [
 function Solution() {
   const [activeFeature, setActiveFeature] = useState(0);
   const featureBlocksRef = useRef([]);
+  const stickyPreviewRef = useRef(null);
 
   useEffect(() => {
-    // FIXED: Unlocked tracking capabilities globally so scrolling fires correctly on mobile screens
+    // Dynamic execution configuration setup rules
     const observerOptions = {
       root: null,
-      rootMargin: "-45% 0px -45% 0px", // Formulates a precise center-axis tracking tripwire line
+      // Uses a balanced center-focused trigger line across both mobile and desktop environments
+      rootMargin: window.innerWidth <= 1100 ? "-30% 0px -40% 0px" : "-45% 0px -45% 0px",
       threshold: 0
     };
 
@@ -71,6 +73,18 @@ function Solution() {
 
     return () => observer.disconnect();
   }, []);
+
+  const handleBlockSelection = (index) => {
+    setActiveFeature(index);
+    
+    // Smooth scroll positioning execution on mobile device clicks
+    if (window.innerWidth <= 1100 && featureBlocksRef.current[index]) {
+      featureBlocksRef.current[index].scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+  };
 
   return (
     <div className="solution-page">
@@ -110,7 +124,7 @@ function Solution() {
           <div className="solution-split-wrapper">
             
             {/* LEFT SIDE: STICKY INTERFACE CONSOLE DESK */}
-            <div className="tour-visual-sticky">
+            <div className="tour-visual-sticky" ref={stickyPreviewRef}>
               <div className="tour-mockup-frame">
                 
                 {/* Unified Studio Browser Header */}
@@ -123,12 +137,11 @@ function Solution() {
 
                 {/* Dashboard Screenshot Core Area */}
                 <div className="mockup-image-canvas">
-                  {/* FIXED: Removed state key layout recreation limits to stabilize the DOM wrapper node */}
                   <img 
                     src={projectFeatures[activeFeature].image} 
                     alt="Ecosystem Interface Feature" 
                     className="tour-mockup-image"
-                    loading="eager" // Guarantees instant browser rendering compilation layouts
+                    loading="eager"
                     decoding="async"
                   />
                   <div className="tour-mockup-overlay" />
@@ -179,7 +192,8 @@ function Solution() {
                 <div
                   key={idx}
                   ref={(el) => (featureBlocksRef.current[idx] = el)}
-                  className={`tour-timeline-block ${activeFeature === idx ? "active" : ""}`}
+                  className={`tour-timeline-block ${activeFeature === idx ? "active" : "inactive"}`}
+                  onClick={() => handleBlockSelection(idx)}
                 >
                   <div className="timeline-badge-row">
                     <div className="timeline-icon-box">{feat.icon}</div>

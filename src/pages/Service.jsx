@@ -117,32 +117,44 @@ function Service() {
   const cardsRef = useRef([]);
 
   useEffect(() => {
-    // 1. DUAL-PURPOSE VIEWPORT MONITORING ENGINE
-    // Shrinks tracking boundaries to a tight center window to trigger seamless state swaps
-    const observerOptions = {
-      root: null,
-      rootMargin: "-45% 0px -45% 0px", 
-      threshold: 0,
-    };
+    let ticking = false;
 
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const index = cardsRef.current.indexOf(entry.target);
-          if (index !== -1) {
-            setActiveService(index);
-          }
+    const handleScrollTracking = () => {
+      const isMobile = window.innerWidth <= 1100;
+      // Adjust center baseline target slightly lower on mobile due to the fixed sticky block area
+      const viewportCenter = isMobile ? window.innerHeight * 0.65 : window.innerHeight / 2;
+      
+      let closestIndex = 0;
+      let minDistance = Infinity;
+
+      cardsRef.current.forEach((card, index) => {
+        if (!card) return;
+
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(viewportCenter - cardCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
         }
       });
+
+      setActiveService(closestIndex);
+      ticking = false;
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(handleScrollTracking);
+        ticking = true;
+      }
+    };
 
-    cardsRef.current.forEach((card) => {
-      if (card) observer.observe(card);
-    });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    handleScrollTracking(); 
 
-    return () => observer.disconnect();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -171,8 +183,6 @@ function Service() {
               
               {/* Image Frame */}
               <div className="console-image-frame">
-                {/* 2. STABLE IMAGE COMPILATION CONTAINER */}
-                {/* Freeing this from node-key updates enables fluid, instant source switching on screens */}
                 <img
                   src={serviceDataExtended[activeService].image}
                   alt="Service Visualization"

@@ -98,7 +98,7 @@ function CraftcoreLanding() {
   useEffect(() => {
     const loopInterval = setInterval(() => {
       setActiveNode((prevNode) => (prevNode + 1) % verticalsData.length);
-    }, 4500);
+    }, 3000);
     return () => clearInterval(loopInterval);
   }, []);
 
