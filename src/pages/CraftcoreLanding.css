@@ -445,7 +445,7 @@
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background:linear-gradient(135deg, var(--clr-purple), var(--clr-blue)); 
+  background: linear-gradient(135deg, var(--clr-purple), var(--clr-blue)); 
   border: 1px solid rgba(6, 182, 212, 0.15);
   color: white;
   display: flex;
@@ -589,52 +589,6 @@
   margin: 0 auto;
 }
 
-.footer-cta-capsule-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--clr-border);
-  border-radius: 24px;
-  padding: 36px 44px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1040px;
-  margin: 0 auto 70px;
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-  z-index: 2;
-}
-
-.cta-capsule-message-string {
-  font-size: 16.5px;
-  font-weight: 700;
-  color: var(--clr-ink);
-  position: relative;
-  z-index: 2;
-}
-
-.cta-capsule-trigger {
-  position: relative;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  height: 46px;
-  padding: 0 24px;
-  border-radius: 12px;
-}
-
-.cta-capsule-arrow-icon {
-  font-size: 14px;
-  transition: transform 0.3s var(--ease-bounce);
-}
-
-.cta-capsule-trigger:hover .cta-capsule-arrow-icon {
-  transform: translateX(4px);
-}
-
 .footer-grid.elements-centered-footer-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
@@ -657,6 +611,8 @@
 
 .footer-column ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-column li {
@@ -672,6 +628,81 @@
   color: #7c3aed;
 }
 
+/* =======================================================
+   FIXED: ISOLATED SOCIALS LIST NODE ROW CONTROLLER
+======================================================= */
+.footer-column li.socials-display-row {
+  cursor: default !important;
+  margin-top: 24px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Completely voids generic parent translations and text color hijacking loops */
+.footer-column li.socials-display-row:hover {
+  transform: none !important;
+  color: inherit !important;
+}
+
+/* CLEAN LEFT-ALIGNED SOCIAL ICONS CONNECTIONS DECK */
+.footer-socials {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Stays locked to left bounds matching text cards layout */
+  gap: 14px;
+  width: 100%;
+}
+
+/* Highly specific hooks prevent interference from global links or outer lists */
+.footer .footer-socials .social-icon-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #475569 !important; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  text-decoration: none;
+}
+
+/* Shield vector components from parent color changes */
+.footer .footer-socials .social-icon-link svg {
+  color: inherit !important;
+  transition: none !important;
+}
+
+/* =======================================================
+   PREMIUM BUG-FREE SOCIAL INTERACTIVE HOVER EFFECTS
+======================================================= */
+.footer .footer-socials .social-icon-link:hover {
+  transform: translateY(-5px) scale(1.08) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+.footer .footer-socials .social-icon-link.linkedin-node:hover {
+  background: #0a66c2 !important;
+  border-color: #0a66c2 !important;
+  color: #ffffff !important;
+}
+
+.footer .footer-socials .social-icon-link.instagram-node:hover {
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7) !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+}
+
+.footer .footer-socials .social-icon-link.youtube-node:hover {
+  background: #ff0000 !important;
+  border-color: #ff0000 !important;
+  color: #ffffff !important;
+}
+
+/* ===================================
+   CONTACT
+=================================== */
 .footer-contact li {
   display: flex;
   align-items: center;
@@ -683,6 +714,9 @@
   min-width: 16px;
 }
 
+/* ===================================
+   BOTTOM
+=================================== */
 .footer-bottom {
   margin-top: 40px;
   padding-top: 18px;
@@ -692,15 +726,9 @@
   color: #666;
 }
 
-@keyframes pulseGlow {
-  0% { transform: scale(1); opacity: 0.7; }
-  50% { transform: scale(1.08); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.7; }
-}
-
-/* =======================================================
+/* ===================================
    RESPONSIVE DESIGN BREAKPOINTS OVERRIDES
-======================================================= */
+=================================== */
 @media (max-width: 992px) {
   .ccg-hero-grid {
     grid-template-columns: 1fr;
@@ -722,20 +750,12 @@
     margin: 0 auto;
   }
 
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .footer-title {
     font-size: 34px;
-  }
-
-  .footer-cta-capsule-card {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-    padding: 32px 24px;
-  }
-
-  .cta-capsule-trigger {
-    width: 100%;
-    justify-content: center;
   }
 }
 
@@ -815,4 +835,9 @@
   }
   .nav-btn-left { left: 8px; }
   .nav-btn-right { right: 8px; }
+  
+  /* Centers alignment exclusively on mobile smartphones layout configurations */
+  .footer-socials {
+    justify-content: center;
+  }
 }

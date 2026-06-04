@@ -1,24 +1,18 @@
 /* ===================================
-   FOOTER
+   FOOTER MASTER LAYOUT
 =================================== */
-
 .footer {
   position: relative;
-
   overflow: hidden;
-
   padding: 70px 0 24px;
 }
 
 /* ===================================
    TOP LINE
 =================================== */
-
 .footer-top-line {
   width: 100%;
-
   height: 1px;
-
   background: linear-gradient(
     90deg,
     transparent,
@@ -26,32 +20,24 @@
     #2563eb,
     transparent
   );
-
   margin-bottom: 50px;
 }
 
 /* ===================================
    LIGHT BLURS
 =================================== */
-
 .footer-blur {
   position: absolute;
-
   border-radius: 50%;
-
   filter: blur(90px);
-
   pointer-events: none;
-
   z-index: 0;
 }
 
 .footer-blur-1 {
   width: 180px;
   height: 180px;
-
   background: rgba(124, 58, 237, 0.08);
-
   top: 0;
   left: -80px;
 }
@@ -59,9 +45,7 @@
 .footer-blur-2 {
   width: 220px;
   height: 220px;
-
   background: rgba(37, 99, 235, 0.08);
-
   right: -80px;
   top: 40%;
 }
@@ -69,242 +53,216 @@
 /* ===================================
    BRAND
 =================================== */
-
 .footer-brand {
   text-align: center;
-
   max-width: 760px;
-
   margin: 0 auto 50px;
-
   position: relative;
-
   z-index: 2;
 }
 
 /* ===================================
    LOGO WRAP
 =================================== */
-
 .footer-logo-wrap {
   position: relative;
-
   width: 90px;
   height: 90px;
-
   margin: 0 auto 22px;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 }
 
 /* ===================================
    LOGO GLOW
 =================================== */
-
 .footer-logo-bg {
   position: absolute;
-
   inset: 0;
-
   border-radius: 24px;
-
   background: linear-gradient(
     135deg,
     rgba(124, 58, 237, 0.22),
     rgba(37, 99, 235, 0.22)
   );
-
   filter: blur(20px);
-
   animation: pulseGlow 4s ease-in-out infinite;
 }
 
 /* ===================================
    LOGO
 =================================== */
-
 .footer-logo {
   width: 64px;
   height: 64px;
-
   object-fit: contain;
-
   position: relative;
-
   z-index: 2;
-
   border-radius: 18px;
-
   background: white;
-
   padding: 8px;
-
-  box-shadow:
-    0 8px 20px rgba(124, 58, 237, 0.12);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.12);
 }
 
 /* ===================================
    TITLE
 =================================== */
-
 .footer-title {
   font-size: 42px;
-
   font-weight: 800;
-
   line-height: 1;
-
-  margin-bottom: 8px;
-
+  margin-bottom: 24px;
   background: linear-gradient(
     90deg,
     #7c3aed,
     #2563eb
   );
-
   background-clip: text;
-
   -webkit-background-clip: text;
-
   -webkit-text-fill-color: transparent;
+}
+
+/* =======================================================
+   CLEAN LEFT-ALIGNED SOCIAL ICONS CONNECTIONS DECK
+======================================================= */
+.footer-socials {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* FIXED: Shifted from center to left flush alignment bounds */
+  gap: 14px;
+  margin-top: 26px; /* Spaces it beautifully beneath your contact info lines */
+}
+
+.social-icon-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  text-decoration: none;
+}
+
+/* Premium native color filter state micro-transitions */
+.social-icon-link:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+}
+
+.social-icon-link.linkedin-node:hover {
+  background: #0a66c2;
+  border-color: #0a66c2;
+  color: #ffffff;
+}
+
+.social-icon-link.instagram-node:hover {
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.social-icon-link.youtube-node:hover {
+  background: #ff0000;
+  border-color: #ff0000;
+  color: #ffffff;
 }
 
 /* ===================================
    DESCRIPTION
 =================================== */
-
 .footer-description {
   font-size: 16px;
-
   line-height: 1.8;
-
   color: #555;
-
   max-width: 720px;
-
   margin: 0 auto;
 }
 
 /* ===================================
    GRID
 =================================== */
-
 .footer-grid {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 50px;
-
   position: relative;
-
   z-index: 2;
 }
 
 /* ===================================
    COLUMN
 =================================== */
-
 .footer-column h4 {
   font-size: 18px;
-
   font-weight: 700;
-
   margin-bottom: 18px;
-
   color: #111;
 }
 
 .footer-column ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-column li {
   margin-bottom: 14px;
-
   font-size: 15px;
-
   color: #333;
-
   transition: 0.3s ease;
-
   cursor: pointer;
 }
 
 .footer-column li:hover {
   transform: translateX(4px);
-
   color: #7c3aed;
 }
 
 /* ===================================
    CONTACT
 =================================== */
-
 .footer-contact li {
   display: flex;
-
   align-items: center;
-
   gap: 12px;
 }
 
 .footer-contact svg {
   color: #6366f1;
-
   min-width: 16px;
 }
 
 /* ===================================
    BOTTOM
 =================================== */
-
 .footer-bottom {
   margin-top: 40px;
-
   padding-top: 18px;
-
   text-align: center;
-
   border-top: 1px solid rgba(124, 58, 237, 0.1);
-
   font-size: 14px;
-
   color: #666;
 }
 
 /* ===================================
    ANIMATION
 =================================== */
-
 @keyframes pulseGlow {
-
-  0% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-
-  50% {
-    transform: scale(1.08);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
 }
 
 /* ===================================
    RESPONSIVE
 =================================== */
-
 @media (max-width: 992px) {
-
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -315,7 +273,6 @@
 }
 
 @media (max-width: 768px) {
-
   .footer {
     padding: 60px 0 24px;
   }
@@ -338,7 +295,6 @@
 
   .footer-grid {
     grid-template-columns: 1fr;
-
     gap: 32px;
   }
 
@@ -352,5 +308,10 @@
 
   .footer-bottom {
     margin-top: 30px;
+  }
+
+  /* Centers the items row only on smartphone screens */
+  .footer-socials {
+    justify-content: center;
   }
 }

@@ -149,7 +149,7 @@ function Career() {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      placeholder="e.g., Ayushi"
+                      placeholder="e.g., Ayushi Patel"
                     />
                   </div>
 
@@ -162,7 +162,7 @@ function Career() {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="name@company.com"
+                      placeholder="ayushi123@gmail.com"
                     />
                   </div>
 
@@ -219,12 +219,12 @@ function Career() {
                       name="portfolio"
                       value={formData.portfolio}
                       onChange={handleInputChange}
-                      placeholder="https://github.com/ or personal website"
+                      placeholder="https://github.com/username or personal website"
                     />
                   </div>
 
                   <div className="form-field-group full-width-field">
-                    <label htmlFor="message">Professional Overview Memo</label>
+                    <label htmlFor="message">Your Short Description</label>
                     <textarea
                       id="message"
                       name="message"
@@ -244,7 +244,7 @@ function Career() {
             ) : (
               <div className="form-success-hud">
                 <FiCheckCircle className="success-hud-icon" />
-                <h2>Pipeline Registry Completed</h2>
+                <h2>Application Submitted</h2>
                 <p className="card-text">
                   Thank you, <strong>{formData.name}</strong>. Your profile configuration for the{" "}
                   <strong>{formData.role}</strong> cluster has been submitted successfully. Our hiring team will review it shortly.

@@ -20,7 +20,10 @@ IMPORT ICONS
 import {
   FaEnvelope,
   FaPhoneAlt,
-  FaMapMarkerAlt
+  FaMapMarkerAlt,
+  FaLinkedin,
+  FaInstagram,
+  FaYoutube
 } from "react-icons/fa";
 
 /*
@@ -71,12 +74,12 @@ function Footer() {
         {/* FOOTER LINKS */}
         <div className="footer-grid">
 
-          {/* QUICK LINKS: Connected seamlessly to router ecosystem routes */}
+          {/* QUICK LINKS */}
           <div className="footer-column">
             <h4>QUICK LINKS</h4>
             <ul>
               <li>
-                <Link to="/" className="footer-nav-link">Home</Link>
+                <Link to="/home" className="footer-nav-link">Home</Link>
               </li>
               <li>
                 <Link to="/service" className="footer-nav-link">Services</Link>
@@ -112,7 +115,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* CONTACT: Connected directly to native device action channels */}
+          {/* CONTACT & SOCIAL DECK */}
           <div className="footer-column">
             <h4>CONTACT</h4>
             <ul className="footer-contact">
@@ -134,6 +137,39 @@ function Footer() {
                   OFFICE NO.: 202, “OM SAI” Apartment Masjid Road Adajan Gaam, Surat (GUJARAT) 395009
                 </span>
               </li>
+
+              {/* FIXED: Placed as an isolated list node to ensure perfect horizontal alignment */}
+              <li className="socials-display-row">
+                <div className="footer-socials" style={{ justifyContent: 'flex-start' }}>
+                  <a 
+                    href="https://in.linkedin.com/company/craftcore-group" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="social-icon-link linkedin-node"
+                    aria-label="LinkedIn Profile"
+                  >
+                    <FaLinkedin />
+                  </a>
+                  <a 
+                    href="https://www.instagram.com/craftcore_group/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="social-icon-link instagram-node"
+                    aria-label="Instagram Profile"
+                  >
+                    <FaInstagram />
+                  </a>
+                  <a 
+                    href="https://www.youtube.com/@Craftcore-777" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="social-icon-link youtube-node"
+                    aria-label="YouTube Channel"
+                  >
+                    <FaYoutube />
+                  </a>
+                </div>
+              </li>
             </ul>
           </div>
 
@@ -150,9 +186,4 @@ function Footer() {
   );
 }
 
-/*
-===================================
-EXPORT COMPONENT
-===================================
-*/
 export default Footer;

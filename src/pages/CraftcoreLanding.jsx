@@ -14,7 +14,10 @@ import {
 import {
   FaEnvelope,
   FaPhoneAlt,
-  FaMapMarkerAlt
+  FaMapMarkerAlt,
+  FaLinkedin,
+  FaInstagram,
+  FaYoutube
 } from "react-icons/fa";
 
 import footerLogo from "../assets/logo.png";
@@ -106,7 +109,7 @@ function CraftcoreLanding() {
   useEffect(() => {
     const slideInterval = setInterval(() => {
       setCarouselIndex((prevIndex) => (prevIndex + 1) % heroSlides.length);
-    }, 4000);
+    }, 3000);
     return () => clearInterval(slideInterval);
   }, [carouselIndex]);
 
@@ -326,6 +329,37 @@ function CraftcoreLanding() {
                     {vertical.title.toLowerCase().replace(/\b\w/g, c => c.toUpperCase())}
                   </li>
                 ))}
+                <li className="socials-display-row">
+                  <div className="footer-socials">
+                    <a 
+                      href="https://in.linkedin.com/company/craftcore-group" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="social-icon-link linkedin-node"
+                      aria-label="LinkedIn Profile"
+                    >
+                      <FaLinkedin />
+                    </a>
+                    <a 
+                      href="https://www.instagram.com/craftcore_group/" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="social-icon-link instagram-node"
+                      aria-label="Instagram Profile"
+                    >
+                      <FaInstagram />
+                    </a>
+                    <a 
+                      href="https://www.youtube.com/@Craftcore-777" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="social-icon-link youtube-node"
+                      aria-label="YouTube Channel"
+                    >
+                      <FaYoutube />
+                    </a>
+                  </div>
+                </li>
               </ul>
             </div>
 
