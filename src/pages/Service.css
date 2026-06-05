@@ -114,6 +114,12 @@
   align-items: center;
   justify-content: center;
 }
+.badge-text-core {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
 
 .badge-icon-core svg {
   font-size: 15px;

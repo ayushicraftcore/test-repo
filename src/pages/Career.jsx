@@ -238,7 +238,7 @@ function Career() {
 
                 <button type="submit" className="desktop-btn form-submit-action" disabled={isSending}>
                   <FiUploadCloud className="btn-icon" />
-                  <span>{isSending ? "UPLOADING PARAMETERS..." : "SUBMIT APPLICATION"}</span>
+                  <span>{isSending ? "SENDING..." : "SUBMIT APPLICATION"}</span>
                 </button>
               </form>
             ) : (

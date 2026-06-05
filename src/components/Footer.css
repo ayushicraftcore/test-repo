@@ -1,31 +1,16 @@
-/* ===================================
-   FOOTER MASTER LAYOUT
-=================================== */
 .footer {
   position: relative;
   overflow: hidden;
   padding: 70px 0 24px;
 }
 
-/* ===================================
-   TOP LINE
-=================================== */
 .footer-top-line {
   width: 100%;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #d946ef,
-    #2563eb,
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, #d946ef, #2563eb, transparent);
   margin-bottom: 50px;
 }
 
-/* ===================================
-   LIGHT BLURS
-=================================== */
 .footer-blur {
   position: absolute;
   border-radius: 50%;
@@ -50,9 +35,6 @@
   top: 40%;
 }
 
-/* ===================================
-   BRAND
-=================================== */
 .footer-brand {
   text-align: center;
   max-width: 760px;
@@ -61,9 +43,6 @@
   z-index: 2;
 }
 
-/* ===================================
-   LOGO WRAP
-=================================== */
 .footer-logo-wrap {
   position: relative;
   width: 90px;
@@ -74,25 +53,15 @@
   justify-content: center;
 }
 
-/* ===================================
-   LOGO GLOW
-=================================== */
 .footer-logo-bg {
   position: absolute;
   inset: 0;
   border-radius: 24px;
-  background: linear-gradient(
-    135deg,
-    rgba(124, 58, 237, 0.22),
-    rgba(37, 99, 235, 0.22)
-  );
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.22), rgba(37, 99, 235, 0.22));
   filter: blur(20px);
   animation: pulseGlow 4s ease-in-out infinite;
 }
 
-/* ===================================
-   LOGO
-=================================== */
 .footer-logo {
   width: 64px;
   height: 64px;
@@ -105,77 +74,17 @@
   box-shadow: 0 8px 20px rgba(124, 58, 237, 0.12);
 }
 
-/* ===================================
-   TITLE
-=================================== */
 .footer-title {
   font-size: 42px;
   font-weight: 800;
   line-height: 1;
   margin-bottom: 24px;
-  background: linear-gradient(
-    90deg,
-    #7c3aed,
-    #2563eb
-  );
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* =======================================================
-   CLEAN LEFT-ALIGNED SOCIAL ICONS CONNECTIONS DECK
-======================================================= */
-.footer-socials {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* FIXED: Shifted from center to left flush alignment bounds */
-  gap: 14px;
-  margin-top: 26px; /* Spaces it beautifully beneath your contact info lines */
-}
-
-.social-icon-link {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  color: #475569;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-  text-decoration: none;
-}
-
-/* Premium native color filter state micro-transitions */
-.social-icon-link:hover {
-  transform: translateY(-4px) scale(1.08);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
-}
-
-.social-icon-link.linkedin-node:hover {
-  background: #0a66c2;
-  border-color: #0a66c2;
-  color: #ffffff;
-}
-
-.social-icon-link.instagram-node:hover {
-  background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
-  border-color: transparent;
-  color: #ffffff;
-}
-
-.social-icon-link.youtube-node:hover {
-  background: #ff0000;
-  border-color: #ff0000;
-  color: #ffffff;
-}
-
-/* ===================================
-   DESCRIPTION
-=================================== */
 .footer-description {
   font-size: 16px;
   line-height: 1.8;
@@ -184,9 +93,6 @@
   margin: 0 auto;
 }
 
-/* ===================================
-   GRID
-=================================== */
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -195,9 +101,6 @@
   z-index: 2;
 }
 
-/* ===================================
-   COLUMN
-=================================== */
 .footer-column h4 {
   font-size: 18px;
   font-weight: 700;
@@ -224,9 +127,68 @@
   color: #7c3aed;
 }
 
-/* ===================================
-   CONTACT
-=================================== */
+.footer-column li.socials-display-row {
+  cursor: default !important;
+  margin-top: 24px !important;
+  margin-bottom: 0 !important;
+}
+
+.footer-column li.socials-display-row:hover {
+  transform: none !important;
+  color: inherit !important;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  width: 100%;
+}
+
+.footer .footer-socials .social-icon-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #475569 !important; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  text-decoration: none;
+}
+
+.footer .footer-socials .social-icon-link svg {
+  color: inherit !important;
+  transition: none !important;
+}
+
+.footer .footer-socials .social-icon-link:hover {
+  transform: translateY(-5px) scale(1.08) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+.footer .footer-socials .social-icon-link.linkedin-node:hover {
+  background: #0a66c2 !important;
+  border-color: #0a66c2 !important;
+  color: #ffffff !important;
+}
+
+.footer .footer-socials .social-icon-link.instagram-node:hover {
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7) !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+}
+
+.footer .footer-socials .social-icon-link.youtube-node:hover {
+  background: #ff0000 !important;
+  border-color: #ff0000 !important;
+  color: #ffffff !important;
+}
+
 .footer-contact li {
   display: flex;
   align-items: center;
@@ -238,9 +200,6 @@
   min-width: 16px;
 }
 
-/* ===================================
-   BOTTOM
-=================================== */
 .footer-bottom {
   margin-top: 40px;
   padding-top: 18px;
@@ -250,68 +209,26 @@
   color: #666;
 }
 
-/* ===================================
-   ANIMATION
-=================================== */
 @keyframes pulseGlow {
   0% { transform: scale(1); opacity: 0.7; }
   50% { transform: scale(1.08); opacity: 1; }
   100% { transform: scale(1); opacity: 0.7; }
 }
 
-/* ===================================
-   RESPONSIVE
-=================================== */
 @media (max-width: 992px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-title {
-    font-size: 34px;
-  }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-title { font-size: 34px; }
 }
 
 @media (max-width: 768px) {
-  .footer {
-    padding: 60px 0 24px;
-  }
-
-  .footer-top-line {
-    margin-bottom: 40px;
-  }
-
-  .footer-brand {
-    margin-bottom: 40px;
-  }
-
-  .footer-title {
-    font-size: 28px;
-  }
-
-  .footer-description {
-    font-size: 14px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .footer-column h4 {
-    font-size: 18px;
-  }
-
-  .footer-column li {
-    font-size: 14px;
-  }
-
-  .footer-bottom {
-    margin-top: 30px;
-  }
-
-  /* Centers the items row only on smartphone screens */
-  .footer-socials {
-    justify-content: center;
-  }
+  .footer { padding: 60px 0 24px; }
+  .footer-top-line { margin-bottom: 40px; }
+  .footer-brand { margin-bottom: 40px; }
+  .footer-title { font-size: 28px; }
+  .footer-description { font-size: 14px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-column h4 { font-size: 18px; }
+  .footer-column li { font-size: 14px; }
+  .footer-bottom { margin-top: 30px; }
+  .footer-socials { justify-content: center; }
 }

@@ -810,9 +810,8 @@
     grid-template-columns: 1fr;
     gap: 32px;
   }
-
   .footer-column h4 {
-    font-size: 18px;
+  font-size: 18px;
   }
 
   .footer-column li {

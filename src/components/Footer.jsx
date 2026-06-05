@@ -1,22 +1,5 @@
-/*
-===================================
-IMPORT CSS
-===================================
-*/
 import "./Footer.css";
-
-/*
-===================================
-IMPORT REACT ROUTER NAV LINK LAYER
-===================================
-*/
 import { Link } from "react-router-dom";
-
-/*
-===================================
-IMPORT ICONS
-===================================
-*/
 import {
   FaEnvelope,
   FaPhoneAlt,
@@ -25,84 +8,38 @@ import {
   FaInstagram,
   FaYoutube
 } from "react-icons/fa";
-
-/*
-===================================
-IMPORT LOGO
-===================================
-*/
 import footerLogo from "../assets/logo.png";
 
-/*
-===================================
-FOOTER COMPONENT
-===================================
-*/
 function Footer() {
   return (
     <footer className="footer">
+      <div className="footer-top-line" />
+      <div className="footer-blur footer-blur-1" />
+      <div className="footer-blur footer-blur-2" />
 
-      {/* TOP GRADIENT LINE */}
-      <div className="footer-top-line"></div>
-
-      {/* BACKGROUND BLURS */}
-      <div className="footer-blur footer-blur-1"></div>
-      <div className="footer-blur footer-blur-2"></div>
-
-      {/* CONTAINER */}
       <div className="container">
-
-        {/* BRAND SECTION */}
         <div className="footer-brand">
-          
-          {/* LOGO */}
           <div className="footer-logo-wrap">
-            <div className="footer-logo-bg"></div>
-            <img
-              src={footerLogo}
-              alt="Craftcore"
-              className="footer-logo"
-            />
+            <div className="footer-logo-bg" />
+            <img src={footerLogo} alt="Craftcore" className="footer-logo" />
           </div>
-
-          {/* TITLE */}
-          <h1 className="footer-title">
-            CRAFTCORE
-          </h1>
+          <h1 className="footer-title">CRAFTCORE</h1>
         </div>
 
-        {/* FOOTER LINKS */}
         <div className="footer-grid">
-
-          {/* QUICK LINKS */}
           <div className="footer-column">
             <h4>QUICK LINKS</h4>
             <ul>
-              <li>
-                <Link to="/home" className="footer-nav-link">Home</Link>
-              </li>
-              <li>
-                <Link to="/service" className="footer-nav-link">Services</Link>
-              </li>
-              <li>
-                <Link to="/Solution" className="footer-nav-link">Solutions</Link>
-              </li>
-              <li>
-                <Link to="/About" className="footer-nav-link">About</Link>
-              </li>
-              <li>
-                <Link to="/Blog" className="footer-nav-link">Blog</Link>
-              </li>
-              <li>
-                <Link to="/Contact" className="footer-nav-link">Contact</Link>
-              </li>
-              <li>
-                <Link to="/Career" className="footer-nav-link">Career</Link>
-              </li>
+              <li><Link to="/home" className="footer-nav-link">Home</Link></li>
+              <li><Link to="/service" className="footer-nav-link">Services</Link></li>
+              <li><Link to="/Solution" className="footer-nav-link">Solutions</Link></li>
+              <li><Link to="/About" className="footer-nav-link">About</Link></li>
+              <li><Link to="/Blog" className="footer-nav-link">Blog</Link></li>
+              <li><Link to="/Contact" className="footer-nav-link">Contact</Link></li>
+              <li><Link to="/Career" className="footer-nav-link">Career</Link></li>
             </ul>
           </div>
 
-          {/* SERVICES */}
           <div className="footer-column">
             <h4>SERVICES</h4>
             <ul>
@@ -115,7 +52,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* CONTACT & SOCIAL DECK */}
           <div className="footer-column">
             <h4>CONTACT</h4>
             <ul className="footer-contact">
@@ -138,9 +74,8 @@ function Footer() {
                 </span>
               </li>
 
-              {/* FIXED: Placed as an isolated list node to ensure perfect horizontal alignment */}
               <li className="socials-display-row">
-                <div className="footer-socials" style={{ justifyContent: 'flex-start' }}>
+                <div className="footer-socials">
                   <a 
                     href="https://in.linkedin.com/company/craftcore-group" 
                     target="_blank" 
@@ -172,16 +107,12 @@ function Footer() {
               </li>
             </ul>
           </div>
-
         </div>
 
-        {/* BOTTOM */}
         <div className="footer-bottom">
           © 2026 Craftcore. All Rights Reserved.
         </div>
-
       </div>
-
     </footer>
   );
 }

@@ -71,7 +71,7 @@ function Blog() {
             <span className="gradient-text">Ecosystem Perspectives</span>
           </h1>
           <p className="section-description blog-hero-desc">
-            Explore our latest engineered insights, tech overviews, vlog documentation, and 
+            Explore our latest engineered insights, tech overviews, vlog documentation and 
             architectural blueprints designed to solve operational friction.
           </p>
         </header>

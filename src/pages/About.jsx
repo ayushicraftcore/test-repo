@@ -4,8 +4,11 @@ import { useEffect, useRef, useState } from "react";
 // Import your custom platform section sheets
 import Process from "../components/Process"; 
 import Model from "../components/Models"; 
+import Industries from "../components/Industries";
+import { IndianRupee } from "lucide-react";
+import { FaIndustry } from "react-icons/fa";
 
-const whyChooseText = "We eliminate technical overhead by building custom software products engineered around your true business needs. By marrying modular UI/UX architectures with performance optimization configurations, your platforms gain exceptional stability under load. We treat code as a core asset, optimizing your server data streams to run with zero processing delays.";
+const whyChooseText = "We build custom software tailored to your business needs. Our focus is on creating fast, scalable and user-friendly applications with modern UI/UX design. By optimizing performance and streamlining data processing, we ensure your platform runs smoothly, loads quickly and delivers a reliable experience for your users. Our solutions are designed to support business growth while maintaining stability and efficiency.";
 
 function About() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -144,6 +147,7 @@ function About() {
 
       {/* SUBSEQUENT INTERACTIVE TEMPLATE CORE APPENDS */}
       <Process />
+      <Industries />
       <Model />
 
     </div>
