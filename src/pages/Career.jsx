@@ -74,14 +74,14 @@ function Career() {
         
         {/* CENTER-ALIGNED HERO SECTION */}
         <header className="career-hero">
-          <span className="section-tag">JOIN THE ECOSYSTEM</span>
+          <span className="section-tag">JOIN THE TEAM</span>
           <h1 className="section-title career-hero-title">
             Build the Next Layer of <br />
             <span className="gradient-text">Digital Infrastructures</span>
           </h1>
           <p className="section-description career-hero-desc">
-            We are looking for precise engineers, creative visual thinkers, and proactive 
-            architects driven to dismantle operational complexity.
+            We are always looking for passionate, talented individuals to join our team. Explore our 
+            current openings and submit your application to be part of our team.
           </p>
         </header>
 
@@ -136,7 +136,7 @@ function Career() {
               <form onSubmit={handleSubmit} className="application-core-form" encType="multipart/form-data">
                 <div className="form-box-header">
                   <h2>Submit Application Blueprint</h2>
-                  <p className="card-text">Complete the system fields below to process your candidature parameters.</p>
+                  <p className="card-text">Complete the fields below to submit your application.</p>
                 </div>
 
                 <div className="form-grid-layout">
@@ -246,15 +246,15 @@ function Career() {
                 <FiCheckCircle className="success-hud-icon" />
                 <h2>Application Submitted</h2>
                 <p className="card-text">
-                  Thank you, <strong>{formData.name}</strong>. Your profile configuration for the{" "}
-                  <strong>{formData.role}</strong> cluster has been submitted successfully. Our hiring team will review it shortly.
+                  Thank you, <strong>{formData.name}</strong>. Your profile for the{" "}
+                  <strong>{formData.role}</strong> position has been submitted successfully. Our hiring team will review it shortly.
                 </p>
                 <button 
                   className="job-apply-btn"
                   onClick={() => { setFormSubmitted(false); setFormData({ name: "", email: "", role: "", portfolio: "", message: "" }); setResumeFile(null); }}
                   style={{ minWidth: "200px" }}
                 >
-                  <span className="apply-btn-text">Submit Another Profile</span>
+                  <span className="apply-btn-text">Submit Another Application</span>
                   <FiArrowRight className="apply-btn-arrow" />
                 </button>
               </div>

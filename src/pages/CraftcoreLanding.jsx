@@ -1,6 +1,6 @@
 import "./CraftcoreLanding.css";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Added for routing redirect operations
+import { useNavigate } from "react-router-dom"; 
 import { 
   FiCpu, 
   FiBox, 
@@ -9,7 +9,8 @@ import {
   FiLayers, 
   FiCommand,
   FiChevronLeft,
-  FiChevronRight 
+  FiChevronRight,
+  FiUsers
 } from "react-icons/fi";
 import {
   FaEnvelope,
@@ -25,7 +26,6 @@ import slideIT from "../assets/digital.avif";
 import slide3D from "../assets/3d.avif";          
 import slideGrowth from "../assets/growth.avif";  
 
-// Appended target paths to map redirects accurately
 const verticalsData = [
   {
     id: "it-services",
@@ -57,6 +57,16 @@ const verticalsData = [
     chips: ["Performance Marketing", "Startup Programs", "Scale Mapping"],
     path: "/#" 
   },
+  {
+    id: "recruitment",
+    number: "04",
+    title: "RECRUITMENT",
+    tag: "TALENT ACQUISITION",
+    icon: <FiUsers />,
+    summary: "Talent sourcing, technical screening, sales hiring, placement services and replacement support.",
+    chips: ["Sourcing", "Screening", "Placement"],
+    path: "/#",
+  }
 ];
 
 const highlightsData = [
@@ -95,9 +105,8 @@ const heroSlides = [slideIT, slide3D, slideGrowth];
 function CraftcoreLanding() {
   const [activeNode, setActiveNode] = useState(0);
   const [carouselIndex, setCarouselIndex] = useState(0);
-  const navigate = useNavigate(); // Instantiated SPA navigator mechanism
+  const navigate = useNavigate();
 
-  // AUTOMATIC VERTICAL NODES LOOP
   useEffect(() => {
     const loopInterval = setInterval(() => {
       setActiveNode((prevNode) => (prevNode + 1) % verticalsData.length);
@@ -105,7 +114,6 @@ function CraftcoreLanding() {
     return () => clearInterval(loopInterval);
   }, []);
 
-  // AUTOMATIC HERO IMAGE SLIDESHOW LOOP
   useEffect(() => {
     const slideInterval = setInterval(() => {
       setCarouselIndex((prevIndex) => (prevIndex + 1) % heroSlides.length);
@@ -130,7 +138,7 @@ function CraftcoreLanding() {
   return (
     <div className="ccg-landing-wrapper">
       
-      {/* ================= HERO HUD VIEWPORT ================= */}
+      {/* ================= HERO SECTION ================= */}
       <section className="ccg-hero-section">
         <div className="container ccg-hero-grid">
           
@@ -209,7 +217,6 @@ function CraftcoreLanding() {
             </p>
           </div>
 
-          {/* SINGLE ROW CONSOLE MATRIX GRID */}
           <div className="ccg-vertical-cards-single-row">
             {verticalsData.map((vertical, index) => {
               const isCurrentFocus = activeNode === index;
@@ -247,13 +254,10 @@ function CraftcoreLanding() {
                     ))}
                   </div>
 
-                  {/* REDIRECTS USER TO CHOSEN SUBROUTE CONSOLE */}
                   <div className="single-card-action-footer">
                     <button 
                       className="primary-btn single-card-action-btn"
-                      onClick={() => {
-                        navigate(vertical.path);
-                      }}
+                      onClick={() => navigate(vertical.path)}
                     >
                       <span>Explore</span>
                       <FiArrowRight className="action-btn-arrow-icon" />
@@ -289,28 +293,17 @@ function CraftcoreLanding() {
 
       {/* ================= INTEGRATED FOOTER FORMAT ================= */}
       <footer id="about-craftcore-footer" className="footer">
-
         <div className="footer-top-line"></div>
-
         <div className="footer-blur footer-blur-1"></div>
         <div className="footer-blur footer-blur-2"></div>
 
         <div className="container">
-
           <div className="footer-brand">
             <div className="footer-logo-wrap">
               <div className="footer-logo-bg"></div>
-              <img
-                src={footerLogo}
-                alt="Craftcore"
-                className="footer-logo"
-              />
+              <img src={footerLogo} alt="Craftcore" className="footer-logo" />
             </div>
-
-            <h1 className="footer-title">
-              About Craftcore
-            </h1>
-
+            <h1 className="footer-title">About Craftcore</h1>
             <p className="footer-description">
               Craftcore operates at the intersection of technology, manufacturing, and growth. We build 
               scalable systems, physical products and market expansion engines — empowering startups and 
@@ -318,9 +311,7 @@ function CraftcoreLanding() {
             </p>
           </div>
 
-          {/* TWO CENTERED SYMMETRICAL COLUMNS WITH ROUTE REDIRECT CONTROLS */}
           <div className="footer-grid elements-centered-footer-grid">
-
             <div className="footer-column">
               <h4>VERTICALS</h4>
               <ul>
@@ -331,33 +322,9 @@ function CraftcoreLanding() {
                 ))}
                 <li className="socials-display-row">
                   <div className="footer-socials">
-                    <a 
-                      href="https://in.linkedin.com/company/craftcore-group" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="social-icon-link linkedin-node"
-                      aria-label="LinkedIn Profile"
-                    >
-                      <FaLinkedin />
-                    </a>
-                    <a 
-                      href="https://www.instagram.com/craftcore_group/" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="social-icon-link instagram-node"
-                      aria-label="Instagram Profile"
-                    >
-                      <FaInstagram />
-                    </a>
-                    <a 
-                      href="https://www.youtube.com/@Craftcore-777" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="social-icon-link youtube-node"
-                      aria-label="YouTube Channel"
-                    >
-                      <FaYoutube />
-                    </a>
+                    <a href="https://in.linkedin.com/company/craftcore-group" target="_blank" rel="noopener noreferrer" className="social-icon-link linkedin-node" aria-label="LinkedIn"><FaLinkedin /></a>
+                    <a href="https://www.instagram.com/craftcore_group/" target="_blank" rel="noopener noreferrer" className="social-icon-link instagram-node" aria-label="Instagram"><FaInstagram /></a>
+                    <a href="https://www.youtube.com/@Craftcore-777" target="_blank" rel="noopener noreferrer" className="social-icon-link youtube-node" aria-label="YouTube"><FaYoutube /></a>
                   </div>
                 </li>
               </ul>
@@ -368,33 +335,24 @@ function CraftcoreLanding() {
               <ul className="footer-contact">
                 <li>
                   <FaEnvelope />
-                  <a href="mailto:sales@craftcore.in" className="contact-action-link">
-                    sales@craftcore.in
-                  </a>
+                  <a href="mailto:sales@craftcore.in" className="contact-action-link">sales@craftcore.in</a>
                 </li>
                 <li>
                   <FaPhoneAlt />
-                  <a href="tel:+919898711229" className="contact-action-link">
-                    +91 98987 11229
-                  </a>
+                  <a href="tel:+919898711229" className="contact-action-link">+91 98987 11229</a>
                 </li>
                 <li>
                   <FaMapMarkerAlt />
-                  <span>
-                    OFFICE NO.: 202, “OM SAI” Apartment Masjid Road Adajan Gaam, Surat (GUJARAT) 395009
-                  </span>
+                  <span>OFFICE NO.: 202, “OM SAI” Apartment Masjid Road Adajan Gaam, Surat (GUJARAT) 395009</span>
                 </li>
               </ul>
             </div>
-
           </div>
 
           <div className="footer-bottom">
             © 2026 Craftcore. All Rights Reserved.
           </div>
-
         </div>
-
       </footer>
 
     </div>

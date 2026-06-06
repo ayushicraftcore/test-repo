@@ -53,7 +53,7 @@ function Booking() {
             <span className="gradient-text">Consultation Meeting</span>
           </h1>
           <p className="section-description booking-hero-desc">
-            Fill out the simple blueprint fields below and select a date on the calendar to secure an architecture session.
+            Fill out the simple blueprint below and select a date on the calendar to secure an session.
           </p>
         </header>
 
@@ -140,7 +140,7 @@ function Booking() {
                 <FiCheckCircle className="booking-success-icon" />
                 <h2>Appointment Requested!</h2>
                 <p className="card-text">
-                  Thank you, <strong>{formData.name}</strong>. Your requested consultation parameters have been registered.
+                  Thank you, <strong>{formData.name}</strong>. Your requested consultation have been registered.
                 </p>
                 <div className="receipt-summary-box">
                   <div><strong>Confirmed Date:</strong> {formatConfirmationDate(formData.date)}</div>

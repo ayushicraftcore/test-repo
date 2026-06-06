@@ -3,7 +3,6 @@
 =================================== */
 .technologies {
   position: relative;
-  /* REMOVED overflow: hidden; so hover box-shadows don't get cut off at the edges */
 }
 
 /* ===================================
@@ -25,27 +24,31 @@
 }
 
 /* ===================================
-   GRID
+   GRID CONTAINER (UPDATED TO FLEX FOR CENTERING)
 =================================== */
 .technologies-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers any leftover cards on the last row */
   gap: 24px;
-  align-items: stretch; /* Ensures all cards in a row match the tallest card */
+  max-width: 1240px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* ===================================
-   CARD
+   CARD (PERFECT 3-COLUMN CALCULATION)
 =================================== */
 .technology-card {
   background: white;
   border-radius: 22px;
   border: 1px solid #eadcff;
   padding: 30px;
-  /* Added Flexbox to handle unequal icon counts beautifully */
   display: flex;
   flex-direction: column;
-  height: 100%; 
+  box-sizing: border-box;
+  /* (100% width - 48px total gaps) divided by 3 columns */
+  flex: 0 1 calc((100% - 48px) / 3); 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   transition: 0.35s ease;
 }
@@ -70,6 +73,14 @@
   height: 38px;
   border-radius: 999px;
   background: linear-gradient(180deg, #006EEA, #7D43EB);
+  flex-shrink: 0;
+}
+
+.technology-title .card-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #111;
+  margin: 0;
 }
 
 /* ===================================
@@ -79,8 +90,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  flex: 1; /* Pushes the icons to naturally fill the rest of the card space */
-  align-content: flex-start; /* Keeps icons grouped at the top of their container */
+  flex: 1; 
+  align-content: flex-start; 
 }
 
 /* ===================================
@@ -105,25 +116,23 @@
 .tech-icon:hover {
   transform: translateY(-6px) scale(1.06);
   box-shadow: 0 14px 28px rgba(124, 58, 237, 0.18);
-  color: #7D43EB; /* Added a color pop on hover! */
+  color: #7D43EB; 
   border-color: #7D43EB;
 }
 
 /* ===================================
-   RESPONSIVE
+   RESPONSIVE DESIGN ADAPTATIONS
 =================================== */
 @media (max-width: 1100px) {
-  .technologies-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .technology-card {
+    /* (100% width - 24px single gap) divided by 2 columns */
+    flex: 0 1 calc((100% - 24px) / 2);
   }
 }
 
 @media (max-width: 768px) {
-  .technologies-grid {
-    grid-template-columns: 1fr;
-  }
-  
   .technology-card {
+    flex: 0 1 100%; /* Stacks beautifully into 1 column on smaller mobile devices */
     padding: 24px;
   }
   

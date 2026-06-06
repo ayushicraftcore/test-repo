@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
-  const [menuOpen, setMenuOpen]   = useState(false);
-  const [scrolled, setScrolled]   = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -14,7 +14,6 @@ function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Map explicitly to match your exact App.jsx route casing definitions perfectly
   const navItems = [
     { name: "Home", path: "/home" },
     { name: "Service", path: "/service" },
@@ -27,8 +26,7 @@ function Navbar() {
 
   return (
     <header className={`navbar${scrolled ? " navbar--scrolled" : ""}`}>
-
-      {/* LOGO — Takes users back to the landing entry screen */}
+      
       <div className="navbar-logo">
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none' }}>
           <img src={logo} alt="Logo" />
@@ -39,7 +37,6 @@ function Navbar() {
         </Link>
       </div>
 
-      {/* NAV LINKS */}
       <nav className={menuOpen ? "nav-links active" : "nav-links"}>
         {navItems.map((item) => {
           const isActive = location.pathname === item.path;
@@ -67,7 +64,6 @@ function Navbar() {
         </Link>
       </nav>
 
-      {/* DESKTOP BUTTON */}
       <Link 
         to="/book-call" 
         className="desktop-btn"
@@ -76,7 +72,6 @@ function Navbar() {
         GET IN TOUCH
       </Link>
 
-      {/* HAMBURGER */}
       <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
         <span className={`hamburger${menuOpen ? " open" : ""}`}>
           <span /><span /><span />

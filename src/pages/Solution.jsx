@@ -7,7 +7,7 @@ const projectFeatures = [
     icon: <FiGrid />,
     tag: "MODULE 01 — COMMAND HUD",
     title: "Clean Dashboard Overview",
-    desc: "An enterprise-grade orchestration command center aggregating running collection pipelines. Tracks total outstanding balances, active case registries, and recovery metrics seamlessly at a single look.",
+    desc: "An enterprise-grade orchestration command center aggregating running collection pipelines. Tracks total outstanding balances, active case registries and recovery metrics seamlessly at a single look.",
     image: "/images/dashboard-core.avif",
     floatingTags: ["Live Ledger Sync", "Telemetry Node Active", "₹2.60Cr Tracked"],
     pills: ["Active Cases: 6", "Recovery: 35.8%"]
@@ -34,7 +34,7 @@ const projectFeatures = [
     icon: <FiFileText />,
     tag: "MODULE 04 — CONTROL FLOWS",
     title: "User-Friendly Interface Allocation Sheets",
-    desc: "Streamlined operational orchestration modals and creation dialogs engineered for low data overhead. Input original amounts, toggle priority targets, and assign dedicated field agents instantly.",
+    desc: "Streamlined operational orchestration modals and creation dialogs engineered for low data overhead. Input original amounts, toggle priority targets and assign dedicated field agents instantly.",
     image: "/images/form-modal.avif",
     floatingTags: ["Validation Node OK", "Agent Mapping Engine", "AES-256 Vaulted"],
     pills: ["Form Status: Ready", "SLA Guard Active"]
@@ -114,7 +114,7 @@ function Solution() {
           </div>
 
           <p className="section-description solution-hero-desc">
-            We deliver tailored digital transformation, AI integrations, and cloud native infrastructure 
+            We deliver tailored digital transformation, AI integrations and cloud native infrastructure 
             engineered to solve complex technical challenges across diverse global market sectors.
           </p>
         </header>

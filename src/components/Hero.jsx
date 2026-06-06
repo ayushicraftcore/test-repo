@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
 import { FaArrowRight, FaWhatsapp } from "react-icons/fa";
 
-const words = ["AI Systems", "SaaS Platforms", "Cloud Products", "AI Apps"];
+const words = ["Custom CRM & ERP", "AI Implementation", "Cloud Platforms", "Custom Software Solutions"];
 const text = "CRAFTCORE";
 
 function Hero() {
@@ -60,7 +60,7 @@ function Hero() {
                   {words[wordIndex]}
                 </span>
               </div>
-              For Modern Businesses
+              For Businesses
             </h1>
 
             <p className="hero-description">

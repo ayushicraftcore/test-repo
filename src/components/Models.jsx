@@ -87,7 +87,7 @@ function Models() {
         <span className="section-tag">WORK WITH US</span>
         <h2 className="section-title">Engagement Models</h2>
         <p className="section-description">
-          Flexible engagement models designed to support startups, enterprises,
+          Flexible engagement models designed to support startups, enterprises
           and growing businesses with scalable development and strategic
           technology solutions.
         </p>
