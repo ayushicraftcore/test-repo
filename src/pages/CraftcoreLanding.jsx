@@ -44,7 +44,7 @@ const verticalsData = [
     tag: "PHYSICAL INNOVATION",
     icon: <FiBox />,
     summary: "Rapid prototyping, product design and manufacturing solutions.",
-    chips: ["Rapid Prototypes", "Production Run", "Industrial CAD"],
+    chips: ["Prototypes", "Production", "Industrial CAD"],
     path: "/#" 
   },
   {
@@ -54,7 +54,7 @@ const verticalsData = [
     tag: "SCALABLE EXPANSION",
     icon: <FiTrendingUp />,
     summary: "Digital marketing, automation and startup scaling programs.",
-    chips: ["Performance Marketing", "Startup Programs", "Scale Mapping"],
+    chips: ["Marketing", "Startups", "Scale Mapping"],
     path: "/#" 
   },
   {
@@ -63,7 +63,7 @@ const verticalsData = [
     title: "RECRUITMENT",
     tag: "TALENT ACQUISITION",
     icon: <FiUsers />,
-    summary: "Talent sourcing, technical screening, sales hiring, placement services and replacement support.",
+    summary: "Talent sourcing, technical screening, placement services and support.",
     chips: ["Sourcing", "Screening", "Placement"],
     path: "/#",
   }
@@ -138,7 +138,6 @@ function CraftcoreLanding() {
   return (
     <div className="ccg-landing-wrapper">
       
-      {/* ================= HERO SECTION ================= */}
       <section className="ccg-hero-section">
         <div className="container ccg-hero-grid">
           
@@ -205,7 +204,6 @@ function CraftcoreLanding() {
         </div>
       </section>
 
-      {/* ================= ECOSYSTEM VERTICALS SECTION ================= */}
       <section id="group-verticals-panel" className="ccg-verticals-section section-space">
         <div className="container">
           
@@ -274,7 +272,6 @@ function CraftcoreLanding() {
         </div>
       </section>
 
-      {/* ================= STRATEGY HIGHLIGHTS SECTION ================= */}
       <section className="ccg-highlights-section section-space">
         <div className="container">
           <div className="ccg-highlights-matrix-grid">
@@ -291,7 +288,6 @@ function CraftcoreLanding() {
         </div>
       </section>
 
-      {/* ================= INTEGRATED FOOTER FORMAT ================= */}
       <footer id="about-craftcore-footer" className="footer">
         <div className="footer-top-line"></div>
         <div className="footer-blur footer-blur-1"></div>

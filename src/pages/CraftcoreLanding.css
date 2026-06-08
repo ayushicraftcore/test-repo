@@ -165,7 +165,7 @@
 }
 
 /* =======================================================
-   VERTICAL CARDS: FLEXBOX CONFIGURATION TO CENTER RECRUITMENT
+   VERTICAL CARDS: 4-COLUMN MATRIX CONFIGURATION
 ======================================================= */
 .ccg-section-header {
   text-align: center;
@@ -177,9 +177,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center; 
-  gap: 30px;
+  gap: 24px; /* Reduced gap slightly to account for the tighter 4-column span */
   max-width: 1240px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .ccg-single-row-vertical-card {
@@ -188,14 +189,16 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--clr-border);
-  border-radius: 28px;
-  padding: 32px 26px; 
+  border-radius: 24px;
+  padding: 28px 20px; /* Slimmer inner spacing for comfortable structural padding */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  min-height: 380px; 
-  width: calc(33.333% - 20px); 
+  min-height: 410px; /* Slight bump to balance text grids cleanly across all 4 items */
+  box-sizing: border-box;
+  /* (100% space - 72px accumulated gaps) / 4 column entries */
+  flex: 0 1 calc((100% - 72px) / 4); 
 }
 
 .ccg-single-row-vertical-card.card-node-active {
@@ -209,7 +212,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .single-card-tag-badge {
@@ -230,20 +233,20 @@
 .single-card-brand-identity-row {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 22px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .tab-brand-icon-shield {
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
   background: linear-gradient(135deg, var(--clr-purple), var(--clr-blue));
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 18px;
   flex-shrink: 0;
   transition: transform 0.35s var(--ease-bounce);
 }
@@ -256,33 +259,39 @@
   box-shadow: 0 6px 16px rgba(124, 58, 237, 0.2);
 }
 
-.tab-brand-title { font-size: 18px; font-weight: 800; color: var(--clr-ink); line-height: 1.2; }
+.tab-brand-title { 
+  font-size: 16px; 
+  font-weight: 800; 
+  color: var(--clr-ink); 
+  line-height: 1.25; 
+}
+
 .ccg-single-row-vertical-card.card-node-active .tab-brand-title { color: var(--clr-purple); }
-.single-card-content-deck { flex-grow: 1; margin-bottom: 20px; }
-.single-card-summary-highlight { font-size: 14.5px; font-weight: 600; color: var(--clr-blue); line-height: 1.45; }
+.single-card-content-deck { flex-grow: 1; margin-bottom: 18px; }
+.single-card-summary-highlight { font-size: 13.5px; font-weight: 600; color: var(--clr-blue); line-height: 1.45; }
 
 .single-card-metrics-strip {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .single-card-pill-node {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  font-size: 11px;
+  gap: 4px;
+  font-size: 10.5px;
   font-weight: 600;
   color: var(--clr-muted);
   background: #f8fafc;
   border: 1px solid var(--clr-border);
-  padding: 4px 10px;
+  padding: 4px 8px;
   border-radius: 6px;
 }
 
-.pill-node-micro-icon { font-size: 11px; color: #94a3b8; }
-.single-card-action-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; height: 44px; border-radius: 12px; font-size: 13px; }
+.pill-node-micro-icon { font-size: 10px; color: #94a3b8; }
+.single-card-action-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; height: 42px; border-radius: 12px; font-size: 13px; }
 .action-btn-arrow-icon { font-size: 13px; transition: transform 0.35s var(--ease-bounce); }
 .ccg-single-row-vertical-card:hover .action-btn-arrow-icon, .ccg-single-row-vertical-card.card-node-active .action-btn-arrow-icon { transform: translateX(4px); }
 
@@ -464,12 +473,18 @@
 /* =======================================================
    MEDIA QUERIES
 ======================================================= */
+@media (max-width: 1150px) {
+  .ccg-single-row-vertical-card {
+    /* Safe split transition down to a stable 2x2 grid stack on smaller monitors */
+    flex: 0 1 calc((100% - 24px) / 2); 
+  }
+}
+
 @media (max-width: 992px) {
   .ccg-hero-grid { grid-template-columns: 1fr; gap: 48px; text-align: center; }
   .ccg-hero-left { align-items: center; }
   .ccg-hero-title { font-size: 44px; }
   .ccg-console-mesh-box { max-width: 360px; height: 360px; margin: 0 auto; }
-  .ccg-single-row-vertical-card { width: calc(50% - 15px); }
   .footer-grid.elements-centered-footer-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-title { font-size: 34px; }
 }
@@ -477,10 +492,11 @@
 @media (max-width: 768px) {
   .ccg-hero-section { padding-top: 100px; }
   .ccg-hero-title { font-size: 34px; }
-  .ccg-vertical-cards-single-row, .ccg-highlights-matrix-grid { grid-template-columns: 1fr; gap: 20px; }
+  .ccg-vertical-cards-single-row { flex-direction: column; }
+  .ccg-highlights-matrix-grid { grid-template-columns: 1fr; gap: 20px; }
   
   .ccg-single-row-vertical-card {
-    width: 100%; 
+    flex: 0 1 100%;
     min-height: auto;
     padding: 32px 20px;
   }
