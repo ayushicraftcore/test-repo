@@ -268,7 +268,7 @@
 
 .ccg-single-row-vertical-card.card-node-active .tab-brand-title { color: var(--clr-purple); }
 .single-card-content-deck { flex-grow: 1; margin-bottom: 18px; }
-.single-card-summary-highlight { font-size: 13.5px; font-weight: 600; color: var(--clr-blue); line-height: 1.45; }
+.single-card-summary-highlight { font-size: 13.5px; font-weight: 600; color: black; line-height: 1.45; }
 
 .single-card-metrics-strip {
   display: flex;

@@ -20,7 +20,17 @@ import Blog from "./pages/Blog";
 import Career from "./pages/Career"; 
 import Contact from "./pages/Contact"; 
 import Booking from "./pages/Booking"; 
-import Craftcorelanding from "./pages/Craftcorelanding";
+
+/* ─────────────────────────────────────────────
+   CROSS-PORT REDIRECT FOR LANDING HUB
+   (Bounces root hits on 3001 back to Port 3000)
+───────────────────────────────────────────── */
+function BackToLandingRedirect() {
+  useEffect(() => {
+    window.location.href = "http://localhost:3000/";
+  }, []);
+  return null;
+}
 
 /* ─────────────────────────────────────────────
    SCROLL TO TOP  (Ensures page starts at top)
@@ -236,11 +246,8 @@ function App() {
 
   useScrollReveal();
 
-  // Route evaluation markers for conditional visibility
+  // Route evaluation markers for visibility control on target views
   const isBookingPage = location.pathname === "/book-call" || location.pathname.toLowerCase() === "/booking";
-  
-  // FIXED: Evaluates true for both root directory first-load and explicit paths
-  const isCraftcoreLanding = location.pathname === "/" || location.pathname.toLowerCase() === "/craftcorelanding";
 
   return (
     <>
@@ -269,26 +276,30 @@ function App() {
         <div className="noise-overlay" />
       </div>
 
-      {/* STICKY HEADER — HIDES AUTOMATICALLY ON CRAFTCORE LANDING */}
-      {!isCraftcoreLanding && <Navbar />}
+      {/* GLOBAL STICKY HEADER (Always visible on Port 3001 interior items) */}
+      <Navbar />
       
       {/* SWITCHABLE PAGES */}
       <Routes>
-        <Route path="/" element={<Craftcorelanding />} />
+        {/* If the root or master component keyword is targeted directly on port 3001, bounce execution to port 3000 */}
+        <Route path="/" element={<BackToLandingRedirect />} />
+        <Route path="/craftcorelanding" element={<BackToLandingRedirect />} />
+
+        {/* Localized Routing Substructures */}
         <Route path="/Home" element={<Home />} />
         <Route path="/service" element={<Service />} />
-        <Route path="/Solution" element={<Solution/>} />
-        <Route path="/About" element={<About/>} />
-        <Route path="/Blog" element={<Blog/>} />
-        <Route path="/Career" element={<Career/>} />
-        <Route path="/Contact" element={<Contact/>} />
-        <Route path="/Booking" element={<Booking/>} />
+        <Route path="/Solution" element={<Solution />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Blog" element={<Blog />} />
+        <Route path="/Career" element={<Career />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Booking" element={<Booking />} />
         <Route path="/book-call" element={<Booking />} />
       </Routes>
 
       {/* GLOBAL LAYOUT COMPONENTS WITH ROUTE EXCLUSIONS */}
-      {!isBookingPage && !isCraftcoreLanding && <CTA />}
-      {!isCraftcoreLanding && <Footer />}
+      {!isBookingPage && <CTA />}
+      <Footer />
 
       {/* TOAST SYSTEM CONTAINER */}
       <div className="toast-container">

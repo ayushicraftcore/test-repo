@@ -167,7 +167,7 @@ function Contact() {
                         <option value="Mobile App Development">Mobile App Development</option>
                         <option value="AI & Process Automation">AI & Process Automation</option>
                         <option value="Cloud Native & DevOps">Cloud Native & DevOps</option>
-                        <option value="UI/UX Engineering Core">UI/UX Engineering Core</option>
+                        <option value="UI/UX Design">UI/UX Design</option>
                       </select>
                     </div>
 
