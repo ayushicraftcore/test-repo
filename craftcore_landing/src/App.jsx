@@ -7,12 +7,9 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 // Only import the Master Landing Page page component
-import Craftcorelanding from "./pages/Craftcorelanding";
+import CraftcoreLanding from "./pages/CraftcoreLanding";
 
-/* ─────────────────────────────────────────────
-   FALLBACK CROSS-PORT REDIRECT
-   (Catches IT routes on 3000 and sends to 3001)
-───────────────────────────────────────────── */
+
 function CrossPortRedirect() {
   const location = useLocation();
   
@@ -267,7 +264,7 @@ function App() {
       {/* ISOLATED ROUTER DECK */}
       <Routes>
         {/* Only match the base root path for the landing workspace */}
-        <Route path="/" element={<Craftcorelanding />} />
+        <Route path="/" element={<CraftcoreLanding />} />
 
         {/* WILDCARD FALLBACK: Automatically handles any accidental path matches and transfers execution to Port 3001 */}
         <Route path="*" element={<CrossPortRedirect />} />
