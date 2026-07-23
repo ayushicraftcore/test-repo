@@ -27,7 +27,6 @@ import {
   SiPytorch,
   SiGooglecloud,
   SiKubernetes,
-  SiSap,
   SiHuggingface,
   SiPostman,
   SiGraphql,
