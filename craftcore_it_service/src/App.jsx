@@ -27,7 +27,7 @@ import Booking from "./pages/Booking";
 ───────────────────────────────────────────── */
 function BackToLandingRedirect() {
   useEffect(() => {
-    window.location.href = "http://localhost:3000/";
+    window.location.href = "http://localhost:3001/";
   }, []);
   return null;
 }
