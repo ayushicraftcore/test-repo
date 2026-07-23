@@ -27,7 +27,7 @@ import {
   SiPytorch,
   SiGooglecloud,
   SiKubernetes,
-  SiOpenai,
+  SiSap,
   SiHuggingface,
   SiPostman,
   SiGraphql,
@@ -85,7 +85,7 @@ const technologiesData = [
   {
     title: "AI / ML",
     items: [
-      { icon: <SiOpenai /> },
+      { icon: <SiSap /> },
       { icon: <SiTensorflow /> },
       { icon: <SiPytorch /> },
       { icon: <SiHuggingface /> },
