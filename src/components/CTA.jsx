@@ -47,8 +47,8 @@ function CTA() {
 
           {/* HEADING */}
           <h3 className="cta-title">
-            Looking to Build, Scale or Optimize <br />
-            Your Digital Product?
+            Looking to Build, Automate or Transform <br />
+            Your Business with Technology?
           </h3>
 
           {/* BUTTONS */}

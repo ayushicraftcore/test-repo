@@ -8,7 +8,10 @@ import {
   FiShield, 
   FiSmartphone, 
   FiEdit3, 
-  FiZap 
+  FiZap,
+  FiSettings,
+  FiCode,
+  FiUsers
 } from "react-icons/fi";
 
 const serviceDataExtended = [
@@ -17,99 +20,115 @@ const serviceDataExtended = [
     title: "WEB & SAAS DEVELOPMENT",
     image: "/images/saas.avif",
     icon: <FiLayers />,
-    caption: "Multi-tenant architecture built for high concurrent availability.",
-    metrics: { label: "Scalability Limit", value: "10M+ Users" },
-    techStack: ["React", "Next.js", "Node.js", "PostgreSQL"],
-    points: [
-      "Launch production-grade multi-tenant SaaS structures with 99.9% uptime.",
-      "Integrated subscription billing systems and robust user management.",
-      "Engineered clean state-management layouts scalable from 10 to millions of entries.",
+    caption:
+      "Custom web applications, SaaS platforms, CRM systems and ERP solutions built to streamline your business.",
+    metrics: { label: "Uptime Rate", value: "99.9%" },
+    techStack: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "CRM Systems",
+      "ERP Solutions",
+      "API Integrations"
     ],
-  },
-  {
-    smallTitle: "Mobile Apps",
-    title: "MOBILE APP DEVELOPMENT",
-    image: "/images/mobile.avif",
-    icon: <FiSmartphone />,
-    caption: "Cross-platform mobile environments with fluid user flows.",
-    metrics: { label: "App Store SLA", value: "99.99%" },
-    techStack: ["Flutter", "React Native", "Swift", "Kotlin"],
     points: [
-      "Native device compilation for blazing-fast responses on Android and iOS.",
-      "Offline-first system designs matching seamless local database synchronizations.",
-      "Deep integration of unified background streams and micro-push indicators.",
-    ],
-  },
-  {
-    smallTitle: "AI & Automation",
-    title: "AI & AUTOMATION SOLUTIONS",
-    image: "/images/automation.avif",
-    icon: <FiCpu />,
-    caption: "Autonomous intelligence frameworks optimizing operational lag.",
-    metrics: { label: "Workflow Efficiency", value: "+40% Time saved" },
-    techStack: ["Python", "OpenAI API", "LangChain", "Vector DBs"],
-    points: [
-      "Deploy intelligent multi-agent conversational chatbots and virtual systems.",
-      "Implement predictive diagnostic tracking pipelines and metric monitoring rows.",
-      "Automated workflow orchestration loops saving more than 40% manually spent time.",
-    ],
+      "Build custom web applications and multi-tenant SaaS platforms.",
+      "Develop CRM systems for sales, lead and customer management.",
+      "Create ERP solutions for inventory, finance, HR and operations.",
+      "Integrate secure third-party APIs, payment gateways and e-commerce features."
+    ]
   },
   {
     smallTitle: "Cloud & DevOps",
     title: "CLOUD & DEVOPS ENGINEERING",
     image: "/images/cloud.avif",
     icon: <FiCloud />,
-    caption: "Cloud infrastructure deployment completely isolated from failures.",
-    metrics: { label: "Release Integrity", value: "Zero Downtime" },
-    techStack: ["AWS", "GCP", "Docker", "Kubernetes", "Terraform"],
+    caption:
+      "Secure cloud management and automated deployment pipelines.",
+    metrics: { label: "Deployment", value: "Auto-Scaling" },
+    techStack: ["AWS", "GCP", "Docker", "Kubernetes"],
     points: [
-      "Modern cloud-native configurations operating securely across AWS, Azure, and GCP.",
-      "Fully responsive pipelines handling automated continuous testing and deployments.",
-      "Secure Infrastructure as Code states preventing environment variable leaks.",
-    ],
-  },
-  {
-    smallTitle: "UI/UX Design",
-    title: "UI/UX DESIGN & ARCHITECTURE",
-    image: "/images/uiux.avif",
-    icon: <FiEdit3 />,
-    caption: "Pixel-perfect mockups engineered for rapid digital onboarding.",
-    metrics: { label: "Design Blueprinting", value: "High Fidelity" },
-    techStack: ["Figma", "Adobe CC", "Wireframing", "Design Systems"],
-    points: [
-      "User-centric conversion paths tailored explicitly to business conversion goals.",
-      "Interactive vector structural mockups built completely inside modular Figma ecosystems.",
-      "Scalable corporate typography tokens, UI kits, and comprehensive asset blocks.",
-    ],
+      "Manage secure infrastructure on AWS, GCP and Azure.",
+      "Set up automated CI/CD pipelines for fast deployments.",
+      "Handle container scaling and safe cloud migrations."
+    ]
   },
   {
     smallTitle: "Cybersecurity",
     title: "CYBERSECURITY & COMPLIANCE",
     image: "/images/security.avif",
     icon: <FiShield />,
-    caption: "Ironclad end-to-end perimeter defenses and penetration mapping.",
-    metrics: { label: "Security Readiness", value: "ISO Standards" },
-    techStack: ["Pen-Testing", "AES-256", "OAuth2", "Data Audits"],
-    points: [
-      "End-to-end continuous infrastructure vulnerability mapping and architectural code audits.",
-      "Advanced structural symmetric and asymmetric encryption covering sensitive customer pipelines.",
-      "Secure data parsing configurations matching global data authorization standards.",
+    caption:
+      "Protect your data and stay compliant with global standards.",
+    metrics: { label: "Compliance", value: "GDPR / HIPAA" },
+    techStack: [
+      "Security Audits",
+      "Pen Testing",
+      "Encryption",
+      "Incident Response"
     ],
+    points: [
+      "Run deep security audits and penetration testing.",
+      "Ensure full GDPR, HIPAA and industry compliance.",
+      "Set up strong data encryption and incident response plans."
+    ]
   },
   {
-    smallTitle: "MVP for Startups",
-    title: "MVP DEVELOPMENT & LAUNCH",
-    image: "/images/mvp.avif",
-    icon: <FiZap />,
-    caption: "Fast-tracked product engineering loops engineered for startup execution.",
-    metrics: { label: "Time To Market", value: "4-8 Weeks" },
-    techStack: ["TypeScript", "Supabase", "Tailwind CSS", "Vercel"],
+    smallTitle: "Mobile Apps",
+    title: "MOBILE APP DEVELOPMENT",
+    image: "/images/mobile.avif",
+    icon: <FiSmartphone />,
+    caption:
+      "Native and cross-platform mobile apps for Android and iOS.",
+    metrics: { label: "Platforms", value: "iOS & Android" },
+    techStack: ["Flutter", "React Native", "Kotlin", "Swift"],
     points: [
-      "Accelerated prototype schedules turning concepts into fully deployable software.",
-      "Investor-ready clickable validation prototypes optimized for fundraising loops.",
-      "Lean code patterns set up cleanly to easily support secondary feature branches.",
-    ],
+      "Build high-performance apps for Android and iOS devices.",
+      "Create hybrid apps using Flutter and React Native.",
+      "Add real-time features and AI-powered mobile experiences."
+    ]
   },
+  {
+    smallTitle: "UI/UX Design",
+    title: "UI/UX DESIGN & ARCHITECTURE",
+    image: "/images/uiux.avif",
+    icon: <FiEdit3 />,
+    caption:
+      "User-centered designs, clean wireframes and scalable design systems.",
+    metrics: { label: "Accessibility", value: "WCAG Standards" },
+    techStack: [
+      "Figma",
+      "Wireframing",
+      "Design Systems",
+      "Motion Design"
+    ],
+    points: [
+      "Conduct deep user research and create clear wireframes.",
+      "Build scalable, responsive UI design systems.",
+      "Implement accessible layouts with smooth motion design."
+    ]
+  },
+ {
+  smallTitle: "AI & Automation",
+  title: "AI & AUTOMATION",
+  image: "/images/automation.avif",
+  icon: <FiCpu />,
+  caption:
+    "Practical AI solutions that automate operations, improve decision-making and reduce manual work.",
+  metrics: { label: "Efficiency Gain", value: "80%" },
+  techStack: [
+    "AI Chatbots",
+    "Predictive Analytics",
+    "Document Processing",
+    "ML & NLP"
+  ],
+  points: [
+    "Deploy AI chatbots and virtual assistants on WhatsApp, web platforms and internal business tools.",
+    "Build predictive analytics solutions for demand forecasting, defect detection and supply chain optimization.",
+    "Automate invoice, purchase order and delivery challan processing with intelligent document extraction.",
+    "Develop ML models and NLP pipelines for pricing optimization, inventory forecasting, ticket classification and customer feedback analysis."
+  ]
+}
 ];
 
 function Service() {
@@ -117,32 +136,44 @@ function Service() {
   const cardsRef = useRef([]);
 
   useEffect(() => {
-    // 1. DUAL-PURPOSE VIEWPORT MONITORING ENGINE
-    // Shrinks tracking boundaries to a tight center window to trigger seamless state swaps
-    const observerOptions = {
-      root: null,
-      rootMargin: "-45% 0px -45% 0px", 
-      threshold: 0,
-    };
+    let ticking = false;
 
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const index = cardsRef.current.indexOf(entry.target);
-          if (index !== -1) {
-            setActiveService(index);
-          }
+    const handleScrollTracking = () => {
+      const isMobile = window.innerWidth <= 1100;
+      // Adjust center baseline target slightly lower on mobile due to the fixed sticky block area
+      const viewportCenter = isMobile ? window.innerHeight * 0.65 : window.innerHeight / 2;
+      
+      let closestIndex = 0;
+      let minDistance = Infinity;
+
+      cardsRef.current.forEach((card, index) => {
+        if (!card) return;
+
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(viewportCenter - cardCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
         }
       });
+
+      setActiveService(closestIndex);
+      ticking = false;
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(handleScrollTracking);
+        ticking = true;
+      }
+    };
 
-    cardsRef.current.forEach((card) => {
-      if (card) observer.observe(card);
-    });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    handleScrollTracking(); 
 
-    return () => observer.disconnect();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -171,8 +202,6 @@ function Service() {
               
               {/* Image Frame */}
               <div className="console-image-frame">
-                {/* 2. STABLE IMAGE COMPILATION CONTAINER */}
-                {/* Freeing this from node-key updates enables fluid, instant source switching on screens */}
                 <img
                   src={serviceDataExtended[activeService].image}
                   alt="Service Visualization"

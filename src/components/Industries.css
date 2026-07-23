@@ -30,7 +30,7 @@
 
   scroll-behavior: smooth;
 
-  padding-bottom: 12px;
+  padding: 12px;
 
   scrollbar-width: none;
 }

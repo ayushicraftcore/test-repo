@@ -20,6 +20,7 @@ import Blog from "./pages/Blog";
 import Career from "./pages/Career"; 
 import Contact from "./pages/Contact"; 
 import Booking from "./pages/Booking"; 
+import Craftcorelanding from "./pages/Craftcorelanding";
 
 /* ─────────────────────────────────────────────
    SCROLL TO TOP  (Ensures page starts at top)
@@ -215,8 +216,6 @@ MAIN APP COMPONENT
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const { toasts, addToast } = useToast();
-  
-  // 1. ADDED: Instantiated router position tracker instance hook
   const location = useLocation();
 
   useEffect(() => {
@@ -237,8 +236,11 @@ function App() {
 
   useScrollReveal();
 
-  // Helper calculation parameters to determine if CTA should stay active
+  // Route evaluation markers for conditional visibility
   const isBookingPage = location.pathname === "/book-call" || location.pathname.toLowerCase() === "/booking";
+  
+  // FIXED: Evaluates true for both root directory first-load and explicit paths
+  const isCraftcoreLanding = location.pathname === "/" || location.pathname.toLowerCase() === "/craftcorelanding";
 
   return (
     <>
@@ -267,12 +269,13 @@ function App() {
         <div className="noise-overlay" />
       </div>
 
-      {/* STICKY HEADER */}
-      <Navbar />
+      {/* STICKY HEADER — HIDES AUTOMATICALLY ON CRAFTCORE LANDING */}
+      {!isCraftcoreLanding && <Navbar />}
       
       {/* SWITCHABLE PAGES */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Craftcorelanding />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="/service" element={<Service />} />
         <Route path="/Solution" element={<Solution/>} />
         <Route path="/About" element={<About/>} />
@@ -283,9 +286,9 @@ function App() {
         <Route path="/book-call" element={<Booking />} />
       </Routes>
 
-      {/* GLOBAL FOOTER CLOSURES WITH CONDITIONAL CTA EXCLUSION */}
-      {!isBookingPage && <CTA />}
-      <Footer />
+      {/* GLOBAL LAYOUT COMPONENTS WITH ROUTE EXCLUSIONS */}
+      {!isBookingPage && !isCraftcoreLanding && <CTA />}
+      {!isCraftcoreLanding && <Footer />}
 
       {/* TOAST SYSTEM CONTAINER */}
       <div className="toast-container">

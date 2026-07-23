@@ -10,7 +10,7 @@ import {
   FaAws,
   FaMicrosoft,
 } from "react-icons/fa";
-
+import { TbWebhook } from "react-icons/tb";
 import {
   SiNextdotjs,
   SiTypescript,
@@ -29,6 +29,9 @@ import {
   SiKubernetes,
   SiOpenai,
   SiHuggingface,
+  SiPostman,
+  SiGraphql,
+  SiSap,
 } from "react-icons/si";
 
 const technologiesData = [
@@ -59,6 +62,15 @@ const technologiesData = [
       { icon: <FaPython /> },
       { icon: <FaJava /> },
       { icon: <SiGo /> },
+    ],
+  },
+  {
+    title: "INTEGRATIONS",
+    items: [
+      { icon: <SiPostman /> },
+      { icon: <SiGraphql /> },
+      { icon: <TbWebhook /> },
+      { icon: <SiSap /> },
     ],
   },
   {
@@ -98,17 +110,16 @@ function Technologies() {
         <span className="section-tag">WHAT WE USE</span>
         <h2 className="section-title">Technologies We Build With</h2>
         <p className="section-description">
-          Advanced tools and frameworks enabling secure, scalable and
-          business-driven technology solutions.
+          Every technology we use is production-battle-tested across manufacturing and textile deployments. 
+          We select for scale, maintainability and your team's long-term ownership.
         </p>
-        <br/>
       </div>
 
       <div className="technologies-grid container">
         {technologiesData.map((tech, index) => (
           <div className="technology-card" key={index}>
             <div className="technology-title">
-              <span className="title-line"></span>
+              <span className="title-line" />
               <h3 className="card-title">{tech.title}</h3>
             </div>
 

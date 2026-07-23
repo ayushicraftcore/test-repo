@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
-  const [menuOpen, setMenuOpen]   = useState(false);
-  const [scrolled, setScrolled]   = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -14,12 +14,19 @@ function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = ["Home", "Service", "Solution", "About", "Blog", "Career", "Contact"];
+  const navItems = [
+    { name: "Home", path: "/home" },
+    { name: "Service", path: "/service" },
+    { name: "Solution", path: "/Solution" },
+    { name: "About", path: "/About" },
+    { name: "Blog", path: "/Blog" },
+    { name: "Career", path: "/Career" },
+    { name: "Contact", path: "/Contact" }
+  ];
 
   return (
     <header className={`navbar${scrolled ? " navbar--scrolled" : ""}`}>
-
-      {/* LOGO */}
+      
       <div className="navbar-logo">
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none' }}>
           <img src={logo} alt="Logo" />
@@ -30,20 +37,18 @@ function Navbar() {
         </Link>
       </div>
 
-      {/* NAV LINKS */}
       <nav className={menuOpen ? "nav-links active" : "nav-links"}>
-        {links.map((link) => {
-          const routePath = link === "Home" ? "/" : `/${link.toLowerCase()}`;
-          const isActive = location.pathname === routePath;
+        {navItems.map((item) => {
+          const isActive = location.pathname === item.path;
 
           return (
             <Link
-              key={link}
-              to={routePath}
+              key={item.name}
+              to={item.path}
               className={isActive ? "nav-link--active" : ""}
               onClick={() => setMenuOpen(false)}
             >
-              {link}
+              {item.name}
               <span className="nav-underline" />
             </Link>
           );
@@ -59,7 +64,6 @@ function Navbar() {
         </Link>
       </nav>
 
-      {/* DESKTOP BUTTON */}
       <Link 
         to="/book-call" 
         className="desktop-btn"
@@ -68,7 +72,6 @@ function Navbar() {
         GET IN TOUCH
       </Link>
 
-      {/* HAMBURGER */}
       <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
         <span className={`hamburger${menuOpen ? " open" : ""}`}>
           <span /><span /><span />

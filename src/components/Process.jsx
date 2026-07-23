@@ -1,31 +1,42 @@
 import "./Process.css";
 import { useEffect, useState, useRef } from "react";
+import { FiSearch, FiLayers, FiCode, FiCloud, FiCheckSquare } from "react-icons/fi";
 
 const steps = [
   {
     number: "01",
-    title: "DISCOVER",
-    description: "Understand your business goals, product vision and user expectations through deep research and strategic planning.",
+    title: "DISCOVERY",
+    icon: <FiSearch />,
+    description:
+      "Week 1–2: Understand business requirements, identify project goals and define the product scope to create a clear development roadmap.",
   },
   {
     number: "02",
-    title: "ARCHITECT",
-    description: "Design scalable system architecture, seamless workflows and modern technical foundations for long-term growth.",
+    title: "ARCHITECTURE",
+    icon: <FiLayers />,
+    description:
+      "Week 2–3: Design the system architecture, database structure and technical framework to ensure scalability, security, and performance.",
   },
   {
     number: "03",
-    title: "DEVELOP",
-    description: "Build high-performance digital products using agile sprints, scalable codebases and modern technologies.",
+    title: "DEVELOPMENT",
+    icon: <FiCode />,
+    description:
+      "Build and deploy high-quality software through agile development sprints, with regular progress reviews and interactive product demonstrations.",
   },
   {
     number: "04",
-    title: "DEPLOY",
-    description: "Launch secure cloud-native applications with CI/CD pipelines, monitoring and optimized infrastructure.",
+    title: "UAT & QA",
+    icon: <FiCheckSquare />,
+    description:
+      "Perform comprehensive quality assurance testing and user acceptance testing to validate functionality, usability and system reliability.",
   },
   {
     number: "05",
-    title: "SCALE",
-    description: "Continuously optimize performance, workflows and infrastructure to support future business expansion.",
+    title: "GO-LIVE",
+    icon: <FiCloud />,
+    description:
+      "Launch the solution on secure cloud infrastructure with performance monitoring, deployment validation and ongoing operational support.",
   },
 ];
 
@@ -48,7 +59,6 @@ function Process() {
       } else if (scrolled > maxScroll) {
         setActiveStep(steps.length - 1);
       } else {
-        // FIXED: Added absolute boundary clamping to prevent fast-scroll edge glitches
         const progress = Math.max(0, Math.min(1, scrolled / maxScroll));
         const currentStep = Math.min(
           steps.length - 1,
@@ -73,8 +83,7 @@ function Process() {
           <span className="section-tag">HOW WE WORK</span>
           <h2 className="section-title">Our Development Process</h2>
           <p className="section-description">
-            A streamlined and scalable process focused on building reliable,
-            high-performance digital products.
+            A focused delivery model that turns business goals into systems, launches and long-term growth.
           </p>
         </div>
 
@@ -95,27 +104,20 @@ function Process() {
 
                   return (
                     <div key={`content-${index}`} className={`process-card-content ${positionClass}`}>
-                      <span className="process-badge">
-                        STEP {step.number}
-                      </span>
+                      
+                      {/* FIXED: Lock icon to the absolute right side of the card layout */}
+                      <div className="process-bg-right-icon">
+                        {step.icon}
+                      </div>
+
+                      <div className="process-header-row">
+                        <span className="process-badge">
+                          STEP {step.number}
+                        </span>
+                      </div>
+
                       <h3>{step.title}</h3>
                       <p>{step.description}</p>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* BIG NUMBER SLIDER */}
-              <div className="process-number-slider">
-                {steps.map((step, index) => {
-                  let positionClass = "";
-                  if (index === activeStep) positionClass = "active";
-                  else if (index < activeStep) positionClass = "prev";
-                  else positionClass = "next";
-
-                  return (
-                    <div key={`num-${index}`} className={`process-big-number ${positionClass}`}>
-                      {step.number}
                     </div>
                   );
                 })}

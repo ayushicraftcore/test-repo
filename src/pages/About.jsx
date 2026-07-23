@@ -4,8 +4,12 @@ import { useEffect, useRef, useState } from "react";
 // Import your custom platform section sheets
 import Process from "../components/Process"; 
 import Model from "../components/Models"; 
+import Industries from "../components/Industries";
+import { IndianRupee } from "lucide-react";
+import { FaIndustry } from "react-icons/fa";
+import Stats from "../components/Stats";
 
-const whyChooseText = "We eliminate technical overhead by building custom software products engineered around your true business needs. By marrying modular UI/UX architectures with performance optimization configurations, your platforms gain exceptional stability under load. We treat code as a core asset, optimizing your server data streams to run with zero processing delays.";
+const whyChooseText = "Craftcore builds custom software tailored exactly to your business needs, focusing on fast, scalable applications with modern, user-friendly UI/UX design. We optimize performance and streamline data processing so your platform runs smoothly, loads quickly and provides a reliable experience for your users without any downtime. Ultimately, our solutions are engineered to keep your systems perfectly stable and efficient while fully supporting your long-term business growth.";
 
 function About() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -68,9 +72,9 @@ function About() {
           </div>
 
           <p className="section-description about-hero-desc">
-            CraftCore is a premium technology partner dedicated to empowering startups and enterprises. 
-            We blend cutting-edge front-end animations, cloud engineering solutions, and advanced 
-            automation systems into flawless market advantages.
+              Craftcore IT Services is a full-stack technology company delivering custom software, intelligent
+            automation and enterprise systems to manufacturing, textile and supply chain businesses. We
+            don't just build software — we understand your sector.
           </p>
         </header>
 
@@ -86,9 +90,7 @@ function About() {
               </div>
               <h2 className="statement-card-title">Our Vision</h2>
               <p className="card-text statement-card-body">
-                To become the definitive worldwide launchpad for digital acceleration. We aim to redefine 
-                how organizations build software by engineering intuitive design frameworks, bulletproof multi-tenant structures, 
-                and clean state-management flows that effortlessly sustain millions of real-time connections.
+                To become a trusted global technology partner, helping businesses grow through innovative software development, AI-powered solutions and scalable digital transformation.
               </p>
             </div>
 
@@ -100,9 +102,7 @@ function About() {
               </div>
               <h2 className="statement-card-title">Our Mission</h2>
               <p className="card-text statement-card-body">
-                To ship production-grade code bases that grant businesses measurable structural advantages. 
-                We eliminate operational friction by fusing high-performance front-end visuals with secure cloud native systems, 
-                turning complex corporate bottlenecks into seamless, high-converting customer experiences.
+               To build reliable, high-performance software, SaaS platforms, mobile applications, and AI solutions that help businesses innovate faster, improve efficiency and achieve sustainable growth.
               </p>
             </div>
 
@@ -143,7 +143,9 @@ function About() {
       </div>
 
       {/* SUBSEQUENT INTERACTIVE TEMPLATE CORE APPENDS */}
+      <Stats />
       <Process />
+      <Industries />
       <Model />
 
     </div>

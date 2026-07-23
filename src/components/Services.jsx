@@ -1,47 +1,47 @@
 import "./Services.css";
 import { useEffect, useRef, useState } from "react";
 import { FiCheck } from "react-icons/fi";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const servicesData = [
   {
-    smallTitle: "Enterprise SaaS",
-    title: "CUSTOM SAAS DEVELOPMENT",
+    smallTitle: "Web & SaaS Dev",
+    title: "WEB & SAAS DEVELOPMENT",
     image: "/images/saas.avif",
     points: [
-      "Launch Multi-Tenant SaaS In Weeks",
-      "Subscription Billing & User Roles",
-      "Scalable Architecture For Millions Of Users",
+      "Custom Web Applications",
+      "Multi-Tenant Platforms & E-Commerce",
+      "API Integrations & PWAs",
     ],
   },
   {
-    smallTitle: "AI Automation",
+    smallTitle: "Cloud & DevOps",
+    title: "CLOUD & DEVOPS ENGINEERING",
+    image: "/images/cloud.avif",
+    points: [
+      "AWS, GCP and Azure Management",
+      "CI/CD Pipelines & Auto-Scaling",
+      "Docker, Kubernetes & Cloud Migration",
+    ],
+  },
+  {
+    smallTitle: "Cybersecurity",
+    title: "CYBERSECURITY & COMPLIANCE",
+    image: "/images/security.avif",
+    points: [
+      "Security Audits & Pen Testing",
+      "GDPR & HIPAA Compliance",
+      "Data Encryption & Incident Response",
+    ],
+  },
+  {
+    smallTitle: "AI & Automation",
     title: "AI & AUTOMATION SOLUTIONS",
     image: "/images/automation.avif",
     points: [
-      "AI Chatbots & Smart Virtual Agents",
-      "Predictive Analytics & Insights",
-      "Workflow Automation With 40%+ Efficiency",
-    ],
-  },
-  {
-    smallTitle: "Cloud Infrastructure",
-    title: "WEB & CLOUD ENGINEERING",
-    image: "/images/cloud.avif",
-    points: [
-      "Cloud-Native Development On AWS & GCP",
-      "CI/CD & Auto Scaling Infrastructure",
-      "Secure Infrastructure As Code Deployments",
-    ],
-  },
-  {
-    smallTitle: "Rapid Product Launch",
-    title: "MVP FOR STARTUPS",
-    image: "/images/mvp.avif",
-    points: [
-      "Launch MVPs In 4–8 Weeks",
-      "Investor-Ready Product Demos",
-      "Lean & Scalable Architecture",
+      "AI Chatbots & NLP Pipelines",
+      "Machine Learning Models & IDP",
+      "Workflow Automation & Predictive Analytics",
     ],
   },
 ];
@@ -49,83 +49,73 @@ const servicesData = [
 function Services() {
   const [activeService, setActiveService] = useState(0);
   const cardsRef = useRef([]);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // OPTIMIZATION 1: THE DEAD-CENTER TRIGGER LINE
-    // This shrinks the trigger area to a crisp horizontal line near the center of the screen (45% from top).
-    // The moment a card crosses this invisible line, it swaps instantly with zero extra math loops.
-    const observerOptions = {
-      root: null,
-      rootMargin: "-45% 0px -54% 0px", 
-      threshold: 0, // Single precise checkpoint execution
-    };
+    const handleScrollTracking = () => {
+      const isMobile = window.innerWidth <= 992;
+      // On mobile, track cards right below the sticky preview area
+      const trackingLine = isMobile ? window.innerHeight * 0.75 : window.innerHeight / 2;
+      
+      let closestIndex = 0;
+      let smallestDistance = Infinity;
 
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const index = cardsRef.current.indexOf(entry.target);
-          if (index !== -1) {
-            // Only update the state if it's a completely different card to prevent render loops
-            setActiveService(index);
-          }
+      cardsRef.current.forEach((card, index) => {
+        if (!card) return;
+        
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(trackingLine - cardCenter);
+
+        if (distance < smallestDistance) {
+          smallestDistance = distance;
+          closestIndex = index;
         }
       });
+
+      setActiveService(closestIndex);
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    window.addEventListener("scroll", handleScrollTracking, { passive: true });
+    handleScrollTracking();
 
-    cardsRef.current.forEach((card) => {
-      if (card) observer.observe(card);
-    });
-
-    return () => observer.disconnect();
+    return () => window.removeEventListener("scroll", handleScrollTracking);
   }, []);
 
   return (
     <section className="services section-space">
       <div className="container">
         
-        {/* HEADER */}
         <div className="services-header">
           <span className="section-tag">WHAT WE BUILD</span>
-          <h2 className="section-title">Core Services</h2>
+          <h2 className="section-title">Everything Your IT Stack Needs — One Partner</h2>
           <p className="section-description">
-            Production-grade solutions built for scalability, high performance
-            and measurable business impact.
+            Production-grade solutions built for scalability, high performance and measurable business impact.
           </p>
         </div>
 
-        {/* WRAPPER */}
         <div className="services-wrapper">
           
-          {/* LEFT SIDE (Sticky Image Preview) */}
           <div className="services-left">
             <div className="service-preview-card">
-              {/* OPTIMIZATION 2: STABLE IMAGE NODE */}
-              {/* Removed the 'key' attribute. Now the DOM element stays alive, and only the src swaps, */}
-              {/* allowing hardware acceleration to render the layout with absolute fluidity. */}
               <img
                 src={servicesData[activeService].image}
                 alt="service"
                 className="service-preview-image"
-                loading="eager" // Forces asset priority so it's always ready
+                loading="eager"
                 decoding="async"
               />
-              <div className="service-preview-overlay"></div>
+              <div className="service-preview-overlay" />
               
               <div className="service-preview-content">
                 <span className="preview-tag">
                   {servicesData[activeService].smallTitle}
                 </span>
                 <h3>{servicesData[activeService].title}</h3>
-                
                 <ul className="preview-points">
                   {servicesData[activeService].points.map((point, i) => (
                     <li key={i}>
-                      <span className="check-circle">
-                        <FiCheck />
-                      </span>
+                      <span className="check-circle"><FiCheck /></span>
                       <span>{point}</span>
                     </li>
                   ))}
@@ -134,18 +124,40 @@ function Services() {
             </div>
           </div>
 
-          {/* RIGHT SIDE (Scrolling Cards List) */}
           <div className="services-right">
             {servicesData.map((service, index) => (
               <div
                 key={index}
                 ref={(el) => (cardsRef.current[index] = el)}
                 className={`service-item ${activeService === index ? "active" : ""}`}
-                onClick={() => setActiveService(index)}
+                onClick={() => {
+                  setActiveService(index);
+                  
+                  if (window.innerWidth <= 992) {
+                    // FIXED: Mobile scrolling calculation to safely position card completely below the sticky view
+                    const element = cardsRef.current[index];
+                    if (element) {
+                      const bodyRect = document.body.getBoundingClientRect().top;
+                      const elementRect = element.getBoundingClientRect().top;
+                      const elementPosition = elementRect - bodyRect;
+                      // Subtracts the layout height of your sticky header and preview block
+                      const offsetPosition = elementPosition - 490; 
+
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                      });
+                    }
+                  } else {
+                    cardsRef.current[index]?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "center",
+                    });
+                  }
+                }}
               >
-                <span className="service-small-title">
-                  {service.smallTitle}
-                </span>
+                <div className="active-indicator-bar" />
+                <span className="service-small-title">{service.smallTitle}</span>
                 <h3 className="card-title">{service.title}</h3>
               </div>
             ))}
@@ -153,13 +165,12 @@ function Services() {
           
         </div>
 
-        {/* BUTTON */}
         <div className="services-button-wrap">
           <button className="primary-btn" onClick={() => navigate("/service")}>
             VIEW ALL SERVICES
           </button>
         </div>
-        
+
       </div>
     </section>
   );
