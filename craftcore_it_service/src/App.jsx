@@ -27,7 +27,7 @@ import Booking from "./pages/Booking";
 ───────────────────────────────────────────── */
 function BackToLandingRedirect() {
   useEffect(() => {
-    window.location.href = "craftcorewebsite.vercel.app";
+    window.location.href = "https://craftcorewebsite-ohc2zq5yn-ayushicraftcores-projects.vercel.app/";
   }, []);
   return null;
 }
