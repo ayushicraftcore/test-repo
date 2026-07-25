@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Service from "./pages/Service";
 import Solution from "./pages/Solution";
+import SolutionV2 from "./pages/SolutionV2"; // ← ADD THIS IMPORT
 import About from "./pages/About";
 import Blog from "./pages/Blog"; 
 import Career from "./pages/Career"; 
@@ -278,6 +279,7 @@ function App() {
         <Route path="/Home" element={<Home />} />
         <Route path="/service" element={<Service />} />
         <Route path="/Solution" element={<Solution />} />
+        <Route path="/SolutionV2" element={<SolutionV2 />} /> {/* ← ADD THIS ROUTE */}
         <Route path="/About" element={<About />} />
         <Route path="/Blog" element={<Blog />} />
         <Route path="/Career" element={<Career />} />

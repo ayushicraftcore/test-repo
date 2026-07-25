@@ -1,0 +1,343 @@
+/* =======================================================
+   SOLUTION V4 - LIGHT & ACCESSIBLE MINIMAL DESIGN
+======================================================= */
+:root {
+  --v4-bg: #f8fafc;
+  --v4-card-bg: #ffffff;
+  --v4-border: #e2e8f0;
+  --v4-text-main: #0f172a;
+  --v4-text-muted: #64748b;
+  --v4-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  --v4-shadow-lg: 0 10px 30px -4px rgba(0, 0, 0, 0.08);
+}
+
+.solution-v4-page {
+  background-color: var(--v4-bg);
+  color: var(--v4-text-main);
+  min-height: 100vh;
+  padding: 48px 0 80px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.v4-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Section */
+.v4-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.v4-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #e0e7ff;
+  color: #4338ca;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.v4-title {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--v4-text-main);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.v4-subtitle {
+  font-size: 16px;
+  color: var(--v4-text-muted);
+  margin-top: 8px;
+}
+
+/* Main Project Selector Tabs */
+.v4-project-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.v4-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: var(--v4-card-bg);
+  border: 1px solid var(--v4-border);
+  border-radius: 12px;
+  color: var(--v4-text-muted);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--v4-shadow);
+}
+
+.v4-tab-btn:hover {
+  border-color: #cbd5e1;
+  color: var(--v4-text-main);
+}
+
+.v4-tab-btn.active {
+  background: var(--active-color);
+  border-color: var(--active-color);
+  color: #ffffff;
+}
+
+.v4-tab-icon {
+  font-size: 18px;
+}
+
+/* Main Content Grid */
+.v4-main-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Sidebar Feature Selector */
+.v4-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.v4-project-summary {
+  background: var(--v4-card-bg);
+  border: 1px solid var(--v4-border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--v4-shadow);
+}
+
+.v4-project-summary h2 {
+  font-size: 22px;
+  margin: 0 0 10px 0;
+  color: var(--v4-text-main);
+}
+
+.v4-project-summary p {
+  font-size: 14px;
+  color: var(--v4-text-muted);
+  margin: 0 0 16px 0;
+  line-height: 1.6;
+}
+
+.v4-stats-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.v4-stat-badge {
+  font-size: 12px;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* Feature Navigation Cards - Full Text & Big Design */
+.v4-feature-item {
+  background: var(--v4-card-bg);
+  border: 1px solid var(--v4-border);
+  border-radius: 16px;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--v4-shadow);
+  text-align: left;
+  width: 100%;
+}
+
+.v4-feature-item:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.v4-feature-item.active {
+  border-color: var(--active-color);
+  box-shadow: 0 0 0 2px var(--active-color-light);
+  background: #ffffff;
+}
+
+.v4-feature-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.v4-feature-icon {
+  font-size: 20px;
+  color: var(--active-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v4-feature-item h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--v4-text-main);
+}
+
+/* Full Text Visibility (No truncation) */
+.v4-feature-item p {
+  font-size: 14px;
+  color: var(--v4-text-muted);
+  margin: 0;
+  line-height: 1.6;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+/* Right Content: Showcase Window */
+.v4-showcase {
+  background: var(--v4-card-bg);
+  border: 1px solid var(--v4-border);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--v4-shadow-lg);
+  position: sticky;
+  top: 32px;
+}
+
+.v4-showcase-info {
+  margin-bottom: 20px;
+}
+
+.v4-showcase-info h3 {
+  font-size: 24px;
+  margin: 0 0 8px 0;
+  color: var(--v4-text-main);
+}
+
+.v4-showcase-info p {
+  font-size: 15px;
+  color: var(--v4-text-muted);
+  margin: 0 0 16px 0;
+  line-height: 1.6;
+}
+
+.v4-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.v4-tag {
+  font-size: 12px;
+  background: #f1f5f9;
+  color: #334155;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* Image Display Box */
+.v4-image-container {
+  position: relative;
+  background: #f1f5f9;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  border: 1px solid var(--v4-border);
+}
+
+.v4-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.v4-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid var(--v4-border);
+  color: var(--v4-text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.v4-arrow-btn:hover {
+  background: var(--active-color);
+  color: #ffffff;
+  border-color: var(--active-color);
+}
+
+.v4-arrow-btn.prev { left: 16px; }
+.v4-arrow-btn.next { right: 16px; }
+
+/* Thumbnail Gallery Strip */
+.v4-gallery-strip {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.v4-thumb-card {
+  width: 80px;
+  height: 52px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  background: #e2e8f0;
+  padding: 0;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+.v4-thumb-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.v4-thumb-card.active {
+  opacity: 1;
+  border-color: var(--active-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .v4-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .v4-showcase {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .v4-title { font-size: 28px; }
+  .v4-project-tabs { flex-direction: column; }
+  .v4-tab-btn { width: 100%; justify-content: center; }
+}
