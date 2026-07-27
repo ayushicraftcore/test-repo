@@ -20,11 +20,11 @@ const project1Features = [
     title: "Project Goal & OKR Management",
     description: "Define, track, and manage project goals and OKRs across all projects. Monitor progress in real-time, automate status updates, and track milestone achievements for successful project delivery.",
     images: [
-      "/images/craftcore1.avif",
-      "/images/Project Report.avif",
-      "/images/Task Kanban.avif",
-      "/images/Project Card.avif",
-      "/images/Customer Support Ticketing System Project Details.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135243/craftcore1_rmag3p.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135282/Project_Report_pc0kp0.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135281/Task_Kanban_tthdeh.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135278/Project_Card_fdfwie.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135279/Customer_Support_Ticketing_System_Project_Details_rdy78x.avif"
     ],
     tags: ["Project Goals", "OKR Tracking", "Real-Time Progress", "Milestone Management"]
   },
@@ -35,13 +35,13 @@ const project1Features = [
     title: "Recruitment Performance Dashboard",
     description: "Track recruitment metrics including candidate pipelines, time-to-hire, source effectiveness, and hiring success rates with interactive dashboards and real-time analytics.",
     images: [
-      "/images/Recruitment/Recruitment Dashboard.avif",
-      "/images/Recruitment/Job Postings.avif",
-      "/images/Recruitment/Job Postings Details.avif",
-      "/images/Recruitment/Interviews.avif",
-      "/images/Recruitment/Interview Rounds.avif",
-      "/images/Recruitment/Candidate.avif",
-      "/images/Recruitment/Candidate Details.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135420/Recruitment_Dashboard_i0tbfq.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135419/Job_Postings_mujs4r.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135412/Job_Postings_Details_mbxjyh.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135416/Interviews_ybn0fc.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135412/Interview_Rounds_hclzul.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135411/Candidate_d9aoev.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135411/Candidate_Details_bk1z30.avif"
     ],
     tags: ["Candidate Pipeline", "Time-to-Hire", "Source Analytics", "Hiring Success Rate"]
   },
@@ -52,14 +52,14 @@ const project1Features = [
     title: "Customer Relationship Management",
     description: "Manage leads, track deals, and nurture customer relationships with a comprehensive CRM system. Visualize sales pipelines, monitor lead activities, and generate detailed reports for better customer insights.",
     images: [
-      "/images/CRM/CRM Dashboard.avif",
-      "/images/CRM/Deals Kanban.avif",
-      "/images/CRM/Lead Activity.avif",
-      "/images/CRM/Leads General Details.avif",
-      "/images/CRM/Leads Kanban.avif",
-      "/images/CRM/Leads List.avif",
-      "/images/CRM/Leads Report General.avif",
-      "/images/CRM/Leads Report Staff.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135601/CRM_Dashboard_rp2q0g.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135603/Deals_Kanban_wg7z5o.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135607/Lead_Activity_pkjtxz.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135609/Leads_General_Details_gzxi7m.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135615/Leads_Kanban_yf39m0.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135643/Leads_List_tc7jvw.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135609/Leads_Report_General_tdbn7i.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135610/Leads_Report_Staff_kuuzce.avif"
     ],
     tags: ["Lead Management", "Sales Pipeline", "Activity Tracking", "CRM Analytics"]
   }
@@ -74,11 +74,11 @@ const project2Features = [
     title: "Collection Admin Dashboard",
     description: "Comprehensive admin dashboard for collection management with real-time tracking of outstanding payments, recovery analytics, bank reconciliation, defaulter monitoring, and team performance metrics.",
     images: [
-      "/images/collection_admin/Dashboard.avif",
-      "/images/collection_admin/Dashboard Dark.avif",
-      "/images/collection_admin/Bank.avif",
-      "/images/collection_admin/Defaulter.avif",
-      "/images/collection_admin/Permission.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Dashboard_bnod2n.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136407/Dashboard_Dark_irjhzo.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136406/Bank_ebj4st.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136409/Defaulter_cy2p7h.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Permission_izu9xk.avif"
     ],
     tags: ["Recovery Analytics", "Bank Reconciliation", "Defaulter Tracking", "Team Performance"]
   },
@@ -89,10 +89,10 @@ const project2Features = [
     title: "Collection Agent Dashboard",
     description: "Agent-focused dashboard for daily task management, call logging, customer follow-ups, and notification tracking. Streamline collection activities with real-time task assignments and performance monitoring.",
     images: [
-      "/images/collection_agent/dashboard.avif",
-      "/images/collection_agent/daily task.avif",
-      "/images/collection_agent/call logs.avif",
-      "/images/collection_agent/notification.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136519/dashboard_riiznw.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136518/daily_task_mdovub.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136517/call_logs_fc30yl.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136520/notification_gclg8m.avif"
     ],
     tags: ["Task Management", "Call Logging", "Follow-ups", "Notifications"]
   },
@@ -103,9 +103,9 @@ const project2Features = [
     title: "Collection Mobile Application",
     description: "Mobile-first collection application for field agents with case management, daily task tracking, customer interaction logging, and real-time sync for on-the-go collection operations.",
     images: [
-      "/images/collection_mobile/dashboard.avif",
-      "/images/collection_mobile/my cases.avif",
-      "/images/collection_mobile/daily task.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136693/dashboard_pd5net.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136694/my_cases_hjakqe.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136696/daily_task_obvpao.avif"
     ],
     tags: ["Case Management", "Field Operations", "Real-Time Sync", "Mobile Tasks"]
   }
@@ -120,9 +120,9 @@ const project3Features = [
     title: "Textile Operations Dashboard",
     description: "Real-time operations dashboard for textile manufacturing with inventory monitoring, production tracking, job work management, financial insights, and WIP monitoring across the textile production lifecycle.",
     images: [
-      "/images/Textile_Dashboard/Dashboar.jpeg",
-      "/images/Textile_Dashboard/DashboardMobileVie.jpeg",
-      "/images/Textile_Dashboard/ManagementControlTowe.jpeg"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/Dashboar_h2yx68.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/DashboardMobileVie_lgzw9y.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136946/ManagementControlTowe_c270zl.jpg"
     ],
     tags: ["Inventory Monitoring", "Production Tracking", "Financial Insights", "WIP Monitoring"]
   },
@@ -133,12 +133,12 @@ const project3Features = [
     title: "Textile Master Data Management",
     description: "Centralized master data management for textile operations including customer management, employee records, product catalogs, vendor tracking, and warehouse management for streamlined textile production.",
     images: [
-      "/images/Textile_ERP_Master/Custome.jpeg",
-      "/images/Textile_ERP_Master/Designatio.jpeg",
-      "/images/Textile_ERP_Master/Product.jpeg",
-      "/images/Textile_ERP_Master/User.jpeg",
-      "/images/Textile_ERP_Master/Vendor.jpeg",
-      "/images/Textile_ERP_Master/Warehouse.jpeg"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137032/Custome_veckuh.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137034/Designatio_ny3jmc.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137034/Product_gtpkva.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137035/User_msznrx.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137038/Vendor_amvlh6.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137038/Warehouse_mgcom6.jpg"
     ],
     tags: ["Customer Management", "Vendor Tracking", "Product Catalog", "Warehouse Management"]
   },
@@ -149,14 +149,14 @@ const project3Features = [
     title: "Textile Operations & Reports",
     description: "Comprehensive textile operations reports including grey material procurement, inventory status, job work reports, mill process tracking, and financial payment monitoring for complete operational visibility.",
     images: [
-      "/images/TextileOperations/Finances Payment-1000kb.jpg",
-      "/images/TextileOperations/Grey Material Procurement Fully Dilivered Report-1000kb.jpg",
-      "/images/TextileOperations/Grey Material Procurement Report-1000kb.jpg",
-      "/images/TextileOperations/INVENTOR-1000kb.jpg",
-      "/images/TextileOperations/Job Work Report-1000kb.jpg",
-      "/images/TextileOperations/MILL PROCES-1000kb.jpg",
-      "/images/TextileOperations/Mill Process Report-1000kb.jpg",
-      "/images/TextileOperations/WIP MONITOR -1000kb.jpg"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137138/Finances_Payment-1000kb_moeg18.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137141/Grey_Material_Procurement_Fully_Dilivered_Report-1000kb_c8n87t.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137140/Grey_Material_Procurement_Report-1000kb_fmtlym.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137141/INVENTOR-1000kb_gkwszu.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137142/Job_Work_Report-1000kb_i2e7pt.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137144/MILL_PROCES-1000kb_fv6pku.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137146/Mill_Wise_Mill_Process_Report-1000kb_h7hriu.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137147/WIP_MONITOR_-1000kb_fg3shl.jpg"
     ],
     tags: ["Material Procurement", "Inventory Reports", "Job Work Reports", "Financial Monitoring"]
   }
@@ -354,7 +354,7 @@ function Solution() {
               className="solution-hero-video"
               poster="/images/solution-main-hero.avif"
             >
-              <source src="/videos/solution-hero.mp4" type="video/mp4" />
+              <source src="https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785134840/solution-hero_ih8ndx.mp4" type="video/mp4" />
             </video>
             <div className="hero-frame-overlay" />
           </div>

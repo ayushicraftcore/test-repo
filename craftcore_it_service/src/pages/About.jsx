@@ -15,21 +15,21 @@ const carouselVideos = [
     id: 1,
     title: "Real-Time Analytics",
     description: "Powerful real-time dashboards and analytics that transform raw data into actionable insights, helping you make data-driven decisions faster.",
-    videoUrl: "/videos/SAAS.mp4",
+    videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785134919/SAAS_ynbbzq.mp4",
     poster: "/images/video-poster-1.jpg"
   },
   {
     id: 2,
     title: "Code & Innovation",
     description: "Clean, scalable, and maintainable code architecture that powers enterprise-grade applications with cutting-edge development practices.",
-    videoUrl: "/videos/Coding.mp4",
+    videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785135048/Coding_tguouv.mp4",
     poster: "/images/video-poster-2.jpg"
   },
   {
     id: 3,
     title: "SaaS Solutions",
     description: "Innovative SaaS products designed to streamline workflows, enhance productivity, and scale seamlessly with your business needs.",
-    videoUrl: "/videos/solution.mp4",
+    videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785135133/solution_j5q5qi.mp4",
     poster: "/images/video-poster-3.jpg"
   }
 ];

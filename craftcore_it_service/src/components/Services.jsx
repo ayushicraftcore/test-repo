@@ -7,7 +7,7 @@ const servicesData = [
   {
     smallTitle: "Web & SaaS Dev",
     title: "WEB & SAAS DEVELOPMENT",
-    image: "/images/saas.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133272/saas_development_r1jfk2.avif",
     points: [
       "Custom Web Applications",
       "Multi-Tenant Platforms & E-Commerce",
@@ -17,7 +17,7 @@ const servicesData = [
   {
     smallTitle: "Cloud & DevOps",
     title: "CLOUD & DEVOPS ENGINEERING",
-    image: "/images/cloud.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133774/cloud_fhd71g.avif",
     points: [
       "AWS, GCP and Azure Management",
       "CI/CD Pipelines & Auto-Scaling",
@@ -27,7 +27,7 @@ const servicesData = [
   {
     smallTitle: "Cybersecurity",
     title: "CYBERSECURITY & COMPLIANCE",
-    image: "/images/security.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133877/security_pdcr9o.avif",
     points: [
       "Security Audits & Pen Testing",
       "GDPR & HIPAA Compliance",
@@ -37,7 +37,7 @@ const servicesData = [
   {
     smallTitle: "AI & Automation",
     title: "AI & AUTOMATION SOLUTIONS",
-    image: "/images/automation.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133977/automation_sm760t.avif",
     points: [
       "AI Chatbots & NLP Pipelines",
       "Machine Learning Models & IDP",

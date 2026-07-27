@@ -18,7 +18,7 @@ const serviceDataExtended = [
   {
     smallTitle: "Web & SaaS Dev",
     title: "WEB & SAAS DEVELOPMENT",
-    image: "/images/saas.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133272/saas_development_r1jfk2.avif",
     icon: <FiLayers />,
     caption:
       "Custom web applications, SaaS platforms, CRM systems and ERP solutions built to streamline your business.",
@@ -41,7 +41,7 @@ const serviceDataExtended = [
   {
     smallTitle: "Cloud & DevOps",
     title: "CLOUD & DEVOPS ENGINEERING",
-    image: "/images/cloud.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133774/cloud_fhd71g.avif",
     icon: <FiCloud />,
     caption:
       "Secure cloud management and automated deployment pipelines.",
@@ -56,7 +56,7 @@ const serviceDataExtended = [
   {
     smallTitle: "Cybersecurity",
     title: "CYBERSECURITY & COMPLIANCE",
-    image: "/images/security.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133877/security_pdcr9o.avif",
     icon: <FiShield />,
     caption:
       "Protect your data and stay compliant with global standards.",
@@ -76,7 +76,7 @@ const serviceDataExtended = [
   {
     smallTitle: "Mobile Apps",
     title: "MOBILE APP DEVELOPMENT",
-    image: "/images/mobile.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133926/mobile_nqdoma.avif",
     icon: <FiSmartphone />,
     caption:
       "Native and cross-platform mobile apps for Android and iOS.",
@@ -111,7 +111,7 @@ const serviceDataExtended = [
  {
   smallTitle: "AI & Automation",
   title: "AI & AUTOMATION",
-  image: "/images/automation.avif",
+  image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133977/automation_sm760t.avif",
   icon: <FiCpu />,
   caption:
     "Practical AI solutions that automate operations, improve decision-making and reduce manual work.",

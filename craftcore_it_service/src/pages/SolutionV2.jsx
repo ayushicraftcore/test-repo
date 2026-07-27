@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SolutionV2.css";
 import {
   FiGrid, FiTarget, FiTrendingUp, FiUsers, FiDollarSign,
   FiBriefcase, FiChevronLeft, FiChevronRight, FiSmartphone,
-  FiClock
+  FiClock, FiLayers
 } from "react-icons/fi";
 
 const project1Features = [
@@ -12,13 +12,13 @@ const project1Features = [
     icon: <FiTarget />,
     label: "Goal Tracking",
     title: "Project Goal & OKR Management",
-    description: "Define, track, and manage project goals and OKRs across all projects. Monitor progress in real-time, automate status updates, and track milestone achievements.",
+    description: "Define, track, and manage project goals and OKRs across all projects. Monitor progress in real-time, automate status updates, and track milestone achievements for successful project delivery.",
     images: [
-      "/images/craftcore1.avif",
-      "/images/Project Report.avif",
-      "/images/Task Kanban.avif",
-      "/images/Project Card.avif",
-      "/images/Customer Support Ticketing System Project Details.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135243/craftcore1_rmag3p.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135282/Project_Report_pc0kp0.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135281/Task_Kanban_tthdeh.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135278/Project_Card_fdfwie.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135279/Customer_Support_Ticketing_System_Project_Details_rdy78x.avif"
     ],
     tags: ["Project Goals", "OKR Tracking", "Real-Time Progress", "Milestone Management"]
   },
@@ -27,15 +27,15 @@ const project1Features = [
     icon: <FiTrendingUp />,
     label: "Recruitment Analytics",
     title: "Recruitment Performance Dashboard",
-    description: "Track recruitment metrics including candidate pipelines, time-to-hire, source effectiveness, and hiring success rates with interactive dashboards.",
+    description: "Track recruitment metrics including candidate pipelines, time-to-hire, source effectiveness, and hiring success rates with interactive dashboards and real-time analytics.",
     images: [
-      "/images/Recruitment/Recruitment Dashboard.avif",
-      "/images/Recruitment/Job Postings.avif",
-      "/images/Recruitment/Job Postings Details.avif",
-      "/images/Recruitment/Interviews.avif",
-      "/images/Recruitment/Interview Rounds.avif",
-      "/images/Recruitment/Candidate.avif",
-      "/images/Recruitment/Candidate Details.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135420/Recruitment_Dashboard_i0tbfq.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135419/Job_Postings_mujs4r.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135412/Job_Postings_Details_mbxjyh.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135416/Interviews_ybn0fc.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135412/Interview_Rounds_hclzul.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135411/Candidate_d9aoev.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135411/Candidate_Details_bk1z30.avif"
     ],
     tags: ["Candidate Pipeline", "Time-to-Hire", "Source Analytics", "Hiring Success Rate"]
   },
@@ -44,16 +44,16 @@ const project1Features = [
     icon: <FiUsers />,
     label: "CRM Management",
     title: "Customer Relationship Management",
-    description: "Manage leads, track deals, and nurture customer relationships with a comprehensive CRM system. Visualize sales pipelines and generate detailed reports.",
+    description: "Manage leads, track deals, and nurture customer relationships with a comprehensive CRM system. Visualize sales pipelines, monitor lead activities, and generate detailed reports for better customer insights.",
     images: [
-      "/images/CRM/CRM Dashboard.avif",
-      "/images/CRM/Deals Kanban.avif",
-      "/images/CRM/Lead Activity.avif",
-      "/images/CRM/Leads General Details.avif",
-      "/images/CRM/Leads Kanban.avif",
-      "/images/CRM/Leads List.avif",
-      "/images/CRM/Leads Report General.avif",
-      "/images/CRM/Leads Report Staff.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135601/CRM_Dashboard_rp2q0g.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135603/Deals_Kanban_wg7z5o.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135607/Lead_Activity_pkjtxz.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135609/Leads_General_Details_gzxi7m.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135615/Leads_Kanban_yf39m0.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135643/Leads_List_tc7jvw.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135609/Leads_Report_General_tdbn7i.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135610/Leads_Report_Staff_kuuzce.avif"
     ],
     tags: ["Lead Management", "Sales Pipeline", "Activity Tracking", "CRM Analytics"]
   }
@@ -65,13 +65,13 @@ const project2Features = [
     icon: <FiDollarSign />,
     label: "Admin Dashboard",
     title: "Collection Admin Dashboard",
-    description: "Comprehensive admin dashboard for collection management with real-time tracking of outstanding payments, recovery analytics, and team performance metrics.",
+    description: "Comprehensive admin dashboard for collection management with real-time tracking of outstanding payments, recovery analytics, bank reconciliation, defaulter monitoring, and team performance metrics.",
     images: [
-      "/images/collection_admin/Dashboard.avif",
-      "/images/collection_admin/Dashboard Dark.avif",
-      "/images/collection_admin/Bank.avif",
-      "/images/collection_admin/Defaulter.avif",
-      "/images/collection_admin/Permission.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Dashboard_bnod2n.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136407/Dashboard_Dark_irjhzo.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136406/Bank_ebj4st.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136409/Defaulter_cy2p7h.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Permission_izu9xk.avif"
     ],
     tags: ["Recovery Analytics", "Bank Reconciliation", "Defaulter Tracking", "Team Performance"]
   },
@@ -80,12 +80,12 @@ const project2Features = [
     icon: <FiUsers />,
     label: "Agent Dashboard",
     title: "Collection Agent Dashboard",
-    description: "Agent-focused dashboard for daily task management, call logging, customer follow-ups, and notification tracking with real-time task assignments.",
+    description: "Agent-focused dashboard for daily task management, call logging, customer follow-ups, and notification tracking. Streamline collection activities with real-time task assignments and performance monitoring.",
     images: [
-      "/images/collection_agent/dashboard.avif",
-      "/images/collection_agent/daily task.avif",
-      "/images/collection_agent/call logs.avif",
-      "/images/collection_agent/notification.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136519/dashboard_riiznw.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136518/daily_task_mdovub.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136517/call_logs_fc30yl.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136520/notification_gclg8m.avif"
     ],
     tags: ["Task Management", "Call Logging", "Follow-ups", "Notifications"]
   },
@@ -94,11 +94,11 @@ const project2Features = [
     icon: <FiSmartphone />,
     label: "Mobile App",
     title: "Collection Mobile Application",
-    description: "Mobile-first collection application for field agents with case management, daily task tracking, and real-time sync for on-the-go operations.",
+    description: "Mobile-first collection application for field agents with case management, daily task tracking, customer interaction logging, and real-time sync for on-the-go collection operations.",
     images: [
-      "/images/collection_mobile/dashboard.avif",
-      "/images/collection_mobile/my cases.avif",
-      "/images/collection_mobile/daily task.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136693/dashboard_pd5net.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136694/my_cases_hjakqe.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136696/daily_task_obvpao.avif"
     ],
     tags: ["Case Management", "Field Operations", "Real-Time Sync", "Mobile Tasks"]
   }
@@ -110,11 +110,11 @@ const project3Features = [
     icon: <FiTrendingUp />,
     label: "Operations Dashboard",
     title: "Textile Operations Dashboard",
-    description: "Real-time operations dashboard for textile manufacturing with inventory monitoring, production tracking, and WIP monitoring across the production lifecycle.",
+    description: "Real-time operations dashboard for textile manufacturing with inventory monitoring, production tracking, job work management, financial insights, and WIP monitoring across the textile production lifecycle.",
     images: [
-      "/images/Textile_Dashboard/Dashboar.jpeg",
-      "/images/Textile_Dashboard/DashboardMobileVie.jpeg",
-      "/images/Textile_Dashboard/ManagementControlTowe.jpeg"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/Dashboar_h2yx68.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/DashboardMobileVie_lgzw9y.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136946/ManagementControlTowe_c270zl.jpg"
     ],
     tags: ["Inventory Monitoring", "Production Tracking", "Financial Insights", "WIP Monitoring"]
   },
@@ -123,14 +123,14 @@ const project3Features = [
     icon: <FiGrid />,
     label: "Master Management",
     title: "Textile Master Data Management",
-    description: "Centralized master data management for textile operations including customer management, employee records, product catalogs, and vendor tracking.",
+    description: "Centralized master data management for textile operations including customer management, employee records, product catalogs, vendor tracking, and warehouse management for streamlined textile production.",
     images: [
-      "/images/Textile_ERP_Master/Custome.jpeg",
-      "/images/Textile_ERP_Master/Designatio.jpeg",
-      "/images/Textile_ERP_Master/Product.jpeg",
-      "/images/Textile_ERP_Master/User.jpeg",
-      "/images/Textile_ERP_Master/Vendor.jpeg",
-      "/images/Textile_ERP_Master/Warehouse.jpeg"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137032/Custome_veckuh.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137034/Designatio_ny3jmc.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137034/Product_gtpkva.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137035/User_msznrx.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137038/Vendor_amvlh6.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137038/Warehouse_mgcom6.jpg"
     ],
     tags: ["Customer Management", "Vendor Tracking", "Product Catalog", "Warehouse Management"]
   },
@@ -139,16 +139,16 @@ const project3Features = [
     icon: <FiClock />,
     label: "Operations Reports",
     title: "Textile Operations & Reports",
-    description: "Comprehensive textile operations reports including grey material procurement, inventory status, job work reports, and mill process tracking.",
+    description: "Comprehensive textile operations reports including grey material procurement, inventory status, job work reports, mill process tracking, and financial payment monitoring for complete operational visibility.",
     images: [
-      "/images/TextileOperations/Finances Payment-1000kb.jpg",
-      "/images/TextileOperations/Grey Material Procurement Fully Dilivered Report-1000kb.jpg",
-      "/images/TextileOperations/Grey Material Procurement Report-1000kb.jpg",
-      "/images/TextileOperations/INVENTOR-1000kb.jpg",
-      "/images/TextileOperations/Job Work Report-1000kb.jpg",
-      "/images/TextileOperations/MILL PROCES-1000kb.jpg",
-      "/images/TextileOperations/Mill Process Report-1000kb.jpg",
-      "/images/TextileOperations/WIP MONITOR -1000kb.jpg"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137138/Finances_Payment-1000kb_moeg18.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137141/Grey_Material_Procurement_Fully_Dilivered_Report-1000kb_c8n87t.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137140/Grey_Material_Procurement_Report-1000kb_fmtlym.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137141/INVENTOR-1000kb_gkwszu.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137142/Job_Work_Report-1000kb_i2e7pt.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137144/MILL_PROCES-1000kb_fv6pku.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137146/Mill_Wise_Mill_Process_Report-1000kb_h7hriu.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137147/WIP_MONITOR_-1000kb_fg3shl.jpg"
     ],
     tags: ["Material Procurement", "Inventory Reports", "Job Work Reports", "Financial Monitoring"]
   }
@@ -160,11 +160,11 @@ const projects = [
     title: "Craftcore ERP",
     subtitle: "Enterprise Management",
     icon: <FiGrid />,
-    description: "A comprehensive enterprise resource planning platform with integrated modules for goals management, recruitment analytics, CRM, and project management.",
+    description: "A comprehensive enterprise resource planning platform with integrated modules for goals management, recruitment analytics, CRM, and project management capabilities.",
     features: project1Features,
     stats: ["Active Modules: 4", "Users: 256", "Integration: 12"],
-    color: "#6366f1",
-    colorLight: "#e0e7ff"
+    color: "#4f46e5",
+    light: "#e0e7ff"
   },
   {
     id: 2,
@@ -175,7 +175,7 @@ const projects = [
     features: project2Features,
     stats: ["Active Cases: 1.2K", "Recovery Rate: 78%", "Agents: 45"],
     color: "#059669",
-    colorLight: "#d1fae5"
+    light: "#d1fae5"
   },
   {
     id: 3,
@@ -186,150 +186,216 @@ const projects = [
     features: project3Features,
     stats: ["Production: 2.8K", "Inventory: 15K", "Reports: 24"],
     color: "#2563eb",
-    colorLight: "#dbeafe"
+    light: "#dbeafe"
   }
 ];
 
-function SolutionV4() {
-  const [activeProjectIdx, setActiveProjectIdx] = useState(0);
-  const [activeFeatureIdx, setActiveFeatureIdx] = useState(0);
+function SolutionV6() {
+  const [activeProjIdx, setActiveProjIdx] = useState(0);
+  const [activeFeatIdx, setActiveFeatIdx] = useState(0);
   const [activeImgIdx, setActiveImgIdx] = useState(0);
 
-  const currentProject = projects[activeProjectIdx];
-  const currentFeature = currentProject.features[activeFeatureIdx];
+  const currentProject = projects[activeProjIdx];
+  const currentFeature = currentProject.features[activeFeatIdx];
   const totalImages = currentFeature?.images?.length || 0;
 
-  const handleNextImage = () => {
+  // Auto-play carousel
+  useEffect(() => {
+    if (totalImages <= 1) return;
+    
+    const interval = setInterval(() => {
+      setActiveImgIdx((prev) => (prev + 1) % totalImages);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [totalImages, activeFeatIdx, activeProjIdx]);
+
+  const nextImg = (e) => {
+    e?.stopPropagation();
     setActiveImgIdx((prev) => (prev + 1) % totalImages);
   };
 
-  const handlePrevImage = () => {
+  const prevImg = (e) => {
+    e?.stopPropagation();
     setActiveImgIdx((prev) => (prev - 1 + totalImages) % totalImages);
   };
 
   return (
-    <div className="solution-v4-page">
-      <div className="v4-container">
+    <div className="solution-v6-page">
+      <div className="v6-container">
         
         {/* Header */}
-        <header className="v4-hero">
-          <span className="v4-badge">Solutions Overview</span>
-          <h1 className="v4-title">Enterprise Software Platforms</h1>
-          <p className="v4-subtitle">Select a project to explore key features and system interface previews</p>
+        <header className="v6-hero">
+          <span className="v6-chip"><FiLayers /> Software Suite</span>
+          <h1 className="v6-title">Enterprise Solutions Showcase</h1>
+          <p className="v6-subtitle">Select a project below to explore features and visual modules</p>
         </header>
 
-        {/* Project Selection Tabs */}
-        <div className="v4-project-tabs">
-          {projects.map((proj, idx) => {
-            const isActive = activeProjectIdx === idx;
-            return (
-              <button
-                key={proj.id}
-                className={`v4-tab-btn ${isActive ? "active" : ""}`}
-                style={{
-                  "--active-color": proj.color
-                }}
-                onClick={() => {
-                  setActiveProjectIdx(idx);
-                  setActiveFeatureIdx(0);
-                  setActiveImgIdx(0);
-                }}
-              >
-                <span className="v4-tab-icon">{proj.icon}</span>
-                <span>{proj.title}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Layout Grid */}
-        <div 
-          className="v4-main-grid"
-          style={{
-            "--active-color": currentProject.color,
-            "--active-color-light": currentProject.colorLight
-          }}
-        >
-          {/* Left Column: Summary + Feature List */}
-          <div className="v4-sidebar">
-            <div className="v4-project-summary">
-              <h2>{currentProject.title}</h2>
-              <p>{currentProject.description}</p>
-              <div className="v4-stats-list">
-                {currentProject.stats.map((st, i) => (
-                  <span key={i} className="v4-stat-badge">{st}</span>
-                ))}
-              </div>
-            </div>
-
-            {currentProject.features.map((feat, fIdx) => {
-              const isFeatActive = activeFeatureIdx === fIdx;
+        {/* Project Selector Tabs */}
+        <div className="v6-tabs-wrapper">
+          <div className="v6-project-tabs">
+            {projects.map((proj, idx) => {
+              const isActive = activeProjIdx === idx;
               return (
                 <button
-                  key={feat.id}
-                  className={`v4-feature-item ${isFeatActive ? "active" : ""}`}
+                  key={proj.id}
+                  className={`v6-tab-btn ${isActive ? "active" : ""}`}
+                  style={{ "--active-color": proj.color }}
                   onClick={() => {
-                    setActiveFeatureIdx(fIdx);
+                    setActiveProjIdx(idx);
+                    setActiveFeatIdx(0);
                     setActiveImgIdx(0);
                   }}
                 >
-                  <div className="v4-feature-header">
-                    <span className="v4-feature-icon">{feat.icon}</span>
-                    <h3>{feat.title}</h3>
-                  </div>
-                  <p>{feat.description}</p>
+                  <span className="v6-tab-icon">{proj.icon}</span>
+                  <span>{proj.title}</span>
                 </button>
               );
             })}
           </div>
+        </div>
 
-          {/* Right Column: Active Feature Showcase */}
-          <div className="v4-showcase">
-            <div className="v4-showcase-info">
+        {/* Project Summary */}
+        <div className="v6-project-summary">
+          <div className="v6-summary-text">
+            <h2>{currentProject.title}</h2>
+            <p>{currentProject.description}</p>
+          </div>
+          <div className="v6-stats-row">
+            {currentProject.stats.map((st, i) => (
+              <span key={i} className="v6-stat-pill">{st}</span>
+            ))}
+          </div>
+        </div>
+
+        {/* Main Grid Layout */}
+        <div 
+          className="v6-grid-layout"
+          style={{
+            "--active-color": currentProject.color,
+            "--active-light": currentProject.light
+          }}
+        >
+          {/* Left Column: Cards for Desktop / Accordions for Mobile */}
+          <div className="v6-sidebar">
+            {currentProject.features.map((feat, fIdx) => {
+              const isSelected = activeFeatIdx === fIdx;
+              return (
+                <div
+                  key={feat.id}
+                  className={`v6-feature-card ${isSelected ? "active" : ""}`}
+                  onClick={() => {
+                    setActiveFeatIdx(fIdx);
+                    setActiveImgIdx(0);
+                  }}
+                >
+                  <div className="v6-card-head">
+                    <div className="v6-title-group">
+                      <span className="v6-feature-icon">{feat.icon}</span>
+                      <h3>{feat.title}</h3>
+                    </div>
+                  </div>
+
+                  <p className="v6-card-body">{feat.description}</p>
+
+                  {/* MOBILE-ONLY INLINE ACCORDION DRAWER */}
+                  {isSelected && (
+                    <div className="v6-mobile-preview">
+                      <div className="v6-viewport">
+                        <img 
+                          src={feat.images[activeImgIdx]} 
+                          alt={feat.title}
+                          className="v6-image" 
+                        />
+                        {feat.images.length > 1 && (
+                          <>
+                            <button className="v6-nav-btn prev" onClick={prevImg} aria-label="Previous">
+                              <FiChevronLeft size={18} />
+                            </button>
+                            <button className="v6-nav-btn next" onClick={nextImg} aria-label="Next">
+                              <FiChevronRight size={18} />
+                            </button>
+                            <span className="v6-counter">
+                              {activeImgIdx + 1} / {feat.images.length}
+                            </span>
+                          </>
+                        )}
+                      </div>
+
+                      {/* Thumbnails Strip on Mobile */}
+                      {feat.images.length > 1 && (
+                        <div className="v6-thumbs-row">
+                          {feat.images.map((img, iIdx) => (
+                            <button
+                              key={iIdx}
+                              className={`v6-thumb-pill ${activeImgIdx === iIdx ? "active" : ""}`}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setActiveImgIdx(iIdx);
+                              }}
+                            >
+                              <img src={img} alt={`Thumb ${iIdx + 1}`} />
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                </div>
+              );
+            })}
+          </div>
+
+          {/* DESKTOP/LAPTOP STICKY STAGE */}
+          <div className="v6-stage">
+            <div className="v6-stage-header">
               <h3>{currentFeature.title}</h3>
-              <p>{currentFeature.description}</p>
-              <div className="v4-tags-row">
-                {currentFeature.tags.map((tg, tIdx) => (
-                  <span key={tIdx} className="v4-tag">{tg}</span>
+              <div className="v6-tags-row">
+                {currentFeature.tags.map((tag, tIdx) => (
+                  <span key={tIdx} className="v6-tag">{tag}</span>
                 ))}
               </div>
             </div>
 
-            {/* Main Image Display */}
-            <div className="v4-image-container">
-              <img
-                src={currentFeature.images[activeImgIdx]}
-                alt={currentFeature.title}
-                className="v4-main-image"
+            <div className="v6-viewport">
+              <img 
+                src={currentFeature.images[activeImgIdx]} 
+                alt={currentFeature.title} 
+                className="v6-image"
               />
 
               {totalImages > 1 && (
                 <>
-                  <button className="v4-arrow-btn prev" onClick={handlePrevImage} aria-label="Previous image">
+                  <button className="v6-nav-btn prev" onClick={prevImg} aria-label="Previous">
                     <FiChevronLeft size={20} />
                   </button>
-                  <button className="v4-arrow-btn next" onClick={handleNextImage} aria-label="Next image">
+                  <button className="v6-nav-btn next" onClick={nextImg} aria-label="Next">
                     <FiChevronRight size={20} />
                   </button>
+                  <span className="v6-counter">
+                    {activeImgIdx + 1} / {totalImages}
+                  </span>
                 </>
               )}
             </div>
 
             {/* Thumbnails Strip */}
             {totalImages > 1 && (
-              <div className="v4-gallery-strip">
-                {currentFeature.images.map((imgSrc, imgI) => (
+              <div className="v6-thumbs-row">
+                {currentFeature.images.map((imgSrc, i) => (
                   <button
-                    key={imgI}
-                    className={`v4-thumb-card ${activeImgIdx === imgI ? "active" : ""}`}
-                    onClick={() => setActiveImgIdx(imgI)}
+                    key={i}
+                    className={`v6-thumb-pill ${activeImgIdx === i ? "active" : ""}`}
+                    onClick={() => setActiveImgIdx(i)}
                   >
-                    <img src={imgSrc} alt={`Thumbnail ${imgI + 1}`} />
+                    <img src={imgSrc} alt={`Thumb ${i + 1}`} />
                   </button>
                 ))}
               </div>
             )}
           </div>
+
         </div>
 
       </div>
@@ -337,4 +403,4 @@ function SolutionV4() {
   );
 }
 
-export default SolutionV4;
+export default SolutionV6;
