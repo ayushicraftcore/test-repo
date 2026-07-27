@@ -91,7 +91,7 @@ const serviceDataExtended = [
   {
     smallTitle: "UI/UX Design",
     title: "UI/UX DESIGN & ARCHITECTURE",
-    image: "/images/uiux.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785147471/gradient-ui-ux-background_23-2149052117_v8eurp.avif",
     icon: <FiEdit3 />,
     caption:
       "User-centered designs, clean wireframes and scalable design systems.",
