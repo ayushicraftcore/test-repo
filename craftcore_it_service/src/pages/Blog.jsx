@@ -8,7 +8,7 @@ const blogPosts = [
     category: "Automation",
     title: "Business Process Automation: Reducing Manual Workflows with AI",
     desc: "Learn how AI-powered automation streamlines operations, reduces human errors, and improves productivity through intelligent workflow management.",
-    image: "/images/blog-automation.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134155/blog-automation_dhavjt.avif",
     date: "May 28, 2026"
   },
   {
@@ -17,7 +17,7 @@ const blogPosts = [
     category: "UI/UX Design",
     title: "Light Mode vs Dark Mode: UI/UX Design Best Practices for Modern Applications",
     desc: "Explore proven UI/UX design techniques for creating accessible, visually consistent, and user-friendly light and dark mode experiences.",
-    image: "/images/blog-design.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134156/blog-design_yr1e56.avif",
     date: "May 24, 2026"
   },
   {
@@ -26,7 +26,7 @@ const blogPosts = [
     category: "Cloud & DevOps",
     title: "Building Scalable Cloud Infrastructure for High-Performance Applications",
     desc: "Discover cloud architecture strategies, secure data management practices, and scalable infrastructure solutions for modern businesses.",
-    image: "/images/blog-fintech.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134157/blog-fintech_qiyhy3.avif",
     date: "May 18, 2026"
   },
   {
@@ -35,7 +35,7 @@ const blogPosts = [
     category: "Web Development",
     title: "React Performance Optimization for Fast and Interactive Web Applications",
     desc: "Learn how to optimize React applications using efficient rendering techniques, scroll performance improvements, and modern development practices.",
-    image: "/images/blog-dev.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134156/blog-dev_u7sv1y.avif",
     date: "May 12, 2026"
   },
   {
@@ -44,7 +44,7 @@ const blogPosts = [
     category: "UI/UX Design",
     title: "Creating Responsive UI/UX Designs for Complex Business Applications",
     desc: "Best practices for designing scalable, responsive interfaces that improve user engagement across enterprise and SaaS platforms.",
-    image: "/images/blog-proptech.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134157/blog-proptech_gpmugy.avif",
     date: "May 05, 2026"
   },
   {
@@ -53,7 +53,7 @@ const blogPosts = [
     category: "Software Development",
     title: "Why Clean Code and Scalable Architecture Matter for Business Growth",
     desc: "Understand how maintainable code, scalable software architecture, and development best practices contribute to long-term business success.",
-    image: "/images/blog-business.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134155/blog-business_piayvh.avif",
     date: "Apr 29, 2026"
   }
 ];

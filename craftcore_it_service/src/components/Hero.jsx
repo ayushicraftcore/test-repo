@@ -98,7 +98,7 @@ function Hero() {
                 preload="auto" 
                 className="hero-video"
               >
-                <source src="/videos/logo-reveal.mp4" type="video/mp4" />
+                <source src="https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785134695/logo-reveal_sr1xov.mp4" type="video/mp4" />
               </video>
             </div>
 

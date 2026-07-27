@@ -18,6 +18,7 @@ function Navbar() {
     { name: "Home", path: "/home" },
     { name: "Service", path: "/service" },
     { name: "Solution", path: "/Solution" },
+    { name: "Solution V2", path: "/SolutionV2" },
     { name: "About", path: "/About" },
     { name: "Blog", path: "/Blog" },
     { name: "Career", path: "/Career" },

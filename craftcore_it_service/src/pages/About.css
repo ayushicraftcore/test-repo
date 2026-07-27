@@ -5,15 +5,24 @@
   padding: 100px 0 0;
   position: relative;
   z-index: 2;
+  background: transparent;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* =======================================================
-   CENTERED HERO SECTION
+   HERO SECTION
 ======================================================= */
 .about-hero {
   text-align: center;
-  max-width: 860px;
+  max-width: 960px;
   margin: 0 auto 100px;
+  position: relative;
+  z-index: 2;
 }
 
 .about-hero-title {
@@ -22,45 +31,195 @@
   line-height: 1.15;
   letter-spacing: -2px;
   margin: 20px 0 35px;
+  color: #111118;
 }
 
-.about-hero-frame {
-  position: relative;
+/* =======================================================
+   VIDEO CAROUSEL
+======================================================= */
+.video-carousel-wrapper {
   width: 100%;
-  max-width: 640px; /* Reduced visual blueprint boundary scale */
-  aspect-ratio: 16 / 9;
+  max-width: 880px;
   margin: 0 auto 45px;
+  position: relative;
+  background: #ffffff;
   border-radius: 24px;
   overflow: hidden;
-  border: 1px solid var(--clr-border);
-  box-shadow: var(--shadow-card);
-  background: #111115;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
 }
 
-.about-hero-img {
+.video-carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-carousel-track {
+  display: flex;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.video-carousel-slide {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Video Frame */
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+.carousel-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.about-frame-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.25));
-  pointer-events: none;
+/* Video Content */
+.video-content {
+  padding: 32px 36px 36px;
+  background: #ffffff;
+  text-align: left;
 }
 
+.video-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.video-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111118;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.video-subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: #7C3AED;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.video-description {
+  font-size: 15px;
+  color: #6B7280;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* =======================================================
+   CAROUSEL CONTROLS - IMPROVED MOBILE
+======================================================= */
+.carousel-controls {
+  position: absolute;
+  bottom: 200px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.carousel-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #111118;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: all;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  z-index: 11;
+  flex-shrink: 0;
+}
+
+.carousel-arrow:hover {
+  background: #ffffff;
+  border-color: #7C3AED;
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+}
+
+.carousel-arrow:active {
+  transform: scale(0.95);
+}
+
+.carousel-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Dots */
+.carousel-dots {
+  display: flex;
+  gap: 10px;
+  pointer-events: all;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.15);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: #7C3AED;
+  width: 32px;
+  border-radius: 5px;
+}
+
+.carousel-dot:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.carousel-dot.active:hover {
+  background: #7C3AED;
+}
+
+/* =======================================================
+   ABOUT HERO DESC
+======================================================= */
 .about-hero-desc {
   max-width: 760px;
   margin: 0 auto;
 }
 
 /* =======================================================
-   SIDE-BY-SIDE ASYMMETRIC GRID
+   VISION & MISSION
 ======================================================= */
 .about-statement-section {
   margin: 120px 0 100px; 
+  position: relative;
+  z-index: 2;
 }
 
 .statement-split-grid {
@@ -70,19 +229,23 @@
 }
 
 .statement-premium-card {
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--clr-border);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 32px;
   padding: 50px;
   position: relative;
   overflow: hidden;
-  transition: transform 0.4s var(--ease-bounce), box-shadow 0.4s ease, border-color 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.4s ease, 
+              border-color 0.3s ease;
 }
 
 .statement-premium-card:hover {
   border-color: rgba(124, 58, 237, 0.16);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(124, 58, 237, 0.08);
 }
 
 .statement-meta {
@@ -95,8 +258,8 @@
 .statement-index {
   font-size: 13px;
   font-weight: 800;
-  color: var(--clr-purple);
-  background: var(--clr-purple-pale);
+  color: #7C3AED;
+  background: rgba(124, 58, 237, 0.08);
   padding: 3px 10px;
   border-radius: 8px;
   border: 1px solid rgba(124, 58, 237, 0.08);
@@ -105,15 +268,16 @@
 .statement-label {
   font-size: 11px;
   font-weight: 700;
-  color: var(--clr-muted);
+  color: #6B7280;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .statement-card-title {
   font-size: 32px;
   font-weight: 800;
   letter-spacing: -1px;
-  color: var(--clr-ink);
+  color: #111118;
   margin-bottom: 18px;
 }
 
@@ -122,13 +286,15 @@
 }
 
 /* =======================================================
-   CRED-STYLE TYPING REVEAL CONTAINER TRACK
+   TEXT REVEAL
 ======================================================= */
 .about-why-choose-section {
   text-align: center;
   max-width: 1040px;
   margin: 0 auto;
-  padding: 120px 40px 80px; /* Enhanced tracking cushioning */
+  padding: 120px 40px 80px;
+  position: relative;
+  z-index: 2;
 }
 
 .cred-text-viewport {
@@ -143,18 +309,18 @@
   letter-spacing: -0.5px;
   text-align: center;
   word-wrap: break-word;
+  color: #111118;
 }
 
-/* Individual isolated character vectors */
 .cred-scroll-word {
   display: inline-block;
-  margin-right: 12px; /* Standard tracking spatial spacing balance */
+  margin-right: 12px;
   will-change: color, transform;
-  transition: color 0.15s linear, transform 0.2s var(--ease-smooth);
+  transition: color 0.15s linear, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* =======================================================
-   HIGH PERFORMANCE TABLET & MOBILE OVERRIDES
+   RESPONSIVE - IMPROVED MOBILE
 ======================================================= */
 @media (max-width: 1100px) {
   .about-hero-title {
@@ -162,8 +328,8 @@
     letter-spacing: -1px;
   }
 
-  .about-hero-frame {
-    max-width: 540px;
+  .video-carousel-wrapper {
+    max-width: 640px;
   }
 
   .statement-split-grid {
@@ -187,7 +353,6 @@
     padding: 80px 20px 100px;
   }
 
-  /* Safe performance static fallbacks on mobile viewports */
   .cred-paragraph-container {
     font-size: 24px;
     line-height: 1.6;
@@ -197,6 +362,21 @@
     color: #111118 !important;
     transform: none !important;
     margin-right: 8px;
+  }
+
+  .carousel-controls {
+    bottom: 200px;
+    padding: 0 20px;
+  }
+
+  .carousel-arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .carousel-arrow svg {
+    width: 18px;
+    height: 18px;
   }
 }
 
@@ -209,8 +389,154 @@
     font-size: 32px;
   }
 
-  .about-hero-frame {
+  .video-carousel-wrapper {
     max-width: 100%;
     border-radius: 16px;
   }
+
+  .video-content {
+    padding: 20px 18px 24px;
+  }
+
+  .video-title {
+    font-size: 20px;
+  }
+
+  .video-subtitle {
+    font-size: 14px;
+  }
+
+  .video-description {
+    font-size: 13px;
+  }
+
+  /* FIXED: Carousel controls on mobile - arrows above text */
+  .carousel-controls {
+    bottom: 200px;
+    padding: 0 12px;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    backdrop-filter: blur(8px);
+  }
+
+  .carousel-arrow:hover {
+    background: rgba(124, 58, 237, 0.8);
+    border-color: rgba(124, 58, 237, 0.5);
+  }
+
+  .carousel-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .carousel-dots {
+    gap: 8px;
+    padding: 0 6px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .carousel-dot.active {
+    width: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero-title {
+    font-size: 28px;
+  }
+
+  .video-title {
+    font-size: 17px;
+  }
+
+  .video-subtitle {
+    font-size: 12px;
+  }
+
+  .video-description {
+    font-size: 12px;
+  }
+
+  .video-content {
+    padding: 16px 14px 20px;
+  }
+
+  /* FIXED: Even smaller screens */
+  .carousel-controls {
+    bottom: 150px;
+    padding: 0 8px;
+  }
+
+  .carousel-arrow {
+    width: 30px;
+    height: 30px;
+  }
+
+  .carousel-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .carousel-dots {
+    gap: 6px;
+    padding: 0 4px;
+  }
+
+  .carousel-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .carousel-dot.active {
+    width: 16px;
+  }
+
+  .video-header {
+    gap: 6px;
+  }
+}
+
+/* =======================================================
+   UTILITY CLASSES
+======================================================= */
+.section-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #7C3AED;
+  background: rgba(124, 58, 237, 0.08);
+  padding: 4px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(124, 58, 237, 0.08);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #7C3AED, #6D28D9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card-text {
+  font-size: 16px;
+  color: #6B7280;
+  line-height: 1.7;
+}
+
+.section-description {
+  font-size: 16px;
+  color: #6B7280;
+  line-height: 1.7;
 }

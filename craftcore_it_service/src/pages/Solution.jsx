@@ -1,93 +1,339 @@
 import "./Solution.css";
 import { useEffect, useRef, useState } from "react";
-import { FiGrid, FiMoon, FiBarChart2, FiFileText } from "react-icons/fi";
+import { 
+  FiGrid, FiBarChart2, FiCode, FiDatabase, FiCloud, FiUsers, 
+  FiTrendingUp, FiCpu, FiLock, FiServer, FiZap, FiShield, 
+  FiGlobe, FiLayers, FiArrowRight, FiHome, FiCreditCard, 
+  FiDollarSign, FiPieChart, FiActivity, FiBriefcase, FiSmartphone,
+  FiSearch, FiFilter, FiChevronDown, FiChevronLeft, FiChevronRight,
+  FiCheckCircle, FiClock, FiAlertCircle, FiStar, FiTarget,
+  FiChevronRight as FiChevronRightAlt,
+  FiZoomIn, FiMaximize2, FiMinimize2
+} from "react-icons/fi";
 
-const projectFeatures = [
+// Project 1 - Goal Management Dashboard
+const project1Features = [
   {
+    id: 1,
+    icon: <FiTarget />,
+    label: "Goal Tracking",
+    title: "Project Goal & OKR Management",
+    description: "Define, track, and manage project goals and OKRs across all projects. Monitor progress in real-time, automate status updates, and track milestone achievements for successful project delivery.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135243/craftcore1_rmag3p.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135282/Project_Report_pc0kp0.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135281/Task_Kanban_tthdeh.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135278/Project_Card_fdfwie.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135279/Customer_Support_Ticketing_System_Project_Details_rdy78x.avif"
+    ],
+    tags: ["Project Goals", "OKR Tracking", "Real-Time Progress", "Milestone Management"]
+  },
+  {
+    id: 2,
+    icon: <FiTrendingUp />,
+    label: "Recruitment Analytics",
+    title: "Recruitment Performance Dashboard",
+    description: "Track recruitment metrics including candidate pipelines, time-to-hire, source effectiveness, and hiring success rates with interactive dashboards and real-time analytics.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135420/Recruitment_Dashboard_i0tbfq.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135419/Job_Postings_mujs4r.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135412/Job_Postings_Details_mbxjyh.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135416/Interviews_ybn0fc.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135412/Interview_Rounds_hclzul.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135411/Candidate_d9aoev.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135411/Candidate_Details_bk1z30.avif"
+    ],
+    tags: ["Candidate Pipeline", "Time-to-Hire", "Source Analytics", "Hiring Success Rate"]
+  },
+  {
+    id: 3,
+    icon: <FiUsers />,
+    label: "CRM Management",
+    title: "Customer Relationship Management",
+    description: "Manage leads, track deals, and nurture customer relationships with a comprehensive CRM system. Visualize sales pipelines, monitor lead activities, and generate detailed reports for better customer insights.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135601/CRM_Dashboard_rp2q0g.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135603/Deals_Kanban_wg7z5o.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135607/Lead_Activity_pkjtxz.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135609/Leads_General_Details_gzxi7m.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135615/Leads_Kanban_yf39m0.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135643/Leads_List_tc7jvw.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135609/Leads_Report_General_tdbn7i.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135610/Leads_Report_Staff_kuuzce.avif"
+    ],
+    tags: ["Lead Management", "Sales Pipeline", "Activity Tracking", "CRM Analytics"]
+  }
+];
+
+// Project 2 - Budget & Finance
+const project2Features = [
+  {
+    id: 1,
+    icon: <FiDollarSign />,
+    label: "Admin Dashboard",
+    title: "Collection Admin Dashboard",
+    description: "Comprehensive admin dashboard for collection management with real-time tracking of outstanding payments, recovery analytics, bank reconciliation, defaulter monitoring, and team performance metrics.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Dashboard_bnod2n.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136407/Dashboard_Dark_irjhzo.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136406/Bank_ebj4st.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136409/Defaulter_cy2p7h.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Permission_izu9xk.avif"
+    ],
+    tags: ["Recovery Analytics", "Bank Reconciliation", "Defaulter Tracking", "Team Performance"]
+  },
+  {
+    id: 2,
+    icon: <FiUsers />,
+    label: "Agent Dashboard",
+    title: "Collection Agent Dashboard",
+    description: "Agent-focused dashboard for daily task management, call logging, customer follow-ups, and notification tracking. Streamline collection activities with real-time task assignments and performance monitoring.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136519/dashboard_riiznw.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136518/daily_task_mdovub.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136517/call_logs_fc30yl.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136520/notification_gclg8m.avif"
+    ],
+    tags: ["Task Management", "Call Logging", "Follow-ups", "Notifications"]
+  },
+  {
+    id: 3,
+    icon: <FiSmartphone />,
+    label: "Mobile App",
+    title: "Collection Mobile Application",
+    description: "Mobile-first collection application for field agents with case management, daily task tracking, customer interaction logging, and real-time sync for on-the-go collection operations.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136693/dashboard_pd5net.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136694/my_cases_hjakqe.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136696/daily_task_obvpao.avif"
+    ],
+    tags: ["Case Management", "Field Operations", "Real-Time Sync", "Mobile Tasks"]
+  }
+];
+
+// Project 3 - Project Management
+const project3Features = [
+  {
+    id: 1,
+    icon: <FiTrendingUp />,
+    label: "Operations Dashboard",
+    title: "Textile Operations Dashboard",
+    description: "Real-time operations dashboard for textile manufacturing with inventory monitoring, production tracking, job work management, financial insights, and WIP monitoring across the textile production lifecycle.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/Dashboar_h2yx68.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/DashboardMobileVie_lgzw9y.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136946/ManagementControlTowe_c270zl.jpg"
+    ],
+    tags: ["Inventory Monitoring", "Production Tracking", "Financial Insights", "WIP Monitoring"]
+  },
+  {
+    id: 2,
     icon: <FiGrid />,
-    tag: "MODULE 01 — COMMAND HUD",
-    title: "Clean Dashboard Overview",
-    desc: "An enterprise-grade orchestration command center aggregating running collection pipelines. Tracks total outstanding balances, active case registries and recovery metrics seamlessly at a single look.",
-    image: "/images/dashboard-core.avif",
-    floatingTags: ["Live Ledger Sync", "Telemetry Node Active", "₹2.60Cr Tracked"],
-    pills: ["Active Cases: 6", "Recovery: 35.8%"]
+    label: "Master Management",
+    title: "Textile Master Data Management",
+    description: "Centralized master data management for textile operations including customer management, employee records, product catalogs, vendor tracking, and warehouse management for streamlined textile production.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137032/Custome_veckuh.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137034/Designatio_ny3jmc.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137034/Product_gtpkva.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137035/User_msznrx.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137038/Vendor_amvlh6.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137038/Warehouse_mgcom6.jpg"
+    ],
+    tags: ["Customer Management", "Vendor Tracking", "Product Catalog", "Warehouse Management"]
   },
   {
-    icon: <FiMoon />,
-    tag: "MODULE 02 — ADAPTIVE ENGINE",
-    title: "Seamless Light to Dark Theme Toggle",
-    desc: "Instant interface architecture scaling built for continuous accessibility. Shift flawlessly from a clean daylight layout to a low-fatigue dark terminal workspace without layout reflows.",
-    image: "/images/dashboard-dark.avif",
-    floatingTags: ["Low-Fatigue Matrix", "Adaptive Canvas", "Token Isolation"],
-    pills: ["May: ₹1.45Cr", "+100.0% Velocity"]
+    id: 3,
+    icon: <FiClock />,
+    label: "Operations Reports",
+    title: "Textile Operations & Reports",
+    description: "Comprehensive textile operations reports including grey material procurement, inventory status, job work reports, mill process tracking, and financial payment monitoring for complete operational visibility.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137138/Finances_Payment-1000kb_moeg18.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137141/Grey_Material_Procurement_Fully_Dilivered_Report-1000kb_c8n87t.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137140/Grey_Material_Procurement_Report-1000kb_fmtlym.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137141/INVENTOR-1000kb_gkwszu.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137142/Job_Work_Report-1000kb_i2e7pt.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137144/MILL_PROCES-1000kb_fv6pku.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137146/Mill_Wise_Mill_Process_Report-1000kb_h7hriu.jpg",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137147/WIP_MONITOR_-1000kb_fg3shl.jpg"
+    ],
+    tags: ["Material Procurement", "Inventory Reports", "Job Work Reports", "Financial Monitoring"]
+  }
+];
+
+// All projects grouped
+const projects = [
+  {
+    id: 1,
+    title: "Craftcore ERP",
+    subtitle: "Enterprise Resource Planning",
+    tag: "PROJECT 01",
+    icon: <FiGrid />,
+    description: "A comprehensive enterprise resource planning platform with integrated modules for goals management, recruitment analytics, CRM, and project management capabilities.",
+    features: project1Features,
+    stats: ["Active Modules: 4", "Users: 256", "Integration: 12"],
+    color: "#7C3AED",
+    gradient: "linear-gradient(135deg, #7C3AED, #6D28D9)"
   },
   {
-    icon: <FiBarChart2 />,
-    tag: "MODULE 03 — METRIC TELEMETRY",
-    title: "Advanced Collection Analytics & Reports",
-    desc: "Granular diagnostics tracking parsed by distinct operational parameters. Real-time visual data displays map historical performance metrics directly against target baselines to flag efficiency shifts.",
-    image: "/images/reports-dark.avif",
-    floatingTags: ["Target Mesh Active", "Bank-Wise Query", "Bucket Analytics"],
-    pills: ["Output: Synchronized", "Data Format: CSV"]
+    id: 2,
+    title: "Collection CRM",
+    subtitle: "Debt Recovery Management",
+    tag: "PROJECT 02",
+    icon: <FiDollarSign />,
+    description: "A comprehensive collection CRM platform for managing debt recovery, agent workflows, and collection analytics. Streamline collection operations across admin, agent, and mobile interfaces.",
+    features: project2Features,
+    stats: ["Active Cases: 1.2K", "Recovery Rate: 78%", "Agents: 45"],
+    color: "#059669",
+    gradient: "linear-gradient(135deg, #059669, #047857)"
   },
   {
-    icon: <FiFileText />,
-    tag: "MODULE 04 — CONTROL FLOWS",
-    title: "User-Friendly Interface Allocation Sheets",
-    desc: "Streamlined operational orchestration modals and creation dialogs engineered for low data overhead. Input original amounts, toggle priority targets and assign dedicated field agents instantly.",
-    image: "/images/form-modal.avif",
-    floatingTags: ["Validation Node OK", "Agent Mapping Engine", "AES-256 Vaulted"],
-    pills: ["Form Status: Ready", "SLA Guard Active"]
+    id: 3,
+    title: "Textile ERP",
+    subtitle: "Textile Manufacturing Management",
+    tag: "PROJECT 03",
+    icon: <FiBriefcase />,
+    description: "A comprehensive textile ERP solution for managing master data, operations, and reporting across the textile manufacturing lifecycle. Streamline production, procurement, and inventory management.",
+    features: project3Features,
+    stats: ["Production: 2.8K", "Inventory: 15K", "Reports: 24"],
+    color: "#2563EB",
+    gradient: "linear-gradient(135deg, #2563EB, #1D4ED8)"
   }
 ];
 
 function Solution() {
+  const [activeProject, setActiveProject] = useState(0);
   const [activeFeature, setActiveFeature] = useState(0);
-  const featureBlocksRef = useRef([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const cardsRef = useRef([]);
+  const projectRefs = useRef([]);
   const stickyPreviewRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
 
-  useEffect(() => {
-    // Dynamic execution configuration setup rules
-    const observerOptions = {
-      root: null,
-      // Uses a balanced center-focused trigger line across both mobile and desktop environments
-      rootMargin: window.innerWidth <= 1100 ? "-30% 0px -40% 0px" : "-45% 0px -45% 0px",
-      threshold: 0
-    };
-
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const index = featureBlocksRef.current.indexOf(entry.target);
-          if (index !== -1) {
-            setActiveFeature(index);
-          }
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    featureBlocksRef.current.forEach((block) => {
-      if (block) observer.observe(block);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const handleBlockSelection = (index) => {
-    setActiveFeature(index);
+  // Handle project filter click
+  const handleProjectFilter = (index) => {
+    setActiveProject(index);
+    setActiveFeature(0);
+    setCurrentImageIndex(0);
     
-    // Smooth scroll positioning execution on mobile device clicks
-    if (window.innerWidth <= 1100 && featureBlocksRef.current[index]) {
-      featureBlocksRef.current[index].scrollIntoView({
+    if (projectRefs.current[index]) {
+      projectRefs.current[index].scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  };
+
+  // Handle feature selection
+  const handleFeatureSelection = (index) => {
+    setActiveFeature(index);
+    setCurrentImageIndex(0);
+    if (window.innerWidth <= 1100 && cardsRef.current[index]) {
+      cardsRef.current[index].scrollIntoView({
         behavior: "smooth",
         block: "center"
       });
     }
   };
 
+  // Carousel navigation
+  const nextImage = () => {
+    const currentFeature = projects[activeProject].features[activeFeature];
+    if (currentFeature && currentFeature.images.length > 0) {
+      setCurrentImageIndex((prev) => (prev + 1) % currentFeature.images.length);
+    }
+  };
+
+  const prevImage = () => {
+    const currentFeature = projects[activeProject].features[activeFeature];
+    if (currentFeature && currentFeature.images.length > 0) {
+      setCurrentImageIndex((prev) => (prev - 1 + currentFeature.images.length) % currentFeature.images.length);
+    }
+  };
+
+  const goToImage = (index) => {
+    setCurrentImageIndex(index);
+  };
+
+  // Scroll tracking with improved smoothness
+  useEffect(() => {
+    let ticking = false;
+    let lastActiveIndex = activeFeature;
+
+    const handleScrollTracking = () => {
+      const isMobile = window.innerWidth <= 1100;
+      const viewportCenter = isMobile ? window.innerHeight * 0.6 : window.innerHeight / 2;
+      
+      let closestIndex = 0;
+      let minDistance = Infinity;
+
+      cardsRef.current.forEach((card, index) => {
+        if (!card) return;
+
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(viewportCenter - cardCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      if (closestIndex !== lastActiveIndex) {
+        lastActiveIndex = closestIndex;
+        setActiveFeature(closestIndex);
+        setCurrentImageIndex(0);
+      }
+      
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(handleScrollTracking);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    handleScrollTracking();
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [activeProject]);
+
+  // Auto-play carousel with improved timing
+  useEffect(() => {
+    if (isPaused || isFullscreen) return;
+    
+    const interval = setInterval(() => {
+      const currentFeature = projects[activeProject].features[activeFeature];
+      if (currentFeature && currentFeature.images.length > 1) {
+        setCurrentImageIndex((prev) => (prev + 1) % currentFeature.images.length);
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [activeProject, activeFeature, isPaused, isFullscreen]);
+
+  // Pause on hover
+  const handleMouseEnter = () => setIsPaused(true);
+  const handleMouseLeave = () => setIsPaused(false);
+
+  // Toggle fullscreen
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+  };
+
+  const currentProject = projects[activeProject];
+  const currentFeature = currentProject.features[activeFeature];
+  const totalImages = currentFeature?.images?.length || 0;
+
   return (
-    <div className="solution-page">
+    <div className={`solution-page ${isFullscreen ? 'fullscreen-mode' : ''}`}>
       <div className="container">
         
         {/* HERO SECTION */}
@@ -108,7 +354,7 @@ function Solution() {
               className="solution-hero-video"
               poster="/images/solution-main-hero.avif"
             >
-              <source src="/videos/solution-hero.mp4" type="video/mp4" />
+              <source src="https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785134840/solution-hero_ih8ndx.mp4" type="video/mp4" />
             </video>
             <div className="hero-frame-overlay" />
           </div>
@@ -119,90 +365,201 @@ function Solution() {
           </p>
         </header>
 
-        {/* INTERACTIVE FEATURE SHOWCASE TRACK */}
+        {/* PROJECT FILTERS */}
+        <div className="project-filters">
+          {projects.map((project, idx) => {
+            const isActive = activeProject === idx;
+            return (
+              <button
+                key={idx}
+                className={`filter-btn ${isActive ? 'active' : ''}`}
+                onClick={() => handleProjectFilter(idx)}
+                style={{
+                  '--btn-color': project.color,
+                  '--btn-text': isActive ? '#ffffff' : '#6B7280',
+                  '--btn-bg': isActive ? project.color : 'transparent',
+                  '--btn-shadow': isActive ? `${project.color}40` : 'transparent'
+                }}
+              >
+                <span className="filter-icon">{project.icon}</span>
+                {project.title}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* INTERACTIVE FEATURE SHOWCASE */}
         <section className="product-tour-container">
+          
+          {/* Project Header */}
+          <div className="project-header">
+            <div className="project-header-content">
+              <span className="project-tag">{currentProject.tag}</span>
+              <h2 className="project-title">
+                {currentProject.title}
+                <span className="project-subtitle">{currentProject.subtitle}</span>
+              </h2>
+              <p className="project-description">{currentProject.description}</p>
+              <div className="project-stats">
+                {currentProject.stats.map((stat, idx) => (
+                  <span key={idx} className="project-stat">{stat}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <div className="solution-split-wrapper">
             
-            {/* LEFT SIDE: STICKY INTERFACE CONSOLE DESK */}
+            {/* LEFT SIDE: STICKY DASHBOARD WITH CAROUSEL */}
             <div className="tour-visual-sticky" ref={stickyPreviewRef}>
-              <div className="tour-mockup-frame">
+              <div className={`tour-mockup-frame ${isFullscreen ? 'fullscreen' : ''}`}>
                 
-                {/* Unified Studio Browser Header */}
+                {/* Browser Header */}
                 <div className="browser-mockup-header">
                   <div className="browser-dot dot-red" />
                   <div className="browser-dot dot-yellow" />
                   <div className="browser-dot dot-green" />
-                  <div className="browser-mockup-address">debtcollect.io/platform/features</div>
+                  <div className="browser-mockup-address">
+                    {currentProject.title.toLowerCase().replace(/\s+/g, '-')}.craftcore.io
+                  </div>
+                  <button className="fullscreen-toggle" onClick={toggleFullscreen}>
+                    {isFullscreen ? <FiMinimize2 /> : <FiMaximize2 />}
+                  </button>
                 </div>
 
-                {/* Dashboard Screenshot Core Area */}
-                <div className="mockup-image-canvas">
-                  <img 
-                    src={projectFeatures[activeFeature].image} 
-                    alt="Ecosystem Interface Feature" 
-                    className="tour-mockup-image"
-                    loading="eager"
-                    decoding="async"
-                  />
-                  <div className="tour-mockup-overlay" />
+                {/* Dashboard Content with Carousel */}
+                <div className="dashboard-content">
+                  {/* Carousel Container */}
+                  <div 
+                    className={`carousel-container ${isFullscreen ? 'fullscreen' : ''}`}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <div className="carousel-slide">
+                      {totalImages > 0 ? (
+                        <img 
+                          src={currentFeature.images[currentImageIndex]}
+                          alt={`${currentFeature.title} - ${currentImageIndex + 1}`}
+                          className="carousel-image"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="no-image-placeholder">
+                          <span>No images available</span>
+                        </div>
+                      )}
+                      
+                      {/* Image Counter */}
+                      {totalImages > 1 && (
+                        <div className="carousel-counter">
+                          <span className="counter-text">
+                            {currentImageIndex + 1} / {totalImages}
+                          </span>
+                        </div>
+                      )}
+                    </div>
 
-                  {/* HIGH INTERACTION HUD TAG GENERATOR DECK */}
-                  <div className="mockup-hud-tags-layer">
-                    
-                    {/* Floating Code Protocol String Badges */}
-                    {projectFeatures[activeFeature].floatingTags.map((tagText, idx) => (
-                      <div 
-                        key={`hud-tag-${activeFeature}-${idx}`}
-                        className="hud-floating-tag"
-                        style={{ 
-                          animationDelay: `${idx * 0.12}s`,
-                          top: `${22 + idx * 24}%` 
-                        }}
-                      >
-                        <div className="hud-pulse-dot" />
-                        <span className="hud-tag-string">{tagText}</span>
+                    {/* Carousel Controls */}
+                    {totalImages > 1 && (
+                      <>
+                        <button 
+                          className="carousel-arrow-btn carousel-prev"
+                          onClick={prevImage}
+                          aria-label="Previous image"
+                        >
+                          <FiChevronLeft />
+                        </button>
+                        <button 
+                          className="carousel-arrow-btn carousel-next"
+                          onClick={nextImage}
+                          aria-label="Next image"
+                        >
+                          <FiChevronRight />
+                        </button>
+
+                        {/* Carousel Dots */}
+                        <div className="carousel-dots-container">
+                          {currentFeature.images.map((_, index) => (
+                            <button
+                              key={index}
+                              className={`carousel-dot ${index === currentImageIndex ? 'active' : ''}`}
+                              onClick={() => goToImage(index)}
+                              aria-label={`Go to image ${index + 1}`}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
+
+                    {/* Feature Tags Overlay */}
+                    <div className="feature-image-overlay">
+                      <div className="feature-tags-display">
+                        {currentFeature.tags.map((tag, idx) => (
+                          <span key={idx} className="feature-tag-chip">
+                            {tag}
+                          </span>
+                        ))}
                       </div>
-                    ))}
-
-                    {/* Holographic Performance Metric Chips */}
-                    {projectFeatures[activeFeature].pills.map((pillText, idx) => (
-                      <div 
-                        key={`hud-pill-${activeFeature}-${idx}`}
-                        className="hud-floating-pill"
-                        style={{ 
-                          animationDelay: `${(idx + 1) * 0.18}s`,
-                          bottom: "20px",
-                          left: idx === 0 ? "20px" : "auto",
-                          right: idx === 1 ? "20px" : "auto"
-                        }}
-                      >
-                        <span className="hud-pill-string">{pillText}</span>
-                      </div>
-                    ))}
-
+                    </div>
                   </div>
+                </div>
+
+                {/* Feature Navigation */}
+                <div className="feature-nav-section">
+                  {currentProject.features.map((feature, idx) => (
+                    <button
+                      key={idx}
+                      className={`feature-nav-btn ${activeFeature === idx ? 'active' : ''}`}
+                      onClick={() => handleFeatureSelection(idx)}
+                    >
+                      <span className="nav-icon">{feature.icon}</span>
+                      <span className="nav-label">{feature.label}</span>
+                      <span className="nav-image-count">
+                        {feature.images.length}
+                      </span>
+                    </button>
+                  ))}
                 </div>
 
               </div>
             </div>
 
-            {/* RIGHT SIDE: SCROLLING EXPLANATION TIMELINE */}
+            {/* RIGHT SIDE: SCROLLING FEATURES LIST */}
             <div className="tour-timeline-scroller">
-              {projectFeatures.map((feat, idx) => (
+              {currentProject.features.map((feature, idx) => (
                 <div
                   key={idx}
-                  ref={(el) => (featureBlocksRef.current[idx] = el)}
+                  ref={(el) => (cardsRef.current[idx] = el)}
                   className={`tour-timeline-block ${activeFeature === idx ? "active" : "inactive"}`}
-                  onClick={() => handleBlockSelection(idx)}
+                  onClick={() => handleFeatureSelection(idx)}
                 >
+                  <div className="timeline-number">{String(idx + 1).padStart(2, '0')}</div>
+                  
                   <div className="timeline-badge-row">
-                    <div className="timeline-icon-box">{feat.icon}</div>
+                    <div className="timeline-icon-box" style={{ 
+                      background: activeFeature === idx ? currentProject.gradient : 'rgba(124, 58, 237, 0.1)',
+                      color: activeFeature === idx ? '#fff' : currentProject.color
+                    }}>
+                      {feature.icon}
+                    </div>
                     <span className="timeline-step-number">FEATURE 0{idx + 1}</span>
                   </div>
                   
-                  <span className="timeline-block-pretag">{feat.tag}</span>
-                  <h2 className="timeline-block-title">{feat.title}</h2>
-                  <p className="card-text timeline-block-desc">{feat.desc}</p>
+                  <span className="timeline-block-pretag" style={{ color: currentProject.color }}>
+                    {feature.label}
+                  </span>
+                  <h2 className="timeline-block-title">{feature.title}</h2>
+                  <p className="card-text timeline-block-desc">{feature.description}</p>
+                  
+                  <div className="timeline-progress-bar">
+                    <div 
+                      className="timeline-progress-fill"
+                      style={{ 
+                        width: activeFeature === idx ? '100%' : '0%',
+                        background: currentProject.gradient
+                      }}
+                    />
+                  </div>
                 </div>
               ))}
             </div>

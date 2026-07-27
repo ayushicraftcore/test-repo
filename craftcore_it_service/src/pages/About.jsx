@@ -5,28 +5,154 @@ import { useEffect, useRef, useState } from "react";
 import Process from "../components/Process"; 
 import Model from "../components/Models"; 
 import Industries from "../components/Industries";
-import { IndianRupee } from "lucide-react";
-import { FaIndustry } from "react-icons/fa";
 import Stats from "../components/Stats";
 
 const whyChooseText = "Craftcore builds custom software tailored exactly to your business needs, focusing on fast, scalable applications with modern, user-friendly UI/UX design. We optimize performance and streamline data processing so your platform runs smoothly, loads quickly and provides a reliable experience for your users without any downtime. Ultimately, our solutions are engineered to keep your systems perfectly stable and efficient while fully supporting your long-term business growth.";
 
+// Video carousel data
+const carouselVideos = [
+  {
+    id: 1,
+    title: "Real-Time Analytics",
+    description: "Powerful real-time dashboards and analytics that transform raw data into actionable insights, helping you make data-driven decisions faster.",
+    videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785134919/SAAS_ynbbzq.mp4",
+    poster: "/images/video-poster-1.jpg"
+  },
+  {
+    id: 2,
+    title: "Code & Innovation",
+    description: "Clean, scalable, and maintainable code architecture that powers enterprise-grade applications with cutting-edge development practices.",
+    videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785135048/Coding_tguouv.mp4",
+    poster: "/images/video-poster-2.jpg"
+  },
+  {
+    id: 3,
+    title: "SaaS Solutions",
+    description: "Innovative SaaS products designed to streamline workflows, enhance productivity, and scale seamlessly with your business needs.",
+    videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785135133/solution_j5q5qi.mp4",
+    poster: "/images/video-poster-3.jpg"
+  }
+];
+
 function About() {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const sectionRef = useRef(null);
+  const videoRef = useRef(null);
+  const autoPlayInterval = useRef(null);
+  const videoTimeout = useRef(null);
   
-  // Splits text block cleanly into separate traceable word arrays
   const words = whyChooseText.split(" ");
 
+  // Video carousel controls
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % carouselVideos.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + carouselVideos.length) % carouselVideos.length);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  // Auto-play carousel
+  useEffect(() => {
+    if (autoPlayInterval.current) {
+      clearInterval(autoPlayInterval.current);
+    }
+    if (videoTimeout.current) {
+      clearTimeout(videoTimeout.current);
+    }
+
+    if (!isVideoPlaying) {
+      autoPlayInterval.current = setInterval(() => {
+        nextSlide();
+      }, 8000);
+    }
+
+    return () => {
+      if (autoPlayInterval.current) {
+        clearInterval(autoPlayInterval.current);
+      }
+      if (videoTimeout.current) {
+        clearTimeout(videoTimeout.current);
+      }
+    };
+  }, [isVideoPlaying, currentSlide]);
+
+  // Handle video play state
+  useEffect(() => {
+    if (videoRef.current) {
+      const video = videoRef.current;
+      
+      const handlePlay = () => {
+        setIsVideoPlaying(true);
+        if (autoPlayInterval.current) {
+          clearInterval(autoPlayInterval.current);
+        }
+      };
+
+      const handlePause = () => {
+        setIsVideoPlaying(false);
+        if (!videoTimeout.current) {
+          videoTimeout.current = setTimeout(() => {
+            nextSlide();
+            setIsVideoPlaying(false);
+            videoTimeout.current = null;
+          }, 2000);
+        }
+      };
+
+      const handleEnded = () => {
+        setIsVideoPlaying(false);
+        if (!videoTimeout.current) {
+          videoTimeout.current = setTimeout(() => {
+            nextSlide();
+            videoTimeout.current = null;
+          }, 2000);
+        }
+      };
+
+      video.addEventListener('play', handlePlay);
+      video.addEventListener('pause', handlePause);
+      video.addEventListener('ended', handleEnded);
+
+      video.play().catch(() => {
+        setIsVideoPlaying(false);
+      });
+
+      return () => {
+        video.removeEventListener('play', handlePlay);
+        video.removeEventListener('pause', handlePause);
+        video.removeEventListener('ended', handleEnded);
+      };
+    }
+  }, [currentSlide]);
+
+  // Clean up on unmount
+  useEffect(() => {
+    return () => {
+      if (autoPlayInterval.current) {
+        clearInterval(autoPlayInterval.current);
+      }
+      if (videoTimeout.current) {
+        clearTimeout(videoTimeout.current);
+      }
+    };
+  }, []);
+
+  // Scroll progress for text reveal
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
-      if (window.innerWidth <= 768) return; // Disables calculation calculations on small screens
+      if (window.innerWidth <= 768) return;
 
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Triggers focus actions inside the target center matrix view screen bounds
       const triggerStart = windowHeight * 0.85; 
       const triggerEnd = windowHeight * 0.25;   
 
@@ -34,13 +160,13 @@ function About() {
       const currentElementPos = triggerStart - rect.top;
 
       let progress = currentElementPos / (totalActiveRange + rect.height * 0.4);
-      progress = Math.max(0, Math.min(1, progress)); // Lock progress vector precisely between 0 and 1
+      progress = Math.max(0, Math.min(1, progress));
       setScrollProgress(progress);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll, { passive: true });
-    handleScroll(); // Fire immediate initial tracking render coordinate check
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -52,7 +178,7 @@ function About() {
     <div className="about-page">
       <div className="container">
         
-        {/* CENTER-ALIGNED HERO SECTION */}
+        {/* HERO SECTION WITH VIDEO CAROUSEL */}
         <header className="about-hero">
           <span className="section-tag">WHO WE ARE</span>
           <h1 className="about-hero-title">
@@ -60,29 +186,84 @@ function About() {
             <span className="gradient-text">digital foundations for global scale.</span>
           </h1>
           
-          <div className="about-hero-frame">
-            <img 
-              src="/images/about-hero.avif" 
-              alt="CraftCore Collaborative Workstation Grid" 
-              className="about-hero-img"
-              loading="eager"
-              decoding="async"
-            />
-            <div className="about-frame-overlay" />
+          {/* VIDEO CAROUSEL */}
+          <div className="video-carousel-wrapper">
+            <div className="video-carousel-container">
+              <div 
+                className="video-carousel-track"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {carouselVideos.map((video, index) => (
+                  <div key={video.id} className="video-carousel-slide">
+                    <div className="video-frame">
+                      <video
+                        ref={currentSlide === index ? videoRef : null}
+                        className="carousel-video"
+                        poster={video.poster}
+                        muted
+                        playsInline
+                        autoPlay={currentSlide === index}
+                        loop={false}
+                      >
+                        <source src={video.videoUrl} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    
+                    <div className="video-content">
+                      <div className="video-header">
+                        <h3 className="video-title">{video.title}</h3>
+                      </div>
+                      <p className="video-description">{video.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Carousel Controls */}
+            <div className="carousel-controls">
+              <button 
+                className="carousel-arrow carousel-arrow-prev"
+                onClick={prevSlide}
+                aria-label="Previous slide"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <div className="carousel-dots">
+                {carouselVideos.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`carousel-dot ${index === currentSlide ? 'active' : ''}`}
+                    onClick={() => goToSlide(index)}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <button 
+                className="carousel-arrow carousel-arrow-next"
+                onClick={nextSlide}
+                aria-label="Next slide"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
           </div>
 
           <p className="section-description about-hero-desc">
-              Craftcore IT Services is a full-stack technology company delivering custom software, intelligent
+            Craftcore IT Services is a full-stack technology company delivering custom software, intelligent
             automation and enterprise systems to manufacturing, textile and supply chain businesses. We
             don't just build software — we understand your sector.
           </p>
         </header>
 
-        {/* SIDE-BY-SIDE VISION & MISSION LAYOUT */}
+        {/* VISION & MISSION */}
         <section className="about-statement-section">
           <div className="statement-split-grid">
-            
-            {/* VISION CARD */}
             <div className="statement-premium-card card-hover">
               <div className="statement-meta">
                 <span className="statement-index">01</span>
@@ -94,7 +275,6 @@ function About() {
               </p>
             </div>
 
-            {/* MISSION CARD */}
             <div className="statement-premium-card card-hover">
               <div className="statement-meta">
                 <span className="statement-index">02</span>
@@ -105,29 +285,26 @@ function About() {
                To build reliable, high-performance software, SaaS platforms, mobile applications, and AI solutions that help businesses innovate faster, improve efficiency and achieve sustainable growth.
               </p>
             </div>
-
           </div>
         </section>
 
-        {/* CRED-STYLE SCROLL-DRIVEN WORD TYPING REVEAL TRACK */}
+        {/* TEXT REVEAL */}
         <section ref={sectionRef} className="about-why-choose-section">
           <span className="section-tag">WHY CHOOSE US</span>
           <div className="cred-text-viewport">
             <p className="cred-paragraph-container">
               {words.map((word, idx) => {
-                // Calculate incremental highlighting metrics for individual words
                 const wordWeight = 1 / words.length;
                 const wordStartThreshold = idx * wordWeight;
                 
                 let wordOpacity = (scrollProgress - wordStartThreshold) / wordWeight;
-                wordOpacity = Math.max(0, Math.min(1, wordOpacity)); // Clamps single word visibility bounds
+                wordOpacity = Math.max(0, Math.min(1, wordOpacity));
 
                 return (
                   <span 
                     key={idx} 
                     className="cred-scroll-word"
                     style={{
-                      // Fluid translation from washed slate grey into solid pitch black
                       color: `rgba(17, 17, 24, ${0.18 + wordOpacity * 0.82})`,
                       transform: `translateY(${5 - (wordOpacity * 5)}px)`
                     }}
@@ -142,12 +319,11 @@ function About() {
 
       </div>
 
-      {/* SUBSEQUENT INTERACTIVE TEMPLATE CORE APPENDS */}
+      {/* OTHER COMPONENTS */}
       <Stats />
       <Process />
       <Industries />
       <Model />
-
     </div>
   );
 }

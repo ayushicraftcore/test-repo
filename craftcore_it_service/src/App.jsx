@@ -15,22 +15,13 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Service from "./pages/Service";
 import Solution from "./pages/Solution";
+import SolutionV2 from "./pages/SolutionV2"; // ← ADD THIS IMPORT
 import About from "./pages/About";
 import Blog from "./pages/Blog"; 
 import Career from "./pages/Career"; 
 import Contact from "./pages/Contact"; 
 import Booking from "./pages/Booking"; 
 
-/* ─────────────────────────────────────────────
-   CROSS-PORT REDIRECT FOR LANDING HUB
-   (Bounces root hits on 3001 back to Port 3000)
-───────────────────────────────────────────── */
-function BackToLandingRedirect() {
-  useEffect(() => {
-    window.location.href = "https://craftcorewebsite-ohc2zq5yn-ayushicraftcores-projects.vercel.app/";
-  }, []);
-  return null;
-}
 
 /* ─────────────────────────────────────────────
    SCROLL TO TOP  (Ensures page starts at top)
@@ -282,13 +273,13 @@ function App() {
       {/* SWITCHABLE PAGES */}
       <Routes>
         {/* If the root or master component keyword is targeted directly on port 3001, bounce execution to port 3000 */}
-        <Route path="/" element={<BackToLandingRedirect />} />
-        <Route path="/craftcorelanding" element={<BackToLandingRedirect />} />
+        <Route path="/" element={<Home />} />
 
         {/* Localized Routing Substructures */}
         <Route path="/Home" element={<Home />} />
         <Route path="/service" element={<Service />} />
         <Route path="/Solution" element={<Solution />} />
+        <Route path="/SolutionV2" element={<SolutionV2 />} /> {/* ← ADD THIS ROUTE */}
         <Route path="/About" element={<About />} />
         <Route path="/Blog" element={<Blog />} />
         <Route path="/Career" element={<Career />} />
