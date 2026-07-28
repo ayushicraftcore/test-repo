@@ -19,6 +19,8 @@ function Navbar() {
     { name: "Service", path: "/service" },
     { name: "Solution", path: "/Solution" },
     { name: "Solution V2", path: "/SolutionV2" },
+    { name: "Solution V3", path: "/SolutionV3" },
+    { name: "Solution V4", path: "/SolutionV4" },
     { name: "About", path: "/About" },
     { name: "Blog", path: "/Blog" },
     { name: "Career", path: "/Career" },
@@ -29,7 +31,6 @@ function Navbar() {
     <header className={`navbar${scrolled ? " navbar--scrolled" : ""}`}>
       
       <div className="navbar-logo">
-        {/* FIXED: Changed to="/" to to="/home" to stay on the IT Services site home page */}
         <Link to="/home" style={{ display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none' }}>
           <img src={logo} alt="Logo" />
           <div>
