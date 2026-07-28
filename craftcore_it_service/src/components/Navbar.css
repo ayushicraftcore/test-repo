@@ -1,3 +1,6 @@
+/* =======================================================
+   NAVBAR - MAIN STYLES
+======================================================= */
 .navbar {
   width: 92%;
   margin: 24px auto 0;
@@ -35,10 +38,15 @@
   display: flex;
   align-items: center;
   gap: 14px;
+  flex-shrink: 0;
 }
 
 .navbar-logo a {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
 }
 
 .navbar-logo img {
@@ -63,12 +71,15 @@
   font-size: 18px;
   font-weight: 800;
   color: #000;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .navbar-logo p {
   font-size: 11px;
   color: #333;
   margin-top: 2px;
+  margin-bottom: 0;
 }
 
 /* =======================================================
@@ -77,17 +88,20 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 20px;
+  flex-wrap: nowrap;
 }
 
 .nav-links a {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   color: #444;
   position: relative;
   padding-bottom: 4px;
   cursor: pointer;
   transition: color 0.25s ease;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-underline {
@@ -138,10 +152,11 @@
 
 .desktop-btn {
   display: inline-flex;
+  flex-shrink: 0;
 }
 
 .nav-links a.mobile-btn {
-  display: none; /* Hidden on desktop view */
+  display: none;
 }
 
 /* Shine effect */
@@ -182,6 +197,7 @@
   display: none;
   cursor: pointer;
   padding: 4px;
+  flex-shrink: 0;
 }
 
 .hamburger {
@@ -209,11 +225,40 @@
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 24px; }
 
 /* =======================================================
-   RESPONSIVE BREAKPOINT (IPAD & MOBILE DRAWER)
+   RESPONSIVE BREAKPOINTS
 ======================================================= */
-@media (max-width: 1250px) {
+
+/* Large Desktop - Show all links */
+@media (min-width: 1251px) {
+  .nav-links {
+    gap: 24px;
+  }
+  
+  .nav-links a {
+    font-size: 15px;
+  }
+}
+
+/* Desktop - Medium */
+@media (max-width: 1250px) and (min-width: 1025px) {
+  .nav-links {
+    gap: 14px;
+  }
+  
+  .nav-links a {
+    font-size: 13px;
+  }
+  
+  .desktop-btn {
+    padding: 10px 18px;
+    font-size: 12px;
+  }
+}
+
+/* Tablet - Hide desktop button, show hamburger */
+@media (max-width: 1024px) {
   .desktop-btn { 
-    display: none !important; /* Force desktop button to hide completely */
+    display: none !important;
   }
 
   .menu-icon { 
@@ -232,7 +277,7 @@
     padding: 35px 24px;
     border-radius: 20px;
     margin-top: 14px;
-    gap: 24px;
+    gap: 16px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
     opacity: 0;
     visibility: hidden;
@@ -240,6 +285,8 @@
     transform-origin: top center;
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     box-sizing: border-box;
+    max-height: 80vh;
+    overflow-y: auto;
   }
 
   .nav-links.active {
@@ -251,25 +298,33 @@
   .nav-links a {
     opacity: 0;
     transform: translateX(-10px);
+    font-size: 15px;
+    padding: 8px 0;
     transition: color 0.25s ease, opacity 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
+  /* Staggered animation for mobile links */
   .nav-links.active a:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 0.05s; }
-  .nav-links.active a:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 0.10s; }
-  .nav-links.active a:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 0.15s; }
-  .nav-links.active a:nth-child(4) { opacity: 1; transform: translateX(0); transition-delay: 0.20s; }
-  .nav-links.active a:nth-child(5) { opacity: 1; transform: translateX(0); transition-delay: 0.25s; }
-  .nav-links.active a:nth-child(6) { opacity: 1; transform: translateX(0); transition-delay: 0.30s; }
-  .nav-links.active a:nth-child(7) { opacity: 1; transform: translateX(0); transition-delay: 0.35s; }
-  .nav-links.active a:nth-child(8) { opacity: 1; transform: translateX(0); transition-delay: 0.40s; }
+  .nav-links.active a:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 0.08s; }
+  .nav-links.active a:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 0.11s; }
+  .nav-links.active a:nth-child(4) { opacity: 1; transform: translateX(0); transition-delay: 0.14s; }
+  .nav-links.active a:nth-child(5) { opacity: 1; transform: translateX(0); transition-delay: 0.17s; }
+  .nav-links.active a:nth-child(6) { opacity: 1; transform: translateX(0); transition-delay: 0.20s; }
+  .nav-links.active a:nth-child(7) { opacity: 1; transform: translateX(0); transition-delay: 0.23s; }
+  .nav-links.active a:nth-child(8) { opacity: 1; transform: translateX(0); transition-delay: 0.26s; }
+  .nav-links.active a:nth-child(9) { opacity: 1; transform: translateX(0); transition-delay: 0.29s; }
+  .nav-links.active a:nth-child(10) { opacity: 1; transform: translateX(0); transition-delay: 0.32s; }
+  .nav-links.active a:nth-child(11) { opacity: 1; transform: translateX(0); transition-delay: 0.35s; }
 
-  /* Display mobile button cleanly inside hamburger layout only */
+  /* Display mobile button inside hamburger */
   .nav-links a.mobile-btn { 
     display: flex !important; 
     width: 100%; 
     max-width: 280px; 
     margin: 12px auto 0; 
     box-sizing: border-box;
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -277,12 +332,115 @@
    SMALL SMARTPHONES
 ======================================================= */
 @media (max-width: 576px) {
-  .navbar          { padding: 14px 18px; margin: 16px auto 0; top: 12px; }
-  .navbar-logo img { width: 52px; height: 52px; }
-  .navbar-logo h2  { font-size: 16px; }
-  .navbar-logo p   { font-size: 10px; }
+  .navbar { 
+    padding: 12px 16px; 
+    margin: 12px auto 0; 
+    top: 10px;
+    width: 95%;
+  }
+  
+  .navbar--scrolled {
+    padding: 10px 16px;
+  }
+  
+  .navbar-logo img { 
+    width: 44px; 
+    height: 44px; 
+  }
+  
+  .navbar-logo h2 { 
+    font-size: 15px; 
+  }
+  
+  .navbar-logo p { 
+    font-size: 9px; 
+  }
+  
+  .navbar-logo {
+    gap: 10px;
+  }
+  
+  .nav-links {
+    padding: 25px 18px;
+    gap: 12px;
+  }
+  
+  .nav-links a {
+    font-size: 14px;
+    padding: 6px 0;
+  }
   
   .nav-links a.mobile-btn {
     max-width: 100%;
+    padding: 12px 20px;
+    font-size: 13px;
   }
+  
+  .hamburger span:nth-child(1) { width: 20px; }
+  .hamburger span:nth-child(2) { width: 14px; }
+  .hamburger span:nth-child(3) { width: 20px; }
+  
+  .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); width: 20px; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); width: 20px; }
+}
+
+/* =======================================================
+   EXTRA SMALL (Galaxy Fold etc)
+======================================================= */
+@media (max-width: 380px) {
+  .navbar { 
+    padding: 10px 12px; 
+    margin: 8px auto 0;
+    width: 96%;
+    border-radius: 14px;
+  }
+  
+  .navbar-logo img { 
+    width: 36px; 
+    height: 36px; 
+    border-radius: 8px;
+  }
+  
+  .navbar-logo h2 { 
+    font-size: 13px; 
+  }
+  
+  .navbar-logo p { 
+    font-size: 8px; 
+  }
+  
+  .navbar-logo {
+    gap: 8px;
+  }
+  
+  .nav-links {
+    padding: 20px 14px;
+    gap: 10px;
+  }
+  
+  .nav-links a {
+    font-size: 13px;
+    padding: 5px 0;
+  }
+  
+  .nav-links a.mobile-btn {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+  
+  .hamburger {
+    gap: 4px;
+    width: 18px;
+  }
+  
+  .hamburger span {
+    height: 1.5px;
+  }
+  
+  .hamburger span:nth-child(1) { width: 18px; }
+  .hamburger span:nth-child(2) { width: 12px; }
+  .hamburger span:nth-child(3) { width: 18px; }
+  
+  .hamburger.open span:nth-child(1) { transform: translateY(5px) rotate(45deg); width: 18px; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); width: 18px; }
 }
