@@ -21,7 +21,7 @@ function Navbar() {
     { name: "About", path: "/About" },
     { name: "Blog", path: "/Blog" },
     { name: "Career", path: "https://erp.craftcore.in/craftcore/careers" },
-    { name: "Contact", path: "/Contact" }
+    { name: "Contact", path: "https://booking.techrometric.com/appointments/craftcore" }
   ];
 
   return (
@@ -65,7 +65,7 @@ function Navbar() {
       </nav>
 
       <Link 
-        to="/book-call" 
+        to="https://booking.techrometric.com/appointments/craftcore" 
         className="desktop-btn"
         style={{ textDecoration: 'none' }}
       >

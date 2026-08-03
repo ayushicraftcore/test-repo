@@ -70,7 +70,7 @@ function Hero() {
             </p>
 
             <div className="hero-buttons">
-              <Link to="/contact" className="primary-btn hero-primary-btn">
+              <Link to="https://booking.techrometric.com/appointments/craftcore" className="primary-btn hero-primary-btn">
                 Get an IT Assessment
                 <FaArrowRight />
               </Link>

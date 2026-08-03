@@ -35,8 +35,8 @@ function Footer() {
               <li><Link to="/Solution" className="footer-nav-link">Solutions</Link></li>
               <li><Link to="/About" className="footer-nav-link">About</Link></li>
               <li><Link to="/Blog" className="footer-nav-link">Blog</Link></li>
-              <li><Link to="/Contact" className="footer-nav-link">Contact</Link></li>
-              <li><Link to="/Career" className="footer-nav-link">Career</Link></li>
+              <li><Link to="https://booking.techrometric.com/appointments/craftcore" className="footer-nav-link">Contact</Link></li>
+              <li><Link to="https://erp.craftcore.in/craftcore/careers" className="footer-nav-link">Career</Link></li>
             </ul>
           </div>
 
@@ -70,7 +70,9 @@ function Footer() {
               <li>
                 <FaMapMarkerAlt />
                 <span>
-                  OFFICE NO.: 202, “OM SAI” Apartment Masjid Road Adajan Gaam, Surat (GUJARAT) 395009
+                  Office: Vadodara, Gujarat
+                  <br />
+                  <strong>Serviceable Areas:</strong> Surat, Ahmedabad, Anand
                 </span>
               </li>
 

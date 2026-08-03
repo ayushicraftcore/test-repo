@@ -60,7 +60,7 @@ function CTA() {
 
             {/* CONNECTED: Redirects to contact page */}
             <Link 
-              to="/contact" 
+              to="https://booking.techrometric.com/appointments/craftcore" 
               className="primary-btn cta-primary-btn"
               style={{ textDecoration: 'none' }}
             >

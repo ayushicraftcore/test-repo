@@ -5,13 +5,33 @@ import { useNavigate } from "react-router-dom";
 
 const servicesData = [
   {
-    smallTitle: "Custom Software",
-    title: "CUSTOM SOFTWARE DEVELOPMENT",
+    smallTitle: "Web & SaaS Dev",
+    title: "WEB & SAAS DEVELOPMENT",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785736916/Dashboard_Dark_Mode_1_frasph.png",
     points: [
-      "Custom web & mobile applications built for your business workflows",
-      "Scalable SaaS platforms and multi-tenant solutions",
-      "Legacy system modernization and API integrations"
+      "Custom Web Applications",
+      "Multi-Tenant Platforms & E-Commerce",
+      "API Integrations & PWAs",
+    ],
+  },
+  {
+    smallTitle: "Cloud & DevOps",
+    title: "CLOUD & DEVOPS ENGINEERING",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133774/cloud_fhd71g.avif",
+    points: [
+      "AWS, GCP and Azure Management",
+      "CI/CD Pipelines & Auto-Scaling",
+      "Docker, Kubernetes & Cloud Migration",
+    ],
+  },
+  {
+    smallTitle: "Cybersecurity",
+    title: "CYBERSECURITY & COMPLIANCE",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133877/security_pdcr9o.avif",
+    points: [
+      "Security Audits & Pen Testing",
+      "GDPR & HIPAA Compliance",
+      "Data Encryption & Incident Response",
     ],
   },
   {
@@ -19,59 +39,9 @@ const servicesData = [
     title: "AI & AUTOMATION SOLUTIONS",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133977/automation_sm760t.avif",
     points: [
-      "Intelligent chatbots and virtual assistants for customer engagement",
-      "Workflow automation to reduce manual effort and errors",
-      "Predictive analytics for data-driven business decisions"
-    ],
-  },
-  {
-    smallTitle: "Cloud & Infrastructure",
-    title: "CLOUD MIGRATION & MANAGEMENT",
-    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133774/cloud_fhd71g.avif",
-    points: [
-      "Seamless cloud migration to AWS, Azure, or Google Cloud",
-      "Scalable infrastructure setup including servers and networks",
-      "Optimized cloud costs with auto-scaling and managed services"
-    ],
-  },
-  {
-    smallTitle: "Cybersecurity",
-    title: "CYBERSECURITY SOLUTIONS",
-    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133877/security_pdcr9o.avif",
-    points: [
-      "Comprehensive security audits and vulnerability assessments",
-      "Data encryption and access control implementation",
-      "Ongoing monitoring and incident response planning"
-    ],
-  },
-  {
-    smallTitle: "ERP Integration",
-    title: "ERP & SYSTEM INTEGRATION",
-    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785736916/Dashboard_Dark_Mode_1_frasph.png",
-    points: [
-      "Seamless integration of ERP systems with your existing tools",
-      "Unified data flow across departments and operations",
-      "Custom dashboards and reports for complete visibility"
-    ],
-  },
-  {
-    smallTitle: "IT Support & AMC",
-    title: "MANAGED IT SUPPORT & AMC",
-    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133877/security_pdcr9o.avif",
-    points: [
-      "24/7 IT support to keep your business operations running",
-      "Proactive monitoring and maintenance of your IT infrastructure",
-      "Annual maintenance contracts with predictable costs"
-    ],
-  },
-  {
-    smallTitle: "SaaS Platforms",
-    title: "SAAS PLATFORM DEVELOPMENT",
-    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133774/cloud_fhd71g.avif",
-    points: [
-      "Multi-tenant SaaS solutions ready for global scale",
-      "Subscription management and billing integrations",
-      "White-labeled platforms for your brand and customers"
+      "AI Chatbots & NLP Pipelines",
+      "Machine Learning Models & IDP",
+      "Workflow Automation & Predictive Analytics",
     ],
   },
 ];
@@ -117,10 +87,10 @@ function Services() {
       <div className="container">
         
         <div className="services-header">
-          <span className="section-tag">WHAT WE DO</span>
-          <h2 className="section-title">Complete IT Solutions — One Trusted Partner</h2>
+          <span className="section-tag">WHAT WE BUILD</span>
+          <h2 className="section-title">Everything Your IT Stack Needs — One Partner</h2>
           <p className="section-description">
-            Full-service IT infrastructure and technology solutions for manufacturing and growing businesses.
+            Production-grade solutions built for scalability, high performance and measurable business impact.
           </p>
         </div>
 
@@ -130,7 +100,7 @@ function Services() {
             <div className="service-preview-card">
               <img
                 src={servicesData[activeService].image}
-                alt={servicesData[activeService].smallTitle}
+                alt="service"
                 className="service-preview-image"
                 loading="eager"
                 decoding="async"
@@ -197,7 +167,7 @@ function Services() {
 
         <div className="services-button-wrap">
           <button className="primary-btn" onClick={() => navigate("/service")}>
-            VIEW ALL IT SERVICES
+            VIEW ALL SERVICES
           </button>
         </div>
 

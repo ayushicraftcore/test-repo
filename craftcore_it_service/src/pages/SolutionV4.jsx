@@ -3,7 +3,7 @@ import "./SolutionV4.css";
 import {
   FiGrid, FiTarget, FiTrendingUp, FiUsers, FiDollarSign,
   FiBriefcase, FiChevronLeft, FiChevronRight, FiSmartphone,
-  FiClock, FiLayers
+  FiClock, FiLayers, FiArrowUp
 } from "react-icons/fi";
 
 const project1Features = [
@@ -338,17 +338,57 @@ function SolutionV6() {
   const [activeProjIdx, setActiveProjIdx] = useState(0);
   const [activeFeatIdx, setActiveFeatIdx] = useState(0);
   const [activeImgIdx, setActiveImgIdx] = useState(0);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
   const projectRefs = useRef([]);
   const cardsRef = useRef({});
+  const userInteractionTimeout = useRef(null);
 
   const currentProject = projects[activeProjIdx];
   const currentFeature = currentProject.features[activeFeatIdx];
   const totalImages = currentFeature?.images?.length || 0;
 
-  // Scroll tracking - only updates project, not features or images
+  // Auto-play carousel - only when user is NOT interacting
+  useEffect(() => {
+    if (totalImages <= 1 || isUserInteracting) return;
+    
+    const interval = setInterval(() => {
+      const nextIndex = (activeImgIdx + 1) % totalImages;
+      setActiveImgIdx(nextIndex);
+      
+      // Auto-advance to next feature when all images are viewed
+      if (nextIndex === 0) {
+        const isLastFeature = activeFeatIdx === currentProject.features.length - 1;
+        if (isLastFeature) {
+          const nextProject = (activeProjIdx + 1) % projects.length;
+          setTimeout(() => {
+            setActiveProjIdx(nextProject);
+            setActiveFeatIdx(0);
+            setActiveImgIdx(0);
+            if (projectRefs.current[nextProject]) {
+              projectRefs.current[nextProject].scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+              });
+            }
+          }, 2000);
+        } else {
+          setTimeout(() => {
+            setActiveFeatIdx(activeFeatIdx + 1);
+            setActiveImgIdx(0);
+          }, 2000);
+        }
+      }
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [totalImages, activeImgIdx, activeFeatIdx, activeProjIdx, currentProject.features.length, isUserInteracting]);
+
+  // Scroll tracking - only updates when user is NOT interacting
   useEffect(() => {
     let ticking = false;
     let lastActiveProject = activeProjIdx;
+    let lastActiveFeature = activeFeatIdx;
 
     const handleScrollTracking = () => {
       const viewportCenter = window.innerHeight / 2;
@@ -368,19 +408,44 @@ function SolutionV6() {
         }
       });
 
-      // Only update if project changed
-      if (closestProjectIndex !== lastActiveProject) {
-        lastActiveProject = closestProjectIndex;
-        setActiveProjIdx(closestProjectIndex);
-        // Reset to first feature and first image of the new project
-        setActiveFeatIdx(0);
-        setActiveImgIdx(0);
+      // Find which feature is most visible within the active project
+      let closestFeatureIndex = 0;
+      let minFeatureDistance = Infinity;
+
+      const featureCards = cardsRef.current[closestProjectIndex] || [];
+      featureCards.forEach((card, index) => {
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(viewportCenter - cardCenter);
+        if (distance < minFeatureDistance) {
+          minFeatureDistance = distance;
+          closestFeatureIndex = index;
+        }
+      });
+
+      // Only update if user is not interacting and values changed
+      if (!isUserInteracting) {
+        if (closestProjectIndex !== lastActiveProject) {
+          lastActiveProject = closestProjectIndex;
+          setActiveProjIdx(closestProjectIndex);
+          setActiveFeatIdx(0);
+          setActiveImgIdx(0);
+        } else if (closestFeatureIndex !== lastActiveFeature) {
+          lastActiveFeature = closestFeatureIndex;
+          setActiveFeatIdx(closestFeatureIndex);
+          setActiveImgIdx(0);
+        }
       }
       
       ticking = false;
     };
 
     const onScroll = () => {
+      // Show/hide back to top button
+      const scrollY = window.scrollY;
+      setShowBackToTop(scrollY > 400);
+
       if (!ticking) {
         window.requestAnimationFrame(handleScrollTracking);
         ticking = true;
@@ -391,19 +456,42 @@ function SolutionV6() {
     handleScrollTracking();
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, [activeProjIdx]);
+  }, [isUserInteracting]);
+
+  // Reset user interaction after 5 seconds of inactivity
+  useEffect(() => {
+    if (userInteractionTimeout.current) {
+      clearTimeout(userInteractionTimeout.current);
+    }
+    
+    if (isUserInteracting) {
+      userInteractionTimeout.current = setTimeout(() => {
+        setIsUserInteracting(false);
+      }, 5000);
+    }
+
+    return () => {
+      if (userInteractionTimeout.current) {
+        clearTimeout(userInteractionTimeout.current);
+      }
+    };
+  }, [isUserInteracting]);
 
   const nextImg = (e) => {
     e?.stopPropagation();
+    setIsUserInteracting(true);
     setActiveImgIdx((prev) => (prev + 1) % totalImages);
   };
 
   const prevImg = (e) => {
     e?.stopPropagation();
+    setIsUserInteracting(true);
     setActiveImgIdx((prev) => (prev - 1 + totalImages) % totalImages);
   };
 
   const handleFeatureClick = (projectIndex, fIdx) => {
+    setIsUserInteracting(true);
+    
     // If clicking on a different project, reset to first image
     if (projectIndex !== activeProjIdx) {
       setActiveProjIdx(projectIndex);
@@ -416,13 +504,26 @@ function SolutionV6() {
     }
   };
 
+  const handleThumbnailClick = (idx) => {
+    setIsUserInteracting(true);
+    setActiveImgIdx(idx);
+  };
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className="solution-v6-page">
       <div className="v6-container">
         
         {/* Header */}
         <header className="v6-hero">
-          <span className="v6-chip"><FiLayers /> Software Suite</span>
+          <span className="section-tag">Sofware Suite</span>
           <h1 className="v6-title">Enterprise Solutions Showcase</h1>
           <p className="v6-subtitle">Explore our comprehensive suite of enterprise solutions</p>
         </header>
@@ -523,7 +624,7 @@ function SolutionV6() {
                                   className={`v6-thumb-pill ${activeImgIdx === iIdx ? "active" : ""}`}
                                   onClick={(e) => {
                                     e.stopPropagation();
-                                    setActiveImgIdx(iIdx);
+                                    handleThumbnailClick(iIdx);
                                   }}
                                 >
                                   <img src={img} alt={`Thumb ${iIdx + 1}`} />
@@ -581,7 +682,7 @@ function SolutionV6() {
                       <button
                         key={i}
                         className={`v6-thumb-pill ${activeImgIdx === i ? "active" : ""}`}
-                        onClick={() => setActiveImgIdx(i)}
+                        onClick={() => handleThumbnailClick(i)}
                       >
                         <img src={imgSrc} alt={`Thumb ${i + 1}`} />
                       </button>
@@ -595,6 +696,16 @@ function SolutionV6() {
         ))}
 
       </div>
+
+      {/* BACK TO TOP BUTTON */}
+      <button 
+        className={`back-to-top-btn ${showBackToTop ? 'visible' : ''}`}
+        onClick={scrollToTop}
+        aria-label="Back to top"
+      >
+        <FiArrowUp />
+      </button>
+
     </div>
   );
 }
