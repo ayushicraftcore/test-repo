@@ -7,7 +7,7 @@ import Model from "../components/Models";
 import Industries from "../components/Industries";
 import Stats from "../components/Stats";
 
-const whyChooseText = "Craftcore builds custom software tailored exactly to your business needs, focusing on fast, scalable applications with modern, user-friendly UI/UX design. We optimize performance and streamline data processing so your platform runs smoothly, loads quickly and provides a reliable experience for your users without any downtime. Ultimately, our solutions are engineered to keep your systems perfectly stable and efficient while fully supporting your long-term business growth.";
+const whyChooseText = "Craftcore delivers founder-led IT solutions with deep manufacturing domain expertise, helping businesses build custom software, implement AI automation, and modernize their technology infrastructure. We combine technical excellence with industry knowledge to solve real manufacturing challenges — from shop floor operations to supply chain management. Our end-to-end technology partnership approach ensures seamless integration with your existing systems, while our recruitment and growth services help you build and scale your technology teams. We don't just deliver projects — we become your trusted technology partner for long-term business success.";
 
 // Video carousel data
 const carouselVideos = [

@@ -35,7 +35,7 @@ function Navbar() {
           <img src={logo} alt="Logo" />
           <div>
             <h2>CRAFTCORE</h2>
-            <p>IT SERVICE</p>
+            <p>IT INFRASTRUCTURE</p>
           </div>
         </Link>
       </div>

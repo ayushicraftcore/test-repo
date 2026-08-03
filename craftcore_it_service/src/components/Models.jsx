@@ -7,36 +7,39 @@ const modelsData = [
   {
     title: "DEDICATED TEAM",
     icon: <FiUsers />,
-    bestFor: "Long-term projects requiring a dedicated engineering team",
+    bestFor: "Long-term IT infrastructure and software projects requiring a dedicated engineering team with domain expertise",
     billing: "Monthly Retainer",
     points: [
-      "Dedicated developers & PM",
-      "Full transparency & daily standups",
-      "Scale team up/down flexibly",
+      "Dedicated developers, IT engineers & project managers",
+      "Full transparency with daily standups and weekly reports",
+      "Flexible team scaling up or down based on project needs",
+      "Seamless integration with your existing IT workflows"
     ],
     recommended: false,
   },
   {
     title: "PROJECT-BASED DELIVERY",
     icon: <FiTarget />,
-    bestFor: "Fixed-scope projects with defined requirements and timelines",
+    bestFor: "Fixed-scope IT projects including ERP implementation, cloud migration, and custom software development",
     billing: "Milestone-Based Payments",
     points: [
-      "Defined scope & timeline",
-      "Risk-free fixed pricing",
-      "Guaranteed delivery with warranty",
+      "Clearly defined scope with detailed deliverables and timelines",
+      "Risk-free fixed pricing with guaranteed project outcomes",
+      "Complete project warranty and post-deployment support",
+      "Comprehensive documentation and knowledge transfer"
     ],
     recommended: true,
   },
   {
     title: "CTO-AS-A-SERVICE",
     icon: <FiTrendingUp />,
-    bestFor: "Startups and businesses needing strategic technical leadership",
+    bestFor: "Manufacturing enterprises and growing businesses needing strategic IT leadership and technology direction",
     billing: "Hourly / Weekly Advisory",
     points: [
-      "Architecture & tech strategy",
-      "Team hiring & mentorship",
-      "Investor-ready tech roadmap",
+      "IT infrastructure strategy and technology roadmap development",
+      "Cloud migration planning, security architecture and vendor evaluation",
+      "ERP selection guidance, implementation oversight and IT governance",
+      "Team hiring, training, and technology mentorship"
     ],
     recommended: false,
   },
@@ -75,7 +78,7 @@ function Models() {
   };
 
   const getWhatsappUrl = (modelTitle) => {
-    const defaultText = `Hi Craftcore! I'd like to discuss a project regarding the ${modelTitle} model.`;
+    const defaultText = `Hi Craftcore! I'm interested in your ${modelTitle} engagement model. I'd like to discuss an IT assessment and technology solutions for my manufacturing business.`;
     return `https://wa.me/919898711229?text=${encodeURIComponent(defaultText)}`;
   };
 
@@ -87,9 +90,9 @@ function Models() {
         <span className="section-tag">WORK WITH US</span>
         <h2 className="section-title">Engagement Models</h2>
         <p className="section-description">
-          Flexible engagement models designed to support startups, enterprises
-          and growing businesses with scalable development and strategic
-          technology solutions.
+          Flexible engagement models designed for manufacturing enterprises, mid-market companies, 
+          and growing businesses — from dedicated IT teams and project-based delivery to strategic 
+          technology advisory and consulting services.
         </p>
       </div>
 

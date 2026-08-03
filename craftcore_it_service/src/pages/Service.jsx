@@ -11,124 +11,167 @@ import {
   FiZap,
   FiSettings,
   FiCode,
-  FiUsers
+  FiUsers,
+  FiServer,
+  FiDatabase
 } from "react-icons/fi";
 
 const serviceDataExtended = [
   {
-    smallTitle: "Web & SaaS Dev",
-    title: "WEB & SAAS DEVELOPMENT",
-    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133272/saas_development_r1jfk2.avif",
-    icon: <FiLayers />,
+    smallTitle: "Custom Software",
+    title: "CUSTOM SOFTWARE DEVELOPMENT",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785736916/Dashboard_Dark_Mode_1_frasph.png",
+    icon: <FiCode />,
     caption:
-      "Custom web applications, SaaS platforms, CRM systems and ERP solutions built to streamline your business.",
+      "Custom web and mobile applications built to automate your workflows and scale with your business.",
     metrics: { label: "Uptime Rate", value: "99.9%" },
     techStack: [
       "React",
       "Next.js",
       "Node.js",
-      "CRM Systems",
-      "ERP Solutions",
+      "Python",
+      "Java",
       "API Integrations"
     ],
     points: [
-      "Build custom web applications and multi-tenant SaaS platforms.",
-      "Develop CRM systems for sales, lead and customer management.",
-      "Create ERP solutions for inventory, finance, HR and operations.",
-      "Integrate secure third-party APIs, payment gateways and e-commerce features."
+      "Build custom web applications that streamline your unique business workflows.",
+      "Develop scalable SaaS platforms that grow with your customer base.",
+      "Modernize legacy systems with secure, maintainable code.",
+      "Create seamless integrations between your existing tools and new solutions."
     ]
   },
   {
-    smallTitle: "Cloud & DevOps",
-    title: "CLOUD & DEVOPS ENGINEERING",
+    smallTitle: "AI & Automation",
+    title: "AI & AUTOMATION SOLUTIONS",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133977/automation_sm760t.avif",
+    icon: <FiCpu />,
+    caption:
+      "AI-powered automation that reduces manual work, improves accuracy and drives data-driven decisions.",
+    metrics: { label: "Efficiency Gain", value: "80%" },
+    techStack: [
+      "AI Chatbots",
+      "Predictive Analytics",
+      "Document Processing",
+      "ML & NLP"
+    ],
+    points: [
+      "Deploy intelligent chatbots for customer engagement and support.",
+      "Automate document processing for invoices, orders and challans.",
+      "Build predictive models for demand forecasting and defect detection.",
+      "Implement workflow automation to reduce manual errors and costs."
+    ]
+  },
+  {
+    smallTitle: "Cloud & Infrastructure",
+    title: "CLOUD MIGRATION & IT INFRASTRUCTURE",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133774/cloud_fhd71g.avif",
     icon: <FiCloud />,
     caption:
-      "Secure cloud management and automated deployment pipelines.",
+      "Secure cloud migration, server setup and network infrastructure for reliable business operations.",
     metrics: { label: "Deployment", value: "Auto-Scaling" },
-    techStack: ["AWS", "GCP", "Docker", "Kubernetes"],
+    techStack: [
+      "AWS",
+      "Azure",
+      "GCP",
+      "Docker",
+      "Kubernetes",
+      "Terraform"
+    ],
     points: [
-      "Manage secure infrastructure on AWS, GCP and Azure.",
-      "Set up automated CI/CD pipelines for fast deployments.",
-      "Handle container scaling and safe cloud migrations."
+      "Migrate your infrastructure to AWS, Azure or Google Cloud seamlessly.",
+      "Set up and manage servers, networks and data centers.",
+      "Implement auto-scaling to handle peak loads efficiently.",
+      "Optimize cloud costs with right-sizing and managed services."
     ]
   },
   {
     smallTitle: "Cybersecurity",
-    title: "CYBERSECURITY & COMPLIANCE",
+    title: "CYBERSECURITY & DATA PROTECTION",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133877/security_pdcr9o.avif",
     icon: <FiShield />,
     caption:
-      "Protect your data and stay compliant with global standards.",
-    metrics: { label: "Compliance", value: "GDPR / HIPAA" },
+      "Protect your business data, systems and reputation with enterprise-grade security.",
+    metrics: { label: "Compliance", value: "GDPR / ISO" },
     techStack: [
       "Security Audits",
       "Pen Testing",
       "Encryption",
-      "Incident Response"
+      "Incident Response",
+      "Access Control"
     ],
     points: [
-      "Run deep security audits and penetration testing.",
-      "Ensure full GDPR, HIPAA and industry compliance.",
-      "Set up strong data encryption and incident response plans."
+      "Conduct comprehensive security audits to identify vulnerabilities.",
+      "Implement encryption and access controls to protect sensitive data.",
+      "Ensure compliance with GDPR, HIPAA and industry standards.",
+      "Create incident response plans for quick threat mitigation."
     ]
   },
   {
-    smallTitle: "Mobile Apps",
-    title: "MOBILE APP DEVELOPMENT",
-    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133926/mobile_nqdoma.avif",
-    icon: <FiSmartphone />,
+    smallTitle: "ERP Integration",
+    title: "ERP & SYSTEM INTEGRATION",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785736916/Dashboard_Dark_Mode_1_frasph.png",
+    icon: <FiDatabase />,
     caption:
-      "Native and cross-platform mobile apps for Android and iOS.",
-    metrics: { label: "Platforms", value: "iOS & Android" },
-    techStack: ["Flutter", "React Native", "Kotlin", "Swift"],
-    points: [
-      "Build high-performance apps for Android and iOS devices.",
-      "Create hybrid apps using Flutter and React Native.",
-      "Add real-time features and AI-powered mobile experiences."
-    ]
-  },
-  {
-    smallTitle: "UI/UX Design",
-    title: "UI/UX DESIGN & ARCHITECTURE",
-    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785147471/gradient-ui-ux-background_23-2149052117_v8eurp.avif",
-    icon: <FiEdit3 />,
-    caption:
-      "User-centered designs, clean wireframes and scalable design systems.",
-    metrics: { label: "Accessibility", value: "WCAG Standards" },
+      "Connect your ERP, CRM and business systems for unified operations and real-time visibility.",
+    metrics: { label: "Integration", value: "100+ Systems" },
     techStack: [
-      "Figma",
-      "Wireframing",
-      "Design Systems",
-      "Motion Design"
+      "SAP",
+      "Oracle",
+      "Microsoft Dynamics",
+      "Custom ERP",
+      "API Management"
     ],
     points: [
-      "Conduct deep user research and create clear wireframes.",
-      "Build scalable, responsive UI design systems.",
-      "Implement accessible layouts with smooth motion design."
+      "Integrate ERP systems with your existing tools and processes.",
+      "Unify data flow across finance, inventory, HR and operations.",
+      "Enable real-time reporting with connected dashboards.",
+      "Automate data synchronization between all business systems."
     ]
   },
- {
-  smallTitle: "AI & Automation",
-  title: "AI & AUTOMATION",
-  image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133977/automation_sm760t.avif",
-  icon: <FiCpu />,
-  caption:
-    "Practical AI solutions that automate operations, improve decision-making and reduce manual work.",
-  metrics: { label: "Efficiency Gain", value: "80%" },
-  techStack: [
-    "AI Chatbots",
-    "Predictive Analytics",
-    "Document Processing",
-    "ML & NLP"
-  ],
-  points: [
-    "Deploy AI chatbots and virtual assistants on WhatsApp, web platforms and internal business tools.",
-    "Build predictive analytics solutions for demand forecasting, defect detection and supply chain optimization.",
-    "Automate invoice, purchase order and delivery challan processing with intelligent document extraction.",
-    "Develop ML models and NLP pipelines for pricing optimization, inventory forecasting, ticket classification and customer feedback analysis."
-  ]
-}
+  {
+    smallTitle: "IT Support & AMC",
+    title: "MANAGED IT SUPPORT & AMC",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133877/security_pdcr9o.avif",
+    icon: <FiSettings />,
+    caption:
+      "24/7 IT support and annual maintenance contracts to keep your business running smoothly.",
+    metrics: { label: "Support", value: "24/7" },
+    techStack: [
+      "IT Helpdesk",
+      "Proactive Monitoring",
+      "Patch Management",
+      "Backup & Recovery"
+    ],
+    points: [
+      "Get 24/7 IT support to resolve issues quickly and minimize downtime.",
+      "Ensure proactive monitoring and maintenance of your infrastructure.",
+      "Keep systems updated with regular patches and security updates.",
+      "Plan predictable IT costs with annual maintenance contracts."
+    ]
+  },
+  {
+    smallTitle: "SaaS Platforms",
+    title: "SAAS PLATFORM DEVELOPMENT",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785736916/Dashboard_Dark_Mode_1_frasph.png",
+    icon: <FiUsers />,
+    caption:
+      "Multi-tenant SaaS platforms ready for global scale with subscription management and white-labeling.",
+    metrics: { label: "Multi-Tenant", value: "Global Scale" },
+    techStack: [
+      "React",
+      "Node.js",
+      "Stripe",
+      "PayPal",
+      "Auth0",
+      "White-Labeling"
+    ],
+    points: [
+      "Launch multi-tenant SaaS platforms for your customers and partners.",
+      "Integrate subscription management and billing systems.",
+      "Enable white-labeling for your brand and customer branding.",
+      "Support global scale with multi-currency and multi-language features."
+    ]
+  }
 ];
 
 function Service() {
@@ -182,14 +225,14 @@ function Service() {
         
         {/* PAGE HERO */}
         <header className="service-page-hero reveal">
-          <span className="section-tag">ENGINEERING EXCELLENCE</span>
+          <span className="section-tag">WHAT WE DO</span>
           <h1 className="service-page-title">
-            Production-grade solutions <br />
-            <span className="gradient-text">architected for global scale.</span>
+            Complete IT Infrastructure & Technology Solutions<br />
+            <span className="gradient-text">for Manufacturing & Growing SMEs</span>
           </h1>
           <p className="section-description">
-            We combine high-performance codebases, deep algorithmic intelligence and 
-            cloud automation to deliver technical advantages for modern organizations.
+            From custom software development to cloud migration, cybersecurity, ERP integration and managed IT support — 
+            end-to-end enterprise IT services for mid-market manufacturers and growing businesses.
           </p>
         </header>
 
@@ -204,7 +247,7 @@ function Service() {
               <div className="console-image-frame">
                 <img
                   src={serviceDataExtended[activeService].image}
-                  alt="Service Visualization"
+                  alt={serviceDataExtended[activeService].smallTitle}
                   className="console-main-image"
                   loading="eager" 
                   decoding="async"

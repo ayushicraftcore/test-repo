@@ -106,12 +106,14 @@ function Technologies() {
   return (
     <section className="technologies section-space">
       <div className="technologies-header container">
-        <span className="section-tag">WHAT WE USE</span>
-        <h2 className="section-title">Technologies We Build With</h2>
+        <span className="section-tag">OUR TECH STACK</span>
+        <h2 className="section-title">Enterprise Technologies We Use</h2>
         <p className="section-description">
-          Every technology we use is production-battle-tested across manufacturing and textile deployments. 
-          We select for scale, maintainability and your team's long-term ownership.
+          From cloud infrastructure and ERP systems to AI/ML and DevOps tools - 
+          we use production-tested technologies trusted by manufacturing and 
+          mid-market enterprises.
         </p>
+        <br />
       </div>
 
       <div className="technologies-grid container">
