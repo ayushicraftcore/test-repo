@@ -17,13 +17,10 @@ function Navbar() {
   const navItems = [
     { name: "Home", path: "/home" },
     { name: "Service", path: "/service" },
-    { name: "Sol V1", path: "/Solution" },
-    { name: "Sol V2", path: "/SolutionV2" },
-    { name: "Sol V3", path: "/SolutionV3" },
-    { name: "Sol V4", path: "/SolutionV4" },
+    { name: "Solution", path: "/Solution" },
     { name: "About", path: "/About" },
     { name: "Blog", path: "/Blog" },
-    { name: "Career", path: "/Career" },
+    { name: "Career", path: "https://erp.craftcore.in/craftcore/careers" },
     { name: "Contact", path: "/Contact" }
   ];
 

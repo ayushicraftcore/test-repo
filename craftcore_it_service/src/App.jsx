@@ -14,10 +14,7 @@ import Footer from "./components/Footer";
 // Pages
 import Home from "./pages/Home";
 import Service from "./pages/Service";
-import Solution from "./pages/Solution";
-import SolutionV2 from "./pages/SolutionV2";
-import SolutionV3 from "./pages/SolutionV3";
-import SolutionV4 from "./pages/SolutionV4";
+import Solution from "./pages/SolutionV4";
 import About from "./pages/About";
 import Blog from "./pages/Blog"; 
 import Career from "./pages/Career"; 
@@ -280,10 +277,7 @@ function App() {
         {/* Localized Routing Substructures */}
         <Route path="/Home" element={<Home />} />
         <Route path="/service" element={<Service />} />
-        <Route path="/Solution" element={<Solution />} />
-        <Route path="/SolutionV2" element={<SolutionV2 />} /> 
-        <Route path="/SolutionV3" element={<SolutionV3 />} /> 
-        <Route path="/SolutionV4" element={<SolutionV4 />} /> 
+        <Route path="/Solution" element={<Solution />} /> 
         <Route path="/About" element={<About />} />
         <Route path="/Blog" element={<Blog />} />
         <Route path="/Career" element={<Career />} />
