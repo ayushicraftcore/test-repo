@@ -3,7 +3,7 @@ import "./SolutionV4.css";
 import {
   FiGrid, FiTarget, FiTrendingUp, FiUsers, FiDollarSign,
   FiBriefcase, FiChevronLeft, FiChevronRight, FiSmartphone,
-  FiClock, FiLayers
+  FiClock, FiLayers, FiArrowUp
 } from "react-icons/fi";
 
 const project1Features = [
@@ -69,9 +69,12 @@ const project2Features = [
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Dashboard_bnod2n.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136407/Dashboard_Dark_irjhzo.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785408466/Bank_Light_vgasdy.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136406/Bank_ebj4st.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136409/Defaulter_cy2p7h.avif",
-      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Permission_izu9xk.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785408467/defaulter_dark_zh54bf.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Permission_izu9xk.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785408466/Permission_Dark_k41k4r.png"
     ],
     tags: ["Recovery Analytics", "Bank Reconciliation", "Defaulter Tracking", "Team Performance"]
   },
@@ -82,10 +85,14 @@ const project2Features = [
     title: "Collection Agent Dashboard",
     description: "Agent-focused dashboard for daily task management, call logging, customer follow-ups, and notification tracking. Streamline collection activities with real-time task assignments and performance monitoring.",
     images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411945/Dashboard_L_z4vlvh.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136519/dashboard_riiznw.avif",
-      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136518/daily_task_mdovub.avif",
-      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136517/call_logs_fc30yl.avif",
-      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136520/notification_gclg8m.avif"
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411961/My_Cases_L_ktqlop.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411983/My_cases_d_how513.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411961/Daily_Task_L_c1jzns.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411964/Daily_task_d_medcgn.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411957/Notification_L_pf6hv9.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411971/Notification_D_ertyi8.png"
     ],
     tags: ["Task Management", "Call Logging", "Follow-ups", "Notifications"]
   },
@@ -97,7 +104,10 @@ const project2Features = [
     description: "Mobile-first collection application for field agents with case management, daily task tracking, customer interaction logging, and real-time sync for on-the-go collection operations.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136693/dashboard_pd5net.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785413018/Dashboard_m_mhna4i.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136694/my_cases_hjakqe.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785413029/my_cases_ehohdn.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785413018/daily_task_x2ep8i.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136696/daily_task_obvpao.avif"
     ],
     tags: ["Case Management", "Field Operations", "Real-Time Sync", "Mobile Tasks"]
@@ -154,6 +164,108 @@ const project3Features = [
   }
 ];
 
+const project4Features = [
+  {
+    id: 1,
+    icon: <FiUsers />,
+    label: "Employee Management",
+    title: "Employee Central Dashboard",
+    description: "Comprehensive employee management dashboard with real-time insights into workforce analytics, income tracking, attendance monitoring, payroll management, and detailed timesheet reports for complete HR visibility.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733995/Dashboard_ztc5ig.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733985/Income_y4mefd.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733985/Attandance_uauba4.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733986/Payrol_gkbipd.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733985/Time_Sheet_Report_dkyhtm.png"
+    ],
+    tags: ["HR Dashboard", "Income Analytics", "Attendance Tracking", "Payroll Management", "Timesheet Reports"]
+  },
+  {
+    id: 2,
+    icon: <FiClock />,
+    label: "Payroll & Roles",
+    title: "Payroll & Role Management",
+    description: "Streamline payroll processing with salary management, payslip generation, and automated salary settings. Manage employee profiles, user permissions, and role-based access control for secure HR operations.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734292/Manage_salary_nfwyfg.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734293/payslip_nhcami.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734293/salary_set_dvvtq8.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734293/EMP_profile_trpadu.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734294/user_je2lmt.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734294/Manage_roles_jagwlj.png"
+    ],
+    tags: ["Salary Management", "Payslip Generation", "Employee Profiles", "User Management", "Role-Based Access"]
+  },
+  {
+    id: 3,
+    icon: <FiTrendingUp />,
+    label: "Performance Reviews",
+    title: "Performance & Goal Management",
+    description: "Track employee performance with custom evaluation forms, KPI indicators, timesheet management, appraisal cycles, and goal tracking to drive continuous improvement and employee development.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734442/Create_form_elamr7.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734444/Indicator_ubo99t.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734445/Time_sheet_yxwtpi.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734444/Appresial_n5lxon.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734445/Goal_Tracking_oyvuzy.png"
+    ],
+    tags: ["Evaluation Forms", "KPI Indicators", "Timesheet Management", "Appraisal Cycles", "Goal Tracking"]
+  }
+];
+
+const project5Features = [
+  {
+    id: 1,
+    icon: <FiTarget />,
+    label: "Dashboard Overview",
+    title: "Appointment Analytics Dashboard",
+    description: "Real-time analytics dashboard providing comprehensive overview of appointment metrics, booking trends, user management, and role-based access control for efficient scheduling operations.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734796/Appointment_Dashboard_1_nko7tm.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734796/Appointment_Dashboard_2_cvihy5.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734785/Dashboard_1_eoi05i.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734792/Dashboard_2_qeiqiy.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734787/Users_zgb3ql.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734788/Roles_tshgdh.png"
+    ],
+    tags: ["Appointment Analytics", "Booking Trends", "User Management", "Role-Based Access", "Performance Metrics"]
+  },
+  {
+    id: 2,
+    icon: <FiGrid />,
+    label: "Business Management",
+    title: "Multi-Business & Customer Management",
+    description: "Complete business management system with multi-location support, business profile creation, customer relationship management, and service configuration for streamlined appointment scheduling.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734766/Create_Business_an1vf7.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734785/Manage_Business_icbhvh.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734762/Manage_Business_2_sdj2fx.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734769/Manage_Business_3_qbx1nj.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734756/Manage_Business_4_b2s4ki.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734747/Manage_Business_5_guocvs.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734741/Customer_sww87v.png"
+    ],
+    tags: ["Business Creation", "Multi-Location Support", "Service Configuration", "Customer Management", "Resource Planning"]
+  },
+  {
+    id: 3,
+    icon: <FiBriefcase />,
+    label: "Settings & Calendar",
+    title: "Appointment Settings & Calendar View",
+    description: "Comprehensive settings management with appointment configuration, calendar integration, system preferences, and client portal customization for optimal booking experience.",
+    images: [
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734736/Appoinments_qdeks2.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734794/Appointments_Calender_bbbqqr.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734756/Settings_1_irprme.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734780/Settings_2_h4lhco.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734755/Settings_3_nb6gqn.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734762/settings_4_ryfwtp.png",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734730/Settings_5_gx75jw.png"
+    ],
+    tags: ["Appointment Settings", "Calendar Integration", "System Preferences", "Client Portal", "Configuration Management"]
+  }
+];
+
 const projects = [
   {
     id: 1,
@@ -177,9 +289,9 @@ const projects = [
     description: "A comprehensive collection CRM platform for managing debt recovery, agent workflows, and collection analytics across admin, agent, and mobile interfaces.",
     features: project2Features,
     stats: ["Active Cases: 1.2K", "Recovery Rate: 78%", "Agents: 45"],
-    color: "#059669",
-    light: "#d1fae5",
-    gradient: "linear-gradient(135deg, #059669, #047857)"
+    color: "#2563eb",
+    light: "#dbeafe",
+    gradient: "linear-gradient(135deg, #2563eb, #1D4ED8)"
   },
   {
     id: 3,
@@ -190,9 +302,35 @@ const projects = [
     description: "A comprehensive textile ERP solution for managing master data, operations, and reporting across the textile manufacturing lifecycle.",
     features: project3Features,
     stats: ["Production: 2.8K", "Inventory: 15K", "Reports: 24"],
-    color: "#2563eb",
-    light: "#dbeafe",
-    gradient: "linear-gradient(135deg, #2563eb, #1D4ED8)"
+    color: "#059669",
+    light: "#d1fae5",
+    gradient: "linear-gradient(135deg, #059669, #047857)",
+  },
+  {
+    id: 4,
+    title: "HRM System",
+    subtitle: "Human Resource Management",
+    tag: "PROJECT 04",
+    icon: <FiUsers />,
+    description: "A complete human resource management system with employee central, time & attendance, and performance management to streamline HR operations.",
+    features: project4Features,
+    stats: ["Employees: 340", "Departments: 12", "Reviews: 98%"],
+    color: "#12d800",
+    light: "#effce7",
+    gradient: "linear-gradient(135deg, #56ec48, #059669)"
+  },
+  {
+    id: 5,
+    title: "Appointment Scheduler",
+    subtitle: "Booking & Calendar",
+    tag: "PROJECT 05",
+    icon: <FiClock />,
+    description: "A powerful appointment scheduling platform with intuitive dashboards, multi-resource calendar management, and client self-service portal.",
+    features: project5Features,
+    stats: ["Bookings: 1.8K", "Resources: 25", "Clients: 850"],
+    color: "#8b5cf6",
+    light: "#ede9fe",
+    gradient: "linear-gradient(135deg, #8b5cf6, #6d28d9)",
   }
 ];
 
@@ -200,16 +338,19 @@ function SolutionV6() {
   const [activeProjIdx, setActiveProjIdx] = useState(0);
   const [activeFeatIdx, setActiveFeatIdx] = useState(0);
   const [activeImgIdx, setActiveImgIdx] = useState(0);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
   const projectRefs = useRef([]);
   const cardsRef = useRef({});
+  const userInteractionTimeout = useRef(null);
 
   const currentProject = projects[activeProjIdx];
   const currentFeature = currentProject.features[activeFeatIdx];
   const totalImages = currentFeature?.images?.length || 0;
 
-  // Auto-play carousel
+  // Auto-play carousel - only when user is NOT interacting
   useEffect(() => {
-    if (totalImages <= 1) return;
+    if (totalImages <= 1 || isUserInteracting) return;
     
     const interval = setInterval(() => {
       const nextIndex = (activeImgIdx + 1) % totalImages;
@@ -241,9 +382,9 @@ function SolutionV6() {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [totalImages, activeImgIdx, activeFeatIdx, activeProjIdx, currentProject.features.length]);
+  }, [totalImages, activeImgIdx, activeFeatIdx, activeProjIdx, currentProject.features.length, isUserInteracting]);
 
-  // Scroll tracking
+  // Scroll tracking - only updates when user is NOT interacting
   useEffect(() => {
     let ticking = false;
     let lastActiveProject = activeProjIdx;
@@ -283,21 +424,28 @@ function SolutionV6() {
         }
       });
 
-      if (closestProjectIndex !== lastActiveProject) {
-        lastActiveProject = closestProjectIndex;
-        setActiveProjIdx(closestProjectIndex);
-        setActiveFeatIdx(0);
-        setActiveImgIdx(0);
-      } else if (closestFeatureIndex !== lastActiveFeature) {
-        lastActiveFeature = closestFeatureIndex;
-        setActiveFeatIdx(closestFeatureIndex);
-        setActiveImgIdx(0);
+      // Only update if user is not interacting and values changed
+      if (!isUserInteracting) {
+        if (closestProjectIndex !== lastActiveProject) {
+          lastActiveProject = closestProjectIndex;
+          setActiveProjIdx(closestProjectIndex);
+          setActiveFeatIdx(0);
+          setActiveImgIdx(0);
+        } else if (closestFeatureIndex !== lastActiveFeature) {
+          lastActiveFeature = closestFeatureIndex;
+          setActiveFeatIdx(closestFeatureIndex);
+          setActiveImgIdx(0);
+        }
       }
       
       ticking = false;
     };
 
     const onScroll = () => {
+      // Show/hide back to top button
+      const scrollY = window.scrollY;
+      setShowBackToTop(scrollY > 400);
+
       if (!ticking) {
         window.requestAnimationFrame(handleScrollTracking);
         ticking = true;
@@ -308,16 +456,65 @@ function SolutionV6() {
     handleScrollTracking();
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isUserInteracting]);
+
+  // Reset user interaction after 5 seconds of inactivity
+  useEffect(() => {
+    if (userInteractionTimeout.current) {
+      clearTimeout(userInteractionTimeout.current);
+    }
+    
+    if (isUserInteracting) {
+      userInteractionTimeout.current = setTimeout(() => {
+        setIsUserInteracting(false);
+      }, 5000);
+    }
+
+    return () => {
+      if (userInteractionTimeout.current) {
+        clearTimeout(userInteractionTimeout.current);
+      }
+    };
+  }, [isUserInteracting]);
 
   const nextImg = (e) => {
     e?.stopPropagation();
+    setIsUserInteracting(true);
     setActiveImgIdx((prev) => (prev + 1) % totalImages);
   };
 
   const prevImg = (e) => {
     e?.stopPropagation();
+    setIsUserInteracting(true);
     setActiveImgIdx((prev) => (prev - 1 + totalImages) % totalImages);
+  };
+
+  const handleFeatureClick = (projectIndex, fIdx) => {
+    setIsUserInteracting(true);
+    
+    // If clicking on a different project, reset to first image
+    if (projectIndex !== activeProjIdx) {
+      setActiveProjIdx(projectIndex);
+      setActiveFeatIdx(fIdx);
+      setActiveImgIdx(0);
+    } else {
+      // If clicking on a different feature in the same project
+      setActiveFeatIdx(fIdx);
+      setActiveImgIdx(0);
+    }
+  };
+
+  const handleThumbnailClick = (idx) => {
+    setIsUserInteracting(true);
+    setActiveImgIdx(idx);
+  };
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   return (
@@ -326,7 +523,7 @@ function SolutionV6() {
         
         {/* Header */}
         <header className="v6-hero">
-          <span className="v6-chip"><FiLayers /> Software Suite</span>
+          <span className="section-tag">Sofware Suite</span>
           <h1 className="v6-title">Enterprise Solutions Showcase</h1>
           <p className="v6-subtitle">Explore our comprehensive suite of enterprise solutions</p>
         </header>
@@ -382,11 +579,7 @@ function SolutionV6() {
                         cardsRef.current[projectIndex][fIdx] = el;
                       }}
                       className={`v6-feature-card ${isSelected ? "active" : ""}`}
-                      onClick={() => {
-                        setActiveProjIdx(projectIndex);
-                        setActiveFeatIdx(fIdx);
-                        setActiveImgIdx(0);
-                      }}
+                      onClick={() => handleFeatureClick(projectIndex, fIdx)}
                     >
                       <div className="v6-card-head">
                         <div className="v6-title-group">
@@ -431,7 +624,7 @@ function SolutionV6() {
                                   className={`v6-thumb-pill ${activeImgIdx === iIdx ? "active" : ""}`}
                                   onClick={(e) => {
                                     e.stopPropagation();
-                                    setActiveImgIdx(iIdx);
+                                    handleThumbnailClick(iIdx);
                                   }}
                                 >
                                   <img src={img} alt={`Thumb ${iIdx + 1}`} />
@@ -489,7 +682,7 @@ function SolutionV6() {
                       <button
                         key={i}
                         className={`v6-thumb-pill ${activeImgIdx === i ? "active" : ""}`}
-                        onClick={() => setActiveImgIdx(i)}
+                        onClick={() => handleThumbnailClick(i)}
                       >
                         <img src={imgSrc} alt={`Thumb ${i + 1}`} />
                       </button>
@@ -503,6 +696,16 @@ function SolutionV6() {
         ))}
 
       </div>
+
+      {/* BACK TO TOP BUTTON */}
+      <button 
+        className={`back-to-top-btn ${showBackToTop ? 'visible' : ''}`}
+        onClick={scrollToTop}
+        aria-label="Back to top"
+      >
+        <FiArrowUp />
+      </button>
+
     </div>
   );
 }

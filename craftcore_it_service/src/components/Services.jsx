@@ -7,7 +7,7 @@ const servicesData = [
   {
     smallTitle: "Web & SaaS Dev",
     title: "WEB & SAAS DEVELOPMENT",
-    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133272/saas_development_r1jfk2.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785736916/Dashboard_Dark_Mode_1_frasph.png",
     points: [
       "Custom Web Applications",
       "Multi-Tenant Platforms & E-Commerce",

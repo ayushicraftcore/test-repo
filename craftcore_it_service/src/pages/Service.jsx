@@ -18,7 +18,7 @@ const serviceDataExtended = [
   {
     smallTitle: "Web & SaaS Dev",
     title: "WEB & SAAS DEVELOPMENT",
-    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133272/saas_development_r1jfk2.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785736916/Dashboard_Dark_Mode_1_frasph.png",
     icon: <FiLayers />,
     caption:
       "Custom web applications, SaaS platforms, CRM systems and ERP solutions built to streamline your business.",
@@ -76,7 +76,7 @@ const serviceDataExtended = [
   {
     smallTitle: "Mobile Apps",
     title: "MOBILE APP DEVELOPMENT",
-    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133926/mobile_nqdoma.avif",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785757538/mobile_dev_fcytbj.png",
     icon: <FiSmartphone />,
     caption:
       "Native and cross-platform mobile apps for Android and iOS.",

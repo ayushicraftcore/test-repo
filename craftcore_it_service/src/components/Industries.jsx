@@ -4,29 +4,43 @@ import {
   FaIndustry,
   FaBoxes,
   FaCoins,
-  FaTruck
+  FaTruck,
+  FaUsers,
+  FaCog,
+  FaChartLine,
+  FaBuilding
 } from "react-icons/fa";
 
 const industriesData = [
   {
-    icon: <FaTshirt />,
-    title: "TEXTILE ERP",
-    description: "Custom production planning, multi-plant inventory tracking and order management.",
+    icon: <FaIndustry />,
+    title: "MANUFACTURING",
+    description: "IT solutions for Plant Heads and Operations Heads with 50-2,500 employees and ₹50-2,000 Cr turnover.",
   },
   {
-    icon: <FaIndustry />,
-    title: "MANUFACTURING CRM",
-    description: "Smart sales pipelines built for dealer networks and distributor hierarchies.",
+    icon: <FaTshirt />,
+    title: "TEXTILE & APPAREL",
+    description: "ERP and production management systems for textile manufacturers and apparel supply chains.",
   },
   {
     icon: <FaBoxes />,
-    title: "SUPPLY CHAIN",
-    description: "End-to-end tracking tools to optimize operations and reduce material delays.",
+    title: "SUPPLY CHAIN & LOGISTICS",
+    description: "End-to-end tracking and fleet management for Operations Heads managing complex logistics.",
   },
   {
-    icon: <FaTruck />,
-    title: "LOGISTICS",
-    description: "Reliable delivery tracking systems, scheduling and fleet management.",
+    icon: <FaUsers />,
+    title: "MID-MARKET ENTERPRISES",
+    description: "Custom IT infrastructure and technology solutions for CIOs and IT Managers at growing companies.",
+  },
+  {
+    icon: <FaBuilding />,
+    title: "PROCESS INDUSTRIES",
+    description: "Automation and ERP solutions for chemical, pharmaceutical, and FMCG manufacturers.",
+  },
+  {
+    icon: <FaChartLine />,
+    title: "GROWING SMES",
+    description: "Scalable IT services for SMEs with 50-500 employees looking to modernize their technology stack.",
   }
 ];
 
@@ -36,9 +50,10 @@ function Industries() {
       <div className="container">
         <div className="industries-header">
           <span className="section-tag">WHO WE SERVE</span>
-          <h2 className="section-title">Industries We Power</h2>
+          <h2 className="section-title">Industries & Roles We Serve</h2>
           <p className="section-description">
-            Deep domain expertise across sectors requiring reliable, scalable and business-focused technology solutions.
+            Deep domain expertise for CIOs, CTOs, IT Managers, Plant Heads, and Operations Heads at 
+            mid-market manufacturing companies with 50-2,500 employees and ₹50-2,000 Cr turnover.
           </p>
         </div>
 

@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 IMPORT ICONS
 ===================================
 */
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaPhone, FaEnvelope } from "react-icons/fa";
 
 /*
 ===================================
@@ -26,7 +26,7 @@ CTA COMPONENT
 */
 function CTA() {
   // WhatsApp destination connection path string
-  const whatsappUrl = "https://wa.me/919898711229?text=Hi%20Craftcore!%20I'd%20like%20to%20discuss%20a%20project.";
+  const whatsappUrl = "https://wa.me/919898711229?text=Hi%20Craftcore!%20I'd%20like%20to%20schedule%20an%20IT%20assessment%20for%20my%20business.";
 
   return (
     <section className="cta section-space">
@@ -47,20 +47,24 @@ function CTA() {
 
           {/* HEADING */}
           <h3 className="cta-title">
-            Looking to Build, Automate or Transform <br />
-            Your Business with Technology?
+            Ready to Transform Your IT Infrastructure?
           </h3>
+
+          <p className="cta-description">
+            Book a free IT assessment and discover how we can help you build, 
+            automate, and secure your business technology.
+          </p>
 
           {/* BUTTONS */}
           <div className="cta-buttons">
 
-            {/* CONNECTED: Redirects the browser directly to your calendar date picker route */}
+            {/* CONNECTED: Redirects to contact page */}
             <Link 
-              to="/book-call" 
+              to="https://booking.techrometric.com/appointments/craftcore" 
               className="primary-btn cta-primary-btn"
               style={{ textDecoration: 'none' }}
             >
-              BOOK CONSULTATION
+              BOOK FREE IT ASSESSMENT
             </Link>
 
             {/* CONNECTED: Forwards the browser tracking to your direct WhatsApp message thread */}
@@ -72,10 +76,15 @@ function CTA() {
               style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
             >
               <FaWhatsapp />
-              CHAT ON WHATSAPP
+              CHAT WITH OUR EXPERTS
             </a>
 
           </div>
+
+          {/* SHORT FORM NOTE */}
+          <p className="cta-note">
+            Quick response - we'll get back to you within 24 hours
+          </p>
 
         </div>
 

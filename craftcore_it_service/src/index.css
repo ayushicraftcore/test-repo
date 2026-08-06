@@ -186,6 +186,8 @@ img {
   font-size: 17px;
   line-height: 1.5;
   color: var(--clr-muted);
+  max-width: 760px;
+  margin: 0 auto 40px; /* Shorthand for margin: 0 auto + bottom spacing */
 }
 
 

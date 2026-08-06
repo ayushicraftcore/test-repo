@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
 import { FaArrowRight, FaWhatsapp } from "react-icons/fa";
 
-const words = ["Custom CRM & ERP", "AI Implementation", "Cloud Platforms", "Custom Software Solutions"];
+const words = ["IT Supports", "AI & Automation", "Cloud Security", "Custom ERP", "SAAS Products"];
 const text = "CRAFTCORE";
 
 function Hero() {
@@ -28,10 +28,10 @@ function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  const whatsappUrl = "https://wa.me/919898711229?text=Hi%20Craftcore!%20I'd%20like%20to%20discuss%20a%20project.";
+  const whatsappUrl = "https://wa.me/919898711229?text=Hi%20Craftcore!%20I'd%20like%20to%20discuss%20an%20IT%20assessment%20for%20my%20business.";
 
   return (
-    <section className="hero">
+    <section className="hero" aria-label="IT Infrastructure and Technology Solutions for Manufacturing">
       <div className="hero-grid"></div>
       <div className="hero-blur hero-blur-purple"></div>
       <div className="hero-blur hero-blur-blue"></div>
@@ -45,7 +45,7 @@ function Hero() {
           <div className="hero-content">
             <div className="hero-badge">
               <span></span>
-              Software Company
+              IT Infrastructure & Technology Partner
             </div>
 
             <div className="hero-typing">
@@ -54,22 +54,24 @@ function Hero() {
             </div>
 
             <h1 className="hero-title">
-              Building Premium
+              Enterprise IT Infrastructure & 
               <div className="animated-word-wrapper">
                 <span key={wordIndex} className="animated-word">
                   {words[wordIndex]}
                 </span>
               </div>
-              For Businesses
+              Solutions for Manufacturing & SMEs
             </h1>
 
             <p className="hero-description">
-              We craft scalable AI products, cloud-native applications and digital experiences engineered for startups and enterprises.
+              Enterprise IT solutions including custom software development, AI automation, 
+              cloud migration, cybersecurity, ERP integration and managed IT support for 
+              mid-market manufacturers and growing businesses.
             </p>
 
             <div className="hero-buttons">
-              <Link to="/book-call" className="primary-btn hero-primary-btn">
-                Book Free Consultation
+              <Link to="https://booking.techrometric.com/appointments/craftcore" className="primary-btn hero-primary-btn">
+                Get an IT Assessment
                 <FaArrowRight />
               </Link>
 
@@ -78,9 +80,10 @@ function Hero() {
                 className="secondary-btn hero-secondary-btn"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Chat on WhatsApp for IT consultation"
               >
                 <FaWhatsapp />
-                Chat with Us
+                Chat with Our Experts
               </a>
             </div>
           </div>
@@ -97,6 +100,7 @@ function Hero() {
                 poster="/images/hero-poster.avif" 
                 preload="auto" 
                 className="hero-video"
+                aria-label="Craftcore technology solutions showcase"
               >
                 <source src="https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785134695/logo-reveal_sr1xov.mp4" type="video/mp4" />
               </video>
@@ -104,12 +108,12 @@ function Hero() {
 
             <div className="hero-float-card hero-card-one">
               <div className="hero-card-dot"></div>
-              AI Powered Solutions
+              Enterprise IT Solutions
             </div>
 
             <div className="hero-float-card hero-card-three">
               <h4>24/7</h4>
-              <p>Customer Support</p>
+              <p>Managed IT Support</p>
             </div>
           </div>
         </div>
