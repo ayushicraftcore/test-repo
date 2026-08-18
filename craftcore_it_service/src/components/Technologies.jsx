@@ -107,11 +107,10 @@ function Technologies() {
     <section className="technologies section-space">
       <div className="technologies-header container">
         <span className="section-tag">OUR TECH STACK</span>
-        <h2 className="section-title">Enterprise Technologies We Use</h2>
+        <h2 className="section-title">The Technologies Behind Your Success</h2>
         <p className="section-description">
-          From cloud infrastructure and ERP systems to AI/ML and DevOps tools - 
-          we use production-tested technologies trusted by manufacturing and 
-          mid-market enterprises.
+          We use production-tested technologies trusted by enterprises worldwide — from cloud infrastructure and AI/ML 
+          to DevOps and ERP systems. The right tools, built into solutions that actually work for you.
         </p>
         <br />
       </div>

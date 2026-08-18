@@ -8,35 +8,35 @@ const steps = [
     title: "DISCOVERY & AUDIT",
     icon: <FiSearch />,
     description:
-      "Week 1–3: Conduct comprehensive IT infrastructure audit, assess current systems, identify pain points, and define business requirements. We evaluate your technology stack, security posture, and operational gaps to create a tailored roadmap.",
+      "We start by understanding your business — your systems, your pain points, and your goals. We audit your current IT stack, security posture, and operational gaps, then build a roadmap that actually fits where you're going."
   },
   {
     number: "02",
     title: "SOLUTION DESIGN",
     icon: <FiLayers />,
     description:
-      "Week 2–4: Design the complete solution architecture including cloud infrastructure, system integrations, security framework, and deployment strategy. We create a scalable, secure design that aligns with your business goals and IT standards.",
+      "We design the complete architecture — cloud infrastructure, integrations, security, and deployment. Every system is built to scale with you, align with your business goals, and meet the standards your industry demands."
   },
   {
     number: "03",
     title: "BUILD & DEPLOY",
     icon: <FiCode />,
     description:
-      "Week 4–12: Build custom software, set up IT infrastructure, implement security controls, and configure systems. We deploy solutions in phases with regular stakeholder reviews and comprehensive testing at each milestone.",
+      "We build custom software, set up your infrastructure, implement security controls, and configure everything to work together. We deploy in phases with regular check-ins and testing at every milestone — so you always know where things stand."
   },
   {
     number: "04",
     title: "TESTING & VALIDATION",
     icon: <FiCheckSquare />,
     description:
-      "Week 10–14: Conduct rigorous security testing, performance validation, user acceptance testing, and compliance verification. We ensure the solution meets all requirements, security standards, and operational expectations.",
+      "We rigorously test for security, performance, and compliance — because your business can't afford surprises. We run user acceptance testing and verify every requirement is met before you even touch the system."
   },
   {
     number: "05",
     title: "SUPPORT & AMC",
     icon: <FiSettings />,
     description:
-      "Ongoing: Provide 24/7 managed IT support, proactive monitoring, regular maintenance, and annual maintenance contracts (AMC). We offer flexible commercial models including fixed-price, T&M, and retainer-based support.",
+      "We stay with you — 24/7 managed support, proactive monitoring, regular maintenance, and annual contracts that keep your systems running. Flexible models including fixed-price, T&M, and retainer-based support to fit how you work."
   }
 ];
 
@@ -81,10 +81,10 @@ function Process() {
         {/* HEADER */}
         <div className="process-top">
           <span className="section-tag">HOW WE WORK</span>
-          <h2 className="section-title">Our IT Implementation Process</h2>
+          <h2 className="section-title">Your Success, Step by Step</h2>
           <p className="section-description">
-            A proven methodology for IT infrastructure deployment, custom software development, and 
-            managed services that reduces risk and ensures predictable outcomes for manufacturing enterprises.
+            A proven process for IT infrastructure, custom software, and managed services — designed to reduce risk, 
+            keep you informed, and deliver outcomes you can count on.
           </p>
         </div>
 

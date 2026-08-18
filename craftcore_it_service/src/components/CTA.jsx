@@ -47,12 +47,12 @@ function CTA() {
 
           {/* HEADING */}
           <h3 className="cta-title">
-            Ready to Transform Your IT Infrastructure?
+            Ready to Finally Get Your IT Systems Right?
           </h3>
 
           <p className="cta-description">
-            Book a free IT assessment and discover how we can help you build, 
-            automate, and secure your business technology.
+            Let's talk about what's not working, what needs to scale, and how we can help. 
+            Book a free consultation — no pressure, just real solutions.
           </p>
 
           {/* BUTTONS */}
@@ -64,7 +64,7 @@ function CTA() {
               className="primary-btn cta-primary-btn"
               style={{ textDecoration: 'none' }}
             >
-              BOOK FREE IT ASSESSMENT
+              BOOK FREE CONSULTATION
             </Link>
 
             {/* CONNECTED: Forwards the browser tracking to your direct WhatsApp message thread */}
@@ -83,7 +83,7 @@ function CTA() {
 
           {/* SHORT FORM NOTE */}
           <p className="cta-note">
-            Quick response - we'll get back to you within 24 hours
+            We'll get back to you within 24 hours — no spam, no pressure.
           </p>
 
         </div>

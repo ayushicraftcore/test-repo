@@ -5,43 +5,43 @@ import { useNavigate } from "react-router-dom";
 
 const servicesData = [
   {
-    smallTitle: "Web & SaaS Dev",
-    title: "WEB & SAAS DEVELOPMENT",
+    smallTitle: "Custom Software",
+    title: "CUSTOM SOFTWARE & PLATFORMS",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785736916/Dashboard_Dark_Mode_1_frasph.png",
     points: [
-      "Custom Web Applications",
-      "Multi-Tenant Platforms & E-Commerce",
-      "API Integrations & PWAs",
+      "Custom web applications built for your workflow",
+      "Multi-tenant platforms & e-commerce that scale",
+      "API integrations & PWAs that connect everything"
     ],
   },
   {
-    smallTitle: "Cloud & DevOps",
-    title: "CLOUD & DEVOPS ENGINEERING",
+    smallTitle: "Cloud Infrastructure",
+    title: "CLOUD INFRASTRUCTURE & DEVOPS",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133774/cloud_fhd71g.avif",
     points: [
-      "AWS, GCP and Azure Management",
-      "CI/CD Pipelines & Auto-Scaling",
-      "Docker, Kubernetes & Cloud Migration",
+      "AWS, GCP, and Azure — we manage it all",
+      "CI/CD pipelines & auto-scaling so you never slow down",
+      "Docker, Kubernetes & cloud migration made seamless"
     ],
   },
   {
-    smallTitle: "Cybersecurity",
-    title: "CYBERSECURITY & COMPLIANCE",
+    smallTitle: "Security & Compliance",
+    title: "SECURITY & COMPLIANCE",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133877/security_pdcr9o.avif",
     points: [
-      "Security Audits & Pen Testing",
-      "GDPR & HIPAA Compliance",
-      "Data Encryption & Incident Response",
+      "Security audits & pen testing that find issues before they find you",
+      "GDPR & HIPAA compliance — we handle the paperwork",
+      "Data encryption & incident response you can trust"
     ],
   },
   {
     smallTitle: "AI & Automation",
-    title: "AI & AUTOMATION SOLUTIONS",
+    title: "AI & AUTOMATION",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133977/automation_sm760t.avif",
     points: [
-      "AI Chatbots & NLP Pipelines",
-      "Machine Learning Models & IDP",
-      "Workflow Automation & Predictive Analytics",
+      "AI chatbots & NLP that actually understand your customers",
+      "Machine learning models that predict what's next",
+      "Workflow automation that frees your team for what matters"
     ],
   },
 ];
@@ -54,7 +54,6 @@ function Services() {
   useEffect(() => {
     const handleScrollTracking = () => {
       const isMobile = window.innerWidth <= 992;
-      // On mobile, track cards right below the sticky preview area
       const trackingLine = isMobile ? window.innerHeight * 0.75 : window.innerHeight / 2;
       
       let closestIndex = 0;
@@ -88,9 +87,9 @@ function Services() {
         
         <div className="services-header">
           <span className="section-tag">WHAT WE BUILD</span>
-          <h2 className="section-title">Everything Your IT Stack Needs — One Partner</h2>
+          <h2 className="section-title">Your Complete IT Stack — One Partner</h2>
           <p className="section-description">
-            Production-grade solutions built for scalability, high performance and measurable business impact.
+            Production-grade solutions built to scale with you, perform when it counts, and deliver real business impact.
           </p>
         </div>
 
@@ -134,13 +133,11 @@ function Services() {
                   setActiveService(index);
                   
                   if (window.innerWidth <= 992) {
-                    // FIXED: Mobile scrolling calculation to safely position card completely below the sticky view
                     const element = cardsRef.current[index];
                     if (element) {
                       const bodyRect = document.body.getBoundingClientRect().top;
                       const elementRect = element.getBoundingClientRect().top;
                       const elementPosition = elementRect - bodyRect;
-                      // Subtracts the layout height of your sticky header and preview block
                       const offsetPosition = elementPosition - 490; 
 
                       window.scrollTo({

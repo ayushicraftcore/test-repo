@@ -16,51 +16,51 @@ import {
 
 const serviceDataExtended = [
   {
-    smallTitle: "Web & SaaS Dev",
-    title: "WEB & SAAS DEVELOPMENT",
+    smallTitle: "Custom Software",
+    title: "CUSTOM SOFTWARE & PLATFORMS",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785736916/Dashboard_Dark_Mode_1_frasph.png",
     icon: <FiLayers />,
     caption:
-      "Custom web applications, SaaS platforms, CRM systems and ERP solutions built to streamline your business.",
-    metrics: { label: "Uptime Rate", value: "99.9%" },
+      "Custom web applications, SaaS platforms, and business systems built to streamline how you work.",
+    metrics: { label: "Uptime", value: "99.9%" },
     techStack: [
       "React",
       "Next.js",
       "Node.js",
-      "CRM Systems",
-      "ERP Solutions",
+      "CRM",
+      "ERP",
       "API Integrations"
     ],
     points: [
-      "Build custom web applications and multi-tenant SaaS platforms.",
-      "Develop CRM systems for sales, lead and customer management.",
-      "Create ERP solutions for inventory, finance, HR and operations.",
-      "Integrate secure third-party APIs, payment gateways and e-commerce features."
+      "Custom web applications and multi-tenant SaaS platforms built for your workflow",
+      "CRM systems that actually help you manage sales, leads, and customers",
+      "ERP solutions for inventory, finance, HR, and operations — all in one place",
+      "Secure third-party APIs, payment gateways, and e-commerce features that connect everything"
     ]
   },
   {
-    smallTitle: "Cloud & DevOps",
-    title: "CLOUD & DEVOPS ENGINEERING",
+    smallTitle: "Cloud Infrastructure",
+    title: "CLOUD INFRASTRUCTURE & DEVOPS",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133774/cloud_fhd71g.avif",
     icon: <FiCloud />,
     caption:
-      "Secure cloud management and automated deployment pipelines.",
-    metrics: { label: "Deployment", value: "Auto-Scaling" },
+      "Secure cloud infrastructure and automated deployment pipelines that keep you running.",
+    metrics: { label: "Scalability", value: "Auto-Scaling" },
     techStack: ["AWS", "GCP", "Docker", "Kubernetes"],
     points: [
-      "Manage secure infrastructure on AWS, GCP and Azure.",
-      "Set up automated CI/CD pipelines for fast deployments.",
-      "Handle container scaling and safe cloud migrations."
+      "Secure infrastructure on AWS, GCP, and Azure — we manage it all",
+      "Automated CI/CD pipelines so you can deploy faster, with confidence",
+      "Container orchestration and cloud migration that just works"
     ]
   },
   {
-    smallTitle: "Cybersecurity",
-    title: "CYBERSECURITY & COMPLIANCE",
+    smallTitle: "Security & Compliance",
+    title: "SECURITY & COMPLIANCE",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133877/security_pdcr9o.avif",
     icon: <FiShield />,
     caption:
-      "Protect your data and stay compliant with global standards.",
-    metrics: { label: "Compliance", value: "GDPR / HIPAA" },
+      "Protect your data and stay compliant — because trust isn't optional.",
+    metrics: { label: "Standards", value: "GDPR / HIPAA" },
     techStack: [
       "Security Audits",
       "Pen Testing",
@@ -68,9 +68,9 @@ const serviceDataExtended = [
       "Incident Response"
     ],
     points: [
-      "Run deep security audits and penetration testing.",
-      "Ensure full GDPR, HIPAA and industry compliance.",
-      "Set up strong data encryption and incident response plans."
+      "Security audits and penetration testing that find issues before they find you",
+      "Full GDPR, HIPAA, and industry compliance — we handle the paperwork",
+      "Data encryption and incident response plans you can actually trust"
     ]
   },
   {
@@ -79,13 +79,13 @@ const serviceDataExtended = [
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785757538/mobile_dev_fcytbj.png",
     icon: <FiSmartphone />,
     caption:
-      "Native and cross-platform mobile apps for Android and iOS.",
+      "Native and cross-platform mobile apps that your users will actually love.",
     metrics: { label: "Platforms", value: "iOS & Android" },
     techStack: ["Flutter", "React Native", "Kotlin", "Swift"],
     points: [
-      "Build high-performance apps for Android and iOS devices.",
-      "Create hybrid apps using Flutter and React Native.",
-      "Add real-time features and AI-powered mobile experiences."
+      "High-performance apps for Android and iOS — built for real people",
+      "Hybrid apps using Flutter and React Native that work everywhere",
+      "Real-time features and AI-powered experiences that keep users engaged"
     ]
   },
   {
@@ -94,7 +94,7 @@ const serviceDataExtended = [
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785147471/gradient-ui-ux-background_23-2149052117_v8eurp.avif",
     icon: <FiEdit3 />,
     caption:
-      "User-centered designs, clean wireframes and scalable design systems.",
+      "User-centered design that makes complex systems feel simple and intuitive.",
     metrics: { label: "Accessibility", value: "WCAG Standards" },
     techStack: [
       "Figma",
@@ -103,9 +103,9 @@ const serviceDataExtended = [
       "Motion Design"
     ],
     points: [
-      "Conduct deep user research and create clear wireframes.",
-      "Build scalable, responsive UI design systems.",
-      "Implement accessible layouts with smooth motion design."
+      "User research and wireframes that actually reflect how your users think",
+      "Scalable, responsive design systems that work across every device",
+      "Accessible layouts with smooth motion design that feels polished"
     ]
   },
  {
@@ -114,8 +114,8 @@ const serviceDataExtended = [
   image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133977/automation_sm760t.avif",
   icon: <FiCpu />,
   caption:
-    "Practical AI solutions that automate operations, improve decision-making and reduce manual work.",
-  metrics: { label: "Efficiency Gain", value: "80%" },
+    "Practical AI solutions that automate the repetitive stuff so your team can focus on what matters.",
+  metrics: { label: "Efficiency", value: "80%" },
   techStack: [
     "AI Chatbots",
     "Predictive Analytics",
@@ -123,10 +123,10 @@ const serviceDataExtended = [
     "ML & NLP"
   ],
   points: [
-    "Deploy AI chatbots and virtual assistants on WhatsApp, web platforms and internal business tools.",
-    "Build predictive analytics solutions for demand forecasting, defect detection and supply chain optimization.",
-    "Automate invoice, purchase order and delivery challan processing with intelligent document extraction.",
-    "Develop ML models and NLP pipelines for pricing optimization, inventory forecasting, ticket classification and customer feedback analysis."
+    "AI chatbots and virtual assistants that actually understand your customers",
+    "Predictive analytics for demand forecasting, defect detection, and supply chain optimization",
+    "Automated document processing for invoices, purchase orders, and delivery challans",
+    "ML models and NLP pipelines that make sense of your data — from pricing to customer feedback"
   ]
 }
 ];
@@ -140,7 +140,6 @@ function Service() {
 
     const handleScrollTracking = () => {
       const isMobile = window.innerWidth <= 1100;
-      // Adjust center baseline target slightly lower on mobile due to the fixed sticky block area
       const viewportCenter = isMobile ? window.innerHeight * 0.65 : window.innerHeight / 2;
       
       let closestIndex = 0;
@@ -182,14 +181,14 @@ function Service() {
         
         {/* PAGE HERO */}
         <header className="service-page-hero reveal">
-          <span className="section-tag">ENGINEERING EXCELLENCE</span>
+          <span className="section-tag">WHAT WE BUILD</span>
           <h1 className="service-page-title">
-            Production-grade solutions <br />
-            <span className="gradient-text">architected for global scale.</span>
+            Solutions that scale with you — <br />
+            <span className="gradient-text">built to last, not just launch.</span>
           </h1>
           <p className="section-description">
-            We combine high-performance codebases, deep algorithmic intelligence and 
-            cloud automation to deliver technical advantages for modern organizations.
+            We combine clean code, smart automation, and cloud-native architecture to deliver 
+            technology that actually works for your business — today and tomorrow.
           </p>
         </header>
 

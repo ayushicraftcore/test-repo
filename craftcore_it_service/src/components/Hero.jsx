@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
 import { FaArrowRight, FaWhatsapp } from "react-icons/fa";
 
-const words = ["IT Supports", "AI & Automation", "Cloud Security", "Custom ERP", "SAAS Products"];
+const words = ["IT Infrastructure", "AI & Automation", "Cloud Security", "Custom ERP", "Scalable Systems"];
 const text = "CRAFTCORE";
 
 function Hero() {
@@ -45,7 +45,7 @@ function Hero() {
           <div className="hero-content">
             <div className="hero-badge">
               <span></span>
-              IT Infrastructure & Technology Partner
+              Integrated Enterprise Solutions
             </div>
 
             <div className="hero-typing">
@@ -54,24 +54,22 @@ function Hero() {
             </div>
 
             <h1 className="hero-title">
-              Enterprise IT Infrastructure & 
+              Custom Software & 
               <div className="animated-word-wrapper">
                 <span key={wordIndex} className="animated-word">
                   {words[wordIndex]}
                 </span>
               </div>
-              Solutions for Manufacturing & SMEs
+              Built Around Your Business
             </h1>
 
             <p className="hero-description">
-              Enterprise IT solutions including custom software development, AI automation, 
-              cloud migration, cybersecurity, ERP integration and managed IT support for 
-              mid-market manufacturers and growing businesses.
+              We design, deploy, and manage cloud infrastructure, enterprise networks, automated backups, and threat defenses — monitored, scaled, and secured end-to-end, so you never miss a beat. From custom platforms to cloud migration, our engineering team builds for tomorrow's traffic, not just today's.
             </p>
 
             <div className="hero-buttons">
               <Link to="https://booking.techrometric.com/appointments/craftcore" className="primary-btn hero-primary-btn">
-                Get an IT Assessment
+                Book Free Consultation
                 <FaArrowRight />
               </Link>
 
@@ -83,7 +81,7 @@ function Hero() {
                 aria-label="Chat on WhatsApp for IT consultation"
               >
                 <FaWhatsapp />
-                Chat with Our Experts
+                Chat on WhatsApp
               </a>
             </div>
           </div>
@@ -108,12 +106,12 @@ function Hero() {
 
             <div className="hero-float-card hero-card-one">
               <div className="hero-card-dot"></div>
-              Enterprise IT Solutions
+              AI-Driven Automation
             </div>
 
             <div className="hero-float-card hero-card-three">
-              <h4>24/7</h4>
-              <p>Managed IT Support</p>
+              <h4>99.9%</h4>
+              <p>Uptime SLA</p>
             </div>
           </div>
         </div>

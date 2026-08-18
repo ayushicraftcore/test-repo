@@ -6,8 +6,8 @@ const blogPosts = [
     id: 1,
     type: "video",
     category: "IT Infrastructure",
-    title: "IT Infrastructure Modernization: Building Scalable Systems for Manufacturing",
-    desc: "Learn how manufacturing enterprises modernize their IT infrastructure with cloud migration, server optimization, and network security strategies for operational excellence.",
+    title: "Modernizing Your IT Infrastructure: Systems That Actually Scale",
+    desc: "Learn how manufacturing enterprises modernize their IT with cloud migration, server optimization, and network security — so your systems grow as fast as you do.",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134155/blog-automation_dhavjt.avif",
     date: "May 28, 2026"
   },
@@ -15,8 +15,8 @@ const blogPosts = [
     id: 2,
     type: "article",
     category: "ERP & Systems",
-    title: "ERP Integration: Connecting Manufacturing Operations for Real-Time Visibility",
-    desc: "Discover best practices for ERP integration in manufacturing, including data synchronization, workflow automation, and real-time reporting for better decision-making.",
+    title: "ERP Integration Done Right: Connecting Your Operations for Real-Time Visibility",
+    desc: "Discover best practices for ERP integration — data synchronization, workflow automation, and real-time reporting that actually help you make better decisions.",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134156/blog-design_yr1e56.avif",
     date: "May 24, 2026"
   },
@@ -24,8 +24,8 @@ const blogPosts = [
     id: 3,
     type: "video",
     category: "Cloud & DevOps",
-    title: "Cloud Migration Strategies for Manufacturing Enterprises: AWS, Azure & GCP",
-    desc: "Explore secure cloud migration strategies, infrastructure-as-code, and DevOps best practices for manufacturing companies moving to the cloud.",
+    title: "Cloud Migration Without the Headache: AWS, Azure & GCP for Manufacturing",
+    desc: "Explore secure cloud migration strategies, infrastructure-as-code, and DevOps practices that work — without disrupting your day-to-day operations.",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134157/blog-fintech_qiyhy3.avif",
     date: "May 18, 2026"
   },
@@ -33,8 +33,8 @@ const blogPosts = [
     id: 4,
     type: "article",
     category: "Cybersecurity",
-    title: "Cybersecurity for Manufacturing: Protecting Critical Infrastructure & Data",
-    desc: "Learn essential cybersecurity practices for manufacturers, including threat detection, access control, data encryption, and compliance with industry standards.",
+    title: "Cybersecurity That Protects What Matters: Securing Your Manufacturing Operations",
+    desc: "Learn essential cybersecurity practices — threat detection, access control, data encryption, and compliance — so you can sleep better at night.",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134156/blog-dev_u7sv1y.avif",
     date: "May 12, 2026"
   },
@@ -42,8 +42,8 @@ const blogPosts = [
     id: 5,
     type: "video",
     category: "AI & Automation",
-    title: "AI-Powered Automation: Transforming Manufacturing Operations with Smart Technology",
-    desc: "Discover how AI and automation solutions are revolutionizing manufacturing operations with predictive maintenance, quality control, and intelligent process optimization.",
+    title: "AI That Actually Works: Automating Your Manufacturing Operations",
+    desc: "Discover how AI and automation are revolutionizing manufacturing — predictive maintenance, quality control, and intelligent process optimization that deliver real results.",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134157/blog-proptech_gpmugy.avif",
     date: "May 05, 2026"
   },
@@ -51,8 +51,8 @@ const blogPosts = [
     id: 6,
     type: "article",
     category: "IT Strategy",
-    title: "IT Strategy for Mid-Market Manufacturers: Building a Technology Roadmap",
-    desc: "Strategic IT planning for manufacturing enterprises — from digital transformation to technology roadmap development and IT governance for sustainable growth.",
+    title: "Building Your IT Roadmap: A Practical Guide for Mid-Market Manufacturers",
+    desc: "Strategic IT planning — from digital transformation to technology governance — so you can grow with confidence, not chaos.",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134155/blog-business_piayvh.avif",
     date: "Apr 29, 2026"
   }
@@ -67,12 +67,12 @@ function Blog() {
         <header className="blog-hero">
           <span className="section-tag">INSIGHTS & MEDIA</span>
           <h1 className="blog-hero-title">
-            IT Knowledge Hub for Manufacturing <br />
-            <span className="gradient-text">Enterprises & Growing SMEs</span>
+            Practical IT Insights for <br />
+            <span className="gradient-text">Manufacturing Leaders</span>
           </h1>
           <p className="section-description blog-hero-desc">
-            Explore expert insights on IT infrastructure, cloud migration, ERP integration, cybersecurity, 
-            and AI automation — designed for CIOs, CTOs, and IT Managers at manufacturing and mid-market enterprises.
+            Expert insights on IT infrastructure, cloud migration, ERP integration, cybersecurity, 
+            and AI automation — built for the people who actually run these systems.
           </p>
         </header>
 

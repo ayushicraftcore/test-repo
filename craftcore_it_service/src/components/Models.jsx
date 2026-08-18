@@ -7,39 +7,39 @@ const modelsData = [
   {
     title: "DEDICATED TEAM",
     icon: <FiUsers />,
-    bestFor: "Long-term IT infrastructure and software projects requiring a dedicated engineering team with domain expertise",
+    bestFor: "Long-term projects where you need a dedicated engineering team that knows your systems inside out",
     billing: "Monthly Retainer",
     points: [
-      "Dedicated developers, IT engineers & project managers",
-      "Full transparency with daily standups and weekly reports",
-      "Flexible team scaling up or down based on project needs",
-      "Seamless integration with your existing IT workflows"
+      "A dedicated team of developers, engineers & project managers — fully focused on you",
+      "Full transparency with daily standups and weekly progress reports",
+      "Scale your team up or down as your needs change",
+      "Seamlessly integrates with your existing workflows and tools"
     ],
     recommended: false,
   },
   {
     title: "PROJECT-BASED DELIVERY",
     icon: <FiTarget />,
-    bestFor: "Fixed-scope IT projects including ERP implementation, cloud migration, and custom software development",
+    bestFor: "Fixed-scope projects like ERP implementation, cloud migration, or custom software development",
     billing: "Milestone-Based Payments",
     points: [
-      "Clearly defined scope with detailed deliverables and timelines",
-      "Risk-free fixed pricing with guaranteed project outcomes",
+      "Clear scope with defined deliverables and realistic timelines",
+      "Fixed pricing — no surprises, guaranteed outcomes",
       "Complete project warranty and post-deployment support",
-      "Comprehensive documentation and knowledge transfer"
+      "Full documentation and knowledge transfer so you own everything"
     ],
     recommended: true,
   },
   {
     title: "CTO-AS-A-SERVICE",
     icon: <FiTrendingUp />,
-    bestFor: "Manufacturing enterprises and growing businesses needing strategic IT leadership and technology direction",
+    bestFor: "Growing businesses needing strategic IT leadership without hiring a full-time CTO",
     billing: "Hourly / Weekly Advisory",
     points: [
-      "IT infrastructure strategy and technology roadmap development",
-      "Cloud migration planning, security architecture and vendor evaluation",
-      "ERP selection guidance, implementation oversight and IT governance",
-      "Team hiring, training, and technology mentorship"
+      "Strategic IT roadmap and technology planning aligned with your goals",
+      "Cloud migration planning, security architecture, and vendor evaluation",
+      "ERP selection guidance, implementation oversight, and IT governance",
+      "Help hiring, training, and mentoring your internal tech team"
     ],
     recommended: false,
   },
@@ -78,7 +78,7 @@ function Models() {
   };
 
   const getWhatsappUrl = (modelTitle) => {
-    const defaultText = `Hi Craftcore! I'm interested in your ${modelTitle} engagement model. I'd like to discuss an IT assessment and technology solutions for my manufacturing business.`;
+    const defaultText = `Hi Craftcore! I'm interested in your ${modelTitle} engagement model. I'd like to discuss IT solutions for my business.`;
     return `https://wa.me/919898711229?text=${encodeURIComponent(defaultText)}`;
   };
 
@@ -88,11 +88,11 @@ function Models() {
       {/* HEADER */}
       <div className="models-header">
         <span className="section-tag">WORK WITH US</span>
-        <h2 className="section-title">Engagement Models</h2>
+        <h2 className="section-title">Choose How We Work Together</h2>
         <p className="section-description">
-          Flexible engagement models designed for manufacturing enterprises, mid-market companies, 
-          and growing businesses — from dedicated IT teams and project-based delivery to strategic 
-          technology advisory and consulting services.
+          Flexible engagement models designed for the way your business actually runs — from dedicated IT teams 
+          and project-based delivery to strategic technology advisory. Pick the one that fits your needs, and we'll 
+          handle the rest.
         </p>
       </div>
 

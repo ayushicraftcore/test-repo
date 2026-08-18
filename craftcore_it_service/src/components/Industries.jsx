@@ -15,32 +15,32 @@ const industriesData = [
   {
     icon: <FaIndustry />,
     title: "MANUFACTURING",
-    description: "IT solutions for Plant Heads and Operations Heads with 50-2,500 employees and ₹50-2,000 Cr turnover.",
+    description: "IT solutions for plant heads and operations leaders managing 50-2,500 employees and ₹50-2,000 Cr turnover — built to keep your production running smoothly.",
   },
   {
     icon: <FaTshirt />,
     title: "TEXTILE & APPAREL",
-    description: "ERP and production management systems for textile manufacturers and apparel supply chains.",
+    description: "ERP and production management systems designed for textile manufacturers and apparel supply chains — from raw materials to finished goods.",
   },
   {
     icon: <FaBoxes />,
     title: "SUPPLY CHAIN & LOGISTICS",
-    description: "End-to-end tracking and fleet management for Operations Heads managing complex logistics.",
+    description: "End-to-end tracking and fleet management for operations teams managing complex logistics networks — so you always know where your goods are.",
   },
   {
     icon: <FaUsers />,
     title: "MID-MARKET ENTERPRISES",
-    description: "Custom IT infrastructure and technology solutions for CIOs and IT Managers at growing companies.",
+    description: "Custom IT infrastructure and technology solutions for CIOs and IT managers at growing companies — built to scale as you grow.",
   },
   {
     icon: <FaBuilding />,
     title: "PROCESS INDUSTRIES",
-    description: "Automation and ERP solutions for chemical, pharmaceutical, and FMCG manufacturers.",
+    description: "Automation and ERP solutions for chemical, pharmaceutical, and FMCG manufacturers — streamlining operations from batch to finished product.",
   },
   {
     icon: <FaChartLine />,
     title: "GROWING SMES",
-    description: "Scalable IT services for SMEs with 50-500 employees looking to modernize their technology stack.",
+    description: "Scalable IT services for SMEs with 50-500 employees looking to modernize their technology stack — without disrupting what already works.",
   }
 ];
 
@@ -50,10 +50,10 @@ function Industries() {
       <div className="container">
         <div className="industries-header">
           <span className="section-tag">WHO WE SERVE</span>
-          <h2 className="section-title">Industries & Roles We Serve</h2>
+          <h2 className="section-title">Built for the Industries You Operate In</h2>
           <p className="section-description">
-            Deep domain expertise for CIOs, CTOs, IT Managers, Plant Heads, and Operations Heads at 
-            mid-market manufacturing companies with 50-2,500 employees and ₹50-2,000 Cr turnover.
+            We bring deep domain expertise to CIOs, CTOs, IT Managers, Plant Heads, and Operations Leaders at 
+            mid-market manufacturing companies — because we understand your challenges, your systems, and your goals.
           </p>
         </div>
 
