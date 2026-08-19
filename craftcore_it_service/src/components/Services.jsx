@@ -5,43 +5,43 @@ import { useNavigate } from "react-router-dom";
 
 const servicesData = [
   {
-    smallTitle: "Custom Software",
-    title: "CUSTOM SOFTWARE & PLATFORMS",
+    smallTitle: "Web & SaaS Dev",
+    title: "WEB & SAAS DEVELOPMENT",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785736916/Dashboard_Dark_Mode_1_frasph.png",
     points: [
-      "Custom web applications built for your workflow",
-      "Multi-tenant platforms & e-commerce that scale",
-      "API integrations & PWAs that connect everything"
+      "Custom web applications, built around the way your team actually works",
+      "Multi-tenant platforms and e-commerce that scale as your customer base grows",
+      "API integrations and PWAs that connect the systems you already rely on"
     ],
   },
   {
-    smallTitle: "Cloud Infrastructure",
-    title: "CLOUD INFRASTRUCTURE & DEVOPS",
+    smallTitle: "Cloud & DevOps",
+    title: "CLOUD & DEVOPS ENGINEERING",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133774/cloud_fhd71g.avif",
     points: [
-      "AWS, GCP, and Azure — we manage it all",
-      "CI/CD pipelines & auto-scaling so you never slow down",
-      "Docker, Kubernetes & cloud migration made seamless"
+      "AWS, GCP and Azure managed for you, end to end",
+      "CI/CD pipelines and auto-scaling that get your code to production faster",
+      "Docker, Kubernetes and cloud migration handled without disrupting your operations"
     ],
   },
   {
-    smallTitle: "Security & Compliance",
-    title: "SECURITY & COMPLIANCE",
+    smallTitle: "Cybersecurity",
+    title: "CYBERSECURITY & COMPLIANCE",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133877/security_pdcr9o.avif",
     points: [
-      "Security audits & pen testing that find issues before they find you",
-      "GDPR & HIPAA compliance — we handle the paperwork",
-      "Data encryption & incident response you can trust"
+      "Security audits and penetration testing that expose your real risk, before someone else finds it",
+      "GDPR and HIPAA compliance built into your systems, not bolted on afterward",
+      "Data encryption and incident response ready the moment you need them"
     ],
   },
   {
     smallTitle: "AI & Automation",
-    title: "AI & AUTOMATION",
+    title: "AI & AUTOMATION SOLUTIONS",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133977/automation_sm760t.avif",
     points: [
-      "AI chatbots & NLP that actually understand your customers",
-      "Machine learning models that predict what's next",
-      "Workflow automation that frees your team for what matters"
+      "AI chatbots and NLP pipelines that keep working on your business after hours",
+      "Machine learning models and intelligent document processing built around your data",
+      "Workflow automation and predictive analytics that help you stay ahead of demand"
     ],
   },
 ];
@@ -85,11 +85,12 @@ function Services() {
     <section className="services section-space">
       <div className="container">
         
+        {/* Header - Updated Content */}
         <div className="services-header">
           <span className="section-tag">WHAT WE BUILD</span>
-          <h2 className="section-title">Your Complete IT Stack — One Partner</h2>
+          <h2 className="section-title">Everything Your IT Stack Needs, Under One Roof</h2>
           <p className="section-description">
-            Production-grade solutions built to scale with you, perform when it counts, and deliver real business impact.
+            You get production-grade solutions engineered for scalability, high performance and results you can actually measure.
           </p>
         </div>
 
@@ -162,6 +163,7 @@ function Services() {
           
         </div>
 
+        {/* CTA Button - Updated */}
         <div className="services-button-wrap">
           <button className="primary-btn" onClick={() => navigate("/service")}>
             VIEW ALL SERVICES

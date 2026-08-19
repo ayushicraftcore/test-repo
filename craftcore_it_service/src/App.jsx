@@ -34,7 +34,7 @@ function ScrollToTop() {
 }
 
 /* ─────────────────────────────────────────────
-   TOAST HOOK  — call addToast("msg", "emoji")
+   TOAST HOOK  - call addToast("msg", "emoji")
 ───────────────────────────────────────────── */
 function useToast() {
   const [toasts, setToasts] = useState([]);

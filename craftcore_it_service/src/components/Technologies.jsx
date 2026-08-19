@@ -106,11 +106,15 @@ function Technologies() {
   return (
     <section className="technologies section-space">
       <div className="technologies-header container">
+        {/* Badge - Updated */}
         <span className="section-tag">OUR TECH STACK</span>
-        <h2 className="section-title">The Technologies Behind Your Success</h2>
+        
+        {/* Headline - Updated */}
+        <h2 className="section-title">The Enterprise Technologies Powering Your Build</h2>
+        
+        {/* Body - Updated */}
         <p className="section-description">
-          We use production-tested technologies trusted by enterprises worldwide — from cloud infrastructure and AI/ML 
-          to DevOps and ERP systems. The right tools, built into solutions that actually work for you.
+          From cloud infrastructure and ERP systems to AI/ML and DevOps tools, your project runs on production-tested technology trusted by manufacturing and mid-market enterprises like yours.
         </p>
         <br />
       </div>

@@ -12,7 +12,7 @@ const project1Features = [
     icon: <FiTarget />,
     label: "Goal Tracking",
     title: "Project Goals & OKR Management",
-    description: "Define, track, and manage project goals and OKRs across all your projects. Monitor progress in real-time, automate status updates, and track milestones so you always know where you stand.",
+    description: "Define, track and manage project goals and OKRs across all your projects. Monitor progress in real-time, automate status updates and track milestones so you always know where you stand.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135243/craftcore1_rmag3p.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135282/Project_Report_pc0kp0.avif",
@@ -27,7 +27,7 @@ const project1Features = [
     icon: <FiTrendingUp />,
     label: "Recruitment Analytics",
     title: "Recruitment Performance Dashboard",
-    description: "Track recruitment metrics — candidate pipelines, time-to-hire, source effectiveness, and hiring success rates — with interactive dashboards that show you exactly what's working.",
+    description: "Track recruitment metrics - candidate pipelines, time-to-hire, source effectiveness and hiring success rates - with interactive dashboards that show you exactly what's working.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135420/Recruitment_Dashboard_i0tbfq.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135419/Job_Postings_mujs4r.avif",
@@ -44,7 +44,7 @@ const project1Features = [
     icon: <FiUsers />,
     label: "CRM Management",
     title: "Customer Relationship Management",
-    description: "Manage leads, track deals, and nurture customer relationships with a comprehensive CRM. Visualize your sales pipeline, monitor lead activity, and generate reports that actually help you sell more.",
+    description: "Manage leads, track deals and nurture customer relationships with a comprehensive CRM. Visualize your sales pipeline, monitor lead activity and generate reports that actually help you sell more.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135601/CRM_Dashboard_rp2q0g.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135603/Deals_Kanban_wg7z5o.avif",
@@ -65,7 +65,7 @@ const project2Features = [
     icon: <FiDollarSign />,
     label: "Admin Dashboard",
     title: "Collection Admin Dashboard",
-    description: "A complete admin dashboard for collection management — track outstanding payments, recovery analytics, bank reconciliation, defaulter monitoring, and team performance, all in one place.",
+    description: "A complete admin dashboard for collection management - track outstanding payments, recovery analytics, bank reconciliation, defaulter monitoring and team performance, all in one place.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Dashboard_bnod2n.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136407/Dashboard_Dark_irjhzo.avif",
@@ -83,7 +83,7 @@ const project2Features = [
     icon: <FiUsers />,
     label: "Agent Dashboard",
     title: "Collection Agent Dashboard",
-    description: "An agent-focused dashboard for daily task management, call logging, customer follow-ups, and notifications — so your team stays on top of every collection activity.",
+    description: "An agent-focused dashboard for daily task management, call logging, customer follow-ups and notifications - so your team stays on top of every collection activity.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411945/Dashboard_L_z4vlvh.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136519/dashboard_riiznw.avif",
@@ -101,7 +101,7 @@ const project2Features = [
     icon: <FiSmartphone />,
     label: "Mobile App",
     title: "Collection Mobile Application",
-    description: "A mobile-first collection app for field agents — case management, daily task tracking, customer interaction logging, and real-time sync so you're always in the loop, even on the go.",
+    description: "A mobile-first collection app for field agents - case management, daily task tracking, customer interaction logging and real-time sync so you're always in the loop, even on the go.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136693/dashboard_pd5net.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785413018/Dashboard_m_mhna4i.png",
@@ -120,7 +120,7 @@ const project3Features = [
     icon: <FiTrendingUp />,
     label: "Operations Dashboard",
     title: "Textile Operations Dashboard",
-    description: "A real-time operations dashboard for textile manufacturing — inventory monitoring, production tracking, job work management, financial insights, and WIP monitoring across the entire production lifecycle.",
+    description: "A real-time operations dashboard for textile manufacturing - inventory monitoring, production tracking, job work management, financial insights and WIP monitoring across the entire production lifecycle.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/Dashboar_h2yx68.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/DashboardMobileVie_lgzw9y.jpg",
@@ -133,7 +133,7 @@ const project3Features = [
     icon: <FiGrid />,
     label: "Master Management",
     title: "Textile Master Data Management",
-    description: "Centralized master data management for textile operations — customers, employees, products, vendors, and warehouses — all in one place to keep your production running smoothly.",
+    description: "Centralized master data management for textile operations - customers, employees, products, vendors and warehouses - all in one place to keep your production running smoothly.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137032/Custome_veckuh.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137034/Designatio_ny3jmc.jpg",
@@ -149,7 +149,7 @@ const project3Features = [
     icon: <FiClock />,
     label: "Operations Reports",
     title: "Textile Operations & Reports",
-    description: "Comprehensive textile operations reports — grey material procurement, inventory status, job work reports, mill process tracking, and financial payments — so you have complete visibility into your operations.",
+    description: "Comprehensive textile operations reports - grey material procurement, inventory status, job work reports, mill process tracking and financial payments - so you have complete visibility into your operations.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137138/Finances_Payment-1000kb_moeg18.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137141/Grey_Material_Procurement_Fully_Dilivered_Report-1000kb_c8n87t.jpg",
@@ -170,7 +170,7 @@ const project4Features = [
     icon: <FiUsers />,
     label: "Employee Management",
     title: "Employee Central Dashboard",
-    description: "A comprehensive employee management dashboard — workforce analytics, income tracking, attendance monitoring, payroll management, and timesheet reports for complete HR visibility.",
+    description: "A comprehensive employee management dashboard - workforce analytics, income tracking, attendance monitoring, payroll management and timesheet reports for complete HR visibility.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733995/Dashboard_ztc5ig.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733985/Income_y4mefd.png",
@@ -185,7 +185,7 @@ const project4Features = [
     icon: <FiClock />,
     label: "Payroll & Roles",
     title: "Payroll & Role Management",
-    description: "Streamlined payroll processing — salary management, payslip generation, automated salary settings, employee profiles, user permissions, and role-based access control for secure HR operations.",
+    description: "Streamlined payroll processing - salary management, payslip generation, automated salary settings, employee profiles, user permissions and role-based access control for secure HR operations.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734292/Manage_salary_nfwyfg.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734293/payslip_nhcami.png",
@@ -201,7 +201,7 @@ const project4Features = [
     icon: <FiTrendingUp />,
     label: "Performance Reviews",
     title: "Performance & Goal Management",
-    description: "Track employee performance — custom evaluation forms, KPI indicators, timesheet management, appraisal cycles, and goal tracking to drive continuous improvement and employee development.",
+    description: "Track employee performance - custom evaluation forms, KPI indicators, timesheet management, appraisal cycles and goal tracking to drive continuous improvement and employee development.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734442/Create_form_elamr7.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734444/Indicator_ubo99t.png",
@@ -219,7 +219,7 @@ const project5Features = [
     icon: <FiTarget />,
     label: "Dashboard Overview",
     title: "Appointment Analytics Dashboard",
-    description: "Real-time analytics dashboard — appointment metrics, booking trends, user management, and role-based access control so you can manage scheduling operations efficiently.",
+    description: "Real-time analytics dashboard - appointment metrics, booking trends, user management and role-based access control so you can manage scheduling operations efficiently.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734796/Appointment_Dashboard_1_nko7tm.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734796/Appointment_Dashboard_2_cvihy5.png",
@@ -235,7 +235,7 @@ const project5Features = [
     icon: <FiGrid />,
     label: "Business Management",
     title: "Multi-Business & Customer Management",
-    description: "Complete business management — multi-location support, business profile creation, customer relationship management, and service configuration for streamlined appointment scheduling.",
+    description: "Complete business management - multi-location support, business profile creation, customer relationship management and service configuration for streamlined appointment scheduling.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734766/Create_Business_an1vf7.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734785/Manage_Business_icbhvh.png",
@@ -252,7 +252,7 @@ const project5Features = [
     icon: <FiBriefcase />,
     label: "Settings & Calendar",
     title: "Appointment Settings & Calendar View",
-    description: "Comprehensive settings management — appointment configuration, calendar integration, system preferences, and client portal customization for the optimal booking experience.",
+    description: "Comprehensive settings management - appointment configuration, calendar integration, system preferences and client portal customization for the optimal booking experience.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734736/Appoinments_qdeks2.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734794/Appointments_Calender_bbbqqr.png",
@@ -273,7 +273,7 @@ const projects = [
     subtitle: "Enterprise Management",
     tag: "PROJECT 01",
     icon: <FiGrid />,
-    description: "A comprehensive enterprise resource planning platform with integrated modules for goals management, recruitment analytics, CRM, and project management — all in one place.",
+    description: "A comprehensive enterprise resource planning platform with integrated modules for goals management, recruitment analytics, CRM and project management - all in one place.",
     features: project1Features,
     stats: ["Active Modules: 4", "Users: 256", "Integrations: 12"],
     color: "#4f46e5",
@@ -286,7 +286,7 @@ const projects = [
     subtitle: "Debt Recovery",
     tag: "PROJECT 02",
     icon: <FiDollarSign />,
-    description: "A comprehensive collection CRM platform for managing debt recovery, agent workflows, and collection analytics across admin, agent, and mobile interfaces.",
+    description: "A comprehensive collection CRM platform for managing debt recovery, agent workflows and collection analytics across admin, agent and mobile interfaces.",
     features: project2Features,
     stats: ["Active Cases: 1.2K", "Recovery Rate: 78%", "Agents: 45"],
     color: "#2563eb",
@@ -299,7 +299,7 @@ const projects = [
     subtitle: "Manufacturing Intelligence",
     tag: "PROJECT 03",
     icon: <FiBriefcase />,
-    description: "A comprehensive textile ERP solution for managing master data, operations, and reporting across the textile manufacturing lifecycle.",
+    description: "A comprehensive textile ERP solution for managing master data, operations and reporting across the textile manufacturing lifecycle.",
     features: project3Features,
     stats: ["Production: 2.8K", "Inventory: 15K", "Reports: 24"],
     color: "#059669",
@@ -312,7 +312,7 @@ const projects = [
     subtitle: "Human Resource Management",
     tag: "PROJECT 04",
     icon: <FiUsers />,
-    description: "A complete human resource management system with employee central, time & attendance, and performance management to streamline HR operations.",
+    description: "A complete human resource management system with employee central, time & attendance and performance management to streamline HR operations.",
     features: project4Features,
     stats: ["Employees: 340", "Departments: 12", "Reviews: 98%"],
     color: "#12d800",
@@ -325,7 +325,7 @@ const projects = [
     subtitle: "Booking & Calendar",
     tag: "PROJECT 05",
     icon: <FiClock />,
-    description: "A powerful appointment scheduling platform with intuitive dashboards, multi-resource calendar management, and client self-service portal.",
+    description: "A powerful appointment scheduling platform with intuitive dashboards, multi-resource calendar management and client self-service portal.",
     features: project5Features,
     stats: ["Bookings: 1.8K", "Resources: 25", "Clients: 850"],
     color: "#8b5cf6",
@@ -525,7 +525,7 @@ function SolutionV6() {
         <header className="v6-hero">
           <span className="section-tag">Software Suite</span>
           <h1 className="v6-title">Solutions That Actually Work</h1>
-          <p className="v6-subtitle">Explore our suite of enterprise solutions — built for real businesses, solving real problems.</p>
+          <p className="v6-subtitle">Explore our suite of enterprise solutions - built for real businesses, solving real problems.</p>
         </header>
 
         {/* All Projects */}

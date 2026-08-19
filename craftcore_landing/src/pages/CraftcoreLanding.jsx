@@ -148,7 +148,7 @@ function CraftcoreLanding() {
               Physical & <span className="gradient-text">Scalable Growth</span>
             </h1>
             <p className="ccg-hero-desc section-description">
-              We operate at the intersection of technology, manufacturing, and growth. 
+              We operate at the intersection of technology, manufacturing and growth. 
               We build scalable systems, physical products and market expansion engines.
             </p>
             
@@ -301,8 +301,8 @@ function CraftcoreLanding() {
             </div>
             <h1 className="footer-title">About Craftcore</h1>
             <p className="footer-description">
-              Craftcore operates at the intersection of technology, manufacturing, and growth. We build 
-              scalable systems, physical products and market expansion engines — empowering startups and 
+              Craftcore operates at the intersection of technology, manufacturing and growth. We build 
+              scalable systems, physical products and market expansion engines - empowering startups and 
               enterprises to move faster.
             </p>
           </div>

@@ -7,7 +7,7 @@ const blogPosts = [
     type: "video",
     category: "IT Infrastructure",
     title: "Modernizing Your IT Infrastructure: Systems That Actually Scale",
-    desc: "Learn how manufacturing enterprises modernize their IT with cloud migration, server optimization, and network security — so your systems grow as fast as you do.",
+    desc: "Learn how manufacturing enterprises modernize their IT with cloud migration, server optimization and network security - so your systems grow as fast as you do.",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134155/blog-automation_dhavjt.avif",
     date: "May 28, 2026"
   },
@@ -16,7 +16,7 @@ const blogPosts = [
     type: "article",
     category: "ERP & Systems",
     title: "ERP Integration Done Right: Connecting Your Operations for Real-Time Visibility",
-    desc: "Discover best practices for ERP integration — data synchronization, workflow automation, and real-time reporting that actually help you make better decisions.",
+    desc: "Discover best practices for ERP integration - data synchronization, workflow automation and real-time reporting that actually help you make better decisions.",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134156/blog-design_yr1e56.avif",
     date: "May 24, 2026"
   },
@@ -25,7 +25,7 @@ const blogPosts = [
     type: "video",
     category: "Cloud & DevOps",
     title: "Cloud Migration Without the Headache: AWS, Azure & GCP for Manufacturing",
-    desc: "Explore secure cloud migration strategies, infrastructure-as-code, and DevOps practices that work — without disrupting your day-to-day operations.",
+    desc: "Explore secure cloud migration strategies, infrastructure-as-code and DevOps practices that work - without disrupting your day-to-day operations.",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134157/blog-fintech_qiyhy3.avif",
     date: "May 18, 2026"
   },
@@ -34,7 +34,7 @@ const blogPosts = [
     type: "article",
     category: "Cybersecurity",
     title: "Cybersecurity That Protects What Matters: Securing Your Manufacturing Operations",
-    desc: "Learn essential cybersecurity practices — threat detection, access control, data encryption, and compliance — so you can sleep better at night.",
+    desc: "Learn essential cybersecurity practices - threat detection, access control, data encryption and compliance - so you can sleep better at night.",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134156/blog-dev_u7sv1y.avif",
     date: "May 12, 2026"
   },
@@ -43,7 +43,7 @@ const blogPosts = [
     type: "video",
     category: "AI & Automation",
     title: "AI That Actually Works: Automating Your Manufacturing Operations",
-    desc: "Discover how AI and automation are revolutionizing manufacturing — predictive maintenance, quality control, and intelligent process optimization that deliver real results.",
+    desc: "Discover how AI and automation are revolutionizing manufacturing - predictive maintenance, quality control and intelligent process optimization that deliver real results.",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134157/blog-proptech_gpmugy.avif",
     date: "May 05, 2026"
   },
@@ -52,7 +52,7 @@ const blogPosts = [
     type: "article",
     category: "IT Strategy",
     title: "Building Your IT Roadmap: A Practical Guide for Mid-Market Manufacturers",
-    desc: "Strategic IT planning — from digital transformation to technology governance — so you can grow with confidence, not chaos.",
+    desc: "Strategic IT planning - from digital transformation to technology governance - so you can grow with confidence, not chaos.",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785134155/blog-business_piayvh.avif",
     date: "Apr 29, 2026"
   }
@@ -72,7 +72,7 @@ function Blog() {
           </h1>
           <p className="section-description blog-hero-desc">
             Expert insights on IT infrastructure, cloud migration, ERP integration, cybersecurity, 
-            and AI automation — built for the people who actually run these systems.
+            and AI automation - built for the people who actually run these systems.
           </p>
         </header>
 

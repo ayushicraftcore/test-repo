@@ -7,28 +7,28 @@ import Model from "../components/Models";
 import Industries from "../components/Industries";
 import Stats from "../components/Stats";
 
-const whyChooseText = "We're a founder-led team that actually understands manufacturing — not just software. We build custom platforms, implement AI automation, and modernize your entire technology stack with solutions designed for the way your business actually runs. From shop floor operations to supply chain management, we solve real manufacturing challenges. Our end-to-end approach means seamless integration with your existing systems, while our recruitment and growth services help you build and scale your technology teams. We don't just deliver projects — we become your long-term technology partner, invested in your success.";
+const whyChooseText = "We're a founder-led team that actually understands manufacturing - not just software. We build custom platforms, implement AI automation and modernize your entire technology stack with solutions designed for the way your business actually runs. From shop floor operations to supply chain management, we solve real manufacturing challenges. Our end-to-end approach means seamless integration with your existing systems, while our recruitment and growth services help you build and scale your technology teams. We don't just deliver projects - we become your long-term technology partner, invested in your success.";
 
 // Video carousel data
 const carouselVideos = [
   {
     id: 1,
     title: "Real-Time Analytics",
-    description: "Powerful real-time dashboards and analytics that turn raw data into insights you can actually use — helping you make smarter decisions, faster.",
+    description: "Powerful real-time dashboards and analytics that turn raw data into insights you can actually use - helping you make smarter decisions, faster.",
     videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785134919/SAAS_ynbbzq.mp4",
     poster: "/images/video-poster-1.jpg"
   },
   {
     id: 2,
     title: "Code & Innovation",
-    description: "Clean, scalable code architecture that powers enterprise-grade applications — built to last, not just to launch.",
+    description: "Clean, scalable code architecture that powers enterprise-grade applications - built to last, not just to launch.",
     videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785135048/Coding_tguouv.mp4",
     poster: "/images/video-poster-2.jpg"
   },
   {
     id: 3,
     title: "SaaS Solutions",
-    description: "Innovative SaaS products designed to streamline workflows, boost productivity, and scale seamlessly as your business grows.",
+    description: "Innovative SaaS products designed to streamline workflows, boost productivity and scale seamlessly as your business grows.",
     videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785135133/solution_j5q5qi.mp4",
     poster: "/images/video-poster-3.jpg"
   }
@@ -256,8 +256,8 @@ function About() {
 
           <p className="section-description about-hero-desc">
             We're a full-stack technology company delivering custom software, intelligent automation, 
-            and enterprise systems to manufacturing, textile, and supply chain businesses. We don't 
-            just build software — we understand your industry, your challenges, and your goals.
+            and enterprise systems to manufacturing, textile and supply chain businesses. We don't 
+            just build software - we understand your industry, your challenges and your goals.
           </p>
         </header>
 
@@ -271,7 +271,7 @@ function About() {
               </div>
               <h2 className="statement-card-title">Our Vision</h2>
               <p className="card-text statement-card-body">
-                To become the trusted technology partner for businesses worldwide — helping them grow through innovative software, AI-powered solutions, and digital transformation that actually delivers results.
+                To become the trusted technology partner for businesses worldwide - helping them grow through innovative software, AI-powered solutions and digital transformation that actually delivers results.
               </p>
             </div>
 
@@ -282,7 +282,7 @@ function About() {
               </div>
               <h2 className="statement-card-title">Our Mission</h2>
               <p className="card-text statement-card-body">
-                To build reliable, high-performance software, SaaS platforms, mobile applications, and AI solutions that help businesses innovate faster, improve efficiency, and achieve sustainable growth.
+                To build reliable, high-performance software, SaaS platforms, mobile applications and AI solutions that help businesses innovate faster, improve efficiency and achieve sustainable growth.
               </p>
             </div>
           </div>

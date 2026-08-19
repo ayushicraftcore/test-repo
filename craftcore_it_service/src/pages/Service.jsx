@@ -21,7 +21,7 @@ const serviceDataExtended = [
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785736916/Dashboard_Dark_Mode_1_frasph.png",
     icon: <FiLayers />,
     caption:
-      "Custom web applications, SaaS platforms, and business systems built to streamline how you work.",
+      "Custom web applications, SaaS platforms and business systems built to streamline how you work.",
     metrics: { label: "Uptime", value: "99.9%" },
     techStack: [
       "React",
@@ -33,9 +33,9 @@ const serviceDataExtended = [
     ],
     points: [
       "Custom web applications and multi-tenant SaaS platforms built for your workflow",
-      "CRM systems that actually help you manage sales, leads, and customers",
-      "ERP solutions for inventory, finance, HR, and operations — all in one place",
-      "Secure third-party APIs, payment gateways, and e-commerce features that connect everything"
+      "CRM systems that actually help you manage sales, leads and customers",
+      "ERP solutions for inventory, finance, HR and operations - all in one place",
+      "Secure third-party APIs, payment gateways and e-commerce features that connect everything"
     ]
   },
   {
@@ -48,7 +48,7 @@ const serviceDataExtended = [
     metrics: { label: "Scalability", value: "Auto-Scaling" },
     techStack: ["AWS", "GCP", "Docker", "Kubernetes"],
     points: [
-      "Secure infrastructure on AWS, GCP, and Azure — we manage it all",
+      "Secure infrastructure on AWS, GCP and Azure - we manage it all",
       "Automated CI/CD pipelines so you can deploy faster, with confidence",
       "Container orchestration and cloud migration that just works"
     ]
@@ -59,7 +59,7 @@ const serviceDataExtended = [
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133877/security_pdcr9o.avif",
     icon: <FiShield />,
     caption:
-      "Protect your data and stay compliant — because trust isn't optional.",
+      "Protect your data and stay compliant - because trust isn't optional.",
     metrics: { label: "Standards", value: "GDPR / HIPAA" },
     techStack: [
       "Security Audits",
@@ -69,7 +69,7 @@ const serviceDataExtended = [
     ],
     points: [
       "Security audits and penetration testing that find issues before they find you",
-      "Full GDPR, HIPAA, and industry compliance — we handle the paperwork",
+      "Full GDPR, HIPAA and industry compliance - we handle the paperwork",
       "Data encryption and incident response plans you can actually trust"
     ]
   },
@@ -83,7 +83,7 @@ const serviceDataExtended = [
     metrics: { label: "Platforms", value: "iOS & Android" },
     techStack: ["Flutter", "React Native", "Kotlin", "Swift"],
     points: [
-      "High-performance apps for Android and iOS — built for real people",
+      "High-performance apps for Android and iOS - built for real people",
       "Hybrid apps using Flutter and React Native that work everywhere",
       "Real-time features and AI-powered experiences that keep users engaged"
     ]
@@ -124,9 +124,9 @@ const serviceDataExtended = [
   ],
   points: [
     "AI chatbots and virtual assistants that actually understand your customers",
-    "Predictive analytics for demand forecasting, defect detection, and supply chain optimization",
-    "Automated document processing for invoices, purchase orders, and delivery challans",
-    "ML models and NLP pipelines that make sense of your data — from pricing to customer feedback"
+    "Predictive analytics for demand forecasting, defect detection and supply chain optimization",
+    "Automated document processing for invoices, purchase orders and delivery challans",
+    "ML models and NLP pipelines that make sense of your data - from pricing to customer feedback"
   ]
 }
 ];
@@ -183,12 +183,12 @@ function Service() {
         <header className="service-page-hero reveal">
           <span className="section-tag">WHAT WE BUILD</span>
           <h1 className="service-page-title">
-            Solutions that scale with you — <br />
+            Solutions that scale with you - <br />
             <span className="gradient-text">built to last, not just launch.</span>
           </h1>
           <p className="section-description">
-            We combine clean code, smart automation, and cloud-native architecture to deliver 
-            technology that actually works for your business — today and tomorrow.
+            We combine clean code, smart automation and cloud-native architecture to deliver 
+            technology that actually works for your business - today and tomorrow.
           </p>
         </header>
 
@@ -253,7 +253,7 @@ function Service() {
               >
                 <div className="card-indicator-line" />
                 
-                <span className="card-pre-title">0{index + 1} — {service.smallTitle}</span>
+                <span className="card-pre-title">0{index + 1} - {service.smallTitle}</span>
                 <h3 className="card-title card-main-title">{service.title}</h3>
                 
                 <ul className="card-features-list">

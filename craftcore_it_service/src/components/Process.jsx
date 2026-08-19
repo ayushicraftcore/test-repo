@@ -1,42 +1,37 @@
 import "./Process.css";
 import { useEffect, useState, useRef } from "react";
-import { FiSearch, FiLayers, FiCode, FiCloud, FiCheckSquare, FiSettings, FiShield } from "react-icons/fi";
+import { FiSearch, FiLayers, FiCode, FiCheckSquare, FiSettings, FiShield } from "react-icons/fi";
 
 const steps = [
   {
     number: "01",
     title: "DISCOVERY & AUDIT",
     icon: <FiSearch />,
-    description:
-      "We start by understanding your business — your systems, your pain points, and your goals. We audit your current IT stack, security posture, and operational gaps, then build a roadmap that actually fits where you're going."
+    description: "Weeks 1–3: We start by auditing your IT infrastructure end to end - assessing your current systems, surfacing your pain points and defining what your business actually needs. Your technology stack, your security posture, your operational gaps: all mapped into one roadmap built specifically for you."
   },
   {
     number: "02",
     title: "SOLUTION DESIGN",
     icon: <FiLayers />,
-    description:
-      "We design the complete architecture — cloud infrastructure, integrations, security, and deployment. Every system is built to scale with you, align with your business goals, and meet the standards your industry demands."
+    description: "Weeks 2–4: We design your complete solution architecture - cloud infrastructure, system integrations, security framework and deployment strategy - so what gets built is scalable, secure and aligned with your business goals and IT standards from day one."
   },
   {
     number: "03",
     title: "BUILD & DEPLOY",
     icon: <FiCode />,
-    description:
-      "We build custom software, set up your infrastructure, implement security controls, and configure everything to work together. We deploy in phases with regular check-ins and testing at every milestone — so you always know where things stand."
+    description: "Weeks 4–12: This is where your custom software gets built, your IT infrastructure gets set up and your security controls go live. We deploy in phases, with regular reviews alongside your team and thorough testing at every milestone."
   },
   {
     number: "04",
     title: "TESTING & VALIDATION",
     icon: <FiCheckSquare />,
-    description:
-      "We rigorously test for security, performance, and compliance — because your business can't afford surprises. We run user acceptance testing and verify every requirement is met before you even touch the system."
+    description: "Weeks 10–14: Before anything goes fully live, we put it through rigorous security testing, performance validation, user acceptance testing and compliance verification - so what you receive meets every requirement, every security standard and every operational expectation you set."
   },
   {
     number: "05",
     title: "SUPPORT & AMC",
     icon: <FiSettings />,
-    description:
-      "We stay with you — 24/7 managed support, proactive monitoring, regular maintenance, and annual contracts that keep your systems running. Flexible models including fixed-price, T&M, and retainer-based support to fit how you work."
+    description: "Week 12+: We stay with you - 24/7 managed support, proactive monitoring, regular maintenance and annual contracts that keep your systems running. Flexible models including fixed-price, T&M and retainer-based support to fit how you work."
   }
 ];
 
@@ -78,13 +73,12 @@ function Process() {
     <section className="process section-space">
       <div className="container">
         
-        {/* HEADER */}
+        {/* HEADER - Updated Content */}
         <div className="process-top">
           <span className="section-tag">HOW WE WORK</span>
-          <h2 className="section-title">Your Success, Step by Step</h2>
+          <h2 className="section-title">How We Get Your IT Infrastructure Live</h2>
           <p className="section-description">
-            A proven process for IT infrastructure, custom software, and managed services — designed to reduce risk, 
-            keep you informed, and deliver outcomes you can count on.
+            A proven process for IT infrastructure deployment, custom software development and managed services - built to reduce your risk and give you predictable outcomes, whether you run a manufacturing floor or a fast-growing business.
           </p>
         </div>
 
