@@ -64,6 +64,7 @@ const carouselVideos = [
 
 function About() {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeMobileCard, setActiveMobileCard] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
@@ -145,7 +146,12 @@ function About() {
       if (totalScrollableDist <= 0) return;
 
       const progress = -rect.top / totalScrollableDist;
-      setScrollProgress(Math.max(0, Math.min(1, progress)));
+      const clamped = Math.max(0, Math.min(1, progress));
+      setScrollProgress(clamped);
+
+      // Set active mobile card index based on scroll
+      const activeIdx = Math.min(whyChooseCards.length - 1, Math.floor(clamped * whyChooseCards.length));
+      setActiveMobileCard(activeIdx);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -290,6 +296,7 @@ function About() {
         <div className="sticky-stage">
           
           <div className="bg-title-wrap">
+            <span className="section-tag bg-title-tag">WHY CHOOSE US</span>
             <h2 className="bg-big-title">
               WHY<br />CHOOSE<br />CRAFTCORE
             </h2>
@@ -305,14 +312,20 @@ function About() {
               const opacity = cardProgress < 0.1 ? cardProgress * 10 : 1;
               const rotate = card.baseRotation * cardProgress;
 
+              // Stack offset specifically for mobile
+              const mobileOffset = idx - activeMobileCard;
+
               return (
                 <div 
                   key={card.id} 
-                  className="playing-card"
+                  className={`playing-card card-index-${idx}`}
                   style={{
-                    transform: `translateY(${translateY}vh) rotate(${rotate}deg)`,
-                    opacity: opacity
+                    '--desktop-translate-y': `${translateY}vh`,
+                    '--desktop-rotate': `${rotate}deg`,
+                    '--desktop-opacity': opacity,
+                    '--mobile-offset': mobileOffset
                   }}
+                  onClick={() => setActiveMobileCard(idx)}
                 >
                   <div className="playing-card-icon">{card.icon}</div>
                   <h3 className="playing-card-title">{card.title}</h3>
@@ -324,8 +337,6 @@ function About() {
 
         </div>
       </section>
-
-      {/* OTHER COMPONENTS */}
         <Stats />
         <Process />
         <Industries />
