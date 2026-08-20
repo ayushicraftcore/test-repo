@@ -1,75 +1,81 @@
-import "./Industries.css";
+import Carousel from './Carousel';
+import './Industries.css';
 import {
   FaTshirt,
   FaIndustry,
   FaBoxes,
-  FaCoins,
-  FaTruck,
   FaUsers,
-  FaCog,
   FaChartLine,
   FaBuilding
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 const industriesData = [
   {
+    id: 1,
     icon: <FaIndustry />,
-    title: "MANUFACTURING",
-    description: "IT solutions for plant heads and operations leaders managing 50-2,500 employees and ₹50-2,000 Cr turnover - built to keep your production running smoothly.",
+    title: 'MANUFACTURING',
+    description:
+      'If you’re a Plant Head or Operations Head running a company with 50–2,500 employees and ₹50–2,000 Cr in turnover, we build the IT solutions that keep your operation running.'
   },
   {
+    id: 2,
     icon: <FaTshirt />,
-    title: "TEXTILE & APPAREL",
-    description: "ERP and production management systems designed for textile manufacturers and apparel supply chains - from raw materials to finished goods.",
+    title: 'TEXTILE & APPAREL',
+    description:
+      'Running a textile manufacturing or apparel supply chain business? We build the ERP and production management systems that keep your floor and your supply chain in sync.'
   },
   {
+    id: 3,
     icon: <FaBoxes />,
-    title: "SUPPLY CHAIN & LOGISTICS",
-    description: "End-to-end tracking and fleet management for operations teams managing complex logistics networks - so you always know where your goods are.",
+    title: 'SUPPLY CHAIN & LOGISTICS',
+    description:
+      'If you’re an Operations Head juggling complex logistics, you get end-to-end tracking and fleet management built around your routes, not a generic template.'
   },
   {
+    id: 4,
     icon: <FaUsers />,
-    title: "MID-MARKET ENTERPRISES",
-    description: "Custom IT infrastructure and technology solutions for CIOs and IT managers at growing companies - built to scale as you grow.",
+    title: 'MID-MARKET ENTERPRISES',
+    description:
+      'CIOs and IT Managers at growing companies get custom IT infrastructure and technology solutions built for where the business is headed next, not where it was.'
   },
   {
+    id: 5,
     icon: <FaBuilding />,
-    title: "PROCESS INDUSTRIES",
-    description: "Automation and ERP solutions for chemical, pharmaceutical and FMCG manufacturers - streamlining operations from batch to finished product.",
+    title: 'PROCESS INDUSTRIES',
+    description:
+      'Chemical, pharmaceutical, and FMCG manufacturers get automation and ERP solutions built around the compliance and process demands of your industry.'
   },
   {
+    id: 6,
     icon: <FaChartLine />,
-    title: "GROWING SMES",
-    description: "Scalable IT services for SMEs with 50-500 employees looking to modernize their technology stack - without disrupting what already works.",
+    title: 'GROWING SMES',
+    description:
+      'If you’re an SME with 50–500 employees ready to modernize your technology stack, you get IT services built to scale with you, not IT services you’ll outgrow in a year.'
   }
 ];
 
-function Industries() {
+export default function Industries() {
   return (
     <section className="industries section-space">
       <div className="container">
         <div className="industries-header">
           <span className="section-tag">WHO WE SERVE</span>
-          <h2 className="section-title">Built for the Industries You Operate In</h2>
+          <h2 className="section-title">Who We Build For</h2>
           <p className="section-description">
-            We bring deep domain expertise to CIOs, CTOs, IT Managers, Plant Heads and Operations Leaders at 
-            mid-market manufacturing companies - because we understand your challenges, your systems and your goals.
+            Whether you’re a CIO, CTO, IT Manager, Plant Head, or Operations Head at a mid-market manufacturing company — somewhere between 50 and 2,500 employees, ₹50–2,000 Cr in turnover — we’ve already solved the problems you’re facing.
           </p>
         </div>
 
-        <div className="industries-scroll">
-          {industriesData.map((item, index) => (
-            <div className="industry-card" key={index}>
-              <div className="card-light" />
-              <div className="industry-icon">{item.icon}</div>
-              <h3 className="card-title">{item.title}</h3>
-              <p className="card-text">{item.description}</p>
-            </div>
-          ))}
+        <div className="carousel-wrapper">
+          <Carousel
+            items={industriesData}
+            autoplay={true}
+            autoplayDelay={3500}
+            pauseOnHover={true}
+            loop={true}
+          />
         </div>
       </div>
     </section>
   );
 }
-
-export default Industries;

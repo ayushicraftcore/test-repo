@@ -122,7 +122,8 @@ function Hero() {
             {/* Stat Callout */}
             <div className="hero-float-card hero-card-three">
               <h4>24/7</h4>
-              <p>Managed IT Support - Whenever You Need Us</p>
+              <p>Managed IT Support
+                Whenever You Need Us</p>
             </div>
           </div>
         </div>

@@ -1,5 +1,10 @@
 import "./About.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { 
+  FaLaptopCode, 
+  FaCogs, 
+  FaChartLine 
+} from "react-icons/fa";
 
 // Import your custom platform section sheets
 import Process from "../components/Process"; 
@@ -7,21 +12,44 @@ import Model from "../components/Models";
 import Industries from "../components/Industries";
 import Stats from "../components/Stats";
 
-const whyChooseText = "We're a founder-led team that actually understands manufacturing - not just software. We build custom platforms, implement AI automation and modernize your entire technology stack with solutions designed for the way your business actually runs. From shop floor operations to supply chain management, we solve real manufacturing challenges. Our end-to-end approach means seamless integration with your existing systems, while our recruitment and growth services help you build and scale your technology teams. We don't just deliver projects - we become your long-term technology partner, invested in your success.";
+// Cards data for the pinned scroll section
+const whyChooseCards = [
+  {
+    id: 1,
+    icon: <FaLaptopCode />,
+    title: "FOUNDER-LED EXPERTISE",
+    description: "You get founder-led IT solutions backed by real manufacturing domain expertise — not a generic dev shop that's never set foot on a shop floor.",
+    baseRotation: -3
+  },
+  {
+    id: 2,
+    icon: <FaCogs />,
+    title: "CUSTOM SOFTWARE & AI",
+    description: "We build custom software, implement AI automation, and modernize infrastructure to solve the operational bottlenecks slowing down your shop floor and supply chain.",
+    baseRotation: 0.5
+  },
+  {
+    id: 3,
+    icon: <FaChartLine />,
+    title: "END-TO-END PARTNERSHIP",
+    description: "From seamless integration with existing systems to tech recruitment and growth services, we don't just deliver and disappear — we partner with you for the long haul.",
+    baseRotation: 4
+  }
+];
 
 // Video carousel data
 const carouselVideos = [
   {
     id: 1,
     title: "Real-Time Analytics",
-    description: "Powerful real-time dashboards and analytics that turn raw data into insights you can actually use - helping you make smarter decisions, faster.",
+    description: "Real-time dashboards that turn your raw data into insights you can actually act on, the moment you need them…",
     videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785134919/SAAS_ynbbzq.mp4",
     poster: "/images/video-poster-1.jpg"
   },
   {
     id: 2,
     title: "Code & Innovation",
-    description: "Clean, scalable code architecture that powers enterprise-grade applications - built to last, not just to launch.",
+    description: "Your applications run on clean, scalable code architecture built to enterprise standards — maintainable today, and still maintainable three years from now.",
     videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785135048/Coding_tguouv.mp4",
     poster: "/images/video-poster-2.jpg"
   },
@@ -38,34 +66,29 @@ function About() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const sectionRef = useRef(null);
+
+  const pinnedSectionRef = useRef(null);
   const videoRef = useRef(null);
   const autoPlayInterval = useRef(null);
   const videoTimeout = useRef(null);
-  
-  const words = whyChooseText.split(" ");
 
   // Video carousel controls
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % carouselVideos.length);
-  };
+  }, []);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + carouselVideos.length) % carouselVideos.length);
-  };
+  }, []);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
 
-  // Auto-play carousel
+  // Video carousel autoplay
   useEffect(() => {
-    if (autoPlayInterval.current) {
-      clearInterval(autoPlayInterval.current);
-    }
-    if (videoTimeout.current) {
-      clearTimeout(videoTimeout.current);
-    }
+    if (autoPlayInterval.current) clearInterval(autoPlayInterval.current);
+    if (videoTimeout.current) clearTimeout(videoTimeout.current);
 
     if (!isVideoPlaying) {
       autoPlayInterval.current = setInterval(() => {
@@ -74,27 +97,17 @@ function About() {
     }
 
     return () => {
-      if (autoPlayInterval.current) {
-        clearInterval(autoPlayInterval.current);
-      }
-      if (videoTimeout.current) {
-        clearTimeout(videoTimeout.current);
-      }
+      if (autoPlayInterval.current) clearInterval(autoPlayInterval.current);
+      if (videoTimeout.current) clearTimeout(videoTimeout.current);
     };
-  }, [isVideoPlaying, currentSlide]);
+  }, [isVideoPlaying, nextSlide]);
 
-  // Handle video play state
+  // Video play / pause listeners
   useEffect(() => {
     if (videoRef.current) {
       const video = videoRef.current;
       
-      const handlePlay = () => {
-        setIsVideoPlaying(true);
-        if (autoPlayInterval.current) {
-          clearInterval(autoPlayInterval.current);
-        }
-      };
-
+      const handlePlay = () => setIsVideoPlaying(true);
       const handlePause = () => {
         setIsVideoPlaying(false);
         if (!videoTimeout.current) {
@@ -106,19 +119,9 @@ function About() {
         }
       };
 
-      const handleEnded = () => {
-        setIsVideoPlaying(false);
-        if (!videoTimeout.current) {
-          videoTimeout.current = setTimeout(() => {
-            nextSlide();
-            videoTimeout.current = null;
-          }, 2000);
-        }
-      };
-
       video.addEventListener('play', handlePlay);
       video.addEventListener('pause', handlePause);
-      video.addEventListener('ended', handleEnded);
+      video.addEventListener('ended', handlePause);
 
       video.play().catch(() => {
         setIsVideoPlaying(false);
@@ -127,41 +130,22 @@ function About() {
       return () => {
         video.removeEventListener('play', handlePlay);
         video.removeEventListener('pause', handlePause);
-        video.removeEventListener('ended', handleEnded);
+        video.removeEventListener('ended', handlePause);
       };
     }
-  }, [currentSlide]);
+  }, [currentSlide, nextSlide]);
 
-  // Clean up on unmount
-  useEffect(() => {
-    return () => {
-      if (autoPlayInterval.current) {
-        clearInterval(autoPlayInterval.current);
-      }
-      if (videoTimeout.current) {
-        clearTimeout(videoTimeout.current);
-      }
-    };
-  }, []);
-
-  // Scroll progress for text reveal
+  // Pinned scroll calculation
   useEffect(() => {
     const handleScroll = () => {
-      if (!sectionRef.current) return;
-      if (window.innerWidth <= 768) return;
+      if (!pinnedSectionRef.current) return;
+      const rect = pinnedSectionRef.current.getBoundingClientRect();
+      const totalScrollableDist = rect.height - window.innerHeight;
 
-      const rect = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
+      if (totalScrollableDist <= 0) return;
 
-      const triggerStart = windowHeight * 0.85; 
-      const triggerEnd = windowHeight * 0.25;   
-
-      const totalActiveRange = triggerStart - triggerEnd;
-      const currentElementPos = triggerStart - rect.top;
-
-      let progress = currentElementPos / (totalActiveRange + rect.height * 0.4);
-      progress = Math.max(0, Math.min(1, progress));
-      setScrollProgress(progress);
+      const progress = -rect.top / totalScrollableDist;
+      setScrollProgress(Math.max(0, Math.min(1, progress)));
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -178,16 +162,30 @@ function About() {
     <div className="about-page">
       <div className="container">
         
-        {/* HERO SECTION WITH VIDEO CAROUSEL */}
+        {/* 1. HERO SECTION WITH VIDEO CAROUSEL */}
         <header className="about-hero">
           <span className="section-tag">WHO WE ARE</span>
           <h1 className="about-hero-title">
-            Technology built for the way <br />
-            <span className="gradient-text">your business actually works.</span>
+            Your Digital Foundation, <br />
+            <span className="gradient-text">Engineered to Perform at Global Scale.</span>
           </h1>
           
-          {/* VIDEO CAROUSEL */}
+          {/* VIDEO CAROUSEL WRAPPER */}
           <div className="video-carousel-wrapper">
+            
+            {/* Left Nav Arrow */}
+            <button 
+              type="button"
+              className="carousel-arrow carousel-arrow-prev" 
+              onClick={prevSlide} 
+              aria-label="Previous slide"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            {/* Main Video Viewport */}
             <div className="video-carousel-container">
               <div 
                 className="video-carousel-track"
@@ -221,20 +219,24 @@ function About() {
               </div>
             </div>
 
-            {/* Carousel Controls */}
-            <div className="carousel-controls">
-              <button 
-                className="carousel-arrow carousel-arrow-prev"
-                onClick={prevSlide}
-                aria-label="Previous slide"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </button>
+            {/* Right Nav Arrow */}
+            <button 
+              type="button"
+              className="carousel-arrow carousel-arrow-next" 
+              onClick={nextSlide} 
+              aria-label="Next slide"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+
+            {/* Centered Dots Indicator */}
+            <div className="carousel-dots-container">
               <div className="carousel-dots">
                 {carouselVideos.map((_, index) => (
                   <button
+                    type="button"
                     key={index}
                     className={`carousel-dot ${index === currentSlide ? 'active' : ''}`}
                     onClick={() => goToSlide(index)}
@@ -242,88 +244,92 @@ function About() {
                   />
                 ))}
               </div>
-              <button 
-                className="carousel-arrow carousel-arrow-next"
-                onClick={nextSlide}
-                aria-label="Next slide"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
             </div>
+
           </div>
 
+          {/* 2. COMPANY DESCRIPTION */}
           <p className="section-description about-hero-desc">
-            We're a full-stack technology company delivering custom software, intelligent automation, 
-            and enterprise systems to manufacturing, textile and supply chain businesses. We don't 
-            just build software - we understand your industry, your challenges and your goals.
+            If you run a manufacturing, textile, or supply chain business, we build the custom software, 
+            intelligent automation, and enterprise systems that keep it moving. We don’t just build software 
+            for your sector — we understand it.
           </p>
         </header>
 
-        {/* VISION & MISSION */}
+        {/* 3. VISION & MISSION */}
         <section className="about-statement-section">
           <div className="statement-split-grid">
             <div className="statement-premium-card card-hover">
               <div className="statement-meta">
                 <span className="statement-index">01</span>
-                <span className="statement-label">OUR NORTH STAR</span>
+                <span className="statement-label">THE FUTURE ARCHITECTURE</span>
               </div>
               <h2 className="statement-card-title">Our Vision</h2>
               <p className="card-text statement-card-body">
-                To become the trusted technology partner for businesses worldwide - helping them grow through innovative software, AI-powered solutions and digital transformation that actually delivers results.
+                We want to be the technology partner you trust for the long run — the one helping your business grow through smart software development, AI-powered solutions, and digital transformation that actually scales.
               </p>
             </div>
 
             <div className="statement-premium-card card-hover">
               <div className="statement-meta">
                 <span className="statement-index">02</span>
-                <span className="statement-label">OUR EVERYDAY</span>
+                <span className="statement-label">THE EXECUTION ENGINE</span>
               </div>
               <h2 className="statement-card-title">Our Mission</h2>
               <p className="card-text statement-card-body">
-                To build reliable, high-performance software, SaaS platforms, mobile applications and AI solutions that help businesses innovate faster, improve efficiency and achieve sustainable growth.
+                We build reliable, high-performance software, SaaS platforms, mobile apps, and AI solutions so you can innovate faster, run leaner, and grow sustainably.
               </p>
             </div>
           </div>
         </section>
 
-        {/* TEXT REVEAL */}
-        <section ref={sectionRef} className="about-why-choose-section">
-          <span className="section-tag">WHY CHOOSE US</span>
-          <div className="cred-text-viewport">
-            <p className="cred-paragraph-container">
-              {words.map((word, idx) => {
-                const wordWeight = 1 / words.length;
-                const wordStartThreshold = idx * wordWeight;
-                
-                let wordOpacity = (scrollProgress - wordStartThreshold) / wordWeight;
-                wordOpacity = Math.max(0, Math.min(1, wordOpacity));
-
-                return (
-                  <span 
-                    key={idx} 
-                    className="cred-scroll-word"
-                    style={{
-                      color: `rgba(17, 17, 24, ${0.18 + wordOpacity * 0.82})`,
-                      transform: `translateY(${5 - (wordOpacity * 5)}px)`
-                    }}
-                  >
-                    {word}
-                  </span>
-                );
-              })}
-            </p>
-          </div>
-        </section>
-
       </div>
 
+      {/* PINNED SCROLL: RISING CARDS */}
+      <section ref={pinnedSectionRef} className="pinned-scroll-container">
+        <div className="sticky-stage">
+          
+          <div className="bg-title-wrap">
+            <h2 className="bg-big-title">
+              WHY<br />CHOOSE<br />CRAFTCORE
+            </h2>
+          </div>
+
+          <div className="cards-track">
+            {whyChooseCards.map((card, idx) => {
+              const start = idx * 0.28;
+              const end = start + 0.4;
+              const cardProgress = Math.max(0, Math.min(1, (scrollProgress - start) / (end - start)));
+
+              const translateY = (1 - cardProgress) * 120;
+              const opacity = cardProgress < 0.1 ? cardProgress * 10 : 1;
+              const rotate = card.baseRotation * cardProgress;
+
+              return (
+                <div 
+                  key={card.id} 
+                  className="playing-card"
+                  style={{
+                    transform: `translateY(${translateY}vh) rotate(${rotate}deg)`,
+                    opacity: opacity
+                  }}
+                >
+                  <div className="playing-card-icon">{card.icon}</div>
+                  <h3 className="playing-card-title">{card.title}</h3>
+                  <p className="playing-card-desc">{card.description}</p>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
+
       {/* OTHER COMPONENTS */}
-      <Stats />
-      <Process />
-      <Industries />
-      <Model />
+        <Stats />
+        <Process />
+        <Industries />
+        <Model />
     </div>
   );
 }
