@@ -18,21 +18,21 @@ const whyChooseCards = [
     id: 1,
     icon: <FaLaptopCode />,
     title: "FOUNDER-LED EXPERTISE",
-    description: "You get founder-led IT solutions backed by real manufacturing domain expertise — not a generic dev shop that's never set foot on a shop floor.",
+    description: "You get founder-led IT solutions backed by real manufacturing domain expertise - not a generic dev shop that's never set foot on a shop floor.",
     baseRotation: -3
   },
   {
     id: 2,
     icon: <FaCogs />,
     title: "CUSTOM SOFTWARE & AI",
-    description: "We build custom software, implement AI automation, and modernize infrastructure to solve the operational bottlenecks slowing down your shop floor and supply chain.",
+    description: "We build custom software, implement AI automation and modernize infrastructure to solve the operational bottlenecks slowing down your shop floor and supply chain.",
     baseRotation: 0.5
   },
   {
     id: 3,
     icon: <FaChartLine />,
     title: "END-TO-END PARTNERSHIP",
-    description: "From seamless integration with existing systems to tech recruitment and growth services, we don't just deliver and disappear — we partner with you for the long haul.",
+    description: "From seamless integration with existing systems to tech recruitment and growth services, we don't just deliver and disappear - we partner with you for the long haul.",
     baseRotation: 4
   }
 ];
@@ -49,7 +49,7 @@ const carouselVideos = [
   {
     id: 2,
     title: "Code & Innovation",
-    description: "Your applications run on clean, scalable code architecture built to enterprise standards — maintainable today, and still maintainable three years from now.",
+    description: "Your applications run on clean, scalable code architecture built to enterprise standards - maintainable today and still maintainable three years from now.",
     videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785135048/Coding_tguouv.mp4",
     poster: "/images/video-poster-2.jpg"
   },
@@ -256,9 +256,9 @@ function About() {
 
           {/* 2. COMPANY DESCRIPTION */}
           <p className="section-description about-hero-desc">
-            If you run a manufacturing, textile, or supply chain business, we build the custom software, 
-            intelligent automation, and enterprise systems that keep it moving. We don’t just build software 
-            for your sector — we understand it.
+            If you run a manufacturing, textile or supply chain business, we build the custom software, 
+            intelligent automation and enterprise systems that keep it moving. We don’t just build software 
+            for your sector - we understand it.
           </p>
         </header>
 
@@ -272,7 +272,7 @@ function About() {
               </div>
               <h2 className="statement-card-title">Our Vision</h2>
               <p className="card-text statement-card-body">
-                We want to be the technology partner you trust for the long run — the one helping your business grow through smart software development, AI-powered solutions, and digital transformation that actually scales.
+                We want to be the technology partner you trust for the long run - the one helping your business grow through smart software development, AI-powered solutions and digital transformation that actually scales.
               </p>
             </div>
 
@@ -283,7 +283,7 @@ function About() {
               </div>
               <h2 className="statement-card-title">Our Mission</h2>
               <p className="card-text statement-card-body">
-                We build reliable, high-performance software, SaaS platforms, mobile apps, and AI solutions so you can innovate faster, run leaner, and grow sustainably.
+                We build reliable, high-performance software, SaaS platforms, mobile apps and AI solutions so you can innovate faster, run leaner and grow sustainably.
               </p>
             </div>
           </div>

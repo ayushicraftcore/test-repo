@@ -18,7 +18,7 @@ function CarouselItem({ item, index, itemWidth, trackItemOffset, x, transition, 
     centerTarget + trackItemOffset
   ];
 
-  // Middle card is crisp, scaled, and opaque; side cards blur and fade
+  // Middle card is crisp, scaled and opaque; side cards blur and fade
   const scale = useTransform(x, range, [0.92, 1.02, 0.92], { clamp: false });
   const opacity = useTransform(x, range, [0.45, 1, 0.45], { clamp: false });
   const filter = useTransform(

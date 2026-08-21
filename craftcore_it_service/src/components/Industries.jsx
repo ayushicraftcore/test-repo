@@ -43,7 +43,7 @@ const industriesData = [
     icon: <FaBuilding />,
     title: 'PROCESS INDUSTRIES',
     description:
-      'Chemical, pharmaceutical, and FMCG manufacturers get automation and ERP solutions built around the compliance and process demands of your industry.'
+      'Chemical, pharmaceutical and FMCG manufacturers get automation and ERP solutions built around the compliance and process demands of your industry.'
   },
   {
     id: 6,
@@ -62,7 +62,7 @@ export default function Industries() {
           <span className="section-tag">WHO WE SERVE</span>
           <h2 className="section-title">Who We Build For</h2>
           <p className="section-description">
-            Whether you’re a CIO, CTO, IT Manager, Plant Head, or Operations Head at a mid-market manufacturing company — somewhere between 50 and 2,500 employees, ₹50–2,000 Cr in turnover — we’ve already solved the problems you’re facing.
+            Whether you’re a CIO, CTO, IT Manager, Plant Head or Operations Head at a mid-market manufacturing company - somewhere between 50 and 2,500 employees, ₹50–2,000 Cr in turnover - we’ve already solved the problems you’re facing.
           </p>
         </div>
 

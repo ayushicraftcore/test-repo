@@ -31,7 +31,7 @@ const modelsData = [
     headlineAccent: "DELIVER",
     headlineBottom: "FIXED SCOPES.",
     tagLabel: "GUARANTEED OUTCOMES",
-    bestFor: "You have a fixed-scope IT project - ERP implementation, cloud migration, or custom software development.",
+    bestFor: "You have a fixed-scope IT project - ERP implementation, cloud migration or custom software development.",
     billing: "Milestone-Based Payments",
     recommended: true,
     image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80",
