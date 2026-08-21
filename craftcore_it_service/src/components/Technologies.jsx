@@ -84,7 +84,6 @@ const technologiesData = [
   {
     title: "AI / ML",
     items: [
-      { icon: <SiSap /> },
       { icon: <SiTensorflow /> },
       { icon: <SiPytorch /> },
       { icon: <SiHuggingface /> },
