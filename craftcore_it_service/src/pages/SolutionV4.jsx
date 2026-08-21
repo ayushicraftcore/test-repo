@@ -339,52 +339,14 @@ function SolutionV6() {
   const [activeFeatIdx, setActiveFeatIdx] = useState(0);
   const [activeImgIdx, setActiveImgIdx] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [isUserInteracting, setIsUserInteracting] = useState(false);
   const projectRefs = useRef([]);
   const cardsRef = useRef({});
-  const userInteractionTimeout = useRef(null);
 
   const currentProject = projects[activeProjIdx];
   const currentFeature = currentProject.features[activeFeatIdx];
   const totalImages = currentFeature?.images?.length || 0;
 
-  // Auto-play carousel - only when user is NOT interacting
-  useEffect(() => {
-    if (totalImages <= 1 || isUserInteracting) return;
-    
-    const interval = setInterval(() => {
-      const nextIndex = (activeImgIdx + 1) % totalImages;
-      setActiveImgIdx(nextIndex);
-      
-      // Auto-advance to next feature when all images are viewed
-      if (nextIndex === 0) {
-        const isLastFeature = activeFeatIdx === currentProject.features.length - 1;
-        if (isLastFeature) {
-          const nextProject = (activeProjIdx + 1) % projects.length;
-          setTimeout(() => {
-            setActiveProjIdx(nextProject);
-            setActiveFeatIdx(0);
-            setActiveImgIdx(0);
-            if (projectRefs.current[nextProject]) {
-              projectRefs.current[nextProject].scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-              });
-            }
-          }, 2000);
-        } else {
-          setTimeout(() => {
-            setActiveFeatIdx(activeFeatIdx + 1);
-            setActiveImgIdx(0);
-          }, 2000);
-        }
-      }
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [totalImages, activeImgIdx, activeFeatIdx, activeProjIdx, currentProject.features.length, isUserInteracting]);
-
-  // Scroll tracking - only updates when user is NOT interacting
+  // Scroll tracking - update based on scroll position
   useEffect(() => {
     let ticking = false;
     let lastActiveProject = activeProjIdx;
@@ -424,18 +386,16 @@ function SolutionV6() {
         }
       });
 
-      // Only update if user is not interacting and values changed
-      if (!isUserInteracting) {
-        if (closestProjectIndex !== lastActiveProject) {
-          lastActiveProject = closestProjectIndex;
-          setActiveProjIdx(closestProjectIndex);
-          setActiveFeatIdx(0);
-          setActiveImgIdx(0);
-        } else if (closestFeatureIndex !== lastActiveFeature) {
-          lastActiveFeature = closestFeatureIndex;
-          setActiveFeatIdx(closestFeatureIndex);
-          setActiveImgIdx(0);
-        }
+      // Update if values changed
+      if (closestProjectIndex !== lastActiveProject) {
+        lastActiveProject = closestProjectIndex;
+        setActiveProjIdx(closestProjectIndex);
+        setActiveFeatIdx(0);
+        setActiveImgIdx(0);
+      } else if (closestFeatureIndex !== lastActiveFeature) {
+        lastActiveFeature = closestFeatureIndex;
+        setActiveFeatIdx(closestFeatureIndex);
+        setActiveImgIdx(0);
       }
       
       ticking = false;
@@ -456,42 +416,19 @@ function SolutionV6() {
     handleScrollTracking();
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isUserInteracting]);
-
-  // Reset user interaction after 5 seconds of inactivity
-  useEffect(() => {
-    if (userInteractionTimeout.current) {
-      clearTimeout(userInteractionTimeout.current);
-    }
-    
-    if (isUserInteracting) {
-      userInteractionTimeout.current = setTimeout(() => {
-        setIsUserInteracting(false);
-      }, 5000);
-    }
-
-    return () => {
-      if (userInteractionTimeout.current) {
-        clearTimeout(userInteractionTimeout.current);
-      }
-    };
-  }, [isUserInteracting]);
+  }, []);
 
   const nextImg = (e) => {
     e?.stopPropagation();
-    setIsUserInteracting(true);
     setActiveImgIdx((prev) => (prev + 1) % totalImages);
   };
 
   const prevImg = (e) => {
     e?.stopPropagation();
-    setIsUserInteracting(true);
     setActiveImgIdx((prev) => (prev - 1 + totalImages) % totalImages);
   };
 
   const handleFeatureClick = (projectIndex, fIdx) => {
-    setIsUserInteracting(true);
-    
     // If clicking on a different project, reset to first image
     if (projectIndex !== activeProjIdx) {
       setActiveProjIdx(projectIndex);
@@ -505,7 +442,6 @@ function SolutionV6() {
   };
 
   const handleThumbnailClick = (idx) => {
-    setIsUserInteracting(true);
     setActiveImgIdx(idx);
   };
 

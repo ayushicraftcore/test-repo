@@ -289,61 +289,81 @@
 }
 
 /* =======================================================
-   RESPONSIVE (DESKTOP TO MOBILE BREAKPOINTS)
+   TABLET & IPAD FIXES (iPad Air 820px, iPad Pro 1024px)
 ======================================================= */
-@media (max-width: 1100px) {
-  .models-grid-stage {
-    grid-template-columns: 1fr 0.9fr 1.2fr;
-    gap: 32px;
-  }
-  .models-stacked-deck {
-    width: 260px;
-    height: 380px;
-  }
-}
 
-@media (max-width: 900px) {
-  .models-grid-stage {
-    grid-template-columns: 1fr 1.2fr;
-    gap: 28px;
-  }
-  .models-left-col {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
+/* Target iPad Pro & standard tablet landscape */
+@media (max-width: 1180px) {
   .models-pinned-container {
-    height: auto !important; /* Release pinned scroll on mobile */
-    margin: 30px 0;
-    padding: 0;
+    height: 220vh; /* Reduced from 300vh for tighter scroll on tablets */
+  }
+
+  .models-sticky-viewport {
+    padding: 30px 24px 20px;
+    justify-content: center;
+  }
+
+  /* Bring header closer to grid */
+  .models-header-tag-wrap {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-bottom: 20px;
+  }
+
+  .models-grid-stage {
+    width: 96%;
+    grid-template-columns: 1fr 0.85fr 1.15fr;
+    gap: 24px;
+  }
+
+  .models-stacked-deck {
+    width: 240px;
+    height: 350px;
+  }
+
+  .models-title-heavy {
+    font-size: 2.2rem;
+  }
+}
+
+/* Target iPad Air & iPad Pro Portrait (769px - 992px) */
+@media (max-width: 992px) {
+  .models-pinned-container {
+    height: auto !important; /* Release sticky scroll to remove dead space */
+    margin: 20px 0;
   }
 
   .models-sticky-viewport {
     position: static !important;
     height: auto !important;
-    padding: 20px 16px;
+    min-height: unset;
+    padding: 30px 24px;
     overflow: visible;
   }
 
   .models-header-tag-wrap {
     position: static;
     transform: none;
-    margin-bottom: 24px;
-    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
   }
 
   .models-grid-stage {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack vertically for clean tablet reading */
     gap: 28px;
     width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
-  /* Left column on top */
+  /* Left column styling */
   .models-left-col {
-    display: flex;
-    text-align: center;
+    display: flex !important;
     align-items: center;
+    text-align: center;
     width: 100%;
   }
 
@@ -352,68 +372,62 @@
   }
 
   .models-title-heavy {
-    font-size: 26px;
+    font-size: 2rem;
     margin-bottom: 12px;
   }
 
   .models-description {
-    font-size: 14px;
     max-width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
-  /* Center photo deck adjustments */
+  /* Center card deck */
   .models-center-col {
     width: 100%;
-    margin: 8px 0 16px;
+    margin: 4px 0 12px;
   }
 
   .models-stacked-deck {
     width: 260px;
-    height: 340px;
+    height: 360px;
     margin: 0 auto;
   }
 
-  /* Right column rows */
+  /* Right column */
   .models-right-col {
     width: 100%;
-    margin: 0;
-    gap: 16px;
+    gap: 14px;
   }
 
   .model-row-item {
     background: #ffffff;
     border: 1px solid var(--ccg-divider);
-    border-radius: 18px;
+    border-radius: 16px;
     padding: 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
-  }
-
-  .model-row-item.inactive {
-    opacity: 0.65;
-    transform: none;
   }
 
   .model-row-item.active {
     border-color: var(--ccg-purple);
-    transform: none;
-  }
-
-  .model-row-header {
-    justify-content: space-between;
-    margin-bottom: 0;
-  }
-
-  .model-row-title {
-    font-size: 15px;
-  }
-
-  .model-row-expand {
-    margin-top: 14px;
   }
 
   .model-item-separator {
-    display: none; /* Replaced by card border */
+    display: none;
+  }
+}
+
+/* Mobile Adjustments (Phones) */
+@media (max-width: 600px) {
+  .models-sticky-viewport {
+    padding: 20px 16px;
+  }
+
+  .models-title-heavy {
+    font-size: 1.65rem;
+  }
+
+  .models-stacked-deck {
+    width: 220px;
+    height: 310px;
   }
 
   .primary-btn.model-btn-flex {

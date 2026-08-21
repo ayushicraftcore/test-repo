@@ -38,7 +38,7 @@
 }
 
 /* =======================================================
-   PROCESS CARD
+   PROCESS CARD (LAPTOP / DESKTOP ORIGINAL)
 ======================================================= */
 .process-card {
   position: relative;
@@ -106,7 +106,7 @@
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
   top: 0;
   left: 0;
-  width: 100%; /* FIXED: Stretches full-width so children can hit the absolute right edge */
+  width: 100%;
   z-index: 2;
 }
 
@@ -122,7 +122,6 @@
 /* =======================================================
    CONTENT STYLING - ABSOLUTE RIGHT SIDE ANCHORING
 ======================================================= */
-/* FIXED: Hits the absolute right boundary of the padded card chassis container */
 .process-bg-right-icon {
   position: absolute;
   right: 0; 
@@ -163,7 +162,6 @@
   backdrop-filter: blur(10px);
 }
 
-/* FIXED: Moved the width protections here to safely secure typography boundaries */
 .process-card-content h3 {
   font-size: 55px;
   line-height: 1;
@@ -250,111 +248,147 @@
 }
 
 /* =======================================================
-   TABLET LAYOUT (MD)
+   TABLET RESPONSIVENESS (Surface Pro 7, iPad Air, iPad Pro)
 ======================================================= */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .process-main-wrapper {
-    height: 300vh; 
+    height: 300vh;
   }
-  
+
   .process-card {
     min-height: auto;
-    height: 70vh;
-    padding: 40px 30px;
+    height: auto;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 36px 32px 28px;
+    justify-content: flex-start;
+    border-radius: 28px;
   }
-  
+
   .process-content-slider {
-    min-height: 200px;
+    min-height: 250px;
+    flex: unset;
   }
 
   .process-bg-right-icon {
     right: 0;
-    top: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.4;
   }
 
   .process-bg-right-icon svg {
-    width: 170px;
-    height: 170px;
-  }
-  
-  .process-card-content h3 {
-    font-size: 48px;
-    max-width: 440px;
-  }
-  
-  .process-card-content p {
-    font-size: 16px;
-    line-height: 1.7;
-    max-width: 440px;
-  }
-}
-
-/* =======================================================
-   MOBILE SMARTPHONES (SM)
-======================================================= */
-@media (max-width: 768px) {
-  .process-main-wrapper {
-    height: 260vh; 
-  }
-  
-  .process-card {
-    width: 100%;
-    height: auto;
-    min-height: 440px; 
-    max-height: 65dvh; 
-    border-radius: 24px;
-    padding: 24px 20px;
-  }
-  
-  .process-content-slider {
-    min-height: 160px; 
-    flex: 1;
-  }
-
-  /* Safe toggle parameters protect typography overlaps on smartphone nodes */
-  .process-bg-right-icon {
-    display: none !important;
+    width: 160px;
+    height: 160px;
   }
 
   .process-header-row {
     margin-bottom: 16px;
   }
 
-  .process-card-content.prev { transform: translateX(-15px); }
-  .process-card-content.next { transform: translateX(15px); }
+  .process-badge {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .process-card-content h3 {
+    font-size: clamp(2rem, 3.8vw, 2.6rem);
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+    max-width: 100%;
+  }
+
+  .process-card-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .process-progress-wrapper {
+    margin-top: 24px;
+  }
+
+  .progress-circle {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    font-size: 14px;
+  }
+
+  .progress-line {
+    margin: 0 8px;
+  }
+}
+
+/* =======================================================
+   MOBILE SMARTPHONES (Under 768px)
+======================================================= */
+@media (max-width: 768px) {
+  .process-main-wrapper {
+    height: 280vh; 
+  }
+
+  .process-sticky-wrapper {
+    padding: 16px;
+  }
+
+  .process-card {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    height: auto;
+    border-radius: 22px;
+    padding: 24px 20px 20px;
+    justify-content: flex-start;
+  }
+
+  .process-content-slider {
+    min-height: 280px; 
+    flex: unset;
+  }
+
+  .process-bg-right-icon {
+    display: none !important;
+  }
+
+  .process-header-row {
+    margin-bottom: 12px;
+  }
 
   .process-badge {
     font-size: 11px;
-    padding: 6px 14px;
+    padding: 4px 12px;
   }
-  
+
+  .process-card-content.prev { transform: translateX(-15px); }
+  .process-card-content.next { transform: translateX(15px); }
+
   .process-card-content h3 {
-    font-size: 28px;
+    font-size: 24px;
     letter-spacing: -0.5px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     max-width: 100%;
   }
-  
+
   .process-card-content p {
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 13.5px;
+    line-height: 1.55;
     max-width: 100%;
   }
-  
+
   .process-progress-wrapper {
     margin-top: 20px;
-    padding-bottom: 0;
   }
-  
+
   .progress-circle {
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-    font-size: 13px;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    font-size: 12px;
   }
-  
+
   .progress-line {
-    margin: 0 6px;
+    margin: 0 4px;
     height: 2px;
   }
 }
