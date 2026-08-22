@@ -18,7 +18,7 @@ const project1Features = [
     icon: <FiTarget />,
     label: "Goal Tracking",
     title: "Project Goal & OKR Management",
-    description: "Define, track, and manage project goals and OKRs across all projects. Monitor progress in real-time, automate status updates, and track milestone achievements for successful project delivery.",
+    description: "Define, track and manage project goals and OKRs across all projects. Monitor progress in real-time, automate status updates and track milestone achievements for successful project delivery.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135243/craftcore1_rmag3p.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135282/Project_Report_pc0kp0.avif",
@@ -33,7 +33,7 @@ const project1Features = [
     icon: <FiTrendingUp />,
     label: "Recruitment Analytics",
     title: "Recruitment Performance Dashboard",
-    description: "Track recruitment metrics including candidate pipelines, time-to-hire, source effectiveness, and hiring success rates with interactive dashboards and real-time analytics.",
+    description: "Track recruitment metrics including candidate pipelines, time-to-hire, source effectiveness and hiring success rates with interactive dashboards and real-time analytics.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135420/Recruitment_Dashboard_i0tbfq.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135419/Job_Postings_mujs4r.avif",
@@ -50,7 +50,7 @@ const project1Features = [
     icon: <FiUsers />,
     label: "CRM Management",
     title: "Customer Relationship Management",
-    description: "Manage leads, track deals, and nurture customer relationships with a comprehensive CRM system. Visualize sales pipelines, monitor lead activities, and generate detailed reports for better customer insights.",
+    description: "Manage leads, track deals and nurture customer relationships with a comprehensive CRM system. Visualize sales pipelines, monitor lead activities and generate detailed reports for better customer insights.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135601/CRM_Dashboard_rp2q0g.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135603/Deals_Kanban_wg7z5o.avif",
@@ -72,7 +72,7 @@ const project2Features = [
     icon: <FiDollarSign />,
     label: "Admin Dashboard",
     title: "Collection Admin Dashboard",
-    description: "Comprehensive admin dashboard for collection management with real-time tracking of outstanding payments, recovery analytics, bank reconciliation, defaulter monitoring, and team performance metrics.",
+    description: "Comprehensive admin dashboard for collection management with real-time tracking of outstanding payments, recovery analytics, bank reconciliation, defaulter monitoring and team performance metrics.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Dashboard_bnod2n.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136407/Dashboard_Dark_irjhzo.avif",
@@ -87,7 +87,7 @@ const project2Features = [
     icon: <FiUsers />,
     label: "Agent Dashboard",
     title: "Collection Agent Dashboard",
-    description: "Agent-focused dashboard for daily task management, call logging, customer follow-ups, and notification tracking. Streamline collection activities with real-time task assignments and performance monitoring.",
+    description: "Agent-focused dashboard for daily task management, call logging, customer follow-ups and notification tracking. Streamline collection activities with real-time task assignments and performance monitoring.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136519/dashboard_riiznw.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136518/daily_task_mdovub.avif",
@@ -101,7 +101,7 @@ const project2Features = [
     icon: <FiSmartphone />,
     label: "Mobile App",
     title: "Collection Mobile Application",
-    description: "Mobile-first collection application for field agents with case management, daily task tracking, customer interaction logging, and real-time sync for on-the-go collection operations.",
+    description: "Mobile-first collection application for field agents with case management, daily task tracking, customer interaction logging and real-time sync for on-the-go collection operations.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136693/dashboard_pd5net.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136694/my_cases_hjakqe.avif",
@@ -118,7 +118,7 @@ const project3Features = [
     icon: <FiTrendingUp />,
     label: "Operations Dashboard",
     title: "Textile Operations Dashboard",
-    description: "Real-time operations dashboard for textile manufacturing with inventory monitoring, production tracking, job work management, financial insights, and WIP monitoring across the textile production lifecycle.",
+    description: "Real-time operations dashboard for textile manufacturing with inventory monitoring, production tracking, job work management, financial insights and WIP monitoring across the textile production lifecycle.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/Dashboar_h2yx68.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/DashboardMobileVie_lgzw9y.jpg",
@@ -131,7 +131,7 @@ const project3Features = [
     icon: <FiGrid />,
     label: "Master Management",
     title: "Textile Master Data Management",
-    description: "Centralized master data management for textile operations including customer management, employee records, product catalogs, vendor tracking, and warehouse management for streamlined textile production.",
+    description: "Centralized master data management for textile operations including customer management, employee records, product catalogs, vendor tracking and warehouse management for streamlined textile production.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137032/Custome_veckuh.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137034/Designatio_ny3jmc.jpg",
@@ -147,7 +147,7 @@ const project3Features = [
     icon: <FiClock />,
     label: "Operations Reports",
     title: "Textile Operations & Reports",
-    description: "Comprehensive textile operations reports including grey material procurement, inventory status, job work reports, mill process tracking, and financial payment monitoring for complete operational visibility.",
+    description: "Comprehensive textile operations reports including grey material procurement, inventory status, job work reports, mill process tracking and financial payment monitoring for complete operational visibility.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137138/Finances_Payment-1000kb_moeg18.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137141/Grey_Material_Procurement_Fully_Dilivered_Report-1000kb_c8n87t.jpg",
@@ -170,7 +170,7 @@ const projects = [
     subtitle: "Enterprise Resource Planning",
     tag: "PROJECT 01",
     icon: <FiGrid />,
-    description: "A comprehensive enterprise resource planning platform with integrated modules for goals management, recruitment analytics, CRM, and project management capabilities.",
+    description: "A comprehensive enterprise resource planning platform with integrated modules for goals management, recruitment analytics, CRM and project management capabilities.",
     features: project1Features,
     stats: ["Active Modules: 4", "Users: 256", "Integration: 12"],
     color: "#7C3AED",
@@ -182,7 +182,7 @@ const projects = [
     subtitle: "Debt Recovery Management",
     tag: "PROJECT 02",
     icon: <FiDollarSign />,
-    description: "A comprehensive collection CRM platform for managing debt recovery, agent workflows, and collection analytics. Streamline collection operations across admin, agent, and mobile interfaces.",
+    description: "A comprehensive collection CRM platform for managing debt recovery, agent workflows and collection analytics. Streamline collection operations across admin, agent and mobile interfaces.",
     features: project2Features,
     stats: ["Active Cases: 1.2K", "Recovery Rate: 78%", "Agents: 45"],
     color: "#059669",
@@ -194,7 +194,7 @@ const projects = [
     subtitle: "Textile Manufacturing Management",
     tag: "PROJECT 03",
     icon: <FiBriefcase />,
-    description: "A comprehensive textile ERP solution for managing master data, operations, and reporting across the textile manufacturing lifecycle. Streamline production, procurement, and inventory management.",
+    description: "A comprehensive textile ERP solution for managing master data, operations and reporting across the textile manufacturing lifecycle. Streamline production, procurement and inventory management.",
     features: project3Features,
     stats: ["Production: 2.8K", "Inventory: 15K", "Reports: 24"],
     color: "#2563EB",

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
 import { FaArrowRight, FaWhatsapp } from "react-icons/fa";
 
-const words = ["IT Supports", "AI & Automation", "Cloud Security", "Custom ERP", "SAAS Products"];
+const words = ["Manufacturing", "Business", "Operations", "Growth", "Success"];
 const text = "CRAFTCORE";
 
 function Hero() {
@@ -43,32 +43,39 @@ function Hero() {
       <div className="container">
         <div className="hero-wrapper">
           <div className="hero-content">
+            {/* Badge */}
             <div className="hero-badge">
               <span></span>
-              IT Infrastructure & Technology Partner
+              Your IT Infrastructure & Technology Partner
             </div>
 
+            {/* Eyebrow - CRAFTCORE typing animation */}
             <div className="hero-typing">
               {displayText}
               <span className="cursor">|</span>
             </div>
 
+            {/* Headline - Meaningful combination */}
             <h1 className="hero-title">
-              Enterprise IT Infrastructure & 
+              Enterprise IT That Works Around Your
               <div className="animated-word-wrapper">
                 <span key={wordIndex} className="animated-word">
                   {words[wordIndex]}
                 </span>
               </div>
-              Solutions for Manufacturing & SMEs
             </h1>
 
-            <p className="hero-description">
-              Enterprise IT solutions including custom software development, AI automation, 
-              cloud migration, cybersecurity, ERP integration and managed IT support for 
-              mid-market manufacturers and growing businesses.
+            {/* Sub-headline or supporting text */}
+            <p className="hero-subtitle">
+              Custom software, AI automation, cloud security and ERP integration - all built to keep your manufacturing running without interruption.
             </p>
 
+            {/* Body */}
+            <p className="hero-description">
+              From custom software development and AI automation to cloud migration, cybersecurity and ERP integration - get the managed IT support that keeps your manufacturing operation and growing business running without interruption.
+            </p>
+
+            {/* CTAs */}
             <div className="hero-buttons">
               <Link to="https://booking.techrometric.com/appointments/craftcore" className="primary-btn hero-primary-btn">
                 Get an IT Assessment
@@ -106,14 +113,17 @@ function Hero() {
               </video>
             </div>
 
+            {/* Image Badge */}
             <div className="hero-float-card hero-card-one">
               <div className="hero-card-dot"></div>
-              Enterprise IT Solutions
+              Enterprise IT Solutions, Built Around You
             </div>
 
+            {/* Stat Callout */}
             <div className="hero-float-card hero-card-three">
               <h4>24/7</h4>
-              <p>Managed IT Support</p>
+              <p>Managed IT Support
+                Whenever You Need Us</p>
             </div>
           </div>
         </div>

@@ -11,8 +11,9 @@ const project1Features = [
     id: 1,
     icon: <FiTarget />,
     label: "Goal Tracking",
-    title: "Project Goal & OKR Management",
-    description: "Define, track, and manage project goals and OKRs across all projects. Monitor progress in real-time, automate status updates, and track milestone achievements for successful project delivery.",
+    title: "Keep Every Project Aligned With Your Goals",
+    description:
+      "Struggling to keep your projects aligned with business goals? Set clear objectives and OKRs, track progress in real time, and know exactly where your team stands at every stage.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135243/craftcore1_rmag3p.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135282/Project_Report_pc0kp0.avif",
@@ -20,14 +21,21 @@ const project1Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135278/Project_Card_fdfwie.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135279/Customer_Support_Ticketing_System_Project_Details_rdy78x.avif"
     ],
-    tags: ["Project Goals", "OKR Tracking", "Real-Time Progress", "Milestone Management"]
+    tags: [
+      "Project Goals",
+      "OKR Tracking",
+      "Real-Time Progress",
+      "Milestone Management"
+    ]
   },
+
   {
     id: 2,
     icon: <FiTrendingUp />,
     label: "Recruitment Analytics",
-    title: "Recruitment Performance Dashboard",
-    description: "Track recruitment metrics including candidate pipelines, time-to-hire, source effectiveness, and hiring success rates with interactive dashboards and real-time analytics.",
+    title: "Know What Is Working in Your Hiring Process",
+    description:
+      "Not sure where your hiring process is slowing down? Track candidate pipelines, time-to-hire, hiring sources, and success rates so you can identify what works and make better recruitment decisions.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135420/Recruitment_Dashboard_i0tbfq.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135419/Job_Postings_mujs4r.avif",
@@ -37,14 +45,21 @@ const project1Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135411/Candidate_d9aoev.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135411/Candidate_Details_bk1z30.avif"
     ],
-    tags: ["Candidate Pipeline", "Time-to-Hire", "Source Analytics", "Hiring Success Rate"]
+    tags: [
+      "Candidate Pipeline",
+      "Time-to-Hire",
+      "Source Analytics",
+      "Hiring Success Rate"
+    ]
   },
+
   {
     id: 3,
     icon: <FiUsers />,
     label: "CRM Management",
-    title: "Customer Relationship Management",
-    description: "Manage leads, track deals, and nurture customer relationships with a comprehensive CRM system. Visualize sales pipelines, monitor lead activities, and generate detailed reports for better customer insights.",
+    title: "Turn More Leads Into Customers",
+    description:
+      "Losing track of leads or sales follow-ups? Keep your customer conversations, deals, activities, and sales pipeline organized so your team knows who to follow up with and when.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135601/CRM_Dashboard_rp2q0g.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135603/Deals_Kanban_wg7z5o.avif",
@@ -55,7 +70,12 @@ const project1Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135609/Leads_Report_General_tdbn7i.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135610/Leads_Report_Staff_kuuzce.avif"
     ],
-    tags: ["Lead Management", "Sales Pipeline", "Activity Tracking", "CRM Analytics"]
+    tags: [
+      "Lead Management",
+      "Sales Pipeline",
+      "Activity Tracking",
+      "CRM Analytics"
+    ]
   }
 ];
 
@@ -64,8 +84,9 @@ const project2Features = [
     id: 1,
     icon: <FiDollarSign />,
     label: "Admin Dashboard",
-    title: "Collection Admin Dashboard",
-    description: "Comprehensive admin dashboard for collection management with real-time tracking of outstanding payments, recovery analytics, bank reconciliation, defaulter monitoring, and team performance metrics.",
+    title: "See Your Entire Collection Operation Clearly",
+    description:
+      "Need a clearer picture of your recovery performance? Track outstanding payments, collections, bank reconciliation, defaulters, and team performance from one dashboard so you can act on the right information faster.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Dashboard_bnod2n.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136407/Dashboard_Dark_irjhzo.avif",
@@ -76,14 +97,21 @@ const project2Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Permission_izu9xk.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785408466/Permission_Dark_k41k4r.png"
     ],
-    tags: ["Recovery Analytics", "Bank Reconciliation", "Defaulter Tracking", "Team Performance"]
+    tags: [
+      "Recovery Analytics",
+      "Bank Reconciliation",
+      "Defaulter Tracking",
+      "Team Performance"
+    ]
   },
+
   {
     id: 2,
     icon: <FiUsers />,
     label: "Agent Dashboard",
-    title: "Collection Agent Dashboard",
-    description: "Agent-focused dashboard for daily task management, call logging, customer follow-ups, and notification tracking. Streamline collection activities with real-time task assignments and performance monitoring.",
+    title: "Help Your Collection Team Stay on Track",
+    description:
+      "Finding it difficult to keep agents on top of daily follow-ups? Give your team a clear view of tasks, calls, customer follow-ups, and notifications so important collection activities don't get missed.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411945/Dashboard_L_z4vlvh.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136519/dashboard_riiznw.avif",
@@ -94,14 +122,21 @@ const project2Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411957/Notification_L_pf6hv9.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411971/Notification_D_ertyi8.png"
     ],
-    tags: ["Task Management", "Call Logging", "Follow-ups", "Notifications"]
+    tags: [
+      "Task Management",
+      "Call Logging",
+      "Follow-ups",
+      "Notifications"
+    ]
   },
+
   {
     id: 3,
     icon: <FiSmartphone />,
     label: "Mobile App",
-    title: "Collection Mobile Application",
-    description: "Mobile-first collection application for field agents with case management, daily task tracking, customer interaction logging, and real-time sync for on-the-go collection operations.",
+    title: "Keep Your Field Team Connected on the Go",
+    description:
+      "Need your field agents to stay productive outside the office? Give them access to cases, daily tasks, customer interactions, and real-time updates from their mobile devices.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136693/dashboard_pd5net.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785413018/Dashboard_m_mhna4i.png",
@@ -110,7 +145,12 @@ const project2Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785413018/daily_task_x2ep8i.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136696/daily_task_obvpao.avif"
     ],
-    tags: ["Case Management", "Field Operations", "Real-Time Sync", "Mobile Tasks"]
+    tags: [
+      "Case Management",
+      "Field Operations",
+      "Real-Time Sync",
+      "Mobile Tasks"
+    ]
   }
 ];
 
@@ -119,21 +159,29 @@ const project3Features = [
     id: 1,
     icon: <FiTrendingUp />,
     label: "Operations Dashboard",
-    title: "Textile Operations Dashboard",
-    description: "Real-time operations dashboard for textile manufacturing with inventory monitoring, production tracking, job work management, financial insights, and WIP monitoring across the textile production lifecycle.",
+    title: "Get a Clear View of Your Textile Operations",
+    description:
+      "Need better visibility across production, inventory, job work, and WIP? Monitor your textile operations in real time and quickly understand what is happening across your production cycle.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/Dashboar_h2yx68.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/DashboardMobileVie_lgzw9y.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136946/ManagementControlTowe_c270zl.jpg"
     ],
-    tags: ["Inventory Monitoring", "Production Tracking", "Financial Insights", "WIP Monitoring"]
+    tags: [
+      "Inventory Monitoring",
+      "Production Tracking",
+      "Financial Insights",
+      "WIP Monitoring"
+    ]
   },
+
   {
     id: 2,
     icon: <FiGrid />,
     label: "Master Management",
-    title: "Textile Master Data Management",
-    description: "Centralized master data management for textile operations including customer management, employee records, product catalogs, vendor tracking, and warehouse management for streamlined textile production.",
+    title: "Keep Your Textile Data Organized",
+    description:
+      "Managing customers, products, vendors, employees, and warehouses across different records can create confusion. Keep your core master data organized and accessible so your team can work with accurate information.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137032/Custome_veckuh.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137034/Designatio_ny3jmc.jpg",
@@ -142,14 +190,21 @@ const project3Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137038/Vendor_amvlh6.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137038/Warehouse_mgcom6.jpg"
     ],
-    tags: ["Customer Management", "Vendor Tracking", "Product Catalog", "Warehouse Management"]
+    tags: [
+      "Customer Management",
+      "Vendor Tracking",
+      "Product Catalog",
+      "Warehouse Management"
+    ]
   },
+
   {
     id: 3,
     icon: <FiClock />,
     label: "Operations Reports",
-    title: "Textile Operations & Reports",
-    description: "Comprehensive textile operations reports including grey material procurement, inventory status, job work reports, mill process tracking, and financial payment monitoring for complete operational visibility.",
+    title: "Make Better Decisions With Your Production Data",
+    description:
+      "Need to understand where materials, production, job work, or payments stand? Get clear operational reports that help you identify issues, monitor progress, and make informed decisions faster.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137138/Finances_Payment-1000kb_moeg18.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137141/Grey_Material_Procurement_Fully_Dilivered_Report-1000kb_c8n87t.jpg",
@@ -160,7 +215,12 @@ const project3Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137146/Mill_Wise_Mill_Process_Report-1000kb_h7hriu.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137147/WIP_MONITOR_-1000kb_fg3shl.jpg"
     ],
-    tags: ["Material Procurement", "Inventory Reports", "Job Work Reports", "Financial Monitoring"]
+    tags: [
+      "Material Procurement",
+      "Inventory Reports",
+      "Job Work Reports",
+      "Financial Monitoring"
+    ]
   }
 ];
 
@@ -169,8 +229,9 @@ const project4Features = [
     id: 1,
     icon: <FiUsers />,
     label: "Employee Management",
-    title: "Employee Central Dashboard",
-    description: "Comprehensive employee management dashboard with real-time insights into workforce analytics, income tracking, attendance monitoring, payroll management, and detailed timesheet reports for complete HR visibility.",
+    title: "Know What Is Happening Across Your Workforce",
+    description:
+      "Need better visibility into your employees and HR operations? Track attendance, payroll, income, timesheets, and workforce information from one central dashboard.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733995/Dashboard_ztc5ig.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733985/Income_y4mefd.png",
@@ -178,14 +239,22 @@ const project4Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733986/Payrol_gkbipd.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733985/Time_Sheet_Report_dkyhtm.png"
     ],
-    tags: ["HR Dashboard", "Income Analytics", "Attendance Tracking", "Payroll Management", "Timesheet Reports"]
+    tags: [
+      "HR Dashboard",
+      "Income Analytics",
+      "Attendance Tracking",
+      "Payroll Management",
+      "Timesheet Reports"
+    ]
   },
+
   {
     id: 2,
     icon: <FiClock />,
     label: "Payroll & Roles",
-    title: "Payroll & Role Management",
-    description: "Streamline payroll processing with salary management, payslip generation, and automated salary settings. Manage employee profiles, user permissions, and role-based access control for secure HR operations.",
+    title: "Simplify Payroll and Employee Access",
+    description:
+      "Spending too much time managing salaries, payslips, employee profiles, and permissions? Streamline your payroll process and control access based on each employee's role.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734292/Manage_salary_nfwyfg.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734293/payslip_nhcami.png",
@@ -194,14 +263,22 @@ const project4Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734294/user_je2lmt.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734294/Manage_roles_jagwlj.png"
     ],
-    tags: ["Salary Management", "Payslip Generation", "Employee Profiles", "User Management", "Role-Based Access"]
+    tags: [
+      "Salary Management",
+      "Payslip Generation",
+      "Employee Profiles",
+      "User Management",
+      "Role-Based Access"
+    ]
   },
+
   {
     id: 3,
     icon: <FiTrendingUp />,
     label: "Performance Reviews",
-    title: "Performance & Goal Management",
-    description: "Track employee performance with custom evaluation forms, KPI indicators, timesheet management, appraisal cycles, and goal tracking to drive continuous improvement and employee development.",
+    title: "Help Your Team Grow With Better Performance Tracking",
+    description:
+      "Finding it difficult to track employee performance consistently? Set goals, monitor KPIs, manage appraisals, and use performance data to support better employee development.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734442/Create_form_elamr7.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734444/Indicator_ubo99t.png",
@@ -209,7 +286,13 @@ const project4Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734444/Appresial_n5lxon.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734445/Goal_Tracking_oyvuzy.png"
     ],
-    tags: ["Evaluation Forms", "KPI Indicators", "Timesheet Management", "Appraisal Cycles", "Goal Tracking"]
+    tags: [
+      "Evaluation Forms",
+      "KPI Indicators",
+      "Timesheet Management",
+      "Appraisal Cycles",
+      "Goal Tracking"
+    ]
   }
 ];
 
@@ -218,8 +301,9 @@ const project5Features = [
     id: 1,
     icon: <FiTarget />,
     label: "Dashboard Overview",
-    title: "Appointment Analytics Dashboard",
-    description: "Real-time analytics dashboard providing comprehensive overview of appointment metrics, booking trends, user management, and role-based access control for efficient scheduling operations.",
+    title: "Know How Your Appointments Are Performing",
+    description:
+      "Need a clearer view of your booking activity? Track appointments, booking trends, users, and performance from one dashboard so you can quickly understand how your scheduling operations are performing.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734796/Appointment_Dashboard_1_nko7tm.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734796/Appointment_Dashboard_2_cvihy5.png",
@@ -228,14 +312,22 @@ const project5Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734787/Users_zgb3ql.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734788/Roles_tshgdh.png"
     ],
-    tags: ["Appointment Analytics", "Booking Trends", "User Management", "Role-Based Access", "Performance Metrics"]
+    tags: [
+      "Appointment Analytics",
+      "Booking Trends",
+      "User Management",
+      "Role-Based Access",
+      "Performance Metrics"
+    ]
   },
+
   {
     id: 2,
     icon: <FiGrid />,
     label: "Business Management",
-    title: "Multi-Business & Customer Management",
-    description: "Complete business management system with multi-location support, business profile creation, customer relationship management, and service configuration for streamlined appointment scheduling.",
+    title: "Manage Multiple Locations and Customers With Ease",
+    description:
+      "Managing multiple businesses, locations, services, and customers can quickly become complicated. Keep your business information organized and give customers a smoother appointment experience.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734766/Create_Business_an1vf7.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734785/Manage_Business_icbhvh.png",
@@ -245,14 +337,22 @@ const project5Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734747/Manage_Business_5_guocvs.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734741/Customer_sww87v.png"
     ],
-    tags: ["Business Creation", "Multi-Location Support", "Service Configuration", "Customer Management", "Resource Planning"]
+    tags: [
+      "Business Creation",
+      "Multi-Location Support",
+      "Service Configuration",
+      "Customer Management",
+      "Resource Planning"
+    ]
   },
+
   {
     id: 3,
     icon: <FiBriefcase />,
     label: "Settings & Calendar",
-    title: "Appointment Settings & Calendar View",
-    description: "Comprehensive settings management with appointment configuration, calendar integration, system preferences, and client portal customization for optimal booking experience.",
+    title: "Make Scheduling Work the Way You Need",
+    description:
+      "Need more control over your appointments and calendars? Configure your booking settings, manage calendars, customize your client experience, and keep your scheduling process aligned with your business.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734736/Appoinments_qdeks2.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734794/Appointments_Calender_bbbqqr.png",
@@ -262,75 +362,90 @@ const project5Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734762/settings_4_ryfwtp.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734730/Settings_5_gx75jw.png"
     ],
-    tags: ["Appointment Settings", "Calendar Integration", "System Preferences", "Client Portal", "Configuration Management"]
+    tags: [
+      "Appointment Settings",
+      "Calendar Integration",
+      "System Preferences",
+      "Client Portal",
+      "Configuration Management"
+    ]
   }
 ];
 
 const projects = [
   {
     id: 1,
-    title: "Craftcore ERP",
+    title: "CraftCore ERP",
     subtitle: "Enterprise Management",
     tag: "PROJECT 01",
     icon: <FiGrid />,
-    description: "A comprehensive enterprise resource planning platform with integrated modules for goals management, recruitment analytics, CRM, and project management capabilities.",
+    description:
+      "Are your projects, customers, teams, and daily operations spread across different tools? Bring them together with CraftCore ERP. Get a clearer view of your business, reduce manual work, and keep your teams working from the same system as you grow.",
     features: project1Features,
-    stats: ["Active Modules: 4", "Users: 256", "Integration: 12"],
+    stats: ["Active Modules: 4", "Users: 256", "Integrations: 12"],
     color: "#4f46e5",
     light: "#e0e7ff",
     gradient: "linear-gradient(135deg, #4f46e5, #7C3AED)"
   },
+
   {
     id: 2,
     title: "Collection CRM",
     subtitle: "Debt Recovery",
     tag: "PROJECT 02",
     icon: <FiDollarSign />,
-    description: "A comprehensive collection CRM platform for managing debt recovery, agent workflows, and collection analytics across admin, agent, and mobile interfaces.",
+    description:
+      "Struggling to keep track of payments, field agents, follow-ups, and recovery performance? Collection CRM gives your team a clear view of every collection activity, helping you follow up on time, monitor your agents, and stay in control of your recovery process.",
     features: project2Features,
     stats: ["Active Cases: 1.2K", "Recovery Rate: 78%", "Agents: 45"],
     color: "#2563eb",
     light: "#dbeafe",
     gradient: "linear-gradient(135deg, #2563eb, #1D4ED8)"
   },
+
   {
     id: 3,
     title: "Textile ERP",
     subtitle: "Manufacturing Intelligence",
     tag: "PROJECT 03",
     icon: <FiBriefcase />,
-    description: "A comprehensive textile ERP solution for managing master data, operations, and reporting across the textile manufacturing lifecycle.",
+    description:
+      "Need better control over your textile production, inventory, procurement, and job work? Textile ERP connects your operations so you can see what is happening across your production cycle, track materials and WIP, and make better decisions with reliable reports.",
     features: project3Features,
     stats: ["Production: 2.8K", "Inventory: 15K", "Reports: 24"],
     color: "#059669",
     light: "#d1fae5",
-    gradient: "linear-gradient(135deg, #059669, #047857)",
+    gradient: "linear-gradient(135deg, #059669, #047857)"
   },
+
   {
     id: 4,
     title: "HRM System",
     subtitle: "Human Resource Management",
     tag: "PROJECT 04",
     icon: <FiUsers />,
-    description: "A complete human resource management system with employee central, time & attendance, and performance management to streamline HR operations.",
+    description:
+      "Spending too much time managing attendance, payroll, employee records, and performance manually? HRM System brings your everyday HR processes together, helping you reduce administrative work, minimize errors, and give your team better visibility into your workforce.",
     features: project4Features,
     stats: ["Employees: 340", "Departments: 12", "Reviews: 98%"],
     color: "#12d800",
     light: "#effce7",
     gradient: "linear-gradient(135deg, #56ec48, #059669)"
   },
+
   {
     id: 5,
     title: "Appointment Scheduler",
     subtitle: "Booking & Calendar",
     tag: "PROJECT 05",
     icon: <FiClock />,
-    description: "A powerful appointment scheduling platform with intuitive dashboards, multi-resource calendar management, and client self-service portal.",
+    description:
+      "Finding it difficult to manage bookings, calendars, customers, and resources without scheduling conflicts? Appointment Scheduler helps you organize your appointments, simplify booking management, and give your customers an easier way to schedule their visits.",
     features: project5Features,
     stats: ["Bookings: 1.8K", "Resources: 25", "Clients: 850"],
     color: "#8b5cf6",
     light: "#ede9fe",
-    gradient: "linear-gradient(135deg, #8b5cf6, #6d28d9)",
+    gradient: "linear-gradient(135deg, #8b5cf6, #6d28d9)"
   }
 ];
 
@@ -339,52 +454,14 @@ function SolutionV6() {
   const [activeFeatIdx, setActiveFeatIdx] = useState(0);
   const [activeImgIdx, setActiveImgIdx] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [isUserInteracting, setIsUserInteracting] = useState(false);
   const projectRefs = useRef([]);
   const cardsRef = useRef({});
-  const userInteractionTimeout = useRef(null);
 
   const currentProject = projects[activeProjIdx];
   const currentFeature = currentProject.features[activeFeatIdx];
   const totalImages = currentFeature?.images?.length || 0;
 
-  // Auto-play carousel - only when user is NOT interacting
-  useEffect(() => {
-    if (totalImages <= 1 || isUserInteracting) return;
-    
-    const interval = setInterval(() => {
-      const nextIndex = (activeImgIdx + 1) % totalImages;
-      setActiveImgIdx(nextIndex);
-      
-      // Auto-advance to next feature when all images are viewed
-      if (nextIndex === 0) {
-        const isLastFeature = activeFeatIdx === currentProject.features.length - 1;
-        if (isLastFeature) {
-          const nextProject = (activeProjIdx + 1) % projects.length;
-          setTimeout(() => {
-            setActiveProjIdx(nextProject);
-            setActiveFeatIdx(0);
-            setActiveImgIdx(0);
-            if (projectRefs.current[nextProject]) {
-              projectRefs.current[nextProject].scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-              });
-            }
-          }, 2000);
-        } else {
-          setTimeout(() => {
-            setActiveFeatIdx(activeFeatIdx + 1);
-            setActiveImgIdx(0);
-          }, 2000);
-        }
-      }
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [totalImages, activeImgIdx, activeFeatIdx, activeProjIdx, currentProject.features.length, isUserInteracting]);
-
-  // Scroll tracking - only updates when user is NOT interacting
+  // Scroll tracking - update based on scroll position
   useEffect(() => {
     let ticking = false;
     let lastActiveProject = activeProjIdx;
@@ -424,18 +501,16 @@ function SolutionV6() {
         }
       });
 
-      // Only update if user is not interacting and values changed
-      if (!isUserInteracting) {
-        if (closestProjectIndex !== lastActiveProject) {
-          lastActiveProject = closestProjectIndex;
-          setActiveProjIdx(closestProjectIndex);
-          setActiveFeatIdx(0);
-          setActiveImgIdx(0);
-        } else if (closestFeatureIndex !== lastActiveFeature) {
-          lastActiveFeature = closestFeatureIndex;
-          setActiveFeatIdx(closestFeatureIndex);
-          setActiveImgIdx(0);
-        }
+      // Update if values changed
+      if (closestProjectIndex !== lastActiveProject) {
+        lastActiveProject = closestProjectIndex;
+        setActiveProjIdx(closestProjectIndex);
+        setActiveFeatIdx(0);
+        setActiveImgIdx(0);
+      } else if (closestFeatureIndex !== lastActiveFeature) {
+        lastActiveFeature = closestFeatureIndex;
+        setActiveFeatIdx(closestFeatureIndex);
+        setActiveImgIdx(0);
       }
       
       ticking = false;
@@ -456,42 +531,19 @@ function SolutionV6() {
     handleScrollTracking();
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isUserInteracting]);
-
-  // Reset user interaction after 5 seconds of inactivity
-  useEffect(() => {
-    if (userInteractionTimeout.current) {
-      clearTimeout(userInteractionTimeout.current);
-    }
-    
-    if (isUserInteracting) {
-      userInteractionTimeout.current = setTimeout(() => {
-        setIsUserInteracting(false);
-      }, 5000);
-    }
-
-    return () => {
-      if (userInteractionTimeout.current) {
-        clearTimeout(userInteractionTimeout.current);
-      }
-    };
-  }, [isUserInteracting]);
+  }, []);
 
   const nextImg = (e) => {
     e?.stopPropagation();
-    setIsUserInteracting(true);
     setActiveImgIdx((prev) => (prev + 1) % totalImages);
   };
 
   const prevImg = (e) => {
     e?.stopPropagation();
-    setIsUserInteracting(true);
     setActiveImgIdx((prev) => (prev - 1 + totalImages) % totalImages);
   };
 
   const handleFeatureClick = (projectIndex, fIdx) => {
-    setIsUserInteracting(true);
-    
     // If clicking on a different project, reset to first image
     if (projectIndex !== activeProjIdx) {
       setActiveProjIdx(projectIndex);
@@ -505,7 +557,6 @@ function SolutionV6() {
   };
 
   const handleThumbnailClick = (idx) => {
-    setIsUserInteracting(true);
     setActiveImgIdx(idx);
   };
 
@@ -523,9 +574,11 @@ function SolutionV6() {
         
         {/* Header */}
         <header className="v6-hero">
-          <span className="section-tag">Sofware Suite</span>
-          <h1 className="v6-title">Enterprise Solutions Showcase</h1>
-          <p className="v6-subtitle">Explore our comprehensive suite of enterprise solutions</p>
+          <span className="section-tag">Solutions for Your Business</span>
+          <h1 className="v6-title">Solutions Built Around Your Business</h1>
+          <p className="v6-subtitle">
+            Whatever challenge you're facing, we've built solutions to help you work smarter, move faster, and grow with confidence.
+          </p>
         </header>
 
         {/* All Projects */}

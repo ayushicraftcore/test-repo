@@ -84,7 +84,6 @@ const technologiesData = [
   {
     title: "AI / ML",
     items: [
-      { icon: <SiSap /> },
       { icon: <SiTensorflow /> },
       { icon: <SiPytorch /> },
       { icon: <SiHuggingface /> },
@@ -106,12 +105,15 @@ function Technologies() {
   return (
     <section className="technologies section-space">
       <div className="technologies-header container">
+        {/* Badge - Updated */}
         <span className="section-tag">OUR TECH STACK</span>
-        <h2 className="section-title">Enterprise Technologies We Use</h2>
+        
+        {/* Headline - Updated */}
+        <h2 className="section-title">The Enterprise Technologies Powering Your Build</h2>
+        
+        {/* Body - Updated */}
         <p className="section-description">
-          From cloud infrastructure and ERP systems to AI/ML and DevOps tools - 
-          we use production-tested technologies trusted by manufacturing and 
-          mid-market enterprises.
+          From cloud infrastructure and ERP systems to AI/ML and DevOps tools, your project runs on production-tested technology trusted by manufacturing and mid-market enterprises like yours.
         </p>
         <br />
       </div>

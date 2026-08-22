@@ -72,7 +72,7 @@ function Footer() {
                 <span>
                   Office: Vadodara, Gujarat
                   <br />
-                  <strong>Serviceable Areas:</strong> Surat, Ahmedabad, Anand
+                  <strong>Serviceable Areas:</strong> Surat, Ahmedabad, Anand, Vadodara
                 </span>
               </li>
 

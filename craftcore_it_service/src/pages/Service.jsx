@@ -1,3 +1,4 @@
+// Service.jsx
 import "./Service.css";
 import { useEffect, useRef, useState } from "react";
 import { 
@@ -20,22 +21,14 @@ const serviceDataExtended = [
     title: "WEB & SAAS DEVELOPMENT",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785736916/Dashboard_Dark_Mode_1_frasph.png",
     icon: <FiLayers />,
-    caption:
-      "Custom web applications, SaaS platforms, CRM systems and ERP solutions built to streamline your business.",
+    caption: "Whatever runs your business - a customer portal, a SaaS product, your CRM, your ERP - we build it around how you actually work, not the other way around.",
     metrics: { label: "Uptime Rate", value: "99.9%" },
-    techStack: [
-      "React",
-      "Next.js",
-      "Node.js",
-      "CRM Systems",
-      "ERP Solutions",
-      "API Integrations"
-    ],
+    techStack: ["React", "Next.js & Node.js", "CRM Systems", "ERP Solutions", "API Integrations"],
     points: [
-      "Build custom web applications and multi-tenant SaaS platforms.",
-      "Develop CRM systems for sales, lead and customer management.",
-      "Create ERP solutions for inventory, finance, HR and operations.",
-      "Integrate secure third-party APIs, payment gateways and e-commerce features."
+      "We'll build you a custom web application or a multi-tenant SaaS platform, shaped around your product, not a template.",
+      "Your sales team gets a CRM built for how they actually chase leads and manage customers - not a generic pipeline tool.",
+      "One ERP system to run your inventory, finance, HR and day-to-day operations, so you're not juggling five different tools.",
+      "We connect the third-party APIs, payment gateways and e-commerce features you need, secured properly from the start."
     ]
   },
   {
@@ -43,14 +36,13 @@ const serviceDataExtended = [
     title: "CLOUD & DEVOPS ENGINEERING",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133774/cloud_fhd71g.avif",
     icon: <FiCloud />,
-    caption:
-      "Secure cloud management and automated deployment pipelines.",
+    caption: "Your cloud infrastructure, managed securely, with deployments that run on autopilot instead of eating your weekend.",
     metrics: { label: "Deployment", value: "Auto-Scaling" },
     techStack: ["AWS", "GCP", "Docker", "Kubernetes"],
     points: [
-      "Manage secure infrastructure on AWS, GCP and Azure.",
-      "Set up automated CI/CD pipelines for fast deployments.",
-      "Handle container scaling and safe cloud migrations."
+      "We manage your infrastructure across AWS, GCP or Azure - whichever fits your stack - and keep it secure while we're at it.",
+      "Automated CI/CD pipelines mean your team ships updates fast, without the manual deployment grind.",
+      "When it's time to scale containers or move to the cloud, we handle it without breaking what's already working for you."
     ]
   },
   {
@@ -58,19 +50,13 @@ const serviceDataExtended = [
     title: "CYBERSECURITY & COMPLIANCE",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133877/security_pdcr9o.avif",
     icon: <FiShield />,
-    caption:
-      "Protect your data and stay compliant with global standards.",
-    metrics: { label: "Compliance", value: "GDPR / HIPAA" },
-    techStack: [
-      "Security Audits",
-      "Pen Testing",
-      "Encryption",
-      "Incident Response"
-    ],
+    caption: "Protect your data and stay compliant - because trust isn't optional.",
+    metrics: { label: "Standards", value: "GDPR / HIPAA" },
+    techStack: ["Security Audits", "Pen Testing", "Encryption", "Incident Response"],
     points: [
-      "Run deep security audits and penetration testing.",
-      "Ensure full GDPR, HIPAA and industry compliance.",
-      "Set up strong data encryption and incident response plans."
+      "We run deep security audits and penetration testing on your systems, finding the gaps before someone else does.",
+      "Whether you need GDPR, HIPAA or another industry standard, we get your business compliant and keep it that way.",
+      "Your data gets locked down with strong encryption and you get an incident response plan ready before you ever need it."
     ]
   },
   {
@@ -78,14 +64,13 @@ const serviceDataExtended = [
     title: "MOBILE APP DEVELOPMENT",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785757538/mobile_dev_fcytbj.png",
     icon: <FiSmartphone />,
-    caption:
-      "Native and cross-platform mobile apps for Android and iOS.",
+    caption: "Native or cross-platform, your app lands on Android and iOS without you having to build it twice.",
     metrics: { label: "Platforms", value: "iOS & Android" },
     techStack: ["Flutter", "React Native", "Kotlin", "Swift"],
     points: [
-      "Build high-performance apps for Android and iOS devices.",
-      "Create hybrid apps using Flutter and React Native.",
-      "Add real-time features and AI-powered mobile experiences."
+      "We build high-performance apps for Android and iOS that feel fast on your customers' devices, not just in a demo.",
+      "Need one codebase for both platforms? We build hybrid apps in Flutter or React Native to get you there faster.",
+      "Real-time features, AI-powered experiences - whatever makes your app feel smart, we build it in."
     ]
   },
   {
@@ -93,42 +78,30 @@ const serviceDataExtended = [
     title: "UI/UX DESIGN & ARCHITECTURE",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785147471/gradient-ui-ux-background_23-2149052117_v8eurp.avif",
     icon: <FiEdit3 />,
-    caption:
-      "User-centered designs, clean wireframes and scalable design systems.",
+    caption: "Design that starts with your users, not a mood board - clean wireframes and a design system that scales as your product grows.",
     metrics: { label: "Accessibility", value: "WCAG Standards" },
-    techStack: [
-      "Figma",
-      "Wireframing",
-      "Design Systems",
-      "Motion Design"
-    ],
+    techStack: ["Figma", "Wireframing", "Design Systems", "Motion Design"],
     points: [
-      "Conduct deep user research and create clear wireframes.",
-      "Build scalable, responsive UI design systems.",
-      "Implement accessible layouts with smooth motion design."
+      "We dig into real user research before we sketch a single wireframe, so what we design actually solves your users' problems.",
+      "You get a UI design system built to scale, so new features look consistent instead of bolted on.",
+      "Layouts built to WCAG accessibility standards, with motion design that feels smooth instead of gimmicky."
     ]
   },
- {
-  smallTitle: "AI & Automation",
-  title: "AI & AUTOMATION",
-  image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133977/automation_sm760t.avif",
-  icon: <FiCpu />,
-  caption:
-    "Practical AI solutions that automate operations, improve decision-making and reduce manual work.",
-  metrics: { label: "Efficiency Gain", value: "80%" },
-  techStack: [
-    "AI Chatbots",
-    "Predictive Analytics",
-    "Document Processing",
-    "ML & NLP"
-  ],
-  points: [
-    "Deploy AI chatbots and virtual assistants on WhatsApp, web platforms and internal business tools.",
-    "Build predictive analytics solutions for demand forecasting, defect detection and supply chain optimization.",
-    "Automate invoice, purchase order and delivery challan processing with intelligent document extraction.",
-    "Develop ML models and NLP pipelines for pricing optimization, inventory forecasting, ticket classification and customer feedback analysis."
-  ]
-}
+  {
+    smallTitle: "AI & Automation",
+    title: "AI & AUTOMATION",
+    image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133977/automation_sm760t.avif",
+    icon: <FiCpu />,
+    caption: "Practical AI, not hype - automation that takes real work off your team's plate and gives you better data to decide with.",
+    metrics: { label: "Efficiency Gain", value: "80%" },
+    techStack: ["AI Chatbots", "Predictive Analytics", "Document Processing", "ML & NLP"],
+    points: [
+      "AI chatbots and virtual assistants deployed on WhatsApp, your website or your internal tools - wherever your customers or team already are.",
+      "Predictive analytics that forecast your demand, catch defects early and tighten up your supply chain.",
+      "Your invoices, purchase orders and delivery challans get processed automatically with intelligent document extraction - no more manual data entry.",
+      "Custom ML models and NLP pipelines built for your pricing optimization, inventory forecasting, support ticket classification and customer feedback analysis."
+    ]
+  }
 ];
 
 function Service() {
@@ -140,7 +113,6 @@ function Service() {
 
     const handleScrollTracking = () => {
       const isMobile = window.innerWidth <= 1100;
-      // Adjust center baseline target slightly lower on mobile due to the fixed sticky block area
       const viewportCenter = isMobile ? window.innerHeight * 0.65 : window.innerHeight / 2;
       
       let closestIndex = 0;
@@ -184,12 +156,12 @@ function Service() {
         <header className="service-page-hero reveal">
           <span className="section-tag">ENGINEERING EXCELLENCE</span>
           <h1 className="service-page-title">
-            Production-grade solutions <br />
-            <span className="gradient-text">architected for global scale.</span>
+            Production-Grade Software, <br />
+            <span className="gradient-text">Architected to Scale With You.</span>
           </h1>
           <p className="section-description">
-            We combine high-performance codebases, deep algorithmic intelligence and 
-            cloud automation to deliver technical advantages for modern organizations.
+            You get high-performance codebases, sharp algorithmic thinking and cloud automation working together - 
+            the kind of technical edge that separates a product that just launches from one that actually holds up at scale.
           </p>
         </header>
 
@@ -254,7 +226,9 @@ function Service() {
               >
                 <div className="card-indicator-line" />
                 
-                <span className="card-pre-title">0{index + 1} — {service.smallTitle}</span>
+                <span className="card-pre-title">
+                  {String(index + 1).padStart(2, '0')} - {service.smallTitle}
+                </span>
                 <h3 className="card-title card-main-title">{service.title}</h3>
                 
                 <ul className="card-features-list">

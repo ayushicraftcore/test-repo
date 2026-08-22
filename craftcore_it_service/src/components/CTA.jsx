@@ -45,20 +45,20 @@ function CTA() {
         {/* CONTENT */}
         <div className="cta-content">
 
-          {/* HEADING */}
+          {/* HEADING - Updated */}
           <h3 className="cta-title">
-            Ready to Transform Your IT Infrastructure?
+            Ready to Put Your IT Infrastructure to Work?
           </h3>
 
+          {/* BODY - Updated */}
           <p className="cta-description">
-            Book a free IT assessment and discover how we can help you build, 
-            automate, and secure your business technology.
+            Book your free IT assessment and find out exactly how we can help you build, automate and secure your business technology.
           </p>
 
           {/* BUTTONS */}
           <div className="cta-buttons">
 
-            {/* CONNECTED: Redirects to contact page */}
+            {/* CTA 1 - Updated */}
             <Link 
               to="https://booking.techrometric.com/appointments/craftcore" 
               className="primary-btn cta-primary-btn"
@@ -67,7 +67,7 @@ function CTA() {
               BOOK FREE IT ASSESSMENT
             </Link>
 
-            {/* CONNECTED: Forwards the browser tracking to your direct WhatsApp message thread */}
+            {/* CTA 2 - Updated */}
             <a 
               href={whatsappUrl}
               className="secondary-btn cta-secondary-btn"
@@ -81,9 +81,9 @@ function CTA() {
 
           </div>
 
-          {/* SHORT FORM NOTE */}
+          {/* MICRO-COPY - Updated */}
           <p className="cta-note">
-            Quick response - we'll get back to you within 24 hours
+            Fast response - we'll get back to you within 24 hours
           </p>
 
         </div>

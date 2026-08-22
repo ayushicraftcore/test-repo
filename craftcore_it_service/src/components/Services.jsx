@@ -9,9 +9,9 @@ const servicesData = [
     title: "WEB & SAAS DEVELOPMENT",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785736916/Dashboard_Dark_Mode_1_frasph.png",
     points: [
-      "Custom Web Applications",
-      "Multi-Tenant Platforms & E-Commerce",
-      "API Integrations & PWAs",
+      "Custom web applications, built around the way your team actually works",
+      "Multi-tenant platforms and e-commerce that scale as your customer base grows",
+      "API integrations and PWAs that connect the systems you already rely on"
     ],
   },
   {
@@ -19,9 +19,9 @@ const servicesData = [
     title: "CLOUD & DEVOPS ENGINEERING",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133774/cloud_fhd71g.avif",
     points: [
-      "AWS, GCP and Azure Management",
-      "CI/CD Pipelines & Auto-Scaling",
-      "Docker, Kubernetes & Cloud Migration",
+      "AWS, GCP and Azure managed for you, end to end",
+      "CI/CD pipelines and auto-scaling that get your code to production faster",
+      "Docker, Kubernetes and cloud migration handled without disrupting your operations"
     ],
   },
   {
@@ -29,9 +29,9 @@ const servicesData = [
     title: "CYBERSECURITY & COMPLIANCE",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133877/security_pdcr9o.avif",
     points: [
-      "Security Audits & Pen Testing",
-      "GDPR & HIPAA Compliance",
-      "Data Encryption & Incident Response",
+      "Security audits and penetration testing that expose your real risk, before someone else finds it",
+      "GDPR and HIPAA compliance built into your systems, not bolted on afterward",
+      "Data encryption and incident response ready the moment you need them"
     ],
   },
   {
@@ -39,9 +39,9 @@ const servicesData = [
     title: "AI & AUTOMATION SOLUTIONS",
     image: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785133977/automation_sm760t.avif",
     points: [
-      "AI Chatbots & NLP Pipelines",
-      "Machine Learning Models & IDP",
-      "Workflow Automation & Predictive Analytics",
+      "AI chatbots and NLP pipelines that keep working on your business after hours",
+      "Machine learning models and intelligent document processing built around your data",
+      "Workflow automation and predictive analytics that help you stay ahead of demand"
     ],
   },
 ];
@@ -54,7 +54,6 @@ function Services() {
   useEffect(() => {
     const handleScrollTracking = () => {
       const isMobile = window.innerWidth <= 992;
-      // On mobile, track cards right below the sticky preview area
       const trackingLine = isMobile ? window.innerHeight * 0.75 : window.innerHeight / 2;
       
       let closestIndex = 0;
@@ -86,11 +85,12 @@ function Services() {
     <section className="services section-space">
       <div className="container">
         
+        {/* Header - Updated Content */}
         <div className="services-header">
           <span className="section-tag">WHAT WE BUILD</span>
-          <h2 className="section-title">Everything Your IT Stack Needs — One Partner</h2>
+          <h2 className="section-title">Everything Your IT Stack Needs, Under One Roof</h2>
           <p className="section-description">
-            Production-grade solutions built for scalability, high performance and measurable business impact.
+            You get production-grade solutions engineered for scalability, high performance and results you can actually measure.
           </p>
         </div>
 
@@ -134,13 +134,11 @@ function Services() {
                   setActiveService(index);
                   
                   if (window.innerWidth <= 992) {
-                    // FIXED: Mobile scrolling calculation to safely position card completely below the sticky view
                     const element = cardsRef.current[index];
                     if (element) {
                       const bodyRect = document.body.getBoundingClientRect().top;
                       const elementRect = element.getBoundingClientRect().top;
                       const elementPosition = elementRect - bodyRect;
-                      // Subtracts the layout height of your sticky header and preview block
                       const offsetPosition = elementPosition - 490; 
 
                       window.scrollTo({
@@ -165,6 +163,7 @@ function Services() {
           
         </div>
 
+        {/* CTA Button - Updated */}
         <div className="services-button-wrap">
           <button className="primary-btn" onClick={() => navigate("/service")}>
             VIEW ALL SERVICES
