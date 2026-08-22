@@ -11,8 +11,9 @@ const project1Features = [
     id: 1,
     icon: <FiTarget />,
     label: "Goal Tracking",
-    title: "Keep Every Team Aligned on Goals & OKRs",
-    description: "When projects span multiple teams, status updates get scattered across emails, spreadsheets, and meetings. Define goals and OKRs in one place, track progress in real time, and automate milestone updates—so you always know if you're on track without chasing people for answers.",
+    title: "Keep Every Project Aligned With Your Goals",
+    description:
+      "Struggling to keep your projects aligned with business goals? Set clear objectives and OKRs, track progress in real time, and know exactly where your team stands at every stage.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135243/craftcore1_rmag3p.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135282/Project_Report_pc0kp0.avif",
@@ -20,14 +21,21 @@ const project1Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135278/Project_Card_fdfwie.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135279/Customer_Support_Ticketing_System_Project_Details_rdy78x.avif"
     ],
-    tags: ["Project Goals", "OKR Tracking", "Real-Time Progress", "Milestone Management"]
+    tags: [
+      "Project Goals",
+      "OKR Tracking",
+      "Real-Time Progress",
+      "Milestone Management"
+    ]
   },
+
   {
     id: 2,
     icon: <FiTrendingUp />,
     label: "Recruitment Analytics",
-    title: "Cut Time-to-Hire with Recruitment Analytics",
-    description: "Hiring bottlenecks cost you time and strong candidates. See which pipeline stages slow you down, which sources deliver quality applicants, and how long roles stay open. This recruitment performance dashboard turns hiring data into decisions that shorten time-to-hire and improve offer acceptance.",
+    title: "Know What Is Working in Your Hiring Process",
+    description:
+      "Not sure where your hiring process is slowing down? Track candidate pipelines, time-to-hire, hiring sources, and success rates so you can identify what works and make better recruitment decisions.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135420/Recruitment_Dashboard_i0tbfq.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135419/Job_Postings_mujs4r.avif",
@@ -37,14 +45,21 @@ const project1Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135411/Candidate_d9aoev.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135411/Candidate_Details_bk1z30.avif"
     ],
-    tags: ["Candidate Pipeline", "Time-to-Hire", "Source Analytics", "Hiring Success Rate"]
+    tags: [
+      "Candidate Pipeline",
+      "Time-to-Hire",
+      "Source Analytics",
+      "Hiring Success Rate"
+    ]
   },
+
   {
     id: 3,
     icon: <FiUsers />,
     label: "CRM Management",
-    title: "Never Lose a Lead Again with Built-In CRM",
-    description: "Leads slip through the cracks when deals live in spreadsheets and follow-ups depend on memory. This CRM software tracks every lead, visualizes your sales pipeline, and shows which activities actually move deals forward—so your team closes more without losing context.",
+    title: "Turn More Leads Into Customers",
+    description:
+      "Losing track of leads or sales follow-ups? Keep your customer conversations, deals, activities, and sales pipeline organized so your team knows who to follow up with and when.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135601/CRM_Dashboard_rp2q0g.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135603/Deals_Kanban_wg7z5o.avif",
@@ -55,7 +70,12 @@ const project1Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135609/Leads_Report_General_tdbn7i.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135610/Leads_Report_Staff_kuuzce.avif"
     ],
-    tags: ["Lead Management", "Sales Pipeline", "Activity Tracking", "CRM Analytics"]
+    tags: [
+      "Lead Management",
+      "Sales Pipeline",
+      "Activity Tracking",
+      "CRM Analytics"
+    ]
   }
 ];
 
@@ -64,8 +84,9 @@ const project2Features = [
     id: 1,
     icon: <FiDollarSign />,
     label: "Admin Dashboard",
-    title: "See Where Recovery Stands, Down to the Account",
-    description: "Outstanding payments tie up cash flow and recovery efforts stall without visibility. Track delinquent accounts, monitor recovery rates, reconcile bank transactions, and measure agent performance—so you know exactly where collections stand and where to focus next.",
+    title: "See Your Entire Collection Operation Clearly",
+    description:
+      "Need a clearer picture of your recovery performance? Track outstanding payments, collections, bank reconciliation, defaulters, and team performance from one dashboard so you can act on the right information faster.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Dashboard_bnod2n.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136407/Dashboard_Dark_irjhzo.avif",
@@ -76,14 +97,21 @@ const project2Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Permission_izu9xk.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785408466/Permission_Dark_k41k4r.png"
     ],
-    tags: ["Recovery Analytics", "Bank Reconciliation", "Defaulter Tracking", "Team Performance"]
+    tags: [
+      "Recovery Analytics",
+      "Bank Reconciliation",
+      "Defaulter Tracking",
+      "Team Performance"
+    ]
   },
+
   {
     id: 2,
     icon: <FiUsers />,
     label: "Agent Dashboard",
-    title: "Give Agents a Clear List, Not Guesswork",
-    description: "Agents waste time figuring out who to call next and what was already promised. Get a prioritized task list, log every call, set follow-up reminders, and receive notifications—so your team stays productive without manual coordination or missed commitments.",
+    title: "Help Your Collection Team Stay on Track",
+    description:
+      "Finding it difficult to keep agents on top of daily follow-ups? Give your team a clear view of tasks, calls, customer follow-ups, and notifications so important collection activities don't get missed.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411945/Dashboard_L_z4vlvh.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136519/dashboard_riiznw.avif",
@@ -94,14 +122,21 @@ const project2Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411957/Notification_L_pf6hv9.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411971/Notification_D_ertyi8.png"
     ],
-    tags: ["Task Management", "Call Logging", "Follow-ups", "Notifications"]
+    tags: [
+      "Task Management",
+      "Call Logging",
+      "Follow-ups",
+      "Notifications"
+    ]
   },
+
   {
     id: 3,
     icon: <FiSmartphone />,
     label: "Mobile App",
-    title: "Keep Field Collections Moving from Any Location",
-    description: "Field agents need access to cases and tasks even when they're away from their desk. This collection agency software lets agents manage cases, update daily tasks, log customer interactions, and sync in real time—so recovery work continues without delays or data gaps.",
+    title: "Keep Your Field Team Connected on the Go",
+    description:
+      "Need your field agents to stay productive outside the office? Give them access to cases, daily tasks, customer interactions, and real-time updates from their mobile devices.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136693/dashboard_pd5net.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785413018/Dashboard_m_mhna4i.png",
@@ -110,7 +145,12 @@ const project2Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785413018/daily_task_x2ep8i.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136696/daily_task_obvpao.avif"
     ],
-    tags: ["Case Management", "Field Operations", "Real-Time Sync", "Mobile Tasks"]
+    tags: [
+      "Case Management",
+      "Field Operations",
+      "Real-Time Sync",
+      "Mobile Tasks"
+    ]
   }
 ];
 
@@ -119,21 +159,29 @@ const project3Features = [
     id: 1,
     icon: <FiTrendingUp />,
     label: "Operations Dashboard",
-    title: "Get Complete Visibility Into Textile Operations",
-    description: "Production delays and inventory shortages hit margins when you can't see what's happening on the floor. Monitor inventory levels, track production progress, manage job work, and view financial insights in real time—so you can act before bottlenecks become costly.",
+    title: "Get a Clear View of Your Textile Operations",
+    description:
+      "Need better visibility across production, inventory, job work, and WIP? Monitor your textile operations in real time and quickly understand what is happening across your production cycle.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/Dashboar_h2yx68.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/DashboardMobileVie_lgzw9y.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136946/ManagementControlTowe_c270zl.jpg"
     ],
-    tags: ["Inventory Monitoring", "Production Tracking", "Financial Insights", "WIP Monitoring"]
+    tags: [
+      "Inventory Monitoring",
+      "Production Tracking",
+      "Financial Insights",
+      "WIP Monitoring"
+    ]
   },
+
   {
     id: 2,
     icon: <FiGrid />,
     label: "Master Management",
-    title: "Keep Customer, Vendor & Product Data Consistent",
-    description: "Inconsistent master data causes errors in orders, procurement, and reporting. This textile inventory management system centralizes customers, employees, products, vendors, and warehouses in one place—so every transaction uses the same accurate information and production runs without data-related stoppages.",
+    title: "Keep Your Textile Data Organized",
+    description:
+      "Managing customers, products, vendors, employees, and warehouses across different records can create confusion. Keep your core master data organized and accessible so your team can work with accurate information.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137032/Custome_veckuh.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137034/Designatio_ny3jmc.jpg",
@@ -142,14 +190,21 @@ const project3Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137038/Vendor_amvlh6.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137038/Warehouse_mgcom6.jpg"
     ],
-    tags: ["Customer Management", "Vendor Tracking", "Product Catalog", "Warehouse Management"]
+    tags: [
+      "Customer Management",
+      "Vendor Tracking",
+      "Product Catalog",
+      "Warehouse Management"
+    ]
   },
+
   {
     id: 3,
     icon: <FiClock />,
     label: "Operations Reports",
-    title: "Get the Reports You Need Before Problems Compound",
-    description: "Monthly reports arrive too late to fix problems that already happened. Generate on-demand reports for grey material procurement, inventory status, job work, mill processes, and payments—so you can spot trends, audit textile operations, and make decisions with current data.",
+    title: "Make Better Decisions With Your Production Data",
+    description:
+      "Need to understand where materials, production, job work, or payments stand? Get clear operational reports that help you identify issues, monitor progress, and make informed decisions faster.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137138/Finances_Payment-1000kb_moeg18.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137141/Grey_Material_Procurement_Fully_Dilivered_Report-1000kb_c8n87t.jpg",
@@ -160,7 +215,12 @@ const project3Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137146/Mill_Wise_Mill_Process_Report-1000kb_h7hriu.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137147/WIP_MONITOR_-1000kb_fg3shl.jpg"
     ],
-    tags: ["Material Procurement", "Inventory Reports", "Job Work Reports", "Financial Monitoring"]
+    tags: [
+      "Material Procurement",
+      "Inventory Reports",
+      "Job Work Reports",
+      "Financial Monitoring"
+    ]
   }
 ];
 
@@ -169,8 +229,9 @@ const project4Features = [
     id: 1,
     icon: <FiUsers />,
     label: "Employee Management",
-    title: "Answer Workforce Questions Without Pulling Reports",
-    description: "HR teams lose hours pulling data from attendance logs, payroll sheets, and timesheets. Get workforce analytics, income tracking, attendance monitoring, and payroll summaries in one view—so you can answer leadership questions instantly and focus on people, not data entry.",
+    title: "Know What Is Happening Across Your Workforce",
+    description:
+      "Need better visibility into your employees and HR operations? Track attendance, payroll, income, timesheets, and workforce information from one central dashboard.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733995/Dashboard_ztc5ig.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733985/Income_y4mefd.png",
@@ -178,14 +239,22 @@ const project4Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733986/Payrol_gkbipd.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733985/Time_Sheet_Report_dkyhtm.png"
     ],
-    tags: ["HR Dashboard", "Income Analytics", "Attendance Tracking", "Payroll Management", "Timesheet Reports"]
+    tags: [
+      "HR Dashboard",
+      "Income Analytics",
+      "Attendance Tracking",
+      "Payroll Management",
+      "Timesheet Reports"
+    ]
   },
+
   {
     id: 2,
     icon: <FiClock />,
     label: "Payroll & Roles",
-    title: "Run Payroll on Time, Every Time",
-    description: "Manual payroll calculations lead to errors, delays, and compliance risk. This payroll management software automates salary settings, generates payslips, manages employee profiles, and controls access with role-based permissions—so payroll runs on schedule and employees get accurate payments every time.",
+    title: "Simplify Payroll and Employee Access",
+    description:
+      "Spending too much time managing salaries, payslips, employee profiles, and permissions? Streamline your payroll process and control access based on each employee's role.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734292/Manage_salary_nfwyfg.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734293/payslip_nhcami.png",
@@ -194,14 +263,22 @@ const project4Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734294/user_je2lmt.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734294/Manage_roles_jagwlj.png"
     ],
-    tags: ["Salary Management", "Payslip Generation", "Employee Profiles", "User Management", "Role-Based Access"]
+    tags: [
+      "Salary Management",
+      "Payslip Generation",
+      "Employee Profiles",
+      "User Management",
+      "Role-Based Access"
+    ]
   },
+
   {
     id: 3,
     icon: <FiTrendingUp />,
     label: "Performance Reviews",
-    title: "Base Reviews on Real Contributions, Not Recency",
-    description: "Annual reviews feel disconnected from day-to-day work when goals and KPIs aren't tracked continuously. Create custom evaluation forms, set KPI indicators, manage appraisal cycles, and track goals—so performance conversations are grounded in actual employee performance management, not guesswork.",
+    title: "Help Your Team Grow With Better Performance Tracking",
+    description:
+      "Finding it difficult to track employee performance consistently? Set goals, monitor KPIs, manage appraisals, and use performance data to support better employee development.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734442/Create_form_elamr7.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734444/Indicator_ubo99t.png",
@@ -209,7 +286,13 @@ const project4Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734444/Appresial_n5lxon.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734445/Goal_Tracking_oyvuzy.png"
     ],
-    tags: ["Evaluation Forms", "KPI Indicators", "Timesheet Management", "Appraisal Cycles", "Goal Tracking"]
+    tags: [
+      "Evaluation Forms",
+      "KPI Indicators",
+      "Timesheet Management",
+      "Appraisal Cycles",
+      "Goal Tracking"
+    ]
   }
 ];
 
@@ -218,8 +301,9 @@ const project5Features = [
     id: 1,
     icon: <FiTarget />,
     label: "Dashboard Overview",
-    title: "Know Which Slots Are Going Unused",
-    description: "You can't optimize scheduling without knowing which time slots, services, or staff are underutilized. Track appointment metrics, booking trends, and user activity with role-based access—so you can adjust capacity, reduce no-shows, and get more from every available hour.",
+    title: "Know How Your Appointments Are Performing",
+    description:
+      "Need a clearer view of your booking activity? Track appointments, booking trends, users, and performance from one dashboard so you can quickly understand how your scheduling operations are performing.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734796/Appointment_Dashboard_1_nko7tm.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734796/Appointment_Dashboard_2_cvihy5.png",
@@ -228,14 +312,22 @@ const project5Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734787/Users_zgb3ql.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734788/Roles_tshgdh.png"
     ],
-    tags: ["Appointment Analytics", "Booking Trends", "User Management", "Role-Based Access", "Performance Metrics"]
+    tags: [
+      "Appointment Analytics",
+      "Booking Trends",
+      "User Management",
+      "Role-Based Access",
+      "Performance Metrics"
+    ]
   },
+
   {
     id: 2,
     icon: <FiGrid />,
     label: "Business Management",
-    title: "Scale to New Locations Without Adding Chaos",
-    description: "Managing multiple locations or service lines becomes chaotic when each one runs on a different system. This multi-location appointment scheduling tool lets you create business profiles, configure services, manage customers, and plan resources across locations—so operations stay consistent as you scale.",
+    title: "Manage Multiple Locations and Customers With Ease",
+    description:
+      "Managing multiple businesses, locations, services, and customers can quickly become complicated. Keep your business information organized and give customers a smoother appointment experience.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734766/Create_Business_an1vf7.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734785/Manage_Business_icbhvh.png",
@@ -245,14 +337,22 @@ const project5Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734747/Manage_Business_5_guocvs.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734741/Customer_sww87v.png"
     ],
-    tags: ["Business Creation", "Multi-Location Support", "Service Configuration", "Customer Management", "Resource Planning"]
+    tags: [
+      "Business Creation",
+      "Multi-Location Support",
+      "Service Configuration",
+      "Customer Management",
+      "Resource Planning"
+    ]
   },
+
   {
     id: 3,
     icon: <FiBriefcase />,
     label: "Settings & Calendar",
-    title: "Stop Double Bookings Before They Happen",
-    description: "Double bookings and scheduling conflicts frustrate both staff and clients. Configure appointment rules, integrate calendars, set system preferences, and customize the client portal—so bookings happen smoothly, conflicts are prevented, and your calendar management stays under control.",
+    title: "Make Scheduling Work the Way You Need",
+    description:
+      "Need more control over your appointments and calendars? Configure your booking settings, manage calendars, customize your client experience, and keep your scheduling process aligned with your business.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734736/Appoinments_qdeks2.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734794/Appointments_Calender_bbbqqr.png",
@@ -262,7 +362,13 @@ const project5Features = [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734762/settings_4_ryfwtp.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734730/Settings_5_gx75jw.png"
     ],
-    tags: ["Appointment Settings", "Calendar Integration", "System Preferences", "Client Portal", "Configuration Management"]
+    tags: [
+      "Appointment Settings",
+      "Calendar Integration",
+      "System Preferences",
+      "Client Portal",
+      "Configuration Management"
+    ]
   }
 ];
 
@@ -270,67 +376,76 @@ const projects = [
   {
     id: 1,
     title: "CraftCore ERP",
-    subtitle: "One Platform for Projects, Hiring & Sales",
+    subtitle: "Enterprise Management",
     tag: "PROJECT 01",
     icon: <FiGrid />,
-    description: "When growth outpaces your tools, project plans, hiring pipelines, and sales data end up scattered across separate systems, and leadership loses sight of what's actually happening. CraftCore ERP is a business management software that brings OKR tracking, recruitment analytics, CRM software, and project management together in one connected platform—so your teams stop switching between apps, manual reporting drops, and decisions get made on current information instead of guesswork. As a custom ERP solution, it's built around the modules you actually use.",
+    description:
+      "Are your projects, customers, teams, and daily operations spread across different tools? Bring them together with CraftCore ERP. Get a clearer view of your business, reduce manual work, and keep your teams working from the same system as you grow.",
     features: project1Features,
     stats: ["Active Modules: 4", "Users: 256", "Integrations: 12"],
     color: "#4f46e5",
     light: "#e0e7ff",
     gradient: "linear-gradient(135deg, #4f46e5, #7C3AED)"
   },
+
   {
     id: 2,
     title: "Collection CRM",
-    subtitle: "Recover More With Less Manual Chasing",
+    subtitle: "Debt Recovery",
     tag: "PROJECT 02",
     icon: <FiDollarSign />,
-    description: "Recovery rates slip when agents don't know which accounts to call next and managers can't see what's actually working. Collection CRM is a debt collection CRM that connects admin oversight, agent workflows, and field operations, so overdue accounts get prioritized automatically, calls get logged without extra admin work, and recovery managers can see exactly where cash is stuck. Built for collection agencies that need field collection management alongside office-based tracking.",
+    description:
+      "Struggling to keep track of payments, field agents, follow-ups, and recovery performance? Collection CRM gives your team a clear view of every collection activity, helping you follow up on time, monitor your agents, and stay in control of your recovery process.",
     features: project2Features,
     stats: ["Active Cases: 1.2K", "Recovery Rate: 78%", "Agents: 45"],
     color: "#2563eb",
     light: "#dbeafe",
     gradient: "linear-gradient(135deg, #2563eb, #1D4ED8)"
   },
+
   {
     id: 3,
     title: "Textile ERP",
-    subtitle: "Real-Time Control Over Your Production Floor",
+    subtitle: "Manufacturing Intelligence",
     tag: "PROJECT 03",
     icon: <FiBriefcase />,
-    description: "Textile manufacturing margins depend on tight control over inventory, production, and job work—but when that data lives in disconnected spreadsheets, delays and stockouts hit before you can react. Textile ERP is textile manufacturing software that gives you real-time production management, centralized master data, and on-demand reporting, so you can catch bottlenecks early, reduce waste from mismatched grey material stock, and keep orders moving on schedule.",
+    description:
+      "Need better control over your textile production, inventory, procurement, and job work? Textile ERP connects your operations so you can see what is happening across your production cycle, track materials and WIP, and make better decisions with reliable reports.",
     features: project3Features,
     stats: ["Production: 2.8K", "Inventory: 15K", "Reports: 24"],
     color: "#059669",
     light: "#d1fae5",
-    gradient: "linear-gradient(135deg, #059669, #047857)",
+    gradient: "linear-gradient(135deg, #059669, #047857)"
   },
+
   {
     id: 4,
     title: "HRM System",
-    subtitle: "Less Admin Work, More Time for Your People",
+    subtitle: "Human Resource Management",
     tag: "PROJECT 04",
     icon: <FiUsers />,
-    description: "HR becomes a bottleneck when attendance, payroll, and performance tracking are handled manually across disconnected sheets. This HR management software automates core HR processes, centralizes employee data, and supports continuous performance management—so your team spends less time on data entry and leadership questions get answered instantly instead of after a week of pulling reports.",
+    description:
+      "Spending too much time managing attendance, payroll, employee records, and performance manually? HRM System brings your everyday HR processes together, helping you reduce administrative work, minimize errors, and give your team better visibility into your workforce.",
     features: project4Features,
     stats: ["Employees: 340", "Departments: 12", "Reviews: 98%"],
     color: "#12d800",
     light: "#effce7",
     gradient: "linear-gradient(135deg, #56ec48, #059669)"
   },
+
   {
     id: 5,
     title: "Appointment Scheduler",
-    subtitle: "Fill Every Slot, Prevent Every Conflict",
+    subtitle: "Booking & Calendar",
     tag: "PROJECT 05",
     icon: <FiClock />,
-    description: "Missed bookings and double-scheduled slots cost revenue and damage client trust. Appointment Scheduler is an online appointment booking system that combines analytics, multi-location management, and client self-service booking—so you fill available capacity, prevent scheduling conflicts, and give clients a smooth, professional booking experience from the first click.",
+    description:
+      "Finding it difficult to manage bookings, calendars, customers, and resources without scheduling conflicts? Appointment Scheduler helps you organize your appointments, simplify booking management, and give your customers an easier way to schedule their visits.",
     features: project5Features,
     stats: ["Bookings: 1.8K", "Resources: 25", "Clients: 850"],
     color: "#8b5cf6",
     light: "#ede9fe",
-    gradient: "linear-gradient(135deg, #8b5cf6, #6d28d9)",
+    gradient: "linear-gradient(135deg, #8b5cf6, #6d28d9)"
   }
 ];
 
@@ -459,9 +574,11 @@ function SolutionV6() {
         
         {/* Header */}
         <header className="v6-hero">
-          <span className="section-tag">Software Suite</span>
-          <h1 className="v6-title">Built for the problems you face every day</h1>
-          <p className="v6-subtitle">Five solutions. Real business challenges. Clear outcomes.</p>
+          <span className="section-tag">Solutions for Your Business</span>
+          <h1 className="v6-title">Solutions Built Around Your Business</h1>
+          <p className="v6-subtitle">
+            Whatever challenge you're facing, we've built solutions to help you work smarter, move faster, and grow with confidence.
+          </p>
         </header>
 
         {/* All Projects */}
