@@ -1,6 +1,14 @@
 /* =======================================================
-   SOLUTION V6 - GLOBAL STYLES FROM SERVICE.CSS
+   CRITICAL GLOBAL RESET: Force overflow visible for sticky
 ======================================================= */
+html, 
+body, 
+#root, 
+.solution-v6-page {
+  overflow-x: clip !important; /* 'clip' prevents horizontal scroll without breaking sticky */
+  overflow-y: visible !important;
+}
+
 :root {
   --clr-purple: #7C3AED;
   --clr-purple-pale: rgba(124, 58, 237, 0.08);
@@ -10,29 +18,15 @@
   --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.04);
   --shadow-card-hover: 0 20px 60px rgba(0, 0, 0, 0.06);
   --grad-primary: linear-gradient(90deg, #7C3AED, #6D28D9);
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-  
-  /* V6 specific */
-  --v6-bg: #f8fafc;
-  --v6-surface: #ffffff;
-  --v6-border: #e2e8f0;
-  --v6-text-main: #0f172a;
-  --v6-text-sub: #334155;
-  --v6-text-muted: #64748b;
-  --v6-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --v6-shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.08);
-  --v6-shadow-lg: 0 12px 32px -4px rgba(0, 0, 0, 0.1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Page Reset & Wrappers */
 .solution-v6-page {
   background-color: transparent;
-  color: var(--v6-text-main);
+  color: #0f172a;
   min-height: 100vh;
   padding: 40px 0 80px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  overflow-x: hidden;
   box-sizing: border-box;
 }
 
@@ -47,36 +41,13 @@
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
-  background-color: transparent;
 }
 
-/* =======================================================
-   HEADER SECTION - Service.css Style
-======================================================= */
+/* Header */
 .v6-hero {
   text-align: center;
   max-width: 820px;
   margin: 0 auto 60px;
-}
-
-.v6-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  background: rgba(124, 58, 237, 0.08);
-  color: var(--clr-purple);
-  border-radius: 100px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border: 1px solid rgba(124, 58, 237, 0.08);
-  margin-bottom: 12px;
-}
-
-.v6-chip svg {
-  font-size: 14px;
 }
 
 .v6-title {
@@ -94,13 +65,11 @@
   margin-top: 8px;
 }
 
-/* =======================================================
-   PROJECT SECTION - NEW
-======================================================= */
+/* Project Section */
 .v6-project-section {
+  position: relative;
   margin-bottom: 80px;
   padding-top: 20px;
-  scroll-margin-top: 80px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   padding-bottom: 40px;
 }
@@ -111,9 +80,6 @@
   padding-bottom: 0;
 }
 
-/* =======================================================
-   PROJECT TAG & SUBTITLE
-======================================================= */
 .v6-project-tag {
   display: inline-block;
   font-size: 10px;
@@ -122,7 +88,6 @@
   text-transform: uppercase;
   padding: 3px 12px;
   border-radius: 100px;
-  border: 1px solid transparent;
   margin-bottom: 10px;
 }
 
@@ -141,9 +106,6 @@
   color: var(--clr-ink);
 }
 
-/* =======================================================
-   PROJECT INFO SUMMARY BAR - Service.css Style
-======================================================= */
 .v6-project-summary {
   background: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(20px);
@@ -179,25 +141,27 @@
 }
 
 /* =======================================================
-   MAIN LAYOUT GRID
+   GRID LAYOUT
 ======================================================= */
 .v6-grid-layout {
   display: grid;
   grid-template-columns: 440px 1fr;
   gap: 40px;
-  align-items: start;
+  align-items: stretch; /* Stretches both columns so the right column has scrolling track */
+  position: relative;
 }
 
+/* Left Column: Gives each feature card height */
 .v6-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 28px;
+  padding-bottom: 40px;
 }
 
-/* =======================================================
-   FEATURE CARDS - Service.css Style
-======================================================= */
+/* Feature Cards */
 .v6-feature-card {
+  position: relative;
   background: rgba(255, 255, 255, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 24px;
@@ -206,32 +170,27 @@
   transition: all 0.5s var(--ease-smooth);
   text-align: left;
   width: 100%;
-  opacity: 0.45;
-  transform: scale(0.97) translateX(15px);
+  opacity: 0.4;
+  transform: scale(0.98);
 }
 
 .v6-feature-card:hover {
-  opacity: 0.8;
-  transform: scale(0.98) translateX(8px);
+  opacity: 0.75;
 }
 
 .v6-feature-card.active {
   opacity: 1 !important;
-  transform: scale(1) translateX(0) !important;
-  background: rgba(255, 255, 255, 0.72);
-  border-color: rgba(124, 58, 237, 0.16);
+  transform: scale(1) !important;
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(124, 58, 237, 0.2);
   box-shadow: var(--shadow-card-hover);
-}
-
-.v6-feature-card.active:hover {
-  transform: translateY(-4px) scale(1.01) !important;
 }
 
 .v6-card-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .v6-title-group {
@@ -245,7 +204,6 @@
   color: var(--active-color, #4f46e5);
   display: flex;
   flex-shrink: 0;
-  transition: color 0.3s ease;
 }
 
 .v6-feature-card h3 {
@@ -256,41 +214,45 @@
 }
 
 .v6-card-body {
-  font-size: 14px;
-  color: var(--clr-muted);
+  max-height: 0;
+  opacity: 0;
   margin: 0;
+  overflow: hidden;
+  font-size: 14px;
   line-height: 1.6;
+  color: var(--clr-muted);
+  transition: max-height 0.45s var(--ease-smooth),
+              opacity 0.4s ease,
+              margin-top 0.4s ease;
 }
 
-/* Active Indicator */
+.v6-feature-card:hover .v6-card-body,
+.v6-feature-card.active .v6-card-body {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
 .v6-active-indicator {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--active-color, #4f46e5);
-  display: inline-block;
-  animation: pulse-indicator 2s ease-in-out infinite;
-}
-
-@keyframes pulse-indicator {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
 }
 
 /* =======================================================
-   MOBILE INLINE PREVIEW DRAWER
+   RIGHT STAGE - STICKY ANCHORING
 ======================================================= */
-.v6-mobile-preview {
-  display: none;
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid var(--clr-border);
+.v6-stage-col {
+  position: relative;
+  height: 100%;
+  display: block;
 }
 
-/* =======================================================
-   STAGE WINDOW (DESKTOP STICKY PREVIEW)
-======================================================= */
 .v6-stage {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 90px !important;
   background: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -298,8 +260,7 @@
   border-radius: 28px;
   padding: 24px;
   box-shadow: var(--shadow-card-hover);
-  position: sticky;
-  top: 24px;
+  z-index: 20;
 }
 
 .v6-stage-header {
@@ -329,9 +290,6 @@
   border: 1px solid rgba(124, 58, 237, 0.08);
 }
 
-/* =======================================================
-   VIEWPORT IMAGE BOX
-======================================================= */
 .v6-viewport {
   position: relative;
   background: #111115;
@@ -351,13 +309,10 @@
 }
 
 @keyframes consoleImageFade {
-  from { opacity: 0; transform: scale(1.05); }
+  from { opacity: 0; transform: scale(1.02); }
   to { opacity: 1; transform: scale(1); }
 }
 
-/* =======================================================
-   CAROUSEL BUTTONS
-======================================================= */
 .v6-nav-btn {
   position: absolute;
   top: 50%;
@@ -373,45 +328,23 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   z-index: 3;
   transition: all 0.3s ease;
 }
 
 .v6-nav-btn:hover {
   background: var(--active-color, #4f46e5);
-  border-color: var(--active-color, #4f46e5);
 }
 
 .v6-nav-btn.prev { left: 12px; }
 .v6-nav-btn.next { right: 12px; }
 
-/* =======================================================
-   THUMBNAIL GALLERY STRIP
-======================================================= */
 .v6-thumbs-row {
   display: flex;
   gap: 8px;
   margin-top: 14px;
   overflow-x: auto;
   padding-bottom: 4px;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: var(--active-color, #4f46e5) #e2e8f0;
-}
-
-.v6-thumbs-row::-webkit-scrollbar {
-  height: 4px;
-}
-
-.v6-thumbs-row::-webkit-scrollbar-track {
-  background: #e2e8f0;
-  border-radius: 4px;
-}
-
-.v6-thumbs-row::-webkit-scrollbar-thumb {
-  background: var(--active-color, #4f46e5);
-  border-radius: 4px;
 }
 
 .v6-thumb-pill {
@@ -428,19 +361,15 @@
   transition: all 0.3s ease;
 }
 
-.v6-thumb-pill:hover {
-  opacity: 0.8;
+.v6-thumb-pill.active {
+  opacity: 1;
+  border-color: var(--active-color, #4f46e5);
 }
 
 .v6-thumb-pill img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.v6-thumb-pill.active {
-  opacity: 1;
-  border-color: var(--active-color, #4f46e5);
 }
 
 .v6-counter {
@@ -454,450 +383,64 @@
   border-radius: 12px;
   font-size: 12px;
   font-weight: 600;
+}
+
+.back-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #111118;
+  color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* =======================================================
-   RESPONSIVE - TABLET & MOBILE
+   RESPONSIVE (<= 1024px)
 ======================================================= */
-@media (max-width: 1100px) {
-  .v6-container {
-    padding: 0 16px;
-  }
-
-  .v6-title {
-    font-size: 34px;
-  }
-
+@media (max-width: 1024px) {
   .v6-grid-layout {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
+  .v6-stage-col {
+    position: sticky;
+    top: 70px;
+    z-index: 50;
+    margin-bottom: 20px;
+  }
+
   .v6-stage {
-    display: none;
-  }
-
-  .v6-mobile-preview {
-    display: block;
-  }
-
-  .v6-feature-card {
-    padding: 24px 24px;
-    opacity: 0.45;
-    transform: scale(0.97) !important;
-  }
-
-  .v6-feature-card.active {
-    opacity: 1 !important;
-    transform: scale(1) !important;
+    position: static !important;
+    padding: 18px;
   }
 
   .v6-viewport {
-    aspect-ratio: 16/10;
-    max-height: 260px;
+    aspect-ratio: 16/9;
   }
 
-  .v6-nav-btn {
-    width: 36px;
-    height: 36px;
-  }
-
-  .v6-nav-btn svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .v6-thumb-pill {
-    width: 60px;
-    height: 40px;
-  }
-
-  .v6-counter {
-    font-size: 11px;
-    padding: 3px 10px;
-  }
-
-  .v6-stage-header h3 {
-    font-size: 20px;
-  }
-
-  .v6-tag {
-    font-size: 11px;
-    padding: 3px 12px;
-  }
-
-  .v6-chip {
-    font-size: 11px;
-    padding: 4px 12px;
-  }
-
-  .v6-chip svg {
-    font-size: 12px;
-  }
-
-  .v6-project-summary {
-    padding: 20px 22px;
-  }
-
-  .v6-summary-text h2 {
-    font-size: 18px;
-  }
-
-  .v6-summary-text p {
-    font-size: 13px;
-  }
-
-  .v6-stat-pill {
-    font-size: 11px;
-    padding: 3px 12px;
-  }
-
-  .v6-project-section {
-    margin-bottom: 60px;
-    padding-top: 15px;
-    padding-bottom: 30px;
-  }
-
-  .v6-project-subtitle {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 768px) {
-  .solution-v6-page {
-    padding: 24px 0 40px;
-  }
-
-  .v6-title {
-    font-size: 28px;
-  }
-
-  .v6-subtitle {
-    font-size: 14px;
-  }
-
-  .v6-hero {
-    margin-bottom: 28px;
-  }
-
-  .v6-project-summary {
-    padding: 16px 18px;
-    margin-bottom: 20px;
-  }
-
-  .v6-summary-text h2 {
-    font-size: 22px;
-  }
-
-  .v6-summary-text p {
-    font-size: 12px;
-  }
-
-  .v6-stat-pill {
-    font-size: 10px;
-    padding: 2px 10px;
-  }
-
-  .v6-feature-card {
-    padding: 18px 18px;
-    border-radius: 18px;
-  }
-
-  .v6-feature-card h3 {
-    font-size: 16px;
-  }
-
-  .v6-feature-icon {
-    font-size: 17px;
-  }
-
-  .v6-title-group {
-    gap: 10px;
-  }
-
-  .v6-card-body {
-    font-size: 13px;
-  }
-
-  .v6-viewport {
-    max-height: 220px;
-    border-radius: 12px;
-  }
-
-  .v6-nav-btn {
-    width: 32px;
-    height: 32px;
-  }
-
-  .v6-nav-btn svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .v6-nav-btn.prev { left: 8px; }
-  .v6-nav-btn.next { right: 8px; }
-
-  .v6-thumb-pill {
-    width: 50px;
-    height: 34px;
-    border-radius: 6px;
-  }
-
-  .v6-counter {
-    font-size: 10px;
-    padding: 2px 10px;
-    bottom: 8px;
-    right: 8px;
-  }
-
-  .v6-tag {
-    font-size: 10px;
-    padding: 2px 10px;
-  }
-
-  .v6-stage-header h3 {
-    font-size: 18px;
-  }
-
-  .v6-chip {
-    font-size: 10px;
-    padding: 4px 10px;
-  }
-
-  .v6-chip svg {
-    font-size: 11px;
-  }
-
-  .v6-stats-row {
-    gap: 6px;
-  }
-
-  .v6-mobile-preview {
-    margin-top: 12px;
-    padding-top: 12px;
-  }
-
-  .v6-thumbs-row {
-    gap: 6px;
-    margin-top: 10px;
-  }
-
-  .v6-project-section {
-    margin-bottom: 50px;
-    padding-top: 10px;
-    padding-bottom: 25px;
-  }
-
-  .v6-project-subtitle {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .solution-v6-page {
-    padding: 16px 0 32px;
-  }
-
-  .v6-container {
-    padding: 0 12px;
-  }
-
-  .v6-title {
-    font-size: 24px;
-  }
-
-  .v6-subtitle {
-    font-size: 12px;
-  }
-
-  .v6-hero {
-    margin-bottom: 20px;
-  }
-
-  .v6-project-summary {
-    padding: 14px 14px;
-    margin-bottom: 16px;
-  }
-
-  .v6-summary-text h2 {
-    font-size: 18px;
-  }
-
-  .v6-summary-text p {
-    font-size: 12px;
-  }
-
-  .v6-stat-pill {
-    font-size: 10px;
-    padding: 2px 8px;
-  }
-
-  .v6-feature-card {
-    padding: 14px 14px;
-    border-radius: 14px;
-  }
-
-  .v6-feature-card h3 {
-    font-size: 14px;
-  }
-
-  .v6-feature-icon {
-    font-size: 15px;
-  }
-
-  .v6-title-group {
-    gap: 8px;
-  }
-
-  .v6-card-body {
-    font-size: 12px;
-  }
-
-  .v6-viewport {
-    max-height: 180px;
-    border-radius: 10px;
-  }
-
-  .v6-nav-btn {
-    width: 28px;
-    height: 28px;
-  }
-
-  .v6-nav-btn svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .v6-nav-btn.prev { left: 6px; }
-  .v6-nav-btn.next { right: 6px; }
-
-  .v6-thumb-pill {
-    width: 42px;
-    height: 28px;
-    border-radius: 4px;
-  }
-
-  .v6-counter {
-    font-size: 9px;
-    padding: 2px 8px;
-    bottom: 6px;
-    right: 6px;
-  }
-
-  .v6-tag {
-    font-size: 9px;
-    padding: 2px 8px;
-  }
-
-  .v6-stage-header h3 {
-    font-size: 16px;
-  }
-
-  .v6-chip {
-    font-size: 9px;
-    padding: 3px 8px;
-  }
-
-  .v6-chip svg {
-    font-size: 10px;
-  }
-
-  .v6-stats-row {
-    gap: 4px;
-  }
-
-  .v6-mobile-preview {
-    margin-top: 10px;
-    padding-top: 10px;
-  }
-
-  .v6-thumbs-row {
-    gap: 4px;
-    margin-top: 8px;
-  }
-
-  .v6-project-section {
-    margin-bottom: 40px;
-    padding-top: 8px;
+  .v6-sidebar {
     padding-bottom: 20px;
   }
 
-  .v6-project-subtitle {
-    font-size: 12px;
-  }
-
-  .v6-project-tag {
-    font-size: 9px;
-    padding: 2px 10px;
-  }
-}
-
-/* Very Small Screens */
-@media (max-width: 360px) {
-  .v6-title {
-    font-size: 20px;
-  }
-
   .v6-feature-card {
-    padding: 12px 12px;
-  }
-
-  .v6-feature-card h3 {
-    font-size: 13px;
-  }
-
-  .v6-card-body {
-    font-size: 11px;
-  }
-
-  .v6-viewport {
-    max-height: 150px;
-  }
-
-  .v6-thumb-pill {
-    width: 36px;
-    height: 24px;
-  }
-
-  .v6-stage-header h3 {
-    font-size: 14px;
-  }
-
-  .v6-project-summary {
-    padding: 10px 12px;
-  }
-
-  .v6-summary-text h2 {
-    font-size: 16px;
-  }
-
-  .v6-chip {
-    font-size: 8px;
-    padding: 2px 6px;
-  }
-
-  .v6-chip svg {
-    font-size: 9px;
-  }
-
-  .v6-stat-pill {
-    font-size: 9px;
-    padding: 1px 6px;
-  }
-
-  .v6-project-section {
-    margin-bottom: 30px;
-    padding-top: 6px;
-    padding-bottom: 15px;
-  }
-
-  .v6-project-subtitle {
-    font-size: 11px;
-  }
-
-  .v6-project-tag {
-    font-size: 8px;
-    padding: 2px 8px;
+    padding: 20px 22px;
   }
 }

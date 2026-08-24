@@ -14,7 +14,7 @@ function Home() {
       <Process />
       <Technologies />
       <Models />
-      <Testimonials />
+      {/* <Testimonials /> */}
     </div>
   );
 }

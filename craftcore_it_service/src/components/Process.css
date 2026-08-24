@@ -15,11 +15,11 @@
 }
 
 /* =======================================================
-   MAIN WRAPPER - The "Scroll Track"
+   MAIN WRAPPER - Increased to 800vh to slow scroll progress
 ======================================================= */
 .process-main-wrapper {
   position: relative;
-  height: 400vh; 
+  height: 1000vh; 
   display: block;
 }
 
@@ -38,7 +38,7 @@
 }
 
 /* =======================================================
-   PROCESS CARD (LAPTOP / DESKTOP ORIGINAL)
+   PROCESS CARD
 ======================================================= */
 .process-card {
   position: relative;
@@ -103,24 +103,32 @@
   opacity: 0;
   visibility: hidden;
   will-change: transform, opacity;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  transition: transform 0.75s cubic-bezier(0.19, 1, 0.22, 1), 
+              opacity 0.75s cubic-bezier(0.19, 1, 0.22, 1);
   top: 0;
   left: 0;
   width: 100%;
   z-index: 2;
+  pointer-events: none;
 }
 
-.process-card-content.prev { transform: translateX(-40px); }
-.process-card-content.next { transform: translateX(40px); }
+.process-card-content.prev { 
+  transform: translateX(-60px); 
+}
+
+.process-card-content.next { 
+  transform: translateX(60px); 
+}
 
 .process-card-content.active {
   transform: translateX(0);
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 /* =======================================================
-   CONTENT STYLING - ABSOLUTE RIGHT SIDE ANCHORING
+   CONTENT STYLING
 ======================================================= */
 .process-bg-right-icon {
   position: absolute;
@@ -133,6 +141,7 @@
   z-index: -1;
   user-select: none;
   pointer-events: none;
+  transition: opacity 0.5s ease;
 }
 
 .process-bg-right-icon svg {
@@ -213,7 +222,8 @@
   color: rgba(255, 255, 255, 0.55);
   font-size: 17px;
   font-weight: 700;
-  transition: 0.4s ease;
+  cursor: pointer;
+  transition: all 0.55s ease;
 }
 
 .progress-circle.active {
@@ -240,7 +250,7 @@
   inset: 0;
   width: 0%;
   background: linear-gradient(90deg, #7c3aed, #2563eb);
-  transition: 0.5s ease;
+  transition: width 0.7s ease;
 }
 
 .progress-line.active::before {
@@ -248,11 +258,11 @@
 }
 
 /* =======================================================
-   TABLET RESPONSIVENESS (Surface Pro 7, iPad Air, iPad Pro)
+   TABLET RESPONSIVENESS
 ======================================================= */
 @media (max-width: 1024px) {
   .process-main-wrapper {
-    height: 300vh;
+    height: 800vh;
   }
 
   .process-card {
@@ -321,11 +331,11 @@
 }
 
 /* =======================================================
-   MOBILE SMARTPHONES (Under 768px)
+   MOBILE SMARTPHONES
 ======================================================= */
 @media (max-width: 768px) {
   .process-main-wrapper {
-    height: 280vh; 
+    height: 700vh; 
   }
 
   .process-sticky-wrapper {
@@ -360,8 +370,8 @@
     padding: 4px 12px;
   }
 
-  .process-card-content.prev { transform: translateX(-15px); }
-  .process-card-content.next { transform: translateX(15px); }
+  .process-card-content.prev { transform: translateX(-20px); }
+  .process-card-content.next { transform: translateX(20px); }
 
   .process-card-content h3 {
     font-size: 24px;
