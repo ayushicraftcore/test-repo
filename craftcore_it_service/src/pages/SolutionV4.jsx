@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./SolutionV4.css";
 import {
   FiGrid, FiTarget, FiTrendingUp, FiUsers, FiDollarSign,
-  FiBriefcase, FiChevronLeft, FiChevronRight, FiSmartphone,
-  FiClock, FiArrowUp
+  FiBriefcase, FiClock, FiArrowUp, FiChevronLeft, FiChevronRight, FiSmartphone
 } from "react-icons/fi";
 
 const project1Features = [
@@ -373,9 +372,7 @@ const projects = [
       "Are your projects, customers, teams and daily operations spread across different tools? Bring them together with CraftCore ERP. Get a clearer view of your business, reduce manual work and keep your teams working from the same system as you grow.",
     features: project1Features,
     stats: ["Active Modules: 4", "Users: 256", "Integrations: 12"],
-    color: "#4f46e5",
-    light: "#e0e7ff",
-    gradient: "linear-gradient(135deg, #4f46e5, #7C3AED)"
+    color: "#4f46e5"
   },
   {
     id: 2,
@@ -387,9 +384,7 @@ const projects = [
       "Struggling to keep track of payments, field agents, follow-ups and recovery performance? Collection CRM gives your team a clear view of every collection activity, helping you follow up on time, monitor your agents and stay in control of your recovery process.",
     features: project2Features,
     stats: ["Active Cases: 1.2K", "Recovery Rate: 78%", "Agents: 45"],
-    color: "#2563eb",
-    light: "#dbeafe",
-    gradient: "linear-gradient(135deg, #2563eb, #1D4ED8)"
+    color: "#2563eb"
   },
   {
     id: 3,
@@ -401,9 +396,7 @@ const projects = [
       "Need better control over your textile production, inventory, procurement and job work? Textile ERP connects your operations so you can see what is happening across your production cycle, track materials and WIP and make better decisions with reliable reports.",
     features: project3Features,
     stats: ["Production: 2.8K", "Inventory: 15K", "Reports: 24"],
-    color: "#059669",
-    light: "#d1fae5",
-    gradient: "linear-gradient(135deg, #059669, #047857)"
+    color: "#059669"
   },
   {
     id: 4,
@@ -415,9 +408,7 @@ const projects = [
       "Spending too much time managing attendance, payroll, employee records and performance manually? HRM System brings your everyday HR processes together, helping you reduce administrative work, minimize errors and give your team better visibility into your workforce.",
     features: project4Features,
     stats: ["Employees: 340", "Departments: 12", "Reviews: 98%"],
-    color: "#12d800",
-    light: "#effce7",
-    gradient: "linear-gradient(135deg, #56ec48, #059669)"
+    color: "#16a34a"
   },
   {
     id: 5,
@@ -429,80 +420,67 @@ const projects = [
       "Finding it difficult to manage bookings, calendars, customers and resources without scheduling conflicts? Appointment Scheduler helps you organize your appointments, simplify booking management and give your customers an easier way to schedule their visits.",
     features: project5Features,
     stats: ["Bookings: 1.8K", "Resources: 25", "Clients: 850"],
-    color: "#8b5cf6",
-    light: "#ede9fe",
-    gradient: "linear-gradient(135deg, #8b5cf6, #6d28d9)"
+    color: "#8b5cf6"
   }
 ];
 
-function SolutionV6() {
-  const [activeProjIdx, setActiveProjIdx] = useState(0);
-  const [activeFeatIdx, setActiveFeatIdx] = useState(0);
+function ProjectSection({ project }) {
+  const [activeFeature, setActiveFeature] = useState(0);
   const [activeImgIdx, setActiveImgIdx] = useState(0);
-  const [showBackToTop, setShowBackToTop] = useState(false);
-  const projectRefs = useRef([]);
-  const cardsRef = useRef({});
+  const trackRef = useRef(null);
+  const cardsRef = useRef([]);
 
-  const currentProject = projects[activeProjIdx];
-  const currentFeature = currentProject?.features[activeFeatIdx] || currentProject?.features[0];
-  const totalImages = currentFeature?.images?.length || 0;
+  useEffect(() => {
+    setActiveImgIdx(0);
+  }, [activeFeature]);
 
   useEffect(() => {
     let ticking = false;
 
-    const handleScrollTracking = () => {
+    const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const vh = window.innerHeight;
-          const triggerLine = vh * 0.5;
+          const isDesktop = window.innerWidth > 1024;
 
-          // 1. Detect active project
-          let closestProjectIndex = 0;
-          let minProjectDistance = Infinity;
+          if (isDesktop) {
+            if (!trackRef.current) return;
+            const rect = trackRef.current.getBoundingClientRect();
+            const totalScrollDistance = rect.height - window.innerHeight;
 
-          projectRefs.current.forEach((projectEl, index) => {
-            if (!projectEl) return;
-            const rect = projectEl.getBoundingClientRect();
-            const projectCenter = rect.top + rect.height / 2;
-            const distance = Math.abs(triggerLine - projectCenter);
-            if (distance < minProjectDistance) {
-              minProjectDistance = distance;
-              closestProjectIndex = index;
+            if (totalScrollDistance > 0) {
+              const scrolled = -rect.top;
+              if (scrolled <= 0) {
+                setActiveFeature(0);
+              } else if (scrolled >= totalScrollDistance) {
+                setActiveFeature(project.features.length - 1);
+              } else {
+                const progress = scrolled / totalScrollDistance;
+                const targetIndex = Math.min(
+                  project.features.length - 1,
+                  Math.floor(progress * project.features.length)
+                );
+                setActiveFeature(targetIndex);
+              }
             }
-          });
+          } else {
+            const triggerLine = window.innerHeight * 0.65;
+            let closestIndex = 0;
+            let minDistance = Infinity;
 
-          // 2. Detect active feature
-          let closestFeatureIndex = 0;
-          let minFeatureDistance = Infinity;
+            cardsRef.current.forEach((card, index) => {
+              if (!card) return;
+              const rect = card.getBoundingClientRect();
+              const cardCenter = rect.top + rect.height / 2;
+              const distance = Math.abs(triggerLine - cardCenter);
 
-          const featureCards = cardsRef.current[closestProjectIndex] || [];
-          featureCards.forEach((card, index) => {
-            if (!card) return;
-            const rect = card.getBoundingClientRect();
-            const cardCenter = rect.top + rect.height / 2;
-            const distance = Math.abs(triggerLine - cardCenter);
-            if (distance < minFeatureDistance) {
-              minFeatureDistance = distance;
-              closestFeatureIndex = index;
-            }
-          });
+              if (distance < minDistance) {
+                minDistance = distance;
+                closestIndex = index;
+              }
+            });
 
-          setActiveProjIdx((prevProj) => {
-            if (prevProj !== closestProjectIndex) {
-              setActiveFeatIdx(0);
-              setActiveImgIdx(0);
-              return closestProjectIndex;
-            }
-            return prevProj;
-          });
-
-          setActiveFeatIdx((prevFeat) => {
-            if (prevFeat !== closestFeatureIndex) {
-              setActiveImgIdx(0);
-              return closestFeatureIndex;
-            }
-            return prevFeat;
-          });
+            setActiveFeature(closestIndex);
+          }
 
           ticking = false;
         });
@@ -511,21 +489,36 @@ function SolutionV6() {
       }
     };
 
-    const onScroll = () => {
-      const scrollY = window.scrollY;
-      setShowBackToTop(scrollY > 400);
-      handleScrollTracking();
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", handleScrollTracking, { passive: true });
-    handleScrollTracking();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+    handleScroll();
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", handleScrollTracking);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
-  }, []);
+  }, [project.features.length]);
+
+  const handleCardClick = (index) => {
+    setActiveFeature(index);
+
+    if (window.innerWidth <= 1024) {
+      const element = cardsRef.current[index];
+      if (!element) return;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const offset = elementRect - bodyRect - 340;
+
+      window.scrollTo({
+        top: offset,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  const currentFeature = project.features[activeFeature] || project.features[0];
+  const currentImages = currentFeature?.images || [];
+  const totalImages = currentImages.length;
 
   const nextImg = (e) => {
     e?.stopPropagation();
@@ -537,15 +530,167 @@ function SolutionV6() {
     setActiveImgIdx((prev) => (prev - 1 + totalImages) % totalImages);
   };
 
-  const handleFeatureSelect = (projectIndex, fIdx) => {
-    setActiveProjIdx(projectIndex);
-    setActiveFeatIdx(fIdx);
-    setActiveImgIdx(0);
-  };
+  return (
+    <section ref={trackRef} className="solution-pinned-track">
+      <div className="solution-sticky-viewport">
+        <div className="solution-inner-container">
+          
+          {/* Top Project Summary Box */}
+          <div className="solution-project-banner">
+            <div className="banner-text">
+              <span className="banner-tag" style={{ color: project.color, background: `${project.color}15` }}>
+                {project.tag}
+              </span>
+              <h2>{project.title}</h2>
+              <span className="banner-subtitle" style={{ color: project.color }}>
+                {project.subtitle}
+              </span>
+              <p>{project.description}</p>
+            </div>
+            <div className="banner-stats">
+              {project.stats.map((st, i) => (
+                <span key={i} className="stat-pill">{st}</span>
+              ))}
+            </div>
+          </div>
 
-  const handleThumbnailClick = (idx) => {
-    setActiveImgIdx(idx);
-  };
+          {/* 2-Column Layout */}
+          <div className="solution-split-wrapper">
+            
+            {/* LEFT: Text Cards with Hover/Active Expandable Description */}
+            <div className="solution-left-list">
+              {project.features.map((feat, index) => {
+                const isActive = activeFeature === index;
+                return (
+                  <div
+                    key={feat.id}
+                    ref={(el) => (cardsRef.current[index] = el)}
+                    className={`solution-nav-card ${isActive ? "active" : ""}`}
+                    onClick={() => handleCardClick(index)}
+                  >
+                    <div className="nav-card-head">
+                      <div className="nav-card-title-group">
+                        <span className="nav-card-icon" style={{ color: project.color }}>
+                          {feat.icon}
+                        </span>
+                        <h3 className="nav-card-title">{feat.title}</h3>
+                      </div>
+                      {isActive && (
+                        <span 
+                          className="nav-card-dot" 
+                          style={{ background: project.color }}
+                        />
+                      )}
+                    </div>
+
+                    <div className="nav-card-body-wrapper">
+                      <p className="nav-card-body">{feat.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* RIGHT: Plain Viewport Frame */}
+            <div className="solution-right-stage">
+              <div className="plain-stage-card">
+                
+                {/* Header Title & Tags */}
+                <div className="plain-stage-header">
+                  <h3 className="plain-stage-title" style={{ color: project.color }}>
+                    {currentFeature.title}
+                  </h3>
+                  <div className="plain-tags-row">
+                    {currentFeature.tags.map((tg, idx) => (
+                      <span
+                        key={idx}
+                        className="plain-tag-pill"
+                        style={{
+                          color: project.color,
+                          background: `${project.color}10`,
+                          borderColor: `${project.color}20`
+                        }}
+                      >
+                        {tg}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Plain Display Canvas Area */}
+                <div className="plain-display-canvas">
+                  <div className="plain-image-container">
+                    <img
+                      key={`${currentFeature.id}-${activeImgIdx}`}
+                      src={currentImages[activeImgIdx]}
+                      alt={currentFeature.title}
+                      className="plain-showcase-image"
+                      loading="eager"
+                    />
+                  </div>
+
+                  {/* Navigation Arrows */}
+                  {totalImages > 1 && (
+                    <>
+                      <button className="plain-side-arrow prev" onClick={prevImg} aria-label="Previous">
+                        <FiChevronLeft size={18} />
+                      </button>
+                      <button className="plain-side-arrow next" onClick={nextImg} aria-label="Next">
+                        <FiChevronRight size={18} />
+                      </button>
+                    </>
+                  )}
+
+                  {/* Counter Badge */}
+                  {totalImages > 1 && (
+                    <div className="plain-counter-badge">
+                      {activeImgIdx + 1}/{totalImages}
+                    </div>
+                  )}
+                </div>
+
+                {/* Thumbnails Filmstrip */}
+                {totalImages > 1 && (
+                  <div className="plain-thumbnails-strip">
+                    {currentImages.map((imgSrc, tIdx) => (
+                      <button
+                        key={tIdx}
+                        className={`plain-thumb-item ${activeImgIdx === tIdx ? "active" : ""}`}
+                        style={
+                          activeImgIdx === tIdx
+                            ? { borderColor: project.color, boxShadow: `0 0 0 2px ${project.color}35` }
+                            : {}
+                        }
+                        onClick={() => setActiveImgIdx(tIdx)}
+                        aria-label={`Slide ${tIdx + 1}`}
+                      >
+                        <img src={imgSrc} alt={`Thumb ${tIdx + 1}`} />
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SolutionV6() {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -558,150 +703,30 @@ function SolutionV6() {
     <div className="solution-v6-page">
       <div className="v6-container">
         
-        {/* Header */}
-        <header className="v6-hero">
+        {/* Main Section Header */}
+        <header className="solution-hero-header">
           <span className="section-tag">Solutions for Your Business</span>
-          <h1 className="v6-title">Solutions Built Around Your Business</h1>
-          <p className="v6-subtitle">
+          <h1 className="solution-main-title">Solutions Built Around Your Business</h1>
+          <p className="solution-main-subtitle">
             Whatever challenge you're facing, we've built solutions to help you work smarter, move faster and grow with confidence.
           </p>
         </header>
 
-        {/* All Projects */}
-        {projects.map((project, projectIndex) => (
-          <section 
-            key={projectIndex} 
-            className="v6-project-section"
-            ref={(el) => (projectRefs.current[projectIndex] = el)}
-          >
-            {/* Project Summary */}
-            <div className="v6-project-summary">
-              <div className="v6-summary-text">
-                <span className="v6-project-tag" style={{ color: project.color, background: `${project.color}15` }}>
-                  {project.tag}
-                </span>
-                <h2>
-                  {project.title}
-                  <span className="v6-project-subtitle" style={{ color: project.color }}>
-                    {project.subtitle}
-                  </span>
-                </h2>
-                <p>{project.description}</p>
-              </div>
-              <div className="v6-stats-row">
-                {project.stats.map((st, i) => (
-                  <span key={i} className="v6-stat-pill">{st}</span>
-                ))}
-              </div>
-            </div>
-
-            {/* Main Grid Layout */}
-            <div 
-              className="v6-grid-layout"
-              style={{
-                "--active-color": project.color,
-                "--active-light": project.light,
-                "--active-gradient": project.gradient
-              }}
-            >
-              {/* Left Column: Feature Cards */}
-              <div className="v6-sidebar">
-                {project.features.map((feat, fIdx) => {
-                  const isSelected = activeProjIdx === projectIndex && activeFeatIdx === fIdx;
-                  return (
-                    <div
-                      key={feat.id}
-                      ref={(el) => {
-                        if (!cardsRef.current[projectIndex]) {
-                          cardsRef.current[projectIndex] = [];
-                        }
-                        cardsRef.current[projectIndex][fIdx] = el;
-                      }}
-                      className={`v6-feature-card ${isSelected ? "active" : ""}`}
-                      onClick={() => handleFeatureSelect(projectIndex, fIdx)}
-                    >
-                      <div className="v6-card-head">
-                        <div className="v6-title-group">
-                          <span className="v6-feature-icon">{feat.icon}</span>
-                          <h3>{feat.title}</h3>
-                        </div>
-                        {isSelected && <span className="v6-active-indicator" />}
-                      </div>
-
-                      <p className="v6-card-body">{feat.description}</p>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* RIGHT COLUMN: STICKY STAGE CONTAINER */}
-              <div className="v6-stage-col">
-                <div className="v6-stage">
-                  <div className="v6-stage-header">
-                    <h3 style={{ color: project.color }}>{currentFeature.title}</h3>
-                    <div className="v6-tags-row">
-                      {currentFeature.tags.map((tag, tIdx) => (
-                        <span key={tIdx} className="v6-tag" style={{ color: project.color, background: `${project.color}10` }}>
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="v6-viewport">
-                    <img 
-                      src={currentFeature.images[activeImgIdx]} 
-                      alt={currentFeature.title} 
-                      className="v6-image"
-                    />
-
-                    {totalImages > 1 && (
-                      <>
-                        <button className="v6-nav-btn prev" onClick={prevImg} aria-label="Previous">
-                          <FiChevronLeft size={20} />
-                        </button>
-                        <button className="v6-nav-btn next" onClick={nextImg} aria-label="Next">
-                          <FiChevronRight size={20} />
-                        </button>
-                        <span className="v6-counter">
-                          {activeImgIdx + 1} / {totalImages}
-                        </span>
-                      </>
-                    )}
-                  </div>
-
-                  {/* Thumbnails */}
-                  {totalImages > 1 && (
-                    <div className="v6-thumbs-row">
-                      {currentFeature.images.map((imgSrc, i) => (
-                        <button
-                          key={i}
-                          className={`v6-thumb-pill ${activeImgIdx === i ? "active" : ""}`}
-                          onClick={() => handleThumbnailClick(i)}
-                        >
-                          <img src={imgSrc} alt={`Thumb ${i + 1}`} />
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-
-            </div>
-          </section>
+        {/* Pinned Projects */}
+        {projects.map((project) => (
+          <ProjectSection key={project.id} project={project} />
         ))}
 
       </div>
 
-      {/* BACK TO TOP BUTTON */}
-      <button 
+      {/* Back to top button */}
+      <button
         className={`back-to-top-btn ${showBackToTop ? "visible" : ""}`}
         onClick={scrollToTop}
         aria-label="Back to top"
       >
         <FiArrowUp />
       </button>
-
     </div>
   );
 }
