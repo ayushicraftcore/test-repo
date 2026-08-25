@@ -371,7 +371,6 @@ const projects = [
     description:
       "Are your projects, customers, teams and daily operations spread across different tools? Bring them together with CraftCore ERP. Get a clearer view of your business, reduce manual work and keep your teams working from the same system as you grow.",
     features: project1Features,
-    stats: ["Active Modules: 4", "Users: 256", "Integrations: 12"],
     color: "#4f46e5"
   },
   {
@@ -383,7 +382,6 @@ const projects = [
     description:
       "Struggling to keep track of payments, field agents, follow-ups and recovery performance? Collection CRM gives your team a clear view of every collection activity, helping you follow up on time, monitor your agents and stay in control of your recovery process.",
     features: project2Features,
-    stats: ["Active Cases: 1.2K", "Recovery Rate: 78%", "Agents: 45"],
     color: "#2563eb"
   },
   {
@@ -395,7 +393,6 @@ const projects = [
     description:
       "Need better control over your textile production, inventory, procurement and job work? Textile ERP connects your operations so you can see what is happening across your production cycle, track materials and WIP and make better decisions with reliable reports.",
     features: project3Features,
-    stats: ["Production: 2.8K", "Inventory: 15K", "Reports: 24"],
     color: "#059669"
   },
   {
@@ -407,7 +404,6 @@ const projects = [
     description:
       "Spending too much time managing attendance, payroll, employee records and performance manually? HRM System brings your everyday HR processes together, helping you reduce administrative work, minimize errors and give your team better visibility into your workforce.",
     features: project4Features,
-    stats: ["Employees: 340", "Departments: 12", "Reviews: 98%"],
     color: "#16a34a"
   },
   {
@@ -419,7 +415,6 @@ const projects = [
     description:
       "Finding it difficult to manage bookings, calendars, customers and resources without scheduling conflicts? Appointment Scheduler helps you organize your appointments, simplify booking management and give your customers an easier way to schedule their visits.",
     features: project5Features,
-    stats: ["Bookings: 1.8K", "Resources: 25", "Clients: 850"],
     color: "#8b5cf6"
   }
 ];
@@ -427,6 +422,9 @@ const projects = [
 function ProjectSection({ project }) {
   const [activeFeature, setActiveFeature] = useState(0);
   const [activeImgIdx, setActiveImgIdx] = useState(0);
+  const [mobileImgIndices, setMobileImgIndices] = useState(
+    project.features.reduce((acc, feat) => ({ ...acc, [feat.id]: 0 }), {})
+  );
   const trackRef = useRef(null);
   const cardsRef = useRef([]);
 
@@ -463,7 +461,8 @@ function ProjectSection({ project }) {
               }
             }
           } else {
-            const triggerLine = window.innerHeight * 0.65;
+            // Mobile Proximity Scroll Logic: Activate card at center line
+            const triggerLine = window.innerHeight * 0.5;
             let closestIndex = 0;
             let minDistance = Infinity;
 
@@ -501,19 +500,6 @@ function ProjectSection({ project }) {
 
   const handleCardClick = (index) => {
     setActiveFeature(index);
-
-    if (window.innerWidth <= 1024) {
-      const element = cardsRef.current[index];
-      if (!element) return;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const offset = elementRect - bodyRect - 340;
-
-      window.scrollTo({
-        top: offset,
-        behavior: "smooth"
-      });
-    }
   };
 
   const currentFeature = project.features[activeFeature] || project.features[0];
@@ -528,6 +514,22 @@ function ProjectSection({ project }) {
   const prevImg = (e) => {
     e?.stopPropagation();
     setActiveImgIdx((prev) => (prev - 1 + totalImages) % totalImages);
+  };
+
+  const nextMobileImg = (e, featId, len) => {
+    e?.stopPropagation();
+    setMobileImgIndices((prev) => ({
+      ...prev,
+      [featId]: ((prev[featId] || 0) + 1) % len
+    }));
+  };
+
+  const prevMobileImg = (e, featId, len) => {
+    e?.stopPropagation();
+    setMobileImgIndices((prev) => ({
+      ...prev,
+      [featId]: ((prev[featId] || 0) - 1 + len) % len
+    }));
   };
 
   return (
@@ -547,20 +549,18 @@ function ProjectSection({ project }) {
               </span>
               <p>{project.description}</p>
             </div>
-            <div className="banner-stats">
-              {project.stats.map((st, i) => (
-                <span key={i} className="stat-pill">{st}</span>
-              ))}
-            </div>
           </div>
 
-          {/* 2-Column Layout */}
+          {/* 2-Column Split */}
           <div className="solution-split-wrapper">
             
-            {/* LEFT: Text Cards with Hover/Active Expandable Description */}
+            {/* LEFT: Text Cards with Hover/Active Expandable Description & Mobile Carousel */}
             <div className="solution-left-list">
               {project.features.map((feat, index) => {
                 const isActive = activeFeature === index;
+                const mImgIdx = mobileImgIndices[feat.id] || 0;
+                const mTotalImgs = feat.images?.length || 0;
+
                 return (
                   <div
                     key={feat.id}
@@ -586,12 +586,90 @@ function ProjectSection({ project }) {
                     <div className="nav-card-body-wrapper">
                       <p className="nav-card-body">{feat.description}</p>
                     </div>
+
+                    {/* MOBILE-ONLY INLINE CAROUSEL (Appears only on active card) */}
+                    {isActive && (
+                      <div className="mobile-feature-carousel">
+                        <div className="mobile-tags-row">
+                          {feat.tags.map((tg, idx) => (
+                            <span
+                              key={idx}
+                              className="plain-tag-pill"
+                              style={{
+                                color: project.color,
+                                background: `${project.color}10`,
+                                borderColor: `${project.color}20`
+                              }}
+                            >
+                              {tg}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="mobile-display-canvas">
+                          <div className="plain-image-container">
+                            <img
+                              src={feat.images[mImgIdx]}
+                              alt={feat.title}
+                              className="plain-showcase-image"
+                              loading="lazy"
+                            />
+                          </div>
+
+                          {mTotalImgs > 1 && (
+                            <>
+                              <button
+                                className="plain-side-arrow prev"
+                                onClick={(e) => prevMobileImg(e, feat.id, mTotalImgs)}
+                                aria-label="Previous"
+                              >
+                                <FiChevronLeft size={16} />
+                              </button>
+                              <button
+                                className="plain-side-arrow next"
+                                onClick={(e) => nextMobileImg(e, feat.id, mTotalImgs)}
+                                aria-label="Next"
+                              >
+                                <FiChevronRight size={16} />
+                              </button>
+                              <div className="plain-counter-badge">
+                                {mImgIdx + 1}/{mTotalImgs}
+                              </div>
+                            </>
+                          )}
+                        </div>
+
+                        {mTotalImgs > 1 && (
+                          <div className="plain-thumbnails-strip">
+                            {feat.images.map((imgSrc, tIdx) => (
+                              <button
+                                key={tIdx}
+                                className={`plain-thumb-item ${mImgIdx === tIdx ? "active" : ""}`}
+                                style={
+                                  mImgIdx === tIdx
+                                    ? { borderColor: project.color, boxShadow: `0 0 0 2px ${project.color}35` }
+                                    : {}
+                                }
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setMobileImgIndices((prev) => ({ ...prev, [feat.id]: tIdx }));
+                                }}
+                                aria-label={`Slide ${tIdx + 1}`}
+                              >
+                                <img src={imgSrc} alt={`Thumb ${tIdx + 1}`} />
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
+
                   </div>
                 );
               })}
             </div>
 
-            {/* RIGHT: Plain Viewport Frame */}
+            {/* RIGHT: Plain Viewport Frame (Desktop Only) */}
             <div className="solution-right-stage">
               <div className="plain-stage-card">
                 

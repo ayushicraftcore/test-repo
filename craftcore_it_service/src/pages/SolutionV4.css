@@ -34,7 +34,7 @@ body,
 }
 
 /* =======================================================
-   OUTER CONTAINER (Horizontal Left/Right Padding)
+   OUTER CONTAINER
 ======================================================= */
 .v6-container {
   max-width: 1280px;
@@ -209,19 +209,23 @@ body,
 }
 
 /* =======================================================
-   LEFT COMPACT LIST (HOVER & ACTIVE ACCORDION FIX)
+   LEFT COMPACT LIST
 ======================================================= */
 .solution-left-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
+  min-width: 0;
 }
 
 .solution-nav-card {
   position: relative;
-  padding: 14px 18px;
-  border-radius: 18px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 16px 20px;
+  border-radius: 20px;
   background: transparent;
   border: 1px solid transparent;
   transition: opacity 0.5s var(--ease-smooth),
@@ -231,11 +235,11 @@ body,
               transform 0.5s var(--ease-smooth);
   opacity: 0.45;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .solution-nav-card:hover {
   opacity: 0.85;
-  background: rgba(255, 255, 255, 0.4);
 }
 
 .solution-nav-card.active {
@@ -279,7 +283,7 @@ body,
   flex-shrink: 0;
 }
 
-/* Smooth Accordion Expansion: Hidden by default, reveals on Hover or Active */
+/* Accordion description container */
 .nav-card-body-wrapper {
   max-height: 0;
   opacity: 0;
@@ -289,7 +293,6 @@ body,
               margin-top 0.4s ease;
 }
 
-.solution-nav-card:hover .nav-card-body-wrapper,
 .solution-nav-card.active .nav-card-body-wrapper {
   max-height: 160px;
   opacity: 1;
@@ -304,14 +307,20 @@ body,
   padding-left: 26px;
 }
 
+/* Hidden by default on desktop */
+.mobile-feature-carousel {
+  display: none;
+}
+
 /* =======================================================
-   RIGHT PLAIN SHOWCASE STAGE
+   RIGHT PLAIN SHOWCASE STAGE (Desktop)
 ======================================================= */
 .solution-right-stage {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
+  min-width: 0;
 }
 
 .plain-stage-card {
@@ -326,6 +335,7 @@ body,
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05), 0 0 20px rgba(124, 58, 237, 0.03);
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .plain-stage-header {
@@ -438,18 +448,43 @@ body,
   z-index: 10;
 }
 
-/* Thumbnails Filmstrip */
+/* =======================================================
+   THUMBNAILS ROW (OVERFLOW BREAKING FIX)
+======================================================= */
 .plain-thumbnails-strip {
   display: flex;
-  gap: 6px;
-  margin-top: 8px;
+  gap: 8px;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 100%;
   overflow-x: auto;
-  padding-bottom: 2px;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 4px 2px 8px;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+.plain-thumbnails-strip::-webkit-scrollbar {
+  height: 4px;
+}
+
+.plain-thumbnails-strip::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.plain-thumbnails-strip::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
 }
 
 .plain-thumb-item {
-  width: 48px;
-  height: 32px;
+  width: 44px;
+  height: 30px;
+  min-width: 44px;
+  max-width: 44px;
   border-radius: 6px;
   border: 1.5px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -475,6 +510,7 @@ body,
   height: 100%;
   object-fit: cover;
   object-position: top center;
+  display: block;
 }
 
 /* =======================================================
@@ -507,37 +543,36 @@ body,
 }
 
 /* =======================================================
-   RESPONSIVE (<= 1024px)
+   RESPONSIVE (<= 1024px: Mobile Flow)
 ======================================================= */
 @media (max-width: 1024px) {
   .v6-container {
-    padding: 0 24px;
-  }
-
-  .solution-inner-container {
-    padding: 0;
+    padding: 0 20px;
   }
 
   .solution-pinned-track {
     height: auto !important;
-    margin: 30px 0 60px;
+    margin: 0 0 50px 0;
   }
 
   .solution-sticky-viewport {
     position: static !important;
     height: auto !important;
     padding: 0;
+    top: auto;
   }
 
   .solution-inner-container {
     max-height: unset;
+    padding: 0;
   }
 
   .solution-project-banner {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-    padding: 14px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
   }
 
   .banner-stats {
@@ -550,40 +585,92 @@ body,
   }
 
   .solution-right-stage {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 70px;
-    z-index: 50;
-    margin-bottom: 24px;
-  }
-
-  .plain-stage-card {
-    padding: 14px;
-    border-radius: 18px;
-  }
-
-  .plain-stage-title {
-    font-size: 16px;
+    display: none !important;
   }
 
   .solution-left-list {
-    gap: 32px;
-    padding-top: 10px;
-    padding-bottom: 80px;
+    gap: 14px;
   }
 
   .solution-nav-card {
-    padding: 14px 16px;
-    border-radius: 14px;
+    opacity: 0.7;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 14px 18px;
+    border-radius: 16px;
+    transition: all 0.4s var(--ease-smooth);
   }
 
   .solution-nav-card.active {
+    opacity: 1;
     background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    padding: 18px 20px;
+  }
+
+  .solution-nav-card.active .nav-card-body-wrapper {
+    max-height: none;
+    opacity: 1;
+    margin-top: 8px;
+  }
+
+  .nav-card-body {
+    padding-left: 0;
+    font-size: 12.5px;
+  }
+
+  .mobile-feature-carousel {
+    display: flex;
+    flex-direction: column;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    animation: screenFadeIn 0.4s ease;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .mobile-tags-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .mobile-display-canvas {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    height: 220px;
+    background: #09090b;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   }
 }
 
 @media (max-width: 640px) {
   .v6-container {
-    padding: 0 16px;
+    padding: 0 14px;
+  }
+
+  .mobile-display-canvas {
+    height: 190px;
+  }
+
+  .solution-nav-card {
+    padding: 12px 14px;
+  }
+
+  .solution-nav-card.active {
+    padding: 16px 16px;
   }
 }
