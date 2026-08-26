@@ -15,13 +15,13 @@ function Navbar() {
   }, []);
 
   const navItems = [
-    { name: "Home", path: "/home" },
-    { name: "Service", path: "/service" },
-    { name: "Solution", path: "/Solution" },
+    { name: "Home", path: "/" },
     { name: "About", path: "/About" },
+    { name: "Service", path: "/service" },
+    { name: "Products", path: "/Products" },
     { name: "Blog", path: "/Blog" },
     { name: "Career", path: "https://erp.craftcore.in/craftcore/careers" },
-    { name: "Contact", path: "https://booking.techrometric.com/appointments/craftcore" }
+    { name: "Contact", path: "/Contact" }
   ];
 
   return (

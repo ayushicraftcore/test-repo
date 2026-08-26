@@ -783,10 +783,10 @@ function SolutionV6() {
         
         {/* Main Section Header */}
         <header className="solution-hero-header">
-          <span className="section-tag">Solutions for Your Business</span>
-          <h1 className="solution-main-title">Solutions Built Around Your Business</h1>
+          <span className="section-tag">Products for Your Business</span>
+          <h1 className="solution-main-title">Products Built Around Your Business</h1>
           <p className="solution-main-subtitle">
-            Whatever challenge you're facing, we've built solutions to help you work smarter, move faster and grow with confidence.
+            Whatever challenge you're facing, we've built products to help you work smarter, move faster and grow with confidence.
           </p>
         </header>
 

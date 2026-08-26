@@ -30,10 +30,9 @@ function Footer() {
           <div className="footer-column">
             <h4>QUICK LINKS</h4>
             <ul>
-              <li><Link to="/home" className="footer-nav-link">Home</Link></li>
-              <li><Link to="/service" className="footer-nav-link">Services</Link></li>
-              <li><Link to="/Solution" className="footer-nav-link">Solutions</Link></li>
               <li><Link to="/About" className="footer-nav-link">About</Link></li>
+              <li><Link to="/service" className="footer-nav-link">Services</Link></li>
+              <li><Link to="/Products" className="footer-nav-link">Products</Link></li>
               <li><Link to="/Blog" className="footer-nav-link">Blog</Link></li>
               <li><Link to="https://booking.techrometric.com/appointments/craftcore" className="footer-nav-link">Contact</Link></li>
               <li><Link to="https://erp.craftcore.in/craftcore/careers" className="footer-nav-link">Career</Link></li>
@@ -43,10 +42,10 @@ function Footer() {
           <div className="footer-column">
             <h4>SERVICES</h4>
             <ul>
-              <li>Web & SaaS Development</li>
+              <li>Web &amp; SaaS Development</li>
               <li>Mobile App Development</li>
-              <li>AI & Automation</li>
-              <li>Cloud & DevOps</li>
+              <li>AI &amp; Automation</li>
+              <li>Cloud &amp; DevOps</li>
               <li>UI/UX Design</li>
               <li>Cybersecurity</li>
             </ul>
@@ -111,8 +110,16 @@ function Footer() {
           </div>
         </div>
 
+        {/* Footer Bottom Bar with Auto-Updating Year & Legal Links */}
         <div className="footer-bottom">
-          © 2026 Craftcore. All Rights Reserved.
+          <div className="footer-copy">
+            &copy; {new Date().getFullYear()} Craftcore. All Rights Reserved.
+          </div>
+          <div className="footer-legal-links">
+            <Link to="/privacy-policy" className="footer-legal-link">Privacy Policy</Link>
+            <span className="footer-legal-separator">•</span>
+            <Link to="/terms" className="footer-legal-link">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>

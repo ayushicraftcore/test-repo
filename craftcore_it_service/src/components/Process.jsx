@@ -31,7 +31,7 @@ const steps = [
     number: "05",
     title: "SUPPORT & AMC",
     icon: <FiSettings />,
-    description: "Week 12+: We stay with you - 24/7 managed support, proactive monitoring, regular maintenance and annual contracts that keep your systems running. Flexible models including fixed-price, T&M and retainer-based support to fit how you work."
+    description: "Week 14+: We stay with you - 24/7 managed support, proactive monitoring, regular maintenance and annual contracts that keep your systems running. Flexible models including fixed-price, T&M and retainer-based support to fit how you work."
   }
 ];
 
@@ -139,7 +139,6 @@ function Process() {
                       className={`progress-circle ${
                         activeStep >= index ? "active" : ""
                       }`}
-                      onClick={() => setActiveStep(index)}
                     >
                       {index + 1}
                     </div>
