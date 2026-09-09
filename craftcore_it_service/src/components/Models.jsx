@@ -68,18 +68,40 @@ export default function Models() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      if (!containerRef.current) return;
-      if (window.innerWidth <= 768) return; // Keep sticky scroll focused on desktop/tablets
+      if (window.innerWidth <= 992) return; // Stacks naturally on mobile/portrait tablets
 
-      const rect = containerRef.current.getBoundingClientRect();
-      const totalScrollDistance = rect.height - window.innerHeight;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (!containerRef.current) return;
 
-      if (totalScrollDistance <= 0) return;
+          const rect = containerRef.current.getBoundingClientRect();
+          const totalScrollDistance = rect.height - window.innerHeight;
 
-      const progress = Math.max(0, Math.min(1, -rect.top / totalScrollDistance));
-      const index = Math.min(modelsData.length - 1, Math.floor(progress * modelsData.length));
-      setActiveIndex(index);
+          if (totalScrollDistance <= 0) return;
+
+          const scrolled = -rect.top;
+
+          if (scrolled <= 0) {
+            setActiveIndex(0);
+          } else if (scrolled >= totalScrollDistance) {
+            setActiveIndex(modelsData.length - 1);
+          } else {
+            const progress = scrolled / totalScrollDistance;
+            const targetIndex = Math.min(
+              modelsData.length - 1,
+              Math.floor(progress * modelsData.length)
+            );
+            setActiveIndex(targetIndex);
+          }
+
+          ticking = false;
+        });
+
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -146,13 +168,13 @@ export default function Models() {
                   transformStyle = "translate3d(0, 0, 0) scale(1) rotate(0deg)";
                   opacity = 1;
                 } else if (offset === 1) {
-                  transformStyle = "translate3d(18px, 10px, 0) scale(0.94) rotate(3deg)";
+                  transformStyle = "translate3d(22px, 12px, 0) scale(0.93) rotate(3.5deg)";
                   opacity = 0.65;
                 } else if (offset === -1) {
-                  transformStyle = "translate3d(-18px, -10px, 0) scale(0.94) rotate(-3deg)";
+                  transformStyle = "translate3d(-22px, -12px, 0) scale(0.93) rotate(-3.5deg)";
                   opacity = 0.5;
                 } else {
-                  transformStyle = "translate3d(0, 20px, 0) scale(0.88) rotate(0deg)";
+                  transformStyle = "translate3d(0, 24px, 0) scale(0.86) rotate(0deg)";
                   opacity = 0;
                 }
 

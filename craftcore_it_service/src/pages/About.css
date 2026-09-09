@@ -2,7 +2,7 @@
    PAGE MASTER LAYOUT
 ======================================================= */
 .about-page {
-  padding: 80px 0 0;
+  padding: 60px 0 0;
   position: relative;
   z-index: 2;
   background: transparent;
@@ -19,34 +19,34 @@
 ======================================================= */
 .about-hero {
   text-align: center;
-  max-width: 960px;
-  margin: 0 auto 100px;
+  max-width: 1200px;
+  margin: 0 auto 70px;
   position: relative;
   z-index: 2;
 }
 
 .about-hero-title {
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
   font-weight: 800;
   line-height: 1.2;
-  letter-spacing: -1.5px;
-  margin: 20px 0 35px;
+  letter-spacing: -1.2px;
+  margin: 16px 0 28px;
   color: #111118;
 }
 
 .about-hero-desc {
-  max-width: 760px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 /* =======================================================
-   VIDEO CAROUSEL
+   VIDEO CAROUSEL (COMPACT HEIGHT & SLEEK PROPORTIONS)
 ======================================================= */
 .video-carousel-wrapper {
   position: relative;
   width: 100%;
-  max-width: 880px;
-  margin: 0 auto 45px;
+  max-width: 1200px;
+  margin: 0 auto 36px;
 }
 
 .video-carousel-container {
@@ -54,9 +54,9 @@
   overflow: hidden;
   position: relative;
   background: #ffffff;
-  border-radius: 24px;
+  border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.06);
 }
 
 .video-carousel-track {
@@ -71,10 +71,12 @@
   flex-direction: column;
 }
 
+/* Cinematic wider aspect ratio to reduce vertical height */
 .video-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 21 / 9;
+  max-height: 420px;
   background: #0d0b14;
   overflow: hidden;
 }
@@ -86,8 +88,9 @@
   display: block;
 }
 
+/* Compact padding below the video */
 .video-content {
-  padding: 28px 32px 32px;
+  padding: 20px 28px 22px;
   background: #ffffff;
   text-align: left;
 }
@@ -95,21 +98,21 @@
 .video-header {
   display: flex;
   align-items: baseline;
-  gap: 12px;
-  margin-bottom: 10px;
+  gap: 10px;
+  margin-bottom: 6px;
   flex-wrap: wrap;
 }
 
 .video-title {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 800;
   color: #111118;
   margin: 0;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.4px;
 }
 
 .video-subtitle {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #7c3aed;
   margin: 0;
@@ -118,10 +121,10 @@
 }
 
 .video-description {
-  font-size: 14.5px;
+  font-size: 14px;
   color: #6b7280;
   margin: 0;
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 /* =======================================================
@@ -129,10 +132,10 @@
 ======================================================= */
 .carousel-arrow {
   position: absolute;
-  top: 35%;
+  top: 42%;
   transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -142,7 +145,7 @@
   justify-content: center;
   cursor: pointer;
   z-index: 10;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
               background-color 0.3s ease, 
               color 0.3s ease, 
@@ -153,8 +156,8 @@
   background: linear-gradient(135deg, #7c3aed, #2563eb);
   color: #ffffff;
   border-color: transparent;
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
 }
 
 .carousel-arrow:active {
@@ -162,11 +165,11 @@
 }
 
 .carousel-arrow-prev {
-  left: -24px;
+  left: -22px;
 }
 
 .carousel-arrow-next {
-  right: -24px;
+  right: -22px;
 }
 
 /* Dots */
@@ -174,18 +177,18 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  margin-top: 22px;
+  margin-top: 18px;
 }
 
 .carousel-dots {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
 }
 
 .carousel-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.15);
   border: none;
@@ -196,8 +199,8 @@
 
 .carousel-dot.active {
   background: linear-gradient(135deg, #7c3aed, #2563eb);
-  width: 28px;
-  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+  width: 24px;
+  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.35);
 }
 
 .carousel-dot:not(.active):hover {
@@ -208,7 +211,7 @@
    VISION & MISSION
 ======================================================= */
 .about-statement-section {
-  margin: 100px 0 80px; 
+  margin: 70px 0 60px; 
   position: relative;
   z-index: 2;
 }
@@ -216,7 +219,7 @@
 .statement-split-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  gap: 28px;
 }
 
 .statement-premium-card {
@@ -224,8 +227,8 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 28px;
-  padding: 44px 38px;
+  border-radius: 24px;
+  padding: 38px 32px;
   position: relative;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
@@ -244,7 +247,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .statement-index {
@@ -266,16 +269,16 @@
 }
 
 .statement-card-title {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 800;
   letter-spacing: -0.5px;
   color: #111118;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .statement-card-body {
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.65;
   color: #6b7280;
 }
 
@@ -423,7 +426,7 @@
 }
 
 /* =======================================================
-   RESPONSIVE & MOBILE ONE-ON-ANOTHER STACK
+   RESPONSIVE & MOBILE
 ======================================================= */
 @media (max-width: 992px) {
   .statement-split-grid {
@@ -432,14 +435,25 @@
   }
 
   .video-carousel-wrapper {
-    max-width: 640px;
+    max-width: 100%;
+  }
+
+  .video-frame {
+    aspect-ratio: 16 / 9;
+  }
+
+  .carousel-arrow-prev {
+    left: 8px;
+  }
+
+  .carousel-arrow-next {
+    right: 8px;
   }
 }
 
-/* Mobile & Tablet Stacking Style */
 @media (max-width: 768px) {
   .pinned-scroll-container {
-    height: 250vh; /* Smooth room for mobile stacked scroll */
+    height: 250vh;
     margin: 40px 0;
   }
 
@@ -458,7 +472,6 @@
     margin-bottom: 16px;
   }
 
-  /* Center the track as a stacked card stage */
   .cards-track {
     position: relative;
     width: 100%;
@@ -468,7 +481,6 @@
     margin: 0 auto;
   }
 
-  /* Card deck stacking (One on Another) */
   .playing-card {
     position: absolute;
     inset: 0;
@@ -483,28 +495,24 @@
                 opacity 0.45s ease;
   }
 
-  /* Front card */
   .playing-card[style*="--mobile-offset: 0"] {
     transform: translate3d(0, 0, 0) scale(1) rotate(0deg) !important;
     opacity: 1 !important;
     z-index: 10;
   }
 
-  /* Peeking behind to the right */
   .playing-card[style*="--mobile-offset: 1"] {
     transform: translate3d(16px, 12px, 0) scale(0.93) rotate(4deg) !important;
     opacity: 0.65 !important;
     z-index: 8;
   }
 
-  /* Peeking behind to the left */
   .playing-card[style*="--mobile-offset: -1"] {
     transform: translate3d(-16px, -10px, 0) scale(0.93) rotate(-4deg) !important;
     opacity: 0.5 !important;
     z-index: 7;
   }
 
-  /* Deeper in stack */
   .playing-card[style*="--mobile-offset: 2"],
   .playing-card[style*="--mobile-offset: -2"] {
     transform: translate3d(0, 24px, 0) scale(0.86) rotate(0deg) !important;
@@ -529,30 +537,17 @@
     line-height: 1.6;
   }
 
-  /* Video carousel adjustments */
-  .video-carousel-wrapper {
-    max-width: 100%;
-  }
-
   .video-content {
-    padding: 20px 20px 24px;
+    padding: 18px 18px 20px;
   }
 
   .video-title {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .carousel-arrow {
     width: 38px;
     height: 38px;
-  }
-
-  .carousel-arrow-prev {
-    left: 8px;
-  }
-
-  .carousel-arrow-next {
-    right: 8px;
   }
 }
 

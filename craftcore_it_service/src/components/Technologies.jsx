@@ -63,15 +63,15 @@ const technologiesData = [
       { icon: <SiGo /> },
     ],
   },
-  {
-    title: "INTEGRATIONS",
-    items: [
-      { icon: <SiPostman /> },
-      { icon: <SiGraphql /> },
-      { icon: <TbWebhook /> },
-      { icon: <SiSap /> },
-    ],
-  },
+  // {
+  //   title: "INTEGRATIONS",
+  //   items: [
+  //     { icon: <SiPostman /> },
+  //     { icon: <SiGraphql /> },
+  //     { icon: <TbWebhook /> },
+  //     { icon: <SiSap /> },
+  //   ],
+  // },
   {
     title: "DATABASE",
     items: [

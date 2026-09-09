@@ -10,90 +10,76 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 // Pages
 import Home from "./pages/Home";
 import Service from "./pages/Service";
-import Solution from "./pages/SolutionV4";
+import Products from "./pages/SolutionV4";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Career from "./pages/Career";
 import Contact from "./pages/Contact";
 import Booking from "./pages/Booking";
 import BlogDetail from "./pages/BlogDetail";
-
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 /* ─────────────────────────────────────────────
    SCROLL TO TOP
-   Ensures every page starts at the top
 ───────────────────────────────────────────── */
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant"
+    });
+
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [pathname, hash]);
 
   return null;
 }
 
-
 /* ─────────────────────────────────────────────
    TOAST HOOK
-   Call: addToast("message", "emoji")
 ───────────────────────────────────────────── */
 function useToast() {
   const [toasts, setToasts] = useState([]);
 
   const addToast = useCallback((message, icon = "✨") => {
     const id = Date.now();
-
-    setToasts((prev) => [
-      ...prev,
-      {
-        id,
-        message,
-        icon,
-      },
-    ]);
+    setToasts((prev) => [...prev, { id, message, icon }]);
 
     setTimeout(() => {
       setToasts((prev) =>
-        prev.map((t) =>
-          t.id === id
-            ? {
-                ...t,
-                removing: true,
-              }
-            : t
-        )
+        prev.map((t) => (t.id === id ? { ...t, removing: true } : t))
       );
-
       setTimeout(() => {
-        setToasts((prev) =>
-          prev.filter((t) => t.id !== id)
-        );
+        setToasts((prev) => prev.filter((t) => t.id !== id));
       }, 400);
     }, 3200);
   }, []);
 
-  return {
-    toasts,
-    addToast,
-  };
+  return { toasts, addToast };
 }
-
 
 /* ─────────────────────────────────────────────
    PARTICLES LAYER
-   Floats particles from bottom
 ───────────────────────────────────────────── */
 function ParticleField() {
   const containerRef = useRef(null);
 
   useEffect(() => {
     const container = containerRef.current;
-
     if (!container) return;
 
     const COLORS = [
@@ -103,34 +89,27 @@ function ParticleField() {
       "rgba(192,132,252,0.4)",
     ];
 
-    const particles = Array.from(
-      { length: 22 },
-      (_, i) => {
-        const el = document.createElement("div");
+    const particles = Array.from({ length: 22 }, (_, i) => {
+      const el = document.createElement("div");
+      el.className = "particle";
+      const size = Math.random() * 5 + 3;
+      const x = Math.random() * 100;
+      const dur = Math.random() * 14 + 10;
+      const del = Math.random() * -16;
 
-        el.className = "particle";
-
-        const size = Math.random() * 5 + 3;
-        const x = Math.random() * 100;
-        const dur = Math.random() * 14 + 10;
-        const del = Math.random() * -16;
-
-        el.style.cssText = `
-          width:${size}px;
-          height:${size}px;
-          left:${x}%;
-          bottom:-${size}px;
-          background:${COLORS[i % COLORS.length]};
-          filter:blur(${size * 0.35}px);
-          animation-duration:${dur}s;
-          animation-delay:${del}s;
-        `;
-
-        container.appendChild(el);
-
-        return el;
-      }
-    );
+      el.style.cssText = `
+        width:${size}px;
+        height:${size}px;
+        left:${x}%;
+        bottom:-${size}px;
+        background:${COLORS[i % COLORS.length]};
+        filter:blur(${size * 0.35}px);
+        animation-duration:${dur}s;
+        animation-delay:${del}s;
+      `;
+      container.appendChild(el);
+      return el;
+    });
 
     return () => {
       particles.forEach((p) => p.remove());
@@ -151,37 +130,22 @@ function ParticleField() {
   );
 }
 
-
 /* ─────────────────────────────────────────────
    CUSTOM CURSOR
 ───────────────────────────────────────────── */
 function CustomCursor() {
   const dotRef = useRef(null);
   const ringRef = useRef(null);
-
-  const pos = useRef({
-    x: 0,
-    y: 0,
-  });
-
-  const ring = useRef({
-    x: 0,
-    y: 0,
-  });
-
+  const pos = useRef({ x: 0, y: 0 });
+  const ring = useRef({ x: 0, y: 0 });
   const raf = useRef(null);
-
   const location = useLocation();
 
   useEffect(() => {
     if ("ontouchstart" in window) return;
 
     const onMove = (e) => {
-      pos.current = {
-        x: e.clientX,
-        y: e.clientY,
-      };
-
+      pos.current = { x: e.clientX, y: e.clientY };
       if (dotRef.current) {
         dotRef.current.style.left = `${e.clientX}px`;
         dotRef.current.style.top = `${e.clientY}px`;
@@ -189,103 +153,49 @@ function CustomCursor() {
     };
 
     const animate = () => {
-      ring.current.x +=
-        (pos.current.x - ring.current.x) * 0.14;
-
-      ring.current.y +=
-        (pos.current.y - ring.current.y) * 0.14;
+      ring.current.x += (pos.current.x - ring.current.x) * 0.14;
+      ring.current.y += (pos.current.y - ring.current.y) * 0.14;
 
       if (ringRef.current) {
         ringRef.current.style.left = `${ring.current.x}px`;
         ringRef.current.style.top = `${ring.current.y}px`;
       }
-
-      raf.current =
-        requestAnimationFrame(animate);
+      raf.current = requestAnimationFrame(animate);
     };
 
-    const onEnterHoverable = () => {
-      document.body.classList.add("cursor-hover");
-    };
-
-    const onLeaveHoverable = () => {
-      document.body.classList.remove("cursor-hover");
-    };
+    const onEnterHoverable = () => document.body.classList.add("cursor-hover");
+    const onLeaveHoverable = () => document.body.classList.remove("cursor-hover");
 
     const hoverables = document.querySelectorAll(
-      `
-      a,
-      button,
-      .card-hover,
-      .primary-btn,
-      .secondary-btn,
-      [data-cursor-hover],
-      .service-item,
-      .technology-card
-      `
+      `a, button, .card-hover, .primary-btn, .secondary-btn, [data-cursor-hover], .service-item, .technology-card`
     );
 
     hoverables.forEach((el) => {
-      el.addEventListener(
-        "mouseenter",
-        onEnterHoverable
-      );
-
-      el.addEventListener(
-        "mouseleave",
-        onLeaveHoverable
-      );
+      el.addEventListener("mouseenter", onEnterHoverable);
+      el.addEventListener("mouseleave", onLeaveHoverable);
     });
 
-    window.addEventListener(
-      "mousemove",
-      onMove
-    );
-
-    raf.current =
-      requestAnimationFrame(animate);
+    window.addEventListener("mousemove", onMove);
+    raf.current = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener(
-        "mousemove",
-        onMove
-      );
-
+      window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(raf.current);
-
       hoverables.forEach((el) => {
-        el.removeEventListener(
-          "mouseenter",
-          onEnterHoverable
-        );
-
-        el.removeEventListener(
-          "mouseleave",
-          onLeaveHoverable
-        );
+        el.removeEventListener("mouseenter", onEnterHoverable);
+        el.removeEventListener("mouseleave", onLeaveHoverable);
       });
-
-      document.body.classList.remove(
-        "cursor-hover"
-      );
+      document.body.classList.remove("cursor-hover");
     };
   }, [location.pathname]);
 
   return (
     <>
-      <div
-        ref={dotRef}
-        className="custom-cursor cursor-dot"
-      />
-
-      <div
-        ref={ringRef}
-        className="custom-cursor cursor-ring"
-      />
+      <div ref={dotRef} className="custom-cursor cursor-dot" />
+      <div ref={ringRef} className="custom-cursor cursor-ring" />
     </>
   );
 }
-
 
 /* ─────────────────────────────────────────────
    SCROLL REVEAL
@@ -295,46 +205,31 @@ function useScrollReveal() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      const els = document.querySelectorAll(
-        ".reveal, .reveal-children"
-      );
-
+      const els = document.querySelectorAll(".reveal, .reveal-children");
       if (!els.length) return;
 
-      const observer =
-        new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add(
-                  "revealed"
-                );
-
-                observer.unobserve(
-                  entry.target
-                );
-              }
-            });
-          },
-          {
-            threshold: 0.12,
-            rootMargin:
-              "0px 0px -60px 0px",
-          }
-        );
-
-      els.forEach((el) =>
-        observer.observe(el)
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -60px 0px",
+        }
       );
 
-      return () =>
-        observer.disconnect();
+      els.forEach((el) => observer.observe(el));
+      return () => observer.disconnect();
     }, 150);
 
     return () => clearTimeout(timer);
   }, [pathname]);
 }
-
 
 /*
 ===================================
@@ -342,232 +237,86 @@ MAIN APP COMPONENT
 ===================================
 */
 function App() {
-  const [scrollProgress, setScrollProgress] =
-    useState(0);
-
-  const { toasts, addToast } =
-    useToast();
-
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const { toasts, addToast } = useToast();
   const location = useLocation();
 
-
-  /* ─────────────────────────────────────────────
-     GLOBAL TOAST ACCESS
-  ───────────────────────────────────────────── */
   useEffect(() => {
     window.addToast = addToast;
   }, [addToast]);
 
-
-  /* ─────────────────────────────────────────────
-     SCROLL PROGRESS
-  ───────────────────────────────────────────── */
   useEffect(() => {
     const handleScroll = () => {
-      const total =
-        document.documentElement.scrollTop;
-
+      const total = document.documentElement.scrollTop;
       const height =
-        document.documentElement
-          .scrollHeight -
-        document.documentElement
-          .clientHeight;
-
-      setScrollProgress(
-        height > 0
-          ? (total / height) * 100
-          : 0
-      );
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      setScrollProgress(height > 0 ? (total / height) * 100 : 0);
     };
 
-    window.addEventListener(
-      "scroll",
-      handleScroll,
-      {
-        passive: true,
-      }
-    );
-
-    return () =>
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
-  /* ─────────────────────────────────────────────
-     SCROLL REVEAL
-  ───────────────────────────────────────────── */
   useScrollReveal();
 
-
-  /* ─────────────────────────────────────────────
-     BOOKING PAGE DETECTION
-  ───────────────────────────────────────────── */
   const isBookingPage =
     location.pathname === "/book-call" ||
-    location.pathname.toLowerCase() ===
-      "/booking";
-
+    location.pathname.toLowerCase() === "/booking";
 
   return (
     <>
-      {/* GLOBAL ROUTE LIFECYCLE CONTROLLER */}
       <ScrollToTop />
-
-
-      {/* GRAPHICS UTILITIES */}
       <CustomCursor />
       <ParticleField />
 
-
-      {/* SCROLL PROGRESS BAR */}
       <div
         className="scroll-progress-bar"
-        style={{
-          width: `${scrollProgress}%`,
-        }}
+        style={{ width: `${scrollProgress}%` }}
       />
 
-
-      {/* GLOBAL GLASS BACKGROUND */}
       <div className="global-background">
-
         <div className="blur blur-purple" />
-
         <div className="blur blur-blue" />
-
         <div className="glow-orb orb-1" />
-
         <div className="glow-orb orb-2" />
-
         <div className="grid-overlay">
           <div className="scanline" />
         </div>
-
         <div className="noise-overlay" />
-
       </div>
 
-
-      {/* GLOBAL NAVBAR */}
       <Navbar />
 
-
-      {/* =================================================
-          ROUTES
-          IMPORTANT:
-          Only <Route> components are inside <Routes>
-      ================================================= */}
-
       <Routes>
-
-        {/* HOME */}
-        <Route
-          path="/"
-          element={<Home />}
-        />
-
-        <Route
-          path="/Home"
-          element={<Home />}
-        />
-
-
-        {/* SERVICES */}
-        <Route
-          path="/service"
-          element={<Service />}
-        />
-
-
-        {/* SOLUTION */}
-        <Route
-          path="/Solution"
-          element={<Solution />}
-        />
-
-
-        {/* ABOUT */}
-        <Route
-          path="/About"
-          element={<About />}
-        />
-
-
-        {/* BLOG LISTING */}
-        <Route
-          path="/blog"
-          element={<Blog />}
-        />
-
-
-        {/* BLOG DETAIL */}
-        <Route
-          path="/blog/:slug"
-          element={<BlogDetail />}
-        />
-
-
-        {/* CAREER */}
-        <Route
-          path="/Career"
-          element={<Career />}
-        />
-
-
-        {/* CONTACT */}
-        <Route
-          path="/Contact"
-          element={<Contact />}
-        />
-
-
-        {/* BOOKING */}
-        <Route
-          path="/Booking"
-          element={<Booking />}
-        />
-
-        <Route
-          path="/book-call"
-          element={<Booking />}
-        />
-
+        <Route path="/" element={<Home />} />
+        <Route path="/service" element={<Service />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogDetail />} />
+        <Route path="/career" element={<Career />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/booking" element={<Booking />} />
+        <Route path="/book-call" element={<Booking />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
       </Routes>
 
-
-      {/* GLOBAL CTA */}
       {!isBookingPage && <CTA />}
-
-
-      {/* GLOBAL FOOTER */}
       <Footer />
+      <WhatsAppFloat />
 
-
-      {/* TOAST SYSTEM */}
       <div className="toast-container">
-
         {toasts.map((t) => (
           <div
             key={t.id}
-            className={`toast${
-              t.removing
-                ? " removing"
-                : ""
-            }`}
+            className={`toast${t.removing ? " removing" : ""}`}
           >
-
-            <div className="toast-icon">
-              {t.icon}
-            </div>
-
+            <div className="toast-icon">{t.icon}</div>
             {t.message}
-
           </div>
         ))}
-
       </div>
     </>
   );

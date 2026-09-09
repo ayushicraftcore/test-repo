@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./SolutionV4.css";
 import {
   FiGrid, FiTarget, FiTrendingUp, FiUsers, FiDollarSign,
-  FiBriefcase, FiChevronLeft, FiChevronRight, FiSmartphone,
-  FiClock, FiLayers, FiArrowUp
+  FiBriefcase, FiClock, FiArrowUp, FiChevronLeft, FiChevronRight, FiSmartphone
 } from "react-icons/fi";
 
 const project1Features = [
@@ -13,7 +12,7 @@ const project1Features = [
     label: "Goal Tracking",
     title: "Keep Every Project Aligned With Your Goals",
     description:
-      "Struggling to keep your projects aligned with business goals? Set clear objectives and OKRs, track progress in real time, and know exactly where your team stands at every stage.",
+      "Struggling to keep your projects aligned with business goals? Set clear objectives and OKRs, track progress in real time and know exactly where your team stands at every stage.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135243/craftcore1_rmag3p.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135282/Project_Report_pc0kp0.avif",
@@ -28,14 +27,13 @@ const project1Features = [
       "Milestone Management"
     ]
   },
-
   {
     id: 2,
     icon: <FiTrendingUp />,
     label: "Recruitment Analytics",
     title: "Know What Is Working in Your Hiring Process",
     description:
-      "Not sure where your hiring process is slowing down? Track candidate pipelines, time-to-hire, hiring sources, and success rates so you can identify what works and make better recruitment decisions.",
+      "Not sure where your hiring process is slowing down? Track candidate pipelines, time-to-hire, hiring sources and success rates so you can identify what works and make better recruitment decisions.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135420/Recruitment_Dashboard_i0tbfq.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135419/Job_Postings_mujs4r.avif",
@@ -52,17 +50,16 @@ const project1Features = [
       "Hiring Success Rate"
     ]
   },
-
   {
     id: 3,
     icon: <FiUsers />,
     label: "CRM Management",
     title: "Turn More Leads Into Customers",
     description:
-      "Losing track of leads or sales follow-ups? Keep your customer conversations, deals, activities, and sales pipeline organized so your team knows who to follow up with and when.",
+      "Losing track of leads or sales follow-ups? Keep your customer conversations, deals, activities and sales pipeline organized so your team knows who to follow up with and when.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135601/CRM_Dashboard_rp2q0g.avif",
-      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135603/Deals_Kanban_wg7z5o.avif",
+      "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136603/Deals_Kanban_wg7z5o.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135607/Lead_Activity_pkjtxz.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135609/Leads_General_Details_gzxi7m.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135615/Leads_Kanban_yf39m0.avif",
@@ -86,7 +83,7 @@ const project2Features = [
     label: "Admin Dashboard",
     title: "See Your Entire Collection Operation Clearly",
     description:
-      "Need a clearer picture of your recovery performance? Track outstanding payments, collections, bank reconciliation, defaulters, and team performance from one dashboard so you can act on the right information faster.",
+      "Need a clearer picture of your recovery performance? Track outstanding payments, collections, bank reconciliation, defaulters and team performance from one dashboard so you can act on the right information faster.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136408/Dashboard_bnod2n.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136407/Dashboard_Dark_irjhzo.avif",
@@ -104,14 +101,13 @@ const project2Features = [
       "Team Performance"
     ]
   },
-
   {
     id: 2,
     icon: <FiUsers />,
     label: "Agent Dashboard",
     title: "Help Your Collection Team Stay on Track",
     description:
-      "Finding it difficult to keep agents on top of daily follow-ups? Give your team a clear view of tasks, calls, customer follow-ups, and notifications so important collection activities don't get missed.",
+      "Finding it difficult to keep agents on top of daily follow-ups? Give your team a clear view of tasks, calls, customer follow-ups and notifications so important collection activities don't get missed.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785411945/Dashboard_L_z4vlvh.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136519/dashboard_riiznw.avif",
@@ -129,14 +125,13 @@ const project2Features = [
       "Notifications"
     ]
   },
-
   {
     id: 3,
     icon: <FiSmartphone />,
     label: "Mobile App",
     title: "Keep Your Field Team Connected on the Go",
     description:
-      "Need your field agents to stay productive outside the office? Give them access to cases, daily tasks, customer interactions, and real-time updates from their mobile devices.",
+      "Need your field agents to stay productive outside the office? Give them access to cases, daily tasks, customer interactions and real-time updates from their mobile devices.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136693/dashboard_pd5net.avif",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785413018/Dashboard_m_mhna4i.png",
@@ -161,7 +156,7 @@ const project3Features = [
     label: "Operations Dashboard",
     title: "Get a Clear View of Your Textile Operations",
     description:
-      "Need better visibility across production, inventory, job work, and WIP? Monitor your textile operations in real time and quickly understand what is happening across your production cycle.",
+      "Need better visibility across production, inventory, job work and WIP? Monitor your textile operations in real time and quickly understand what is happening across your production cycle.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/Dashboar_h2yx68.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785136941/DashboardMobileVie_lgzw9y.jpg",
@@ -174,14 +169,13 @@ const project3Features = [
       "WIP Monitoring"
     ]
   },
-
   {
     id: 2,
     icon: <FiGrid />,
     label: "Master Management",
     title: "Keep Your Textile Data Organized",
     description:
-      "Managing customers, products, vendors, employees, and warehouses across different records can create confusion. Keep your core master data organized and accessible so your team can work with accurate information.",
+      "Managing customers, products, vendors, employees and warehouses across different records can create confusion. Keep your core master data organized and accessible so your team can work with accurate information.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137032/Custome_veckuh.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137034/Designatio_ny3jmc.jpg",
@@ -197,14 +191,13 @@ const project3Features = [
       "Warehouse Management"
     ]
   },
-
   {
     id: 3,
     icon: <FiClock />,
     label: "Operations Reports",
     title: "Make Better Decisions With Your Production Data",
     description:
-      "Need to understand where materials, production, job work, or payments stand? Get clear operational reports that help you identify issues, monitor progress, and make informed decisions faster.",
+      "Need to understand where materials, production, job work or payments stand? Get clear operational reports that help you identify issues, monitor progress and make informed decisions faster.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137138/Finances_Payment-1000kb_moeg18.jpg",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785137141/Grey_Material_Procurement_Fully_Dilivered_Report-1000kb_c8n87t.jpg",
@@ -231,7 +224,7 @@ const project4Features = [
     label: "Employee Management",
     title: "Know What Is Happening Across Your Workforce",
     description:
-      "Need better visibility into your employees and HR operations? Track attendance, payroll, income, timesheets, and workforce information from one central dashboard.",
+      "Need better visibility into your employees and HR operations? Track attendance, payroll, income, timesheets and workforce information from one central dashboard.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733995/Dashboard_ztc5ig.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785733985/Income_y4mefd.png",
@@ -247,14 +240,13 @@ const project4Features = [
       "Timesheet Reports"
     ]
   },
-
   {
     id: 2,
     icon: <FiClock />,
     label: "Payroll & Roles",
     title: "Simplify Payroll and Employee Access",
     description:
-      "Spending too much time managing salaries, payslips, employee profiles, and permissions? Streamline your payroll process and control access based on each employee's role.",
+      "Spending too much time managing salaries, payslips, employee profiles and permissions? Streamline your payroll process and control access based on each employee's role.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734292/Manage_salary_nfwyfg.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734293/payslip_nhcami.png",
@@ -271,14 +263,13 @@ const project4Features = [
       "Role-Based Access"
     ]
   },
-
   {
     id: 3,
     icon: <FiTrendingUp />,
     label: "Performance Reviews",
     title: "Help Your Team Grow With Better Performance Tracking",
     description:
-      "Finding it difficult to track employee performance consistently? Set goals, monitor KPIs, manage appraisals, and use performance data to support better employee development.",
+      "Finding it difficult to track employee performance consistently? Set goals, monitor KPIs, manage appraisals and use performance data to support better employee development.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734442/Create_form_elamr7.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734444/Indicator_ubo99t.png",
@@ -303,7 +294,7 @@ const project5Features = [
     label: "Dashboard Overview",
     title: "Know How Your Appointments Are Performing",
     description:
-      "Need a clearer view of your booking activity? Track appointments, booking trends, users, and performance from one dashboard so you can quickly understand how your scheduling operations are performing.",
+      "Need a clearer view of your booking activity? Track appointments, booking trends, users and performance from one dashboard so you can quickly understand how your scheduling operations are performing.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734796/Appointment_Dashboard_1_nko7tm.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734796/Appointment_Dashboard_2_cvihy5.png",
@@ -320,14 +311,13 @@ const project5Features = [
       "Performance Metrics"
     ]
   },
-
   {
     id: 2,
     icon: <FiGrid />,
     label: "Business Management",
     title: "Manage Multiple Locations and Customers With Ease",
     description:
-      "Managing multiple businesses, locations, services, and customers can quickly become complicated. Keep your business information organized and give customers a smoother appointment experience.",
+      "Managing multiple businesses, locations, services and customers can quickly become complicated. Keep your business information organized and give customers a smoother appointment experience.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734766/Create_Business_an1vf7.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734785/Manage_Business_icbhvh.png",
@@ -345,14 +335,13 @@ const project5Features = [
       "Resource Planning"
     ]
   },
-
   {
     id: 3,
     icon: <FiBriefcase />,
     label: "Settings & Calendar",
     title: "Make Scheduling Work the Way You Need",
     description:
-      "Need more control over your appointments and calendars? Configure your booking settings, manage calendars, customize your client experience, and keep your scheduling process aligned with your business.",
+      "Need more control over your appointments and calendars? Configure your booking settings, manage calendars, customize your client experience and keep your scheduling process aligned with your business.",
     images: [
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734736/Appoinments_qdeks2.png",
       "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785734794/Appointments_Calender_bbbqqr.png",
@@ -380,14 +369,10 @@ const projects = [
     tag: "PROJECT 01",
     icon: <FiGrid />,
     description:
-      "Are your projects, customers, teams, and daily operations spread across different tools? Bring them together with CraftCore ERP. Get a clearer view of your business, reduce manual work, and keep your teams working from the same system as you grow.",
+      "Are your projects, customers, teams and daily operations spread across different tools? Bring them together with CraftCore ERP. Get a clearer view of your business, reduce manual work and keep your teams working from the same system as you grow.",
     features: project1Features,
-    stats: ["Active Modules: 4", "Users: 256", "Integrations: 12"],
-    color: "#4f46e5",
-    light: "#e0e7ff",
-    gradient: "linear-gradient(135deg, #4f46e5, #7C3AED)"
+    color: "#4f46e5"
   },
-
   {
     id: 2,
     title: "Collection CRM",
@@ -395,14 +380,10 @@ const projects = [
     tag: "PROJECT 02",
     icon: <FiDollarSign />,
     description:
-      "Struggling to keep track of payments, field agents, follow-ups, and recovery performance? Collection CRM gives your team a clear view of every collection activity, helping you follow up on time, monitor your agents, and stay in control of your recovery process.",
+      "Struggling to keep track of payments, field agents, follow-ups and recovery performance? Collection CRM gives your team a clear view of every collection activity, helping you follow up on time, monitor your agents and stay in control of your recovery process.",
     features: project2Features,
-    stats: ["Active Cases: 1.2K", "Recovery Rate: 78%", "Agents: 45"],
-    color: "#2563eb",
-    light: "#dbeafe",
-    gradient: "linear-gradient(135deg, #2563eb, #1D4ED8)"
+    color: "#2563eb"
   },
-
   {
     id: 3,
     title: "Textile ERP",
@@ -410,14 +391,10 @@ const projects = [
     tag: "PROJECT 03",
     icon: <FiBriefcase />,
     description:
-      "Need better control over your textile production, inventory, procurement, and job work? Textile ERP connects your operations so you can see what is happening across your production cycle, track materials and WIP, and make better decisions with reliable reports.",
+      "Need better control over your textile production, inventory, procurement and job work? Textile ERP connects your operations so you can see what is happening across your production cycle, track materials and WIP and make better decisions with reliable reports.",
     features: project3Features,
-    stats: ["Production: 2.8K", "Inventory: 15K", "Reports: 24"],
-    color: "#059669",
-    light: "#d1fae5",
-    gradient: "linear-gradient(135deg, #059669, #047857)"
+    color: "#059669"
   },
-
   {
     id: 4,
     title: "HRM System",
@@ -425,14 +402,10 @@ const projects = [
     tag: "PROJECT 04",
     icon: <FiUsers />,
     description:
-      "Spending too much time managing attendance, payroll, employee records, and performance manually? HRM System brings your everyday HR processes together, helping you reduce administrative work, minimize errors, and give your team better visibility into your workforce.",
+      "Spending too much time managing attendance, payroll, employee records and performance manually? HRM System brings your everyday HR processes together, helping you reduce administrative work, minimize errors and give your team better visibility into your workforce.",
     features: project4Features,
-    stats: ["Employees: 340", "Departments: 12", "Reviews: 98%"],
-    color: "#12d800",
-    light: "#effce7",
-    gradient: "linear-gradient(135deg, #56ec48, #059669)"
+    color: "#16a34a"
   },
-
   {
     id: 5,
     title: "Appointment Scheduler",
@@ -440,98 +413,98 @@ const projects = [
     tag: "PROJECT 05",
     icon: <FiClock />,
     description:
-      "Finding it difficult to manage bookings, calendars, customers, and resources without scheduling conflicts? Appointment Scheduler helps you organize your appointments, simplify booking management, and give your customers an easier way to schedule their visits.",
+      "Finding it difficult to manage bookings, calendars, customers and resources without scheduling conflicts? Appointment Scheduler helps you organize your appointments, simplify booking management and give your customers an easier way to schedule their visits.",
     features: project5Features,
-    stats: ["Bookings: 1.8K", "Resources: 25", "Clients: 850"],
-    color: "#8b5cf6",
-    light: "#ede9fe",
-    gradient: "linear-gradient(135deg, #8b5cf6, #6d28d9)"
+    color: "#8b5cf6"
   }
 ];
 
-function SolutionV6() {
-  const [activeProjIdx, setActiveProjIdx] = useState(0);
-  const [activeFeatIdx, setActiveFeatIdx] = useState(0);
+function ProjectSection({ project }) {
+  const [activeFeature, setActiveFeature] = useState(0);
   const [activeImgIdx, setActiveImgIdx] = useState(0);
-  const [showBackToTop, setShowBackToTop] = useState(false);
-  const projectRefs = useRef([]);
-  const cardsRef = useRef({});
+  const [mobileImgIndices, setMobileImgIndices] = useState(
+    project.features.reduce((acc, feat) => ({ ...acc, [feat.id]: 0 }), {})
+  );
+  const trackRef = useRef(null);
+  const cardsRef = useRef([]);
 
-  const currentProject = projects[activeProjIdx];
-  const currentFeature = currentProject.features[activeFeatIdx];
-  const totalImages = currentFeature?.images?.length || 0;
+  useEffect(() => {
+    setActiveImgIdx(0);
+  }, [activeFeature]);
 
-  // Scroll tracking - update based on scroll position
   useEffect(() => {
     let ticking = false;
-    let lastActiveProject = activeProjIdx;
-    let lastActiveFeature = activeFeatIdx;
 
-    const handleScrollTracking = () => {
-      const viewportCenter = window.innerHeight / 2;
-      
-      // Find which project is most visible
-      let closestProjectIndex = 0;
-      let minProjectDistance = Infinity;
-      
-      projectRefs.current.forEach((projectEl, index) => {
-        if (!projectEl) return;
-        const rect = projectEl.getBoundingClientRect();
-        const projectCenter = rect.top + rect.height / 2;
-        const distance = Math.abs(viewportCenter - projectCenter);
-        if (distance < minProjectDistance) {
-          minProjectDistance = distance;
-          closestProjectIndex = index;
-        }
-      });
-
-      // Find which feature is most visible within the active project
-      let closestFeatureIndex = 0;
-      let minFeatureDistance = Infinity;
-
-      const featureCards = cardsRef.current[closestProjectIndex] || [];
-      featureCards.forEach((card, index) => {
-        if (!card) return;
-        const rect = card.getBoundingClientRect();
-        const cardCenter = rect.top + rect.height / 2;
-        const distance = Math.abs(viewportCenter - cardCenter);
-        if (distance < minFeatureDistance) {
-          minFeatureDistance = distance;
-          closestFeatureIndex = index;
-        }
-      });
-
-      // Update if values changed
-      if (closestProjectIndex !== lastActiveProject) {
-        lastActiveProject = closestProjectIndex;
-        setActiveProjIdx(closestProjectIndex);
-        setActiveFeatIdx(0);
-        setActiveImgIdx(0);
-      } else if (closestFeatureIndex !== lastActiveFeature) {
-        lastActiveFeature = closestFeatureIndex;
-        setActiveFeatIdx(closestFeatureIndex);
-        setActiveImgIdx(0);
-      }
-      
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      // Show/hide back to top button
-      const scrollY = window.scrollY;
-      setShowBackToTop(scrollY > 400);
-
+    const handleScroll = () => {
       if (!ticking) {
-        window.requestAnimationFrame(handleScrollTracking);
+        window.requestAnimationFrame(() => {
+          const isDesktop = window.innerWidth > 1024;
+
+          if (isDesktop) {
+            if (!trackRef.current) return;
+            const rect = trackRef.current.getBoundingClientRect();
+            const totalScrollDistance = rect.height - window.innerHeight;
+
+            if (totalScrollDistance > 0) {
+              const scrolled = -rect.top;
+              if (scrolled <= 0) {
+                setActiveFeature(0);
+              } else if (scrolled >= totalScrollDistance) {
+                setActiveFeature(project.features.length - 1);
+              } else {
+                const progress = scrolled / totalScrollDistance;
+                const targetIndex = Math.min(
+                  project.features.length - 1,
+                  Math.floor(progress * project.features.length)
+                );
+                setActiveFeature(targetIndex);
+              }
+            }
+          } else {
+            // Mobile Proximity Scroll Logic: Activate card at center line
+            const triggerLine = window.innerHeight * 0.5;
+            let closestIndex = 0;
+            let minDistance = Infinity;
+
+            cardsRef.current.forEach((card, index) => {
+              if (!card) return;
+              const rect = card.getBoundingClientRect();
+              const cardCenter = rect.top + rect.height / 2;
+              const distance = Math.abs(triggerLine - cardCenter);
+
+              if (distance < minDistance) {
+                minDistance = distance;
+                closestIndex = index;
+              }
+            });
+
+            setActiveFeature(closestIndex);
+          }
+
+          ticking = false;
+        });
+
         ticking = true;
       }
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    handleScrollTracking();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+    handleScroll();
 
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, [project.features.length]);
+
+  const handleCardClick = (index) => {
+    setActiveFeature(index);
+  };
+
+  const currentFeature = project.features[activeFeature] || project.features[0];
+  const currentImages = currentFeature?.images || [];
+  const totalImages = currentImages.length;
 
   const nextImg = (e) => {
     e?.stopPropagation();
@@ -543,28 +516,264 @@ function SolutionV6() {
     setActiveImgIdx((prev) => (prev - 1 + totalImages) % totalImages);
   };
 
-  const handleFeatureClick = (projectIndex, fIdx) => {
-    // If clicking on a different project, reset to first image
-    if (projectIndex !== activeProjIdx) {
-      setActiveProjIdx(projectIndex);
-      setActiveFeatIdx(fIdx);
-      setActiveImgIdx(0);
-    } else {
-      // If clicking on a different feature in the same project
-      setActiveFeatIdx(fIdx);
-      setActiveImgIdx(0);
-    }
+  const nextMobileImg = (e, featId, len) => {
+    e?.stopPropagation();
+    setMobileImgIndices((prev) => ({
+      ...prev,
+      [featId]: ((prev[featId] || 0) + 1) % len
+    }));
   };
 
-  const handleThumbnailClick = (idx) => {
-    setActiveImgIdx(idx);
+  const prevMobileImg = (e, featId, len) => {
+    e?.stopPropagation();
+    setMobileImgIndices((prev) => ({
+      ...prev,
+      [featId]: ((prev[featId] || 0) - 1 + len) % len
+    }));
   };
 
-  // Scroll to top function
+  return (
+    <section ref={trackRef} className="solution-pinned-track">
+      <div className="solution-sticky-viewport">
+        <div className="solution-inner-container">
+          
+          {/* Top Project Summary Box */}
+          <div className="solution-project-banner">
+            <div className="banner-text">
+              <span className="banner-tag" style={{ color: project.color, background: `${project.color}15` }}>
+                {project.tag}
+              </span>
+              <h2>{project.title}</h2>
+              <span className="banner-subtitle" style={{ color: project.color }}>
+                {project.subtitle}
+              </span>
+              <p>{project.description}</p>
+            </div>
+          </div>
+
+          {/* 2-Column Split */}
+          <div className="solution-split-wrapper">
+            
+            {/* LEFT: Text Cards with Hover/Active Expandable Description & Mobile Carousel */}
+            <div className="solution-left-list">
+              {project.features.map((feat, index) => {
+                const isActive = activeFeature === index;
+                const mImgIdx = mobileImgIndices[feat.id] || 0;
+                const mTotalImgs = feat.images?.length || 0;
+
+                return (
+                  <div
+                    key={feat.id}
+                    ref={(el) => (cardsRef.current[index] = el)}
+                    className={`solution-nav-card ${isActive ? "active" : ""}`}
+                    onClick={() => handleCardClick(index)}
+                  >
+                    <div className="nav-card-head">
+                      <div className="nav-card-title-group">
+                        <span className="nav-card-icon" style={{ color: project.color }}>
+                          {feat.icon}
+                        </span>
+                        <h3 className="nav-card-title">{feat.title}</h3>
+                      </div>
+                      {isActive && (
+                        <span 
+                          className="nav-card-dot" 
+                          style={{ background: project.color }}
+                        />
+                      )}
+                    </div>
+
+                    <div className="nav-card-body-wrapper">
+                      <p className="nav-card-body">{feat.description}</p>
+                    </div>
+
+                    {/* MOBILE-ONLY INLINE CAROUSEL (Appears only on active card) */}
+                    {isActive && (
+                      <div className="mobile-feature-carousel">
+                        <div className="mobile-tags-row">
+                          {feat.tags.map((tg, idx) => (
+                            <span
+                              key={idx}
+                              className="plain-tag-pill"
+                              style={{
+                                color: project.color,
+                                background: `${project.color}10`,
+                                borderColor: `${project.color}20`
+                              }}
+                            >
+                              {tg}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="mobile-display-canvas">
+                          <div className="plain-image-container">
+                            <img
+                              src={feat.images[mImgIdx]}
+                              alt={feat.title}
+                              className="plain-showcase-image"
+                              loading="lazy"
+                            />
+                          </div>
+
+                          {mTotalImgs > 1 && (
+                            <>
+                              <button
+                                className="plain-side-arrow prev"
+                                onClick={(e) => prevMobileImg(e, feat.id, mTotalImgs)}
+                                aria-label="Previous"
+                              >
+                                <FiChevronLeft size={16} />
+                              </button>
+                              <button
+                                className="plain-side-arrow next"
+                                onClick={(e) => nextMobileImg(e, feat.id, mTotalImgs)}
+                                aria-label="Next"
+                              >
+                                <FiChevronRight size={16} />
+                              </button>
+                              <div className="plain-counter-badge">
+                                {mImgIdx + 1}/{mTotalImgs}
+                              </div>
+                            </>
+                          )}
+                        </div>
+
+                        {mTotalImgs > 1 && (
+                          <div className="plain-thumbnails-strip">
+                            {feat.images.map((imgSrc, tIdx) => (
+                              <button
+                                key={tIdx}
+                                className={`plain-thumb-item ${mImgIdx === tIdx ? "active" : ""}`}
+                                style={
+                                  mImgIdx === tIdx
+                                    ? { borderColor: project.color, boxShadow: `0 0 0 2px ${project.color}35` }
+                                    : {}
+                                }
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setMobileImgIndices((prev) => ({ ...prev, [feat.id]: tIdx }));
+                                }}
+                                aria-label={`Slide ${tIdx + 1}`}
+                              >
+                                <img src={imgSrc} alt={`Thumb ${tIdx + 1}`} />
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* RIGHT: Plain Viewport Frame (Desktop Only) */}
+            <div className="solution-right-stage">
+              <div className="plain-stage-card">
+                
+                {/* Header Title & Tags */}
+                <div className="plain-stage-header">
+                  <h3 className="plain-stage-title" style={{ color: project.color }}>
+                    {currentFeature.title}
+                  </h3>
+                  <div className="plain-tags-row">
+                    {currentFeature.tags.map((tg, idx) => (
+                      <span
+                        key={idx}
+                        className="plain-tag-pill"
+                        style={{
+                          color: project.color,
+                          background: `${project.color}10`,
+                          borderColor: `${project.color}20`
+                        }}
+                      >
+                        {tg}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Plain Display Canvas Area */}
+                <div className="plain-display-canvas">
+                  <div className="plain-image-container">
+                    <img
+                      key={`${currentFeature.id}-${activeImgIdx}`}
+                      src={currentImages[activeImgIdx]}
+                      alt={currentFeature.title}
+                      className="plain-showcase-image"
+                      loading="eager"
+                    />
+                  </div>
+
+                  {/* Navigation Arrows */}
+                  {totalImages > 1 && (
+                    <>
+                      <button className="plain-side-arrow prev" onClick={prevImg} aria-label="Previous">
+                        <FiChevronLeft size={18} />
+                      </button>
+                      <button className="plain-side-arrow next" onClick={nextImg} aria-label="Next">
+                        <FiChevronRight size={18} />
+                      </button>
+                    </>
+                  )}
+
+                  {/* Counter Badge */}
+                  {totalImages > 1 && (
+                    <div className="plain-counter-badge">
+                      {activeImgIdx + 1}/{totalImages}
+                    </div>
+                  )}
+                </div>
+
+                {/* Thumbnails Filmstrip */}
+                {totalImages > 1 && (
+                  <div className="plain-thumbnails-strip">
+                    {currentImages.map((imgSrc, tIdx) => (
+                      <button
+                        key={tIdx}
+                        className={`plain-thumb-item ${activeImgIdx === tIdx ? "active" : ""}`}
+                        style={
+                          activeImgIdx === tIdx
+                            ? { borderColor: project.color, boxShadow: `0 0 0 2px ${project.color}35` }
+                            : {}
+                        }
+                        onClick={() => setActiveImgIdx(tIdx)}
+                        aria-label={`Slide ${tIdx + 1}`}
+                      >
+                        <img src={imgSrc} alt={`Thumb ${tIdx + 1}`} />
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SolutionV6() {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth"
     });
   };
 
@@ -572,193 +781,30 @@ function SolutionV6() {
     <div className="solution-v6-page">
       <div className="v6-container">
         
-        {/* Header */}
-        <header className="v6-hero">
-          <span className="section-tag">Solutions for Your Business</span>
-          <h1 className="v6-title">Solutions Built Around Your Business</h1>
-          <p className="v6-subtitle">
-            Whatever challenge you're facing, we've built solutions to help you work smarter, move faster, and grow with confidence.
+        {/* Main Section Header */}
+        <header className="solution-hero-header">
+          <span className="section-tag">Products for Your Business</span>
+          <h1 className="solution-main-title">Products Built Around Your Business</h1>
+          <p className="solution-main-subtitle">
+            Whatever challenge you're facing, we've built products to help you work smarter, move faster and grow with confidence.
           </p>
         </header>
 
-        {/* All Projects */}
-        {projects.map((project, projectIndex) => (
-          <section 
-            key={projectIndex} 
-            className="v6-project-section"
-            ref={(el) => (projectRefs.current[projectIndex] = el)}
-          >
-            {/* Project Summary */}
-            <div className="v6-project-summary">
-              <div className="v6-summary-text">
-                <span className="v6-project-tag" style={{ color: project.color, background: `${project.color}15` }}>
-                  {project.tag}
-                </span>
-                <h2>
-                  {project.title}
-                  <span className="v6-project-subtitle" style={{ color: project.color }}>
-                    {project.subtitle}
-                  </span>
-                </h2>
-                <p>{project.description}</p>
-              </div>
-              <div className="v6-stats-row">
-                {project.stats.map((st, i) => (
-                  <span key={i} className="v6-stat-pill">{st}</span>
-                ))}
-              </div>
-            </div>
-
-            {/* Main Grid Layout */}
-            <div 
-              className="v6-grid-layout"
-              style={{
-                "--active-color": project.color,
-                "--active-light": project.light,
-                "--active-gradient": project.gradient
-              }}
-            >
-              {/* Left Column: Feature Cards */}
-              <div className="v6-sidebar">
-                {project.features.map((feat, fIdx) => {
-                  const isSelected = activeProjIdx === projectIndex && activeFeatIdx === fIdx;
-                  return (
-                    <div
-                      key={feat.id}
-                      ref={(el) => {
-                        if (!cardsRef.current[projectIndex]) {
-                          cardsRef.current[projectIndex] = [];
-                        }
-                        cardsRef.current[projectIndex][fIdx] = el;
-                      }}
-                      className={`v6-feature-card ${isSelected ? "active" : ""}`}
-                      onClick={() => handleFeatureClick(projectIndex, fIdx)}
-                    >
-                      <div className="v6-card-head">
-                        <div className="v6-title-group">
-                          <span className="v6-feature-icon">{feat.icon}</span>
-                          <h3>{feat.title}</h3>
-                        </div>
-                        {isSelected && <span className="v6-active-indicator" />}
-                      </div>
-
-                      <p className="v6-card-body">{feat.description}</p>
-
-                      {/* MOBILE-ONLY INLINE ACCORDION DRAWER */}
-                      {isSelected && (
-                        <div className="v6-mobile-preview">
-                          <div className="v6-viewport">
-                            <img 
-                              src={feat.images[activeImgIdx]} 
-                              alt={feat.title}
-                              className="v6-image" 
-                            />
-                            {feat.images.length > 1 && (
-                              <>
-                                <button className="v6-nav-btn prev" onClick={prevImg} aria-label="Previous">
-                                  <FiChevronLeft size={18} />
-                                </button>
-                                <button className="v6-nav-btn next" onClick={nextImg} aria-label="Next">
-                                  <FiChevronRight size={18} />
-                                </button>
-                                <span className="v6-counter">
-                                  {activeImgIdx + 1} / {feat.images.length}
-                                </span>
-                              </>
-                            )}
-                          </div>
-
-                          {/* Thumbnails Strip on Mobile */}
-                          {feat.images.length > 1 && (
-                            <div className="v6-thumbs-row">
-                              {feat.images.map((img, iIdx) => (
-                                <button
-                                  key={iIdx}
-                                  className={`v6-thumb-pill ${activeImgIdx === iIdx ? "active" : ""}`}
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleThumbnailClick(iIdx);
-                                  }}
-                                >
-                                  <img src={img} alt={`Thumb ${iIdx + 1}`} />
-                                </button>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      )}
-
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* DESKTOP/LAPTOP STICKY STAGE */}
-              <div className="v6-stage">
-                <div className="v6-stage-header">
-                  <h3 style={{ color: project.color }}>{currentFeature.title}</h3>
-                  <div className="v6-tags-row">
-                    {currentFeature.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="v6-tag" style={{ color: project.color, background: `${project.color}10` }}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="v6-viewport">
-                  <img 
-                    src={currentFeature.images[activeImgIdx]} 
-                    alt={currentFeature.title} 
-                    className="v6-image"
-                  />
-
-                  {totalImages > 1 && (
-                    <>
-                      <button className="v6-nav-btn prev" onClick={prevImg} aria-label="Previous">
-                        <FiChevronLeft size={20} />
-                      </button>
-                      <button className="v6-nav-btn next" onClick={nextImg} aria-label="Next">
-                        <FiChevronRight size={20} />
-                      </button>
-                      <span className="v6-counter">
-                        {activeImgIdx + 1} / {totalImages}
-                      </span>
-                    </>
-                  )}
-                </div>
-
-                {/* Thumbnails Strip */}
-                {totalImages > 1 && (
-                  <div className="v6-thumbs-row">
-                    {currentFeature.images.map((imgSrc, i) => (
-                      <button
-                        key={i}
-                        className={`v6-thumb-pill ${activeImgIdx === i ? "active" : ""}`}
-                        onClick={() => handleThumbnailClick(i)}
-                      >
-                        <img src={imgSrc} alt={`Thumb ${i + 1}`} />
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-            </div>
-          </section>
+        {/* Pinned Projects */}
+        {projects.map((project) => (
+          <ProjectSection key={project.id} project={project} />
         ))}
 
       </div>
 
-      {/* BACK TO TOP BUTTON */}
-      <button 
-        className={`back-to-top-btn ${showBackToTop ? 'visible' : ''}`}
+      {/* Back to top button */}
+      <button
+        className={`back-to-top-btn ${showBackToTop ? "visible" : ""}`}
         onClick={scrollToTop}
         aria-label="Back to top"
       >
         <FiArrowUp />
       </button>
-
     </div>
   );
 }

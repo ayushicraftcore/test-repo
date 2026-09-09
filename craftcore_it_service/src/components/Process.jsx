@@ -1,6 +1,6 @@
 import "./Process.css";
 import { useEffect, useState, useRef } from "react";
-import { FiSearch, FiLayers, FiCode, FiCheckSquare, FiSettings, FiShield } from "react-icons/fi";
+import { FiSearch, FiLayers, FiCode, FiCheckSquare, FiSettings } from "react-icons/fi";
 
 const steps = [
   {
@@ -31,7 +31,7 @@ const steps = [
     number: "05",
     title: "SUPPORT & AMC",
     icon: <FiSettings />,
-    description: "Week 12+: We stay with you - 24/7 managed support, proactive monitoring, regular maintenance and annual contracts that keep your systems running. Flexible models including fixed-price, T&M and retainer-based support to fit how you work."
+    description: "Week 14+: We stay with you - 24/7 managed support, proactive monitoring, regular maintenance and annual contracts that keep your systems running. Flexible models including fixed-price, T&M and retainer-based support to fit how you work."
   }
 ];
 
@@ -40,40 +40,55 @@ function Process() {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      if (!wrapperRef.current) return;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (!wrapperRef.current) return;
 
-      const rect = wrapperRef.current.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
+          const rect = wrapperRef.current.getBoundingClientRect();
+          const maxScroll = rect.height - window.innerHeight;
 
-      const scrolled = -rect.top;
-      const maxScroll = rect.height - viewportHeight;
+          if (maxScroll <= 0) return;
 
-      if (scrolled < 0) {
-        setActiveStep(0);
-      } else if (scrolled > maxScroll) {
-        setActiveStep(steps.length - 1);
-      } else {
-        const progress = Math.max(0, Math.min(1, scrolled / maxScroll));
-        const currentStep = Math.min(
-          steps.length - 1,
-          Math.floor(progress * steps.length)
-        );
-        setActiveStep(currentStep);
+          const scrolled = -rect.top;
+
+          if (scrolled <= 0) {
+            setActiveStep(0);
+          } else if (scrolled >= maxScroll) {
+            setActiveStep(steps.length - 1);
+          } else {
+            const progress = scrolled / maxScroll;
+            const targetStep = Math.min(
+              steps.length - 1,
+              Math.floor(progress * steps.length)
+            );
+            setActiveStep(targetStep);
+          }
+
+          ticking = false;
+        });
+
+        ticking = true;
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   return (
     <section className="process section-space">
       <div className="container">
         
-        {/* HEADER - Updated Content */}
+        {/* HEADER */}
         <div className="process-top">
           <span className="section-tag">HOW WE WORK</span>
           <h2 className="section-title">How We Get Your IT Infrastructure Live</h2>
@@ -99,8 +114,6 @@ function Process() {
 
                   return (
                     <div key={`content-${index}`} className={`process-card-content ${positionClass}`}>
-                      
-                      {/* FIXED: Lock icon to the absolute right side of the card layout */}
                       <div className="process-bg-right-icon">
                         {step.icon}
                       </div>

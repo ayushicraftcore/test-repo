@@ -1,5 +1,5 @@
 /* =======================================================
-   PALETTE: NAVY (#191535), LAVENDER PURPLE (#7B6DFE), WHITE
+   PALETTE & CONSTANTS
 ======================================================= */
 :root {
   --ccg-navy: #191535;
@@ -11,18 +11,20 @@
   --ccg-bg-canvas: #ffffff;
 }
 
-/* Container Height for Scroll Timeline */
+/* =======================================================
+   CONTAINER & STICKY SCROLL TRACK (Slowing scroll speed)
+======================================================= */
 .models-pinned-container {
   position: relative;
-  height: 300vh;
+  height: 420vh; /* Increased from 300vh to slow scroll rate */
   margin: 40px 0;
 }
 
-/* Sticky Viewport */
 .models-sticky-viewport {
   position: sticky;
   top: 0;
   height: 100vh;
+  height: 100dvh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -94,6 +96,7 @@
   color: var(--ccg-navy);
   text-transform: uppercase;
   margin-bottom: 18px;
+  transition: opacity 0.3s ease;
 }
 
 .models-purple-word {
@@ -159,8 +162,8 @@
   background: #0d0b14;
   cursor: pointer;
   will-change: transform, opacity;
-  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1), 
-              opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.75s cubic-bezier(0.19, 1, 0.22, 1), 
+              opacity 0.65s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .models-deck-img {
@@ -183,7 +186,7 @@
   position: relative;
   padding-bottom: 8px;
   cursor: pointer;
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
 .model-row-item.inactive {
@@ -227,12 +230,12 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  animation: expandFade 0.35s ease forwards;
+  animation: expandFade 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   padding-top: 4px;
 }
 
 @keyframes expandFade {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -289,13 +292,11 @@
 }
 
 /* =======================================================
-   TABLET & IPAD FIXES (iPad Air 820px, iPad Pro 1024px)
+   TABLET RESPONSIVENESS (Landscape 993px - 1180px)
 ======================================================= */
-
-/* Target iPad Pro & standard tablet landscape */
 @media (max-width: 1180px) {
   .models-pinned-container {
-    height: 220vh; /* Reduced from 300vh for tighter scroll on tablets */
+    height: 320vh;
   }
 
   .models-sticky-viewport {
@@ -303,7 +304,6 @@
     justify-content: center;
   }
 
-  /* Bring header closer to grid */
   .models-header-tag-wrap {
     position: relative;
     top: auto;
@@ -328,10 +328,12 @@
   }
 }
 
-/* Target iPad Air & iPad Pro Portrait (769px - 992px) */
+/* =======================================================
+   TABLET PORTRAIT & MOBILE (≤ 992px)
+======================================================= */
 @media (max-width: 992px) {
   .models-pinned-container {
-    height: auto !important; /* Release sticky scroll to remove dead space */
+    height: auto !important;
     margin: 20px 0;
   }
 
@@ -352,14 +354,13 @@
   }
 
   .models-grid-stage {
-    grid-template-columns: 1fr; /* Stack vertically for clean tablet reading */
+    grid-template-columns: 1fr;
     gap: 28px;
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
   }
 
-  /* Left column styling */
   .models-left-col {
     display: flex !important;
     align-items: center;
@@ -381,7 +382,6 @@
     margin-bottom: 14px;
   }
 
-  /* Center card deck */
   .models-center-col {
     width: 100%;
     margin: 4px 0 12px;
@@ -393,7 +393,6 @@
     margin: 0 auto;
   }
 
-  /* Right column */
   .models-right-col {
     width: 100%;
     gap: 14px;
@@ -415,7 +414,7 @@
   }
 }
 
-/* Mobile Adjustments (Phones) */
+/* Mobile Adjustments (≤ 600px) */
 @media (max-width: 600px) {
   .models-sticky-viewport {
     padding: 20px 16px;

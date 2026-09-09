@@ -1,41 +1,102 @@
-.services {
+/* =======================================================
+   DESKTOP PINNED TRACK (Extended height to slow down scroll rate)
+======================================================= */
+.services-pinned-container {
   position: relative;
+  height: 600vh; /* ~150vh per card for deliberate, measured scroll pacing */
+  margin: 20px 0;
+}
+
+.services-sticky-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 24px 0;
+}
+
+.services-inner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-height: 96vh;
 }
 
 .services-header {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto 80px;
+  margin: 0 auto 20px;
+}
+
+.services-header .section-tag {
+  margin-bottom: 6px;
+}
+
+.services-header .section-title {
+  margin-bottom: 8px;
+  font-size: clamp(1.8rem, 2.5vw, 2.3rem);
+}
+
+.services-header .section-description {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 auto;
 }
 
 .services-wrapper {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 60px;
-  align-items: flex-start;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+  position: relative;
 }
 
 /* =======================================================
-   STICKY SIDEBAR (DESKTOP & IPAD)
+   PREVIEW CARD (Smooth Cross-Fade)
 ======================================================= */
 .services-left {
-  position: sticky;
-  top: 120px;
-  height: fit-content;
-  z-index: 10;
+  position: relative;
+  width: 100%;
 }
 
 .service-preview-card {
   position: relative;
-  min-height: 560px; 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end; 
-  border-radius: 32px;
+  height: clamp(380px, 46vh, 450px);
+  border-radius: 28px;
   overflow: hidden;
   background: #111115;
-  border: 1px solid rgba(124, 58, 237, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.14);
+}
+
+.service-preview-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.97);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.75s;
+  pointer-events: none;
+}
+
+.service-preview-layer.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  pointer-events: auto;
 }
 
 .service-preview-image {
@@ -45,51 +106,57 @@
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  transition: opacity 0.4s ease;
+  filter: brightness(0.85);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-preview-layer.active .service-preview-image {
+  transform: scale(1.03);
 }
 
 .service-preview-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.85));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.9) 100%);
   z-index: 2;
 }
 
 .service-preview-content {
   position: relative;
   z-index: 3;
-  margin: 26px;
-  padding: 28px;
-  border-radius: 28px;
+  margin: 18px;
+  padding: 18px 20px;
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .preview-tag {
   display: inline-flex;
-  padding: 10px 18px;
+  padding: 4px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.16);
   color: white;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
-  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
 }
 
 .service-preview-content h3 {
-  font-size: 28px;
+  font-size: 19px;
   line-height: 1.25;
   color: white;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 }
 
 .preview-points {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 7px;
   padding: 0;
   margin: 0;
 }
@@ -97,49 +164,55 @@
 .preview-points li {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 10px;
   color: white;
-  line-height: 1.6;
+  font-size: 12.5px;
+  line-height: 1.4;
 }
 
 .check-circle {
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   color: white;
-  font-size: 14px;
+  font-size: 11px;
+  margin-top: 1px;
 }
 
 /* =======================================================
-   RIGHT SIDE SCROLLING LIST
+   RIGHT LIST (Compact Dimensions)
 ======================================================= */
 .services-right {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  padding-top: 40px;
+  gap: 10px;
 }
 
 .service-item {
   position: relative;
-  min-height: 170px;
-  padding: 34px 34px 34px 44px;
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.42);
+  min-height: auto;
+  padding: 18px 20px 18px 24px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.45);
   border: 1px solid rgba(124, 58, 237, 0.08);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  opacity: 0.35;
-  transform: scale(0.96);
+  transition: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.45;
+  transform: scale(0.98);
   cursor: pointer;
   overflow: hidden;
+}
+
+.service-item:hover {
+  opacity: 0.75;
+  transform: scale(0.99);
 }
 
 .active-indicator-bar {
@@ -147,18 +220,18 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 6px;
+  width: 4px;
   background: linear-gradient(to bottom, #7c3aed, #2563eb);
   transform: scaleY(0);
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .service-item.active {
   opacity: 1;
   transform: scale(1);
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   border-color: rgba(124, 58, 237, 0.25);
-  box-shadow: 0 16px 40px rgba(124, 58, 237, 0.08);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.08);
 }
 
 .service-item.active .active-indicator-bar {
@@ -167,52 +240,60 @@
 
 .service-small-title {
   display: inline-block;
-  margin-bottom: 14px;
+  margin-bottom: 4px;
   color: #7c3aed;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .service-item .card-title {
-  line-height: 1.4;
-  font-size: 22px;
+  line-height: 1.25;
+  font-size: 15.5px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
   color: #111;
+  margin: 0;
 }
 
+/* =======================================================
+   CTA BUTTON
+======================================================= */
 .services-button-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .services-button-wrap .primary-btn {
-  min-width: 230px;
-  height: 58px;
+  min-width: 190px;
+  height: 46px;
 }
 
 /* =======================================================
-   IPAD PRO & AIR CONFIGURATION (SAVES DESKTOP SPLIT VIEW)
+   RESPONSIVE COMPACT SIZE (<= 1024px)
 ======================================================= */
-@media (max-width: 1250px) and (min-width: 993px) {
-  .services-wrapper {
-    gap: 32px;
+@media (max-width: 1024px) {
+  .services-pinned-container {
+    height: auto !important;
+    margin: 30px 0;
   }
-  .service-preview-card {
-    min-height: 500px;
-  }
-  .service-item {
-    padding: 28px 28px 28px 36px;
-    min-height: 140px;
-  }
-  .service-item .card-title {
-    font-size: 19px;
-  }
-}
 
-/* =======================================================
-   MOBILE PHONE STACK CONFIGURATION
-======================================================= */
-@media (max-width: 992px) {
+  .services-sticky-viewport {
+    position: static !important;
+    height: auto !important;
+    padding: 0;
+  }
+
+  .services-inner-container {
+    max-height: unset;
+  }
+
+  .services-header {
+    margin-bottom: 24px;
+  }
+
   .services-wrapper {
     grid-template-columns: 1fr;
     gap: 0;
@@ -220,76 +301,58 @@
 
   .services-left {
     position: sticky;
-    top: 80px; 
-    width: 100%;
-    margin-bottom: 20px;
-    z-index: 100;
+    top: 70px;
+    z-index: 50;
+    margin-bottom: 24px;
   }
 
   .service-preview-card {
-    min-height: 380px; 
-    border-radius: 24px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    height: 310px;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
   }
 
   .service-preview-content {
-    margin: 16px;
-    padding: 20px;
-    border-radius: 20px;
+    margin: 12px;
+    padding: 14px;
   }
 
   .service-preview-content h3 {
-    font-size: 22px;
-    margin-bottom: 14px;
+    font-size: 16px;
+    margin-bottom: 8px;
   }
 
-  .preview-points {
-    gap: 10px;
-  }
-
-  .preview-points li {
-    font-size: 13.5px;
-    gap: 10px;
-    line-height: 1.4;
-  }
-
-  .check-circle {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    font-size: 10px;
-  }
-
-  /* FIXED: Added padding-bottom so items can scroll completely clear of the preview card */
+  /* Controlled vertical rhythm: keeps card small but creates smooth scroll distance */
   .services-right {
-    padding-top: 20px;
-    padding-bottom: 260px; 
-    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Gives each item space so touch scrolling stays gradual */
+    padding-top: 10px;
+    padding-bottom: 120px;
   }
 
   .service-item {
     min-height: auto;
-    padding: 22px 22px 22px 32px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.6);
+    height: auto;
+    padding: 18px 20px;
+    border-radius: 16px;
   }
 
   .service-item.active {
     background: #ffffff;
-    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.06);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.08);
   }
 
   .service-item .card-title {
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .services-button-wrap {
-    margin-top: -200px; /* Pulls button upward to account for the tracking padding override */
-    position: relative;
-    z-index: 10;
+    margin-top: 10px;
   }
 
   .services-button-wrap .primary-btn {
     width: 100%;
+    max-width: 300px;
   }
 }
