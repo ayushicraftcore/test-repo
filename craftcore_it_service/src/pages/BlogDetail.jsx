@@ -97,7 +97,7 @@ function BlogDetail() {
 
 
         {/* =========================================
-            FEATURED IMAGE
+            FEATURED IMAGE (Explicit width/height prevents CLS)
         ========================================= */}
 
         <div className="blog-detail-image-wrapper">
@@ -105,6 +105,10 @@ function BlogDetail() {
             src={post.image}
             alt={post.title}
             className="blog-detail-image"
+            width="1200"
+            height="630"
+            loading="eager"
+            fetchPriority="high"
           />
         </div>
 
@@ -229,6 +233,9 @@ function BlogDetail() {
                     src={post.author.image}
                     alt={post.author.name}
                     className="blog-author-image"
+                    width="100"
+                    height="100"
+                    loading="lazy"
                   />
 
                 </div>

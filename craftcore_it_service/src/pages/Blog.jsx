@@ -71,7 +71,7 @@ function Blog() {
 
         {/* BLOG GRID */}
         <div className="blog-grid">
-          {filteredPosts.map((post) => (
+          {filteredPosts.map((post, idx) => (
             <Link
               to={`/blog/${post.slug}`}
               key={post.id}
@@ -85,7 +85,10 @@ function Blog() {
                     src={post.image}
                     alt={post.title}
                     className="blog-media-img"
-                    loading="lazy"
+                    width="600"
+                    height="400"
+                    loading={idx < 2 ? "eager" : "lazy"}
+                    fetchPriority={idx < 2 ? "high" : "auto"}
                   />
 
                   <div className="blog-media-overlay" />

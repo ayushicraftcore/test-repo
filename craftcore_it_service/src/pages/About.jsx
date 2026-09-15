@@ -44,21 +44,21 @@ const carouselVideos = [
     title: "Real-Time Analytics",
     description: "Real-time dashboards that turn your raw data into insights you can actually act on, the moment you need them…",
     videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785134919/SAAS_ynbbzq.mp4",
-    poster: "/images/video-poster-1.jpg"
+    poster: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135243/craftcore1_rmag3p.avif"
   },
   {
     id: 2,
     title: "Code & Innovation",
     description: "Your applications run on clean, scalable code architecture built to enterprise standards - maintainable today and still maintainable three years from now.",
     videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785135048/Coding_tguouv.mp4",
-    poster: "/images/video-poster-2.jpg"
+    poster: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135420/Recruitment_Dashboard_i0tbfq.avif"
   },
   {
     id: 3,
     title: "SaaS Solutions",
     description: "Innovative SaaS products designed to streamline workflows, boost productivity and scale seamlessly as your business grows.",
     videoUrl: "https://res.cloudinary.com/dpxl6jy4t/video/upload/v1785135133/solution_j5q5qi.mp4",
-    poster: "/images/video-poster-3.jpg"
+    poster: "https://res.cloudinary.com/dpxl6jy4t/image/upload/v1785135601/CRM_Dashboard_rp2q0g.avif"
   }
 ];
 
@@ -149,7 +149,6 @@ function About() {
       const clamped = Math.max(0, Math.min(1, progress));
       setScrollProgress(clamped);
 
-      // Set active mobile card index based on scroll
       const activeIdx = Math.min(whyChooseCards.length - 1, Math.floor(clamped * whyChooseCards.length));
       setActiveMobileCard(activeIdx);
     };
@@ -204,8 +203,11 @@ function About() {
                         ref={currentSlide === index ? videoRef : null}
                         className="carousel-video"
                         poster={video.poster}
+                        width="1200"
+                        height="675"
                         muted
                         playsInline
+                        preload="metadata"
                         autoPlay={currentSlide === index}
                         loop={false}
                       >
@@ -312,7 +314,6 @@ function About() {
               const opacity = cardProgress < 0.1 ? cardProgress * 10 : 1;
               const rotate = card.baseRotation * cardProgress;
 
-              // Stack offset specifically for mobile
               const mobileOffset = idx - activeMobileCard;
 
               return (

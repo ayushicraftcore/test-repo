@@ -461,7 +461,6 @@ function ProjectSection({ project }) {
               }
             }
           } else {
-            // Mobile Proximity Scroll Logic: Activate card at center line
             const triggerLine = window.innerHeight * 0.5;
             let closestIndex = 0;
             let minDistance = Infinity;
@@ -537,7 +536,6 @@ function ProjectSection({ project }) {
       <div className="solution-sticky-viewport">
         <div className="solution-inner-container">
           
-          {/* Top Project Summary Box */}
           <div className="solution-project-banner">
             <div className="banner-text">
               <span className="banner-tag" style={{ color: project.color, background: `${project.color}15` }}>
@@ -551,10 +549,8 @@ function ProjectSection({ project }) {
             </div>
           </div>
 
-          {/* 2-Column Split */}
           <div className="solution-split-wrapper">
             
-            {/* LEFT: Text Cards with Hover/Active Expandable Description & Mobile Carousel */}
             <div className="solution-left-list">
               {project.features.map((feat, index) => {
                 const isActive = activeFeature === index;
@@ -587,7 +583,6 @@ function ProjectSection({ project }) {
                       <p className="nav-card-body">{feat.description}</p>
                     </div>
 
-                    {/* MOBILE-ONLY INLINE CAROUSEL (Appears only on active card) */}
                     {isActive && (
                       <div className="mobile-feature-carousel">
                         <div className="mobile-tags-row">
@@ -612,6 +607,8 @@ function ProjectSection({ project }) {
                               src={feat.images[mImgIdx]}
                               alt={feat.title}
                               className="plain-showcase-image"
+                              width="800"
+                              height="500"
                               loading="lazy"
                             />
                           </div>
@@ -656,7 +653,7 @@ function ProjectSection({ project }) {
                                 }}
                                 aria-label={`Slide ${tIdx + 1}`}
                               >
-                                <img src={imgSrc} alt={`Thumb ${tIdx + 1}`} />
+                                <img src={imgSrc} alt={`Thumb ${tIdx + 1}`} width="80" height="50" loading="lazy" />
                               </button>
                             ))}
                           </div>
@@ -669,11 +666,9 @@ function ProjectSection({ project }) {
               })}
             </div>
 
-            {/* RIGHT: Plain Viewport Frame (Desktop Only) */}
             <div className="solution-right-stage">
               <div className="plain-stage-card">
                 
-                {/* Header Title & Tags */}
                 <div className="plain-stage-header">
                   <h3 className="plain-stage-title" style={{ color: project.color }}>
                     {currentFeature.title}
@@ -695,7 +690,6 @@ function ProjectSection({ project }) {
                   </div>
                 </div>
 
-                {/* Plain Display Canvas Area */}
                 <div className="plain-display-canvas">
                   <div className="plain-image-container">
                     <img
@@ -703,11 +697,13 @@ function ProjectSection({ project }) {
                       src={currentImages[activeImgIdx]}
                       alt={currentFeature.title}
                       className="plain-showcase-image"
-                      loading="eager"
+                      width="800"
+                      height="500"
+                      loading={activeImgIdx === 0 ? "eager" : "lazy"}
+                      fetchPriority={activeImgIdx === 0 ? "high" : "auto"}
                     />
                   </div>
 
-                  {/* Navigation Arrows */}
                   {totalImages > 1 && (
                     <>
                       <button className="plain-side-arrow prev" onClick={prevImg} aria-label="Previous">
@@ -719,7 +715,6 @@ function ProjectSection({ project }) {
                     </>
                   )}
 
-                  {/* Counter Badge */}
                   {totalImages > 1 && (
                     <div className="plain-counter-badge">
                       {activeImgIdx + 1}/{totalImages}
@@ -727,7 +722,6 @@ function ProjectSection({ project }) {
                   )}
                 </div>
 
-                {/* Thumbnails Filmstrip */}
                 {totalImages > 1 && (
                   <div className="plain-thumbnails-strip">
                     {currentImages.map((imgSrc, tIdx) => (
@@ -742,7 +736,7 @@ function ProjectSection({ project }) {
                         onClick={() => setActiveImgIdx(tIdx)}
                         aria-label={`Slide ${tIdx + 1}`}
                       >
-                        <img src={imgSrc} alt={`Thumb ${tIdx + 1}`} />
+                        <img src={imgSrc} alt={`Thumb ${tIdx + 1}`} width="80" height="50" loading="lazy" />
                       </button>
                     ))}
                   </div>
@@ -781,7 +775,6 @@ function SolutionV6() {
     <div className="solution-v6-page">
       <div className="v6-container">
         
-        {/* Main Section Header */}
         <header className="solution-hero-header">
           <span className="section-tag">Products for Your Business</span>
           <h1 className="solution-main-title">Products Built Around Your Business</h1>
@@ -790,14 +783,12 @@ function SolutionV6() {
           </p>
         </header>
 
-        {/* Pinned Projects */}
         {projects.map((project) => (
           <ProjectSection key={project.id} project={project} />
         ))}
 
       </div>
 
-      {/* Back to top button */}
       <button
         className={`back-to-top-btn ${showBackToTop ? "visible" : ""}`}
         onClick={scrollToTop}
