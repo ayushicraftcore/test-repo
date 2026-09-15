@@ -1,0 +1,19 @@
+# Craftcore IT Infrastructure
+
+> Craftcore delivers expert IT infrastructure, cloud services, and enterprise IT consulting across India, helping businesses scale securely and efficiently.
+
+## Core Services & Solutions
+
+- [Services](https://it.craftcore.in/#/service): Comprehensive catalog of our IT infrastructure solutions, cloud management, and deployment strategies.
+- [Products & Solutions](https://it.craftcore.in/#/products): Explore our enterprise technology products and scalable system architectures.
+
+## Company & Engagement
+
+- [About Us](https://it.craftcore.in/#/about): Learn about Craftcore's mission, engineering expertise, and enterprise footprint in India.
+- [Careers](https://it.craftcore.in/#/career): Join our team of technology experts and IT infrastructure engineers.
+- [Contact Us](https://it.craftcore.in/#/contact): Get in touch for inquiries, enterprise quotes, and technology partnerships.
+
+## Optional
+
+- [Privacy Policy](https://it.craftcore.in/#/privacy-policy): Data privacy guidelines and security protocols.
+- [Terms of Service](https://it.craftcore.in/#/terms): Service level terms and user agreements.
