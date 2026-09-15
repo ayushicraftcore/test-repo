@@ -1,31 +1,155 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Primary Meta Tags -->
-    <title>Craftcore IT Infrastructure</title>
-    <meta name="description" content="Leading IT infrastructure company in India offering enterprise solutions, cloud services and IT consulting. Transform your business with Craftcore's expert IT services. Get a free consultation today!" />
-    
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="IT Infrastructure Company India | Craftcore IT Services" />
-    <meta property="og:description" content="Leading IT infrastructure company in India offering enterprise solutions, cloud services and IT consulting. Transform your business with Craftcore's expert IT services." />
-    <meta property="og:type" content="website" />
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="IT Infrastructure Company India | Craftcore IT Services" />
-    <meta name="twitter:description" content="Leading IT infrastructure company in India offering enterprise solutions, cloud services and IT consulting." />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Google tag (gtag.js) - Deferred for Performance Optimization -->
+  <script>
+    window.addEventListener('load', () => {
+      const gtmScript = document.createElement('script');
+      gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-80WNZVB58D";
+      gtmScript.async = true;
+      document.head.appendChild(gtmScript);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-80WNZVB58D');
+    });
+  </script>
+
+  <!-- Primary Meta Tags -->
+  <title>Craftcore IT Infrastructure: Scaling Your Technology</title>
+  <meta name="title" content="Craftcore IT Infrastructure: Scaling Your Technology" />
+  <meta name="description" content="Craftcore delivers expert IT infrastructure, cloud services & IT consulting across India. Transform your enterprise solutions with a free consult!" />
+  <meta name="keywords" content="IT Infrastructure, Cloud Services, IT Consulting, Enterprise Solutions, Craftcore IT, India" />
+  <meta name="author" content="Craftcore IT Services" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  
+  <!-- Canonical & Localization -->
+  <link rel="canonical" href="https://it.craftcore.in/" />
+  <link rel="alternate" hreflang="en-IN" href="https://it.craftcore.in/" />
+  <link rel="alternate" hreflang="x-default" href="https://it.craftcore.in/" />
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:site_name" content="Craftcore IT Infrastructure" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://it.craftcore.in/" />
+  <meta property="og:title" content="IT Infrastructure Company India | Craftcore IT Services" />
+  <meta property="og:description" content="Leading IT infrastructure company in India offering enterprise solutions, cloud services and IT consulting. Transform your business with Craftcore's expert IT services." />
+  <meta property="og:image" content="https://it.craftcore.in/logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://it.craftcore.in/" />
+  <meta name="twitter:title" content="IT Infrastructure Company India | Craftcore IT Services" />
+  <meta name="twitter:description" content="Leading IT infrastructure company in India offering enterprise solutions, cloud services and IT consulting." />
+  <meta name="twitter:image" content="https://it.craftcore.in/logo.png" />
+
+<!-- ========================================== -->
+  <!-- NON-BLOCKING FONT LOADING                  -->
+  <!-- ========================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Async load Google Fonts so it never blocks rendering -->
+  <link 
+    rel="preload" 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" 
+    as="style" 
+    onload="this.onload=null;this.rel='stylesheet'"
+  >
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+  </noscript>
+  
+  <!-- Favicon & PWA -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#000000" />
+  
+  <!-- Inline critical styling fallback to prevent flash -->
+  <style>
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    #root:empty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #ffffff;
+    }
+    #root:empty::after {
+      content: "";
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #7c3aed;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+
+  <!-- Structured Data (JSON-LD) for Search Engines & LLMs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://it.craftcore.in/#website",
+        "url": "https://it.craftcore.in/",
+        "name": "Craftcore IT Infrastructure",
+        "description": "Expert IT infrastructure, cloud services & IT consulting across India."
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://it.craftcore.in/#organization",
+        "name": "Craftcore IT Infrastructure",
+        "url": "https://it.craftcore.in/",
+        "logo": "https://it.craftcore.in/logo.png",
+        "image": "https://it.craftcore.in/logo.png",
+        "description": "Craftcore delivers expert IT infrastructure, cloud services & IT consulting across India.",
+        "dateModified": "2026-09-15",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Fallback for non-JS browsers / AI Crawlers -->
+  <noscript>
+    <p><strong>Craftcore IT Infrastructure - Scaling Your Technology</strong></p>
+    <p>Craftcore delivers expert IT infrastructure, cloud services & IT consulting across India. Transform your enterprise solutions with a free consult!</p>
+    <p><strong>Information Current As Of:</strong> September 2026</p>
+    <p>&copy; 2026 Craftcore IT Services.</p>
+    <br/>
+    <p><strong>Contact Information</strong></p>
+    <p><strong>Address:</strong> Vadodara, Gujrat, India</p>
+    <p><strong>Website:</strong> https://it.craftcore.in/</p>
+  </noscript>
+  
+  <!-- React Root Container -->
+  <div id="root"></div>
+  
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

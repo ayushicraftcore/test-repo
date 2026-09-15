@@ -55,6 +55,8 @@
   gap: 32px;
   align-items: center;
   position: relative;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 /* =======================================================

@@ -3,7 +3,7 @@
 IMPORT COMPONENTS & HOOKS
 ===================================
 */
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 // Global Layout Components
@@ -12,18 +12,18 @@ import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 
-// Pages
-import Home from "./pages/Home";
-import Service from "./pages/Service";
-import Products from "./pages/SolutionV4";
-import About from "./pages/About";
-import Blog from "./pages/Blog";
-import Career from "./pages/Career";
-import Contact from "./pages/Contact";
-import Booking from "./pages/Booking";
-import BlogDetail from "./pages/BlogDetail";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
+// Pages (Lazy Loaded for Performance Optimization & Faster PageSpeed Insights)
+const Home = lazy(() => import("./pages/Home"));
+const Service = lazy(() => import("./pages/Service"));
+const Products = lazy(() => import("./pages/SolutionV4"));
+const About = lazy(() => import("./pages/About"));
+const Blog = lazy(() => import("./pages/Blog"));
+const Career = lazy(() => import("./pages/Career"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Booking = lazy(() => import("./pages/Booking"));
+const BlogDetail = lazy(() => import("./pages/BlogDetail"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 
 /* ─────────────────────────────────────────────
    SCROLL TO TOP
@@ -288,20 +288,29 @@ function App() {
 
       <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/service" element={<Service />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogDetail />} />
-        <Route path="/career" element={<Career />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/booking" element={<Booking />} />
-        <Route path="/book-call" element={<Booking />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms" element={<TermsOfService />} />
-      </Routes>
+      {/* Suspense wrapper handles code-split chunks smoothly */}
+      <Suspense
+        fallback={
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh" }}>
+            <div style={{ width: "40px", height: "40px", border: "4px solid #f3f3f3", borderTop: "4px solid #7c3aed", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
+          </div>
+        }
+      >
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/book-call" element={<Booking />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+        </Routes>
+      </Suspense>
 
       {!isBookingPage && <CTA />}
       <Footer />

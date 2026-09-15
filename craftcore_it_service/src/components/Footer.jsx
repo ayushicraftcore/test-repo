@@ -23,7 +23,7 @@ function Footer() {
             <div className="footer-logo-bg" />
             <img src={footerLogo} alt="Craftcore" className="footer-logo" />
           </div>
-          <h1 className="footer-title">CRAFTCORE</h1>
+          <h2 className="footer-title">CRAFTCORE</h2>
         </div>
 
         <div className="footer-grid">
