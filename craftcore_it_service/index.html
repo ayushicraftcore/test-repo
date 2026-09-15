@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN"> 
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -10,19 +10,81 @@
     <meta name="theme-color" content="#000000" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
+    <!-- Google tag (gtag.js) - Deferred for Performance Optimization -->
+    <script>
+      window.addEventListener('load', () => {
+        const gtmScript = document.createElement('script');
+        gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-80WNZVB58D";
+        gtmScript.async = true;
+        document.head.appendChild(gtmScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-80WNZVB58D');
+      });
+    </script>
+
     <!-- Primary Meta Tags -->
-    <title>Craftcore IT Infrastructure</title>
-    <meta name="description" content="Leading IT infrastructure company in India offering enterprise solutions, cloud services and IT consulting. Transform your business with Craftcore's expert IT services. Get a free consultation today!" />
+    <title>Craftcore IT Infrastructure: Scaling Your Technology</title>
+    <meta name="title" content="Craftcore IT Infrastructure: Scaling Your Technology" />
+    <meta name="description" content="Craftcore delivers expert IT infrastructure, cloud services & IT consulting across India. Transform your enterprise solutions with a free consult!" />
+    <meta name="author" content="Craftcore IT Services" />
+    
+    <!-- Advanced SEO & Crawling -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://it.craftcore.in/" />
+    <link rel="alternate" hreflang="en-IN" href="https://it.craftcore.in/" />
+    <link rel="alternate" hreflang="x-default" href="https://it.craftcore.in/" />
     
     <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:site_name" content="Craftcore IT Infrastructure" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://it.craftcore.in/" />
     <meta property="og:title" content="IT Infrastructure Company India | Craftcore IT Services" />
     <meta property="og:description" content="Leading IT infrastructure company in India offering enterprise solutions, cloud services and IT consulting. Transform your business with Craftcore's expert IT services." />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://it.craftcore.in/logo.png" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://it.craftcore.in/" />
     <meta name="twitter:title" content="IT Infrastructure Company India | Craftcore IT Services" />
     <meta name="twitter:description" content="Leading IT infrastructure company in India offering enterprise solutions, cloud services and IT consulting." />
+    <meta name="twitter:image" content="https://it.craftcore.in/logo.png" />
+
+    <!-- Schema.org Structured Data (Optimized for Rich Results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://it.craftcore.in/#website",
+          "url": "https://it.craftcore.in/",
+          "name": "Craftcore IT Infrastructure",
+          "description": "Expert IT infrastructure, cloud services & IT consulting across India."
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://it.craftcore.in/#organization",
+          "name": "Craftcore IT Infrastructure",
+          "url": "https://it.craftcore.in/",
+          "logo": "https://it.craftcore.in/logo.png",
+          "image": "https://it.craftcore.in/logo.png",
+          "description": "Craftcore delivers expert IT infrastructure, cloud services & IT consulting across India.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "IN"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
