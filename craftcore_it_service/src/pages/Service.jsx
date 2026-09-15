@@ -172,13 +172,16 @@ function Service() {
           <div className="service-page-left">
             <div className="tech-display-console">
               
-              {/* Image Frame */}
+              {/* Image Frame with explicit width/height to stop Cumulative Layout Shift */}
               <div className="console-image-frame">
                 <img
                   src={serviceDataExtended[activeService].image}
-                  alt="Service Visualization"
+                  alt={serviceDataExtended[activeService].title}
                   className="console-main-image"
-                  loading="eager" 
+                  width="800"
+                  height="500"
+                  loading={activeService === 0 ? "eager" : "lazy"}
+                  fetchPriority={activeService === 0 ? "high" : "auto"}
                   decoding="async"
                 />
                 <div className="console-image-overlay" />

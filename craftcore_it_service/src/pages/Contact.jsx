@@ -1,5 +1,6 @@
+// Contact.jsx
 import "./Contact.css";
-import { FiMail, FiPhone, FiMapPin, FiSend } from "react-icons/fi";
+import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 
 function Contact() {
   return (
@@ -63,7 +64,7 @@ function Contact() {
                   </div>
                 </div>
 
-                {/* SEND MESSAGE / APPOINTMENT ACTION BUTTON */}
+                {/* GET IN TOUCH / APPOINTMENT ACTION BUTTON */}
                 <a
                   href="https://booking.techrometric.com/appointments/craftcore"
                   target="_blank"
@@ -83,9 +84,9 @@ function Contact() {
                 <iframe
                   title="Craftcore Office Location - Vadodara"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118141.4423420847!2d73.10304618335832!3d22.324677708573138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8ab91a3ddab%3A0xac39d3bfe1473fb8!2sVadodara%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
+                  width="600"
+                  height="450"
+                  style={{ border: 0, width: "100%", height: "100%" }}
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
