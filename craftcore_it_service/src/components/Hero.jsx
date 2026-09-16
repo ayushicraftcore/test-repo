@@ -49,20 +49,20 @@ function Hero() {
               Your IT Infrastructure & Technology Partner
             </div>
 
-            {/* Eyebrow - CRAFTCORE typing animation */}
-            <div className="hero-typing">
+            {/* Eyebrow - CRAFTCORE typing animation (Using a styled paragraph/span instead of a skipped heading tag) */}
+            <p className="hero-typing" aria-label="Craftcore">
               {displayText}
               <span className="cursor">|</span>
-            </div>
+            </p>
 
-            {/* Headline - Meaningful combination */}
+            {/* Headline - Correctly set as the primary H1 */}
             <h1 className="hero-title">
-              Enterprise IT That Works Around Your
-              <div className="animated-word-wrapper">
+              Enterprise IT That Works Around Your{" "}
+              <span className="animated-word-wrapper">
                 <span key={wordIndex} className="animated-word">
                   {words[wordIndex]}
                 </span>
-              </div>
+              </span>
             </h1>
 
             {/* Sub-headline or supporting text */}
@@ -121,7 +121,7 @@ function Hero() {
 
             {/* Stat Callout */}
             <div className="hero-float-card hero-card-three">
-              <h4>24/7</h4>
+              <p className="stat-number">24/7</p>
               <p>Managed IT Support
                 Whenever You Need Us</p>
             </div>
