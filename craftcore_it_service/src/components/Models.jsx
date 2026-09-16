@@ -207,7 +207,8 @@ export default function Models() {
                   onClick={() => setActiveIndex(idx)}
                 >
                   <div className="model-row-header">
-                    <h4 className="model-row-title">{model.title}</h4>
+                    {/* Fixed: Changed from h4 to h3 to maintain proper semantic heading hierarchy without skipping levels */}
+                    <h3 className="model-row-title">{model.title}</h3>
                     {model.recommended && (
                       <span className="model-pill-badge">RECOMMENDED</span>
                     )}

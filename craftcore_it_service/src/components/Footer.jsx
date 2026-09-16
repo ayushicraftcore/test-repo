@@ -28,7 +28,8 @@ function Footer() {
 
         <div className="footer-grid">
           <div className="footer-column">
-            <h4>QUICK LINKS</h4>
+            {/* Fixed: Changed from h4 to h3 to maintain proper semantic heading hierarchy */}
+            <h3>QUICK LINKS</h3>
             <ul>
               <li><Link to="/About" className="footer-nav-link">About</Link></li>
               <li><Link to="/service" className="footer-nav-link">Services</Link></li>
@@ -40,7 +41,8 @@ function Footer() {
           </div>
 
           <div className="footer-column">
-            <h4>SERVICES</h4>
+            {/* Fixed: Changed from h4 to h3 */}
+            <h3>SERVICES</h3>
             <ul>
               <li>Web &amp; SaaS Development</li>
               <li>Mobile App Development</li>
@@ -52,7 +54,8 @@ function Footer() {
           </div>
 
           <div className="footer-column">
-            <h4>CONTACT</h4>
+            {/* Fixed: Changed from h4 to h3 */}
+            <h3>CONTACT</h3>
             <ul className="footer-contact">
               <li>
                 <FaEnvelope />
