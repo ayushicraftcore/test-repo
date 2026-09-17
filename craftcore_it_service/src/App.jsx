@@ -26,7 +26,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 
 /* ─────────────────────────────────────────────
-   SCROLL TO TOP
+    SCROLL TO TOP
 ───────────────────────────────────────────── */
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -39,7 +39,7 @@ function ScrollToTop() {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "instant"
+      behavior: "instant",
     });
 
     document.documentElement.scrollTop = 0;
@@ -50,7 +50,7 @@ function ScrollToTop() {
 }
 
 /* ─────────────────────────────────────────────
-   TOAST HOOK
+    TOAST HOOK
 ───────────────────────────────────────────── */
 function useToast() {
   const [toasts, setToasts] = useState([]);
@@ -73,7 +73,7 @@ function useToast() {
 }
 
 /* ─────────────────────────────────────────────
-   PARTICLES LAYER
+    PARTICLES LAYER
 ───────────────────────────────────────────── */
 function ParticleField() {
   const containerRef = useRef(null);
@@ -131,24 +131,27 @@ function ParticleField() {
 }
 
 /* ─────────────────────────────────────────────
-   CUSTOM CURSOR
+    CUSTOM CURSOR (Desktop Only Safe Guard)
 ───────────────────────────────────────────── */
 function CustomCursor() {
   const dotRef = useRef(null);
   const ringRef = useRef(null);
-  const pos = useRef({ x: 0, y: 0 });
-  const ring = useRef({ x: 0, y: 0 });
+  const pos = useRef({ x: -100, y: -100 });
+  const ring = useRef({ x: -100, y: -100 });
   const raf = useRef(null);
   const location = useLocation();
+  const [isTouchDevice, setIsTouchDevice] = useState(true);
 
   useEffect(() => {
-    if ("ontouchstart" in window) return;
+    // Check coarse pointer or touch capabilities to entirely hide/disable on mobile
+    const checkTouch = window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
+    setIsTouchDevice(checkTouch);
+    if (checkTouch) return;
 
     const onMove = (e) => {
       pos.current = { x: e.clientX, y: e.clientY };
       if (dotRef.current) {
-        dotRef.current.style.left = `${e.clientX}px`;
-        dotRef.current.style.top = `${e.clientY}px`;
+        dotRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
       }
     };
 
@@ -157,37 +160,21 @@ function CustomCursor() {
       ring.current.y += (pos.current.y - ring.current.y) * 0.14;
 
       if (ringRef.current) {
-        ringRef.current.style.left = `${ring.current.x}px`;
-        ringRef.current.style.top = `${ring.current.y}px`;
+        ringRef.current.style.transform = `translate3d(${ring.current.x}px, ${ring.current.y}px, 0)`;
       }
       raf.current = requestAnimationFrame(animate);
     };
 
-    const onEnterHoverable = () => document.body.classList.add("cursor-hover");
-    const onLeaveHoverable = () => document.body.classList.remove("cursor-hover");
-
-    const hoverables = document.querySelectorAll(
-      `a, button, .card-hover, .primary-btn, .secondary-btn, [data-cursor-hover], .service-item, .technology-card`
-    );
-
-    hoverables.forEach((el) => {
-      el.addEventListener("mouseenter", onEnterHoverable);
-      el.addEventListener("mouseleave", onLeaveHoverable);
-    });
-
-    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mousemove", onMove, { passive: true });
     raf.current = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(raf.current);
-      hoverables.forEach((el) => {
-        el.removeEventListener("mouseenter", onEnterHoverable);
-        el.removeEventListener("mouseleave", onLeaveHoverable);
-      });
-      document.body.classList.remove("cursor-hover");
     };
   }, [location.pathname]);
+
+  if (isTouchDevice) return null;
 
   return (
     <>
@@ -198,7 +185,7 @@ function CustomCursor() {
 }
 
 /* ─────────────────────────────────────────────
-   SCROLL REVEAL
+    SCROLL REVEAL (Optimized)
 ───────────────────────────────────────────── */
 function useScrollReveal() {
   const { pathname } = useLocation();
@@ -218,14 +205,14 @@ function useScrollReveal() {
           });
         },
         {
-          threshold: 0.12,
-          rootMargin: "0px 0px -60px 0px",
+          threshold: 0.08,
+          rootMargin: "0px 0px -40px 0px",
         }
       );
 
       els.forEach((el) => observer.observe(el));
       return () => observer.disconnect();
-    }, 150);
+    }, 100);
 
     return () => clearTimeout(timer);
   }, [pathname]);
@@ -245,13 +232,22 @@ function App() {
     window.addToast = addToast;
   }, [addToast]);
 
+  // Throttled scroll progress handler for optimal mobile battery & performance
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const total = document.documentElement.scrollTop;
-      const height =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      setScrollProgress(height > 0 ? (total / height) * 100 : 0);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const total = document.documentElement.scrollTop;
+          const height =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+          setScrollProgress(height > 0 ? (total / height) * 100 : 0);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -292,7 +288,7 @@ function App() {
       <Suspense
         fallback={
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh" }}>
-            <div style={{ width: "40px", height: "40px", border: "4px solid #f3f3f3", borderTop: "4px solid #7c3aed", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
+            <div style={{ width: "40px", height: "40px", border: "4px solid rgba(124,58,237,0.2)", borderTop: "4px solid #7c3aed", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
           </div>
         }
       >
@@ -306,7 +302,6 @@ function App() {
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/booking" element={<Booking />} />
-          <Route path="/book-call" element={<Booking />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
         </Routes>
@@ -318,16 +313,20 @@ function App() {
 
       <div className="toast-container">
         {toasts.map((t) => (
-          <div
-            key={t.id}
-            className={`toast${t.removing ? " removing" : ""}`}
-          >
-            <div className="toast-icon">{t.icon}</div>
-            {t.message}
-          </div>
+          <DividerToast key={t.id} toast={t} />
         ))}
       </div>
     </>
+  );
+}
+
+// Clean extracted sub-component to optimize list mapping rendering
+function DividerToast({ toast: t }) {
+  return (
+    <div className={`toast${t.removing ? " removing" : ""}`}>
+      <div className="toast-icon">{t.icon}</div>
+      {t.message}
+    </div>
   );
 }
 
