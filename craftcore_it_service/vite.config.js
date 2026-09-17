@@ -8,7 +8,6 @@ export default defineConfig({
   plugins: [
     react(),
     ViteImageOptimizer({
-      // Configuration for automatic image compression during build
       svg: {
         multipass: true,
         plugins: [
@@ -22,20 +21,28 @@ export default defineConfig({
           },
         ],
       },
-      png: {
-        quality: 80,
-      },
-      jpeg: {
-        quality: 80,
-      },
-      webp: {
-        lossless: false,
-        quality: 80,
-      },
+      png: { quality: 80 },
+      jpeg: { quality: 80 },
+      webp: { lossless: false, quality: 80 },
     }),
   ],
   server: {
     port: 3001,
     strictPort: true,
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor-react';
+            }
+            return 'vendor-common';
+          }
+        },
+      },
+    },
+    chunkSizeWarningLimit: 600,
   },
 })
