@@ -143,7 +143,6 @@ function CustomCursor() {
   const [isTouchDevice, setIsTouchDevice] = useState(true);
 
   useEffect(() => {
-    // Check coarse pointer or touch capabilities to entirely hide/disable on mobile
     const checkTouch = window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
     setIsTouchDevice(checkTouch);
     if (checkTouch) return;
@@ -151,7 +150,7 @@ function CustomCursor() {
     const onMove = (e) => {
       pos.current = { x: e.clientX, y: e.clientY };
       if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+        dotRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
       }
     };
 
@@ -160,7 +159,7 @@ function CustomCursor() {
       ring.current.y += (pos.current.y - ring.current.y) * 0.14;
 
       if (ringRef.current) {
-        ringRef.current.style.transform = `translate3d(${ring.current.x}px, ${ring.current.y}px, 0)`;
+        ringRef.current.style.transform = `translate3d(${ring.current.x}px, ${ring.current.y}px, 0) translate(-50%, -50%)`;
       }
       raf.current = requestAnimationFrame(animate);
     };
